@@ -18,7 +18,7 @@ class Parent{
 		void Set_x(int x){
 			Parent::x = x;
 		}
-		int Get_x(){
+		int Get_x(void){
 			return x;
 		}
 	private:
@@ -32,7 +32,7 @@ class Child : public Parent {
 		void Set_y(int y){
 			Child::y = y;
 		}
-		int Get_y(){
+		int Get_y(void){
 			return y;
 		}
 	private:
