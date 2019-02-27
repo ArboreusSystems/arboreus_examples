@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------
- *  @doc
+ *  @doc AR|BO|RE|US Examples: QML Custom component
  *  @notice Template file tablemodel.h
  *
  *  @copyright Arboreus (http://arboreus.systems)
