@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>WrappedText.qml</file>
+    </qresource>
+</RCC>
