@@ -1,3 +1,8 @@
+// The example based on https://evileg.com/ru/post/189/
+// Added QtCipherSqlitePlugin instead of standard SQlite
+// For building QtCipherSqlitePlugin follow
+// https://github.com/ArboreusSystems/arboreus_wiki_public/blob/master/qt/build_QtCipherSqlitePlugin_on_mac_os.md
+
 TEMPLATE = app
 
 QT += qml quick widgets sql
