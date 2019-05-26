@@ -10,6 +10,28 @@
 
 @interface AppDelegate ()
 
+typedef NSUInteger CustomType;
+
+typedef enum {
+	CustomElement00,
+	CustomElement01,
+	CustomElement02,
+	CustomElement03
+} CustomEnum;
+
+typedef NS_ENUM(NSInteger,CustomNSEnum) {
+	CustomNSElement00,
+	CustomNSElement01,
+	CustomNSElement02,
+	CustomNSElement03
+};
+
+typedef struct {
+	NSInteger x;
+	NSInteger y;
+	NSInteger z;
+} Coordinates;
+
 @end
 
 @implementation AppDelegate
@@ -73,7 +95,45 @@
 	
 	CGFloat vCGFloat = vDoubleMax;
 	NSLog(@"CGFloat (double) value minimum: %a, maximum: %a, sizeOf: %lu",vFloatMin,vCGFloat,sizeof(vCGFloat));
-
+	
+	CustomType vCustomType = vNSInteger;
+	NSLog(@"CustomType (long) value minimum: %li, maximum: %li, sizeOf: %lu",vCustomType*(-1),vCustomType,sizeof(vCustomType));
+	
+	CustomEnum vElement = arc4random()%4;
+	switch (vElement) {
+  		case CustomElement00:
+			NSLog(@"CustomEnum value: CustomElement00 = %i",vElement); break;
+		case CustomElement01:
+			NSLog(@"CustomEnum value: CustomElement01 = %i",vElement); break;
+		case CustomElement02:
+			NSLog(@"CustomEnum value: CustomElement02 = %i",vElement); break;
+		case CustomElement03:
+			NSLog(@"CustomEnum value: CustomElement03 = %i",vElement); break;
+		default:
+			NSLog(@"Wrong CustomEnum value"); break;
+	}
+	
+	CustomNSEnum vNSElement = arc4random()%4;
+	switch (vNSElement) {
+  		case CustomNSElement00:
+			NSLog(@"CustomNSEnum value: CustomNSElement00 = %li",vNSElement); break;
+		case CustomNSElement01:
+			NSLog(@"CustomNSEnum value: CustomNSElement01 = %li",vNSElement); break;
+		case CustomNSElement02:
+			NSLog(@"CustomNSEnum value: CustomNSElement02 = %li",vNSElement); break;
+		case CustomNSElement03:
+			NSLog(@"CustomNSEnum value: CustomNSElement03 = %li",vNSElement); break;
+		default:
+			NSLog(@"Wrong CustomEnum value"); break;
+	}
+	
+	Coordinates vCoordinates;
+	int vRange = 1000;
+	vCoordinates.x = arc4random()%vRange;
+	vCoordinates.y = arc4random()%vRange;
+	vCoordinates.z = arc4random()%vRange;
+	NSLog(@"Coordinates X: %li, Y: %li, Z: %li",vCoordinates.x,vCoordinates.y,vCoordinates.z);
+	
     return YES;
 }
 
