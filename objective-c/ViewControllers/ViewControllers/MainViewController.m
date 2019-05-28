@@ -15,18 +15,18 @@
 @implementation MainViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+	[super viewDidLoad];
 	
-    float vColorRed = 223.0/255.0;
+	float vColorRed = 223.0/255.0;
 	float vColorGreen = 239.0/255.0;
 	float vColorBlue = 240.0/255.0;
 	
-    self.view.backgroundColor = [UIColor
-    	colorWithDisplayP3Red:vColorRed
-    	green:vColorGreen
-    	blue:vColorBlue
-    	alpha:1.0
-    ];
+	self.view.backgroundColor = [UIColor
+		colorWithDisplayP3Red:vColorRed
+		green:vColorGreen
+		blue:vColorBlue
+		alpha:1.0
+	];
 	
 	self.pScreenWidth = CGRectGetWidth(self.view.bounds);
 	NSLog(@"self.pScreenWidth: %f",self.pScreenWidth);
