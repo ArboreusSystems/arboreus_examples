@@ -30,7 +30,7 @@
 	
 	self.pScreenWidth = CGRectGetWidth(self.view.bounds);
 	NSLog(@"self.pScreenWidth: %f",self.pScreenWidth);
-    self.pScreenHeight = CGRectGetHeight(self.view.bounds);
+	self.pScreenHeight = CGRectGetHeight(self.view.bounds);
 	NSLog(@"self.pScreenHeight: %f",self.pScreenHeight);
 	
 	[self mButtonExit];
