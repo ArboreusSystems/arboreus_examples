@@ -14,6 +14,21 @@
 
 @implementation MainViewController
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        NSLog(@"%@: %@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+    }
+    return self;
+}
+
+-(void) loadView {
+	
+	[super loadView];
+	NSLog(@"%@: %@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+}
+
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
@@ -36,6 +51,50 @@
 	[self mButtonExit];
 	[self mButtonAuxiliaryController];
 	[self mLabelMessage];
+	
+	NSLog(@"%@: %@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+	
+	[super viewWillAppear:YES];
+	NSLog(@"%@: %@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+
+	[super viewDidAppear:YES];
+	NSLog(@"%@: %@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+
+	[super viewWillDisappear:YES];
+	NSLog(@"%@: %@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+}
+
+-(void) viewDidDisappear:(BOOL)animated {
+
+	[super viewDidDisappear:YES];
+	NSLog(@"%@: %@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+}
+
+-(void) viewWillLayoutSubviews {
+
+	[super viewWillLayoutSubviews];
+	NSLog(@"%@: %@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+}
+
+-(void) viewDidLayoutSubviews {
+
+	[super viewDidLayoutSubviews];
+	NSLog(@"%@: %@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+}
+
+-(void) didReceiveMemoryWarning {
+
+	[super didReceiveMemoryWarning];
+	NSLog(@"%@: %@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
 }
 
 -(void) mButtonExit {
