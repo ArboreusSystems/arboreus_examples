@@ -37,11 +37,15 @@
 
 -(IBAction) buttonAuxiliaryViewController:(id)sender {
 	
-	AuxiliaryViewController *oAuxiliaryViewController = [[AuxiliaryViewController alloc]
+	AuxiliaryViewController *oAuxiliaryViewController = [
+		[AuxiliaryViewController alloc]
 		initWithNibName:@"AuxiliaryViewController"
 		bundle:nil
 	];
-	[self.navigationController pushViewController:oAuxiliaryViewController animated:YES];
+	[self.navigationController
+		pushViewController:oAuxiliaryViewController
+		animated:YES
+	];
 }
 
 @end
