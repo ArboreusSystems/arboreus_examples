@@ -53,6 +53,20 @@ class MainViewController: UIViewController {
 		for iTuple in oArrayOfTuples {
 			print("ID:",iTuple.0,", UInt:",iTuple.1,"Float:",iTuple.2)
 		}
+		
+		var oDictionaryCoordinates: [String:(Float,Float)] = [:];
+		let oDictionaryKeys: Array = ["Home","Work","Gym","Shop","Autostore"];
+		for i in 0..<oDictionaryKeys.count {
+			oDictionaryCoordinates[oDictionaryKeys[i]] = (
+				Float.random(in: 0..<100),
+				Float.random(in: 0..<100)
+			);
+		}
+		print("Home: X ->",oDictionaryCoordinates["Home"]!.0,"Y ->",oDictionaryCoordinates["Home"]!.1);
+		print("Shop: X ->",oDictionaryCoordinates["Shop"]!.0,"Y ->",oDictionaryCoordinates["Shop"]!.1);
+		print("Work: X ->",oDictionaryCoordinates["Work"]!.0,"Y ->",oDictionaryCoordinates["Work"]!.1);
+		print("Gym: X ->",oDictionaryCoordinates["Gym"]!.0,"Y ->",oDictionaryCoordinates["Gym"]!.1);
+		print("Autostore: X ->",oDictionaryCoordinates["Autostore"]!.0,"Y ->",oDictionaryCoordinates["Autostore"]!.1);
     }
 	
 	@IBAction func mButtonExit(_ sender: Any) {
