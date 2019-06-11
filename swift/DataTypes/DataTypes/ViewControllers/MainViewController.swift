@@ -80,6 +80,15 @@ class MainViewController: UIViewController {
 		print("Int from true: ",oIntFromBool);
 		let oIntFromFalse: Int = Int(truncating: false);
 		print("Int from false: ",oIntFromFalse);
+		
+		let oIntegerForCast: UInt = 25;
+		print("Integer for cast:",oIntegerForCast);
+		let oFloatForCast: Float = 35.35;
+		print("Float for cast:",oFloatForCast);
+		let oFloatSumOfIntegerAndFloat: Float = oFloatForCast + Float(oIntegerForCast);
+		print("Float sum of Integer and Float:",oFloatSumOfIntegerAndFloat);
+		let oIntegerSumOfIntegerAndFloat: UInt = oIntegerForCast + UInt(oFloatForCast);
+		print("Integer sum of Integer and Float:",oIntegerSumOfIntegerAndFloat);
 	}
 
 	@IBAction func mButtonExit(_ sender: Any) {
