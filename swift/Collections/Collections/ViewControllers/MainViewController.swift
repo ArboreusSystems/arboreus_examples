@@ -67,6 +67,16 @@ class MainViewController: UIViewController {
 		print("Work: X ->",oDictionaryCoordinates["Work"]!.0,"Y ->",oDictionaryCoordinates["Work"]!.1);
 		print("Gym: X ->",oDictionaryCoordinates["Gym"]!.0,"Y ->",oDictionaryCoordinates["Gym"]!.1);
 		print("Autostore: X ->",oDictionaryCoordinates["Autostore"]!.0,"Y ->",oDictionaryCoordinates["Autostore"]!.1);
+		
+		var oSetOfUniqueValues: Set<UInt> = [];
+		var iValue: UInt = 0;
+		while (oSetOfUniqueValues.count < 10) {
+			iValue = UInt.random(in: 0..<10);
+			oSetOfUniqueValues.insert(iValue);
+		}
+		print("Set of unique values:",oSetOfUniqueValues);
+		print("Count set of unique values:",oSetOfUniqueValues.count);
+		print("Sorted set of unique values:",oSetOfUniqueValues.sorted());
     }
 	
 	@IBAction func mButtonExit(_ sender: Any) {
