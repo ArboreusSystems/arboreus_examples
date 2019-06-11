@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 
 		var oReceipt: Receipt? = nil;
-        for _ in 0...10 {
+		for _ in 0...10 {
 			oReceipt = MainHandler.mGetReceiptFromServerEmulation();
 			if (oReceipt == nil) {
 				print("Server Error");
