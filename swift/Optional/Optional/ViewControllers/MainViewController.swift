@@ -22,7 +22,7 @@ class MainViewController: UIViewController {
 				print(oReceipt!);
 			}
 		}
-    }
+	}
 	
 	@IBAction func mButtonExit(_ sender: Any) {
 		
