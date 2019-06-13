@@ -131,12 +131,12 @@ class MainViewController: UIViewController {
 		print("Inout Value1 after function:",oInoutValue1);
 		print("Inout Value2 after function:",oInoutValue2);
 
-	    self.mDefaultParameterTest();
-	    self.mDefaultParameterTest(inValue: "User defined value");
-	    self.mParameterNameTest(OutParameter: "OutParameter");
+		self.mDefaultParameterTest();
+		self.mDefaultParameterTest(inValue: "User defined value");
+		self.mParameterNameTest(OutParameter: "OutParameter");
 
-	    var oFunctionalValue: (String) -> Void = self.mDefaultParameterTest;
-	    oFunctionalValue("The value from functional variable");
+		var oFunctionalValue: (String) -> Void = self.mDefaultParameterTest;
+		oFunctionalValue("The value from functional variable");
     }
 	
     func mGuardTest(inValue: MyInt) -> Void {
