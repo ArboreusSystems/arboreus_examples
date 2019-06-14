@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		609536A5A9341517294C4719 /* SingletonV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60953BE0C503E6B7728D6887 /* SingletonV1.swift */; };
+		60953BA1274CE17324B50710 /* Final.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60953418757CD54705B30423 /* Final.swift */; };
+		60953FA3FCBC7236449E8AD3 /* SingletonV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60953382ADCC2ABBAFBEEA62 /* SingletonV2.swift */; };
 		A863351322B2353200C75F7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A863351222B2353200C75F7E /* AppDelegate.swift */; };
 		A863351A22B2353200C75F7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A863351922B2353200C75F7E /* Assets.xcassets */; };
 		A863352822B235A600C75F7E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A863352622B235A600C75F7E /* MainViewController.swift */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		60953382ADCC2ABBAFBEEA62 /* SingletonV2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingletonV2.swift; sourceTree = "<group>"; };
+		60953418757CD54705B30423 /* Final.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Final.swift; sourceTree = "<group>"; };
+		60953BE0C503E6B7728D6887 /* SingletonV1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingletonV1.swift; sourceTree = "<group>"; };
 		A863350F22B2353200C75F7E /* OOP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OOP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A863351222B2353200C75F7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A863351922B2353200C75F7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -37,6 +43,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		609531EC9A5DAAE4035EEDCA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				60953BE0C503E6B7728D6887 /* SingletonV1.swift */,
+				60953418757CD54705B30423 /* Final.swift */,
+				60953382ADCC2ABBAFBEEA62 /* SingletonV2.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		A863350622B2353200C75F7E = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +78,7 @@
 				A863351222B2353200C75F7E /* AppDelegate.swift */,
 				A863351922B2353200C75F7E /* Assets.xcassets */,
 				A863351E22B2353200C75F7E /* Info.plist */,
+				609531EC9A5DAAE4035EEDCA /* Classes */,
 			);
 			path = OOP;
 			sourceTree = "<group>";
@@ -157,6 +174,9 @@
 				A863351322B2353200C75F7E /* AppDelegate.swift in Sources */,
 				A863352B22B235C100C75F7E /* MainHandler.swift in Sources */,
 				A863352822B235A600C75F7E /* MainViewController.swift in Sources */,
+				609536A5A9341517294C4719 /* SingletonV1.swift in Sources */,
+				60953BA1274CE17324B50710 /* Final.swift in Sources */,
+				60953FA3FCBC7236449E8AD3 /* SingletonV2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
