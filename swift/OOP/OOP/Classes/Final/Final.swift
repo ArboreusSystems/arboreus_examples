@@ -20,6 +20,13 @@ final class Final: NSObject {
 		print("Class: \(String(describing: self)) created");
 	}
 
+	func mInitWithString(inTestString: String) -> Final {
+
+		let oInstance: Final = Final();
+		oInstance.pTestString = inTestString;
+		return oInstance;
+	}
+
 	func mSetPrivateString(inValue: String) -> Void {
 
 		pTestPrivateString = inValue;
