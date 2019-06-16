@@ -76,7 +76,7 @@ class MainViewController: UIViewController {
 				oAdapterV2.mGetPTestString(inAdaptee: &oAdapterV2Adaptee)
 		);
 
-		let oStateMachine: Machine = Machine();
+		let oStateMachine: StateMachine = StateMachine();
 		print("oStateMachine -> Current State:",oStateMachine.mCurrentState());
 		oStateMachine.mChangeState(inState: StatesList.Two);
 		print("oStateMachine -> Current State:",oStateMachine.mCurrentState());

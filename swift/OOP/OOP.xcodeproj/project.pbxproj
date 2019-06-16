@@ -10,7 +10,7 @@
 		6095306714B86ECB9952C4AA /* StateOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609539AEE4AEC3E0D156FE69 /* StateOne.swift */; };
 		609530BE0118E1E77521880A /* AdapterV1Adaptee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60953EDAAE92560F3A3313EA /* AdapterV1Adaptee.swift */; };
 		609532EADCA25752611E65B4 /* AdapterV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609536D01B4C1E02F31941D0 /* AdapterV2.swift */; };
-		6095330FE538DFBE9100859F /* Machine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6095381270793BC42B31035D /* Machine.swift */; };
+		6095330FE538DFBE9100859F /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6095381270793BC42B31035D /* StateMachine.swift */; };
 		609534FDC07E0CFD28AC7304 /* AdapterV2Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60953CE7865736966C4FA80B /* AdapterV2Target.swift */; };
 		609537C208D7A918A1821F41 /* Final.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609535A18CF66B74F36E0F40 /* Final.swift */; };
 		6095380128C0515C21A0C608 /* AdapterV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60953CB6E0507B88FEFF84DE /* AdapterV1.swift */; };
@@ -37,7 +37,7 @@
 		609536D01B4C1E02F31941D0 /* AdapterV2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdapterV2.swift; sourceTree = "<group>"; };
 		60953785497667BD366A470A /* StatesAbstraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatesAbstraction.swift; sourceTree = "<group>"; };
 		60953811D02153FBC797B2A3 /* AdapterV1Target.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdapterV1Target.swift; sourceTree = "<group>"; };
-		6095381270793BC42B31035D /* Machine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Machine.swift; sourceTree = "<group>"; };
+		6095381270793BC42B31035D /* StateMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
 		609538F087304E8613155CB2 /* StateThree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateThree.swift; sourceTree = "<group>"; };
 		609539AEE4AEC3E0D156FE69 /* StateOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateOne.swift; sourceTree = "<group>"; };
 		60953B532B75A1659899A9D1 /* StateTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateTwo.swift; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				60953785497667BD366A470A /* StatesAbstraction.swift */,
-				6095381270793BC42B31035D /* Machine.swift */,
+				6095381270793BC42B31035D /* StateMachine.swift */,
 				609539AEE4AEC3E0D156FE69 /* StateOne.swift */,
 				60953B532B75A1659899A9D1 /* StateTwo.swift */,
 				609538F087304E8613155CB2 /* StateThree.swift */,
@@ -265,7 +265,7 @@
 				609534FDC07E0CFD28AC7304 /* AdapterV2Target.swift in Sources */,
 				60953DFD494D48B14E805504 /* AdapterV2Adaptee.swift in Sources */,
 				609539226250B7C0BDD9337A /* StatesAbstraction.swift in Sources */,
-				6095330FE538DFBE9100859F /* Machine.swift in Sources */,
+				6095330FE538DFBE9100859F /* StateMachine.swift in Sources */,
 				6095306714B86ECB9952C4AA /* StateOne.swift in Sources */,
 				60953F30F7A44CD05055E853 /* StateTwo.swift in Sources */,
 				60953DA872FA324C9AD6D5AA /* StateThree.swift in Sources */,

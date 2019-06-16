@@ -1,5 +1,5 @@
 //
-//  Machine.swift
+//  StateMachine.swift
 //  OOP
 //
 //  Created by Alexandr Kirilov on 2019-06-16.
@@ -14,7 +14,7 @@ enum StatesList {
 	case Three
 }
 
-class Machine  {
+class StateMachine {
 
 	var pCurrentState: Optional<StatesAbstraction> = nil;
 
