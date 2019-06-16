@@ -59,6 +59,29 @@ class MainViewController: UIViewController {
 		oAdapterV1.mSetPTestString(inString:"New String on Adoptee");
 		print("oAdapterV1.mGetPTestString:",oAdapterV1.mGetPTestString());
 		print("oAdapterV1Adaptee.pTestString:",oAdapterV1.mGetPTestString());	
+
+		let oAdapterV2Target: AdapterV2Target = AdapterV2Target();
+		print("oAdapterV2Target.mGetString:",oAdapterV2Target.mGetString());
+		oAdapterV2Target.mSetString(inString: "New string from code");
+		print("oAdapterV2Target.mGetString:",oAdapterV2Target.mGetString());
+		var oAdapterV2Adaptee: AdapterV2Adaptee = AdapterV2Adaptee();
+		let oAdapterV2: AdapterV2 = AdapterV2();
+		print(
+				"oAdapterV2.mGetPTestString(inAdaptee: &oAdapterV2Adaptee):",
+				oAdapterV2.mGetPTestString(inAdaptee: &oAdapterV2Adaptee)
+		);
+		oAdapterV2.mSetPTestString(inAdaptee: &oAdapterV2Adaptee, inString: "New String from code");
+		print(
+				"oAdapterV2.mGetPTestString(inAdaptee: &oAdapterV2Adaptee):",
+				oAdapterV2.mGetPTestString(inAdaptee: &oAdapterV2Adaptee)
+		);
+
+		let oStateMachine: Machine = Machine();
+		print("oStateMachine -> Current State:",oStateMachine.mCurrentState());
+		oStateMachine.mChangeState(inState: StatesList.Two);
+		print("oStateMachine -> Current State:",oStateMachine.mCurrentState());
+		oStateMachine.mChangeState(inState: StatesList.Three);
+		print("oStateMachine -> Current State:",oStateMachine.mCurrentState());
     }
 	
 	@IBAction func mButtonExit(_ sender: Any) {

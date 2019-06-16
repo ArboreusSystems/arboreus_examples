@@ -8,6 +8,16 @@
 
 import UIKit
 
-class AdapterV2 {
+class AdapterV2: AdapterV2Protocol {
+
+	func mSetPTestString(inAdaptee: inout AdapterV2Adaptee, inString: String) -> Void {
+
+		inAdaptee.mSetup(inString: inString);
+	}
+
+	func mGetPTestString(inAdaptee: inout AdapterV2Adaptee) -> String {
+
+		return inAdaptee.mRead();
+	}
 
 }

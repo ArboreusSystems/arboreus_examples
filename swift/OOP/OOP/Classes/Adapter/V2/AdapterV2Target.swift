@@ -8,6 +8,24 @@
 
 import UIKit
 
+protocol AdapterV2Protocol {
+
+	func mSetPTestString(inAdaptee: inout AdapterV2Adaptee, inString: String) -> Void;
+	func mGetPTestString(inAdaptee: inout AdapterV2Adaptee) -> String;
+}
+
 class AdapterV2Target {
+
+	var oTestString: String = "Default string from target";
+
+	func mGetString() -> String {
+
+		return oTestString;
+	}
+
+	func mSetString(inString: String) -> Void {
+
+		oTestString = inString;
+	}
 
 }
