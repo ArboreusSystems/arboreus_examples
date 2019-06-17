@@ -14,10 +14,10 @@ class MainViewController: UIViewController {
 	let pScreenHeight: CGFloat = UIScreen.main.bounds.height;
 	var pSubscriptionView: Optional<UIView> = nil;
 
-    override func viewDidLoad() {
+	override func viewDidLoad() {
 
-	    super.viewDidLoad();
-	    mCheckSubscription();
+		super.viewDidLoad();
+		mCheckSubscription();
 	}
 
 	private func mCheckSubscription() -> Void {
@@ -73,6 +73,6 @@ class MainViewController: UIViewController {
 	
 	@IBAction func mButtonExit(_ sender: Any) {
 		
-		exit(0);
+		Handler.mDoExit();
 	}
 }
