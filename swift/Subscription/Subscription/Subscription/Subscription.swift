@@ -7,19 +7,46 @@
 //
 
 import UIKit
+import StoreKit
 
 class Subscription: NSObject {
 
-	static func mSubscriptionStatus() -> Bool {
-		
-		return false;
+	let pSubscriptionProductID = "arboreus.swift.subscription";
+	var pSubscriptionProduct: Optional<SKProduct> = nil;
+	var pStatus: Bool = false;
+
+	override init() {
+
+		super.init();
+
+		let oRequest: SKProductsRequest = SKProductsRequest(
+			productIdentifiers: [pSubscriptionProductID]
+		);
+		oRequest.delegate = self;
+		oRequest.start();
 	}
-	
-	static func mSubscribe() -> Bool {
-	
-		print("Subscription:mSubscribe()");
+
+	func mSubscribe() -> Bool {
+
 		return true;
 	}
-	
-	
+}
+
+extension Subscription: SKProductsRequestDelegate {
+
+	func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+
+		pSubscriptionProduct = response.products[0];
+		print("Title: \(pSubscriptionProduct!.localizedTitle)");
+		print("Description: \(pSubscriptionProduct!.localizedDescription)");
+		print("Price: \(pSubscriptionProduct!.price)\(pSubscriptionProduct!.priceLocale.currencySymbol!)");
+	}
+}
+
+extension Subscription: SKPaymentTransactionObserver {
+
+	func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+
+
+	}
 }

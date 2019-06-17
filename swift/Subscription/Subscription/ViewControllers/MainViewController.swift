@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
 	let pScreenWidth: CGFloat = UIScreen.main.bounds.width;
 	let pScreenHeight: CGFloat = UIScreen.main.bounds.height;
 	var pSubscriptionView: Optional<UIView> = nil;
+	let pSubscription: Subscription = Subscription();
 
 	override func viewDidLoad() {
 
@@ -23,7 +24,7 @@ class MainViewController: UIViewController {
 	private func mCheckSubscription() -> Void {
 
 		if (pSubscriptionView == nil) {
-			if (Subscription.mSubscriptionStatus()) {
+			if (pSubscription.pStatus) {
 				mSubscribed();
 			} else {
 				mNotSubscribed();
@@ -64,8 +65,9 @@ class MainViewController: UIViewController {
 
 	@objc func pressButton(_ sender: UIButton) -> Void {
 
-		if (Subscription.mSubscribe()) {
+		if (pSubscription.mSubscribe()) {
 			pSubscriptionView?.removeFromSuperview();
+			pSubscription.pStatus = true;
 			mSubscribed();
 			self.view.addSubview(pSubscriptionView!);
 		};
