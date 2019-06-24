@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6095327A1F7BDC22BC7592FC /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60953593F4B2C4384F3EAC56 /* SubscriptionViewController.swift */; };
+		60953809426010C50FE058CC /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60953B63825E77187B940BB0 /* SubscriptionView.swift */; };
 		A8B32B0722B7726800E88E9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B32B0622B7726800E88E9A /* AppDelegate.swift */; };
 		A8B32B0E22B7726900E88E9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8B32B0D22B7726900E88E9A /* Assets.xcassets */; };
 		A8B32B1922B7766400E88E9A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8B32B1822B7766400E88E9A /* Default-568h@2x.png */; };
 		A8B32B1E22B777B400E88E9A /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B32B1D22B777B400E88E9A /* Subscription.swift */; };
 		A8B32B2022B777D500E88E9A /* Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B32B1F22B777D500E88E9A /* Handler.swift */; };
-		A8B32B2422B7781300E88E9A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B32B2222B7781200E88E9A /* MainViewController.swift */; };
-		A8B32B2522B7781300E88E9A /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8B32B2322B7781200E88E9A /* MainViewController.xib */; };
 		A8B32B2822B78D7900E88E9A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8B32B2722B78D7900E88E9A /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		60953593F4B2C4384F3EAC56 /* SubscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
+		60953B63825E77187B940BB0 /* SubscriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		A8B32B0322B7726800E88E9A /* Subscription.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Subscription.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8B32B0622B7726800E88E9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8B32B0D22B7726900E88E9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -25,8 +27,6 @@
 		A8B32B1822B7766400E88E9A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A8B32B1D22B777B400E88E9A /* Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
 		A8B32B1F22B777D500E88E9A /* Handler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handler.swift; sourceTree = "<group>"; };
-		A8B32B2222B7781200E88E9A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		A8B32B2322B7781200E88E9A /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		A8B32B2722B78D7900E88E9A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -76,8 +76,7 @@
 		A8B32B1A22B7777500E88E9A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				A8B32B2222B7781200E88E9A /* MainViewController.swift */,
-				A8B32B2322B7781200E88E9A /* MainViewController.xib */,
+				60953593F4B2C4384F3EAC56 /* SubscriptionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -94,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				A8B32B1D22B777B400E88E9A /* Subscription.swift */,
+				60953B63825E77187B940BB0 /* SubscriptionView.swift */,
 			);
 			path = Subscription;
 			sourceTree = "<group>";
@@ -170,7 +170,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8B32B0E22B7726900E88E9A /* Assets.xcassets in Resources */,
-				A8B32B2522B7781300E88E9A /* MainViewController.xib in Resources */,
 				A8B32B1922B7766400E88E9A /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,7 +184,8 @@
 				A8B32B2022B777D500E88E9A /* Handler.swift in Sources */,
 				A8B32B1E22B777B400E88E9A /* Subscription.swift in Sources */,
 				A8B32B0722B7726800E88E9A /* AppDelegate.swift in Sources */,
-				A8B32B2422B7781300E88E9A /* MainViewController.swift in Sources */,
+				60953809426010C50FE058CC /* SubscriptionView.swift in Sources */,
+				6095327A1F7BDC22BC7592FC /* SubscriptionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

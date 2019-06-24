@@ -10,7 +10,7 @@ import UIKit
 
 class Handler: NSObject {
 
-	static func mDoExit() {
+	@objc static func mDoExit() {
 
 		let oAlertController: UIAlertController = UIAlertController(
 			title: "Exit", 
