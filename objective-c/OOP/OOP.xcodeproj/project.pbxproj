@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6095320C3FD4AEF25F40C282 /* ObjectInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 609539F0887D17D778FADE93 /* ObjectInstance.m */; };
 		6095334CC7B1E060A5752925 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609533DB9A4F0E65CB72D34D /* MainViewController.m */; };
+		609533FBC305FE2EC6B6D02A /* ObjectBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 60953BD13936402590F4E0A7 /* ObjectBuilder.m */; };
 		60953563A36919C57C7166EC /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60953504CDACDCCE8F74B94C /* MainViewController.xib */; };
 		609539B97F712A470FF9C52F /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 609530FFCC08696364F301CA /* Singleton.m */; };
 		60953FE01AC57D2F10F6C362 /* Handler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6095321501B414EA8EF8E122 /* Handler.m */; };
@@ -20,10 +22,14 @@
 /* Begin PBXFileReference section */
 		609530FFCC08696364F301CA /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
 		6095321501B414EA8EF8E122 /* Handler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Handler.m; sourceTree = "<group>"; };
+		6095333F71C92AF8EF9BEF4A /* ObjectInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectInstance.h; sourceTree = "<group>"; };
 		609533DB9A4F0E65CB72D34D /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		60953504CDACDCCE8F74B94C /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		60953666868EA1C72722F4A8 /* Handler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Handler.h; sourceTree = "<group>"; };
+		6095387420D611FD171481DA /* ObjectBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectBuilder.h; sourceTree = "<group>"; };
 		609539B9C8FF1DECFC9013EF /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		609539F0887D17D778FADE93 /* ObjectInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectInstance.m; sourceTree = "<group>"; };
+		60953BD13936402590F4E0A7 /* ObjectBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectBuilder.m; sourceTree = "<group>"; };
 		60953CF2C722C729FAEE53FF /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		A894561C22C2A85000AD36F3 /* OOP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OOP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A894561F22C2A85000AD36F3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -45,6 +51,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6095310F8B257A87A2591321 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				6095387420D611FD171481DA /* ObjectBuilder.h */,
+				60953BD13936402590F4E0A7 /* ObjectBuilder.m */,
+				6095333F71C92AF8EF9BEF4A /* ObjectInstance.h */,
+				609539F0887D17D778FADE93 /* ObjectInstance.m */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 		60953A1FC968B4F29A9CA84F /* Singleton */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				60953A1FC968B4F29A9CA84F /* Singleton */,
+				6095310F8B257A87A2591321 /* Builder */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -188,6 +206,8 @@
 				60953FE01AC57D2F10F6C362 /* Handler.m in Sources */,
 				609539B97F712A470FF9C52F /* Singleton.m in Sources */,
 				6095334CC7B1E060A5752925 /* MainViewController.m in Sources */,
+				609533FBC305FE2EC6B6D02A /* ObjectBuilder.m in Sources */,
+				6095320C3FD4AEF25F40C282 /* ObjectInstance.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

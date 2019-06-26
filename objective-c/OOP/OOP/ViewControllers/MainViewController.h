@@ -9,6 +9,8 @@
 #include <UIKit/UIKit.h>
 #include "../Handlers/Handler.h"
 #include "../Classes/Singleton/Singleton.h"
+#include "../Classes/Builder/ObjectBuilder.h"
+#include "../Classes/Builder/ObjectInstance.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
