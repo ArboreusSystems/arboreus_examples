@@ -10,4 +10,9 @@
 
 @implementation Subscription
 
+-(void) mSubscribe {
+
+	NSLog(@"Subscribe");
+}
+
 @end

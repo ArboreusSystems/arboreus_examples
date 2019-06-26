@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <StoreKit/StoreKit.h>
+#import "Subscription.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SubscriptionBuilder : NSObject
+#define SUBS_PRODUCT_ID @"arboreus.objectivec.subscription"
+
+@interface SubscriptionBuilder : NSObject <SKProductsRequestDelegate>
+
+
 
 @end
 

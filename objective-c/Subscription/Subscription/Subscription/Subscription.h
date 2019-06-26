@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Subscription : NSObject
 
+-(void) mSubscribe;
+
 @end
 
 NS_ASSUME_NONNULL_END
