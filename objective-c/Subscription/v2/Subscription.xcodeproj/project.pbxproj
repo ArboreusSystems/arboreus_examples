@@ -10,6 +10,11 @@
 		A841266322C5491600A0AF19 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A841266222C5491600A0AF19 /* AppDelegate.m */; };
 		A841266B22C5491700A0AF19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A841266A22C5491700A0AF19 /* Assets.xcassets */; };
 		A841267122C5491700A0AF19 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A841267022C5491700A0AF19 /* main.m */; };
+		A841267822C54C1A00A0AF19 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A841267722C54C1A00A0AF19 /* Default-568h@2x.png */; };
+		A841267D22C54D3600A0AF19 /* MainHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A841267C22C54D3600A0AF19 /* MainHandler.m */; };
+		A841268022C54D4A00A0AF19 /* SubscriptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A841267F22C54D4A00A0AF19 /* SubscriptionHandler.m */; };
+		A841268322C54D6500A0AF19 /* ReceiptHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A841268222C54D6500A0AF19 /* ReceiptHandler.m */; };
+		A841268622C54D8D00A0AF19 /* SubscriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A841268522C54D8D00A0AF19 /* SubscriptionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,15 @@
 		A841266A22C5491700A0AF19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A841266F22C5491700A0AF19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A841267022C5491700A0AF19 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A841267722C54C1A00A0AF19 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A841267B22C54D3600A0AF19 /* MainHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainHandler.h; sourceTree = "<group>"; };
+		A841267C22C54D3600A0AF19 /* MainHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainHandler.m; sourceTree = "<group>"; };
+		A841267E22C54D4A00A0AF19 /* SubscriptionHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubscriptionHandler.h; sourceTree = "<group>"; };
+		A841267F22C54D4A00A0AF19 /* SubscriptionHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubscriptionHandler.m; sourceTree = "<group>"; };
+		A841268122C54D6500A0AF19 /* ReceiptHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReceiptHandler.h; sourceTree = "<group>"; };
+		A841268222C54D6500A0AF19 /* ReceiptHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReceiptHandler.m; sourceTree = "<group>"; };
+		A841268422C54D8D00A0AF19 /* SubscriptionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubscriptionViewController.h; sourceTree = "<group>"; };
+		A841268522C54D8D00A0AF19 /* SubscriptionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubscriptionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +49,7 @@
 		A841265522C5491600A0AF19 = {
 			isa = PBXGroup;
 			children = (
+				A841267722C54C1A00A0AF19 /* Default-568h@2x.png */,
 				A841266022C5491600A0AF19 /* Subscription */,
 				A841265F22C5491600A0AF19 /* Products */,
 			);
@@ -51,6 +66,8 @@
 		A841266022C5491600A0AF19 /* Subscription */ = {
 			isa = PBXGroup;
 			children = (
+				A841267A22C54C5000A0AF19 /* ViewControllers */,
+				A841267922C54C4600A0AF19 /* Handlers */,
 				A841266122C5491600A0AF19 /* AppDelegate.h */,
 				A841266222C5491600A0AF19 /* AppDelegate.m */,
 				A841266A22C5491700A0AF19 /* Assets.xcassets */,
@@ -58,6 +75,28 @@
 				A841267022C5491700A0AF19 /* main.m */,
 			);
 			path = Subscription;
+			sourceTree = "<group>";
+		};
+		A841267922C54C4600A0AF19 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				A841267B22C54D3600A0AF19 /* MainHandler.h */,
+				A841267C22C54D3600A0AF19 /* MainHandler.m */,
+				A841267E22C54D4A00A0AF19 /* SubscriptionHandler.h */,
+				A841267F22C54D4A00A0AF19 /* SubscriptionHandler.m */,
+				A841268122C54D6500A0AF19 /* ReceiptHandler.h */,
+				A841268222C54D6500A0AF19 /* ReceiptHandler.m */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		A841267A22C54C5000A0AF19 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A841268422C54D8D00A0AF19 /* SubscriptionViewController.h */,
+				A841268522C54D8D00A0AF19 /* SubscriptionViewController.m */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A841266B22C5491700A0AF19 /* Assets.xcassets in Resources */,
+				A841267822C54C1A00A0AF19 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,7 +169,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A841267122C5491700A0AF19 /* main.m in Sources */,
+				A841268322C54D6500A0AF19 /* ReceiptHandler.m in Sources */,
 				A841266322C5491600A0AF19 /* AppDelegate.m in Sources */,
+				A841268622C54D8D00A0AF19 /* SubscriptionViewController.m in Sources */,
+				A841267D22C54D3600A0AF19 /* MainHandler.m in Sources */,
+				A841268022C54D4A00A0AF19 /* SubscriptionHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,11 +297,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4KVLMRJ2PM;
+				DEVELOPMENT_TEAM = "";
+				HEADER_SEARCH_PATHS = /Users/alexandr/Projects/arboreus/arboreus_storage_mobile_libs/OpenSSL/lib/ios/include;
 				INFOPLIST_FILE = Subscription/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = /Users/alexandr/Projects/arboreus/arboreus_storage_mobile_libs/OpenSSL/lib/ios/lib;
+				OTHER_LDFLAGS = (
+					"-lcrypto",
+					"-lssl",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Objective-c.Study.Subscription";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -270,11 +320,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4KVLMRJ2PM;
+				DEVELOPMENT_TEAM = "";
+				HEADER_SEARCH_PATHS = /Users/alexandr/Projects/arboreus/arboreus_storage_mobile_libs/OpenSSL/lib/ios/include;
 				INFOPLIST_FILE = Subscription/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = /Users/alexandr/Projects/arboreus/arboreus_storage_mobile_libs/OpenSSL/lib/ios/lib;
+				OTHER_LDFLAGS = (
+					"-lcrypto",
+					"-lssl",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Objective-c.Study.Subscription";
 				PRODUCT_NAME = "$(TARGET_NAME)";

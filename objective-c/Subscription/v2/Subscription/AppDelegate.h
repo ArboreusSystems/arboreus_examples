@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewControllers/SubscriptionViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
