@@ -33,8 +33,6 @@
 	_pElementsWidth = _pScreenWidth * 0.8;
 	_pElementsHeight = _pScreenWidth * 0.15;
 
-	_pSubscription = [[Subscription alloc] init];
-
 	[self.view addSubview:[self mButtonExit]];
 	[self.view addSubview:[self
 		mCreateLabel: _pScreenHeight * 0.1 inTitle:@"Objective-C example"
@@ -73,14 +71,27 @@
 
 -(void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray<SKPaymentTransaction *> *)transactions {
 
-	for (SKPaymentTransaction *iTransactions in transactions) {
-		switch (iTransactions.transactionState) {
+	for (SKPaymentTransaction *iTransaction in transactions) {
+		switch (iTransaction.transactionState) {
 			case SKPaymentTransactionStatePurchasing:
+				NSLog(@"Transaction Purchasing");
 				break;
 			case SKPaymentTransactionStatePurchased:
+				NSLog(@"Transaction Purchased");
+				[_pDefaultQueue finishTransaction:iTransaction];
 				[self mViewSubscribed:@"You've subscribed"];
 				break;
-			default: break;
+			case SKPaymentTransactionStateFailed:
+				NSLog(@"Transaction  Failed: %@",iTransaction.error.localizedDescription);
+				[_pDefaultQueue finishTransaction:iTransaction];
+			case SKPaymentTransactionStateRestored:
+				NSLog(@"Restored: %@",iTransaction.payment.productIdentifier);
+				[_pDefaultQueue finishTransaction:iTransaction];
+			case SKPaymentTransactionStateDeferred:
+				NSLog(@"Transaction Deferred");
+				break;
+			default:
+				break;
 		}
 	}
 }
@@ -219,6 +230,12 @@
 
 	[self mViewInProgress];
 	[_pDefaultQueue addPayment:[SKPayment paymentWithProduct:_pSubscriptionProduct]];
+}
+
+-(void) mDoRestore {
+
+	NSLog(@"Restore");
+	[_pDefaultQueue restoreCompletedTransactions];
 }
 
 @end

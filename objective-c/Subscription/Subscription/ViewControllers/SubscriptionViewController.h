@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <StoreKit/StoreKit.h>
 #import "../Handlers/Handler.h"
-#import "../Subscription/Subscription.h"
-#import "../Subscription/SubscriptionBuilder.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+#define SUBS_PRODUCT_ID @"arboreus.objectivec.subscription"
 
 @interface SubscriptionViewController : UIViewController <SKProductsRequestDelegate,SKPaymentTransactionObserver>
 
@@ -21,7 +22,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property CGFloat pElementsHeight;
 
 @property (nonatomic,strong) UIView *pSubscriptionView;
-@property (nonatomic,strong) Subscription *pSubscription;
 @property (nonatomic,strong) SKProduct *pSubscriptionProduct;
 @property (nonatomic,strong) SKPaymentQueue *pDefaultQueue;
 

@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		609537DBFA68C3D693E08834 /* SubscriptionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 609536CA69D2BBC56E5AACEB /* SubscriptionBuilder.m */; };
 		6095396312FE12B5E49DB20B /* SubscriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60953AD8021D88C1DCC5C751 /* SubscriptionViewController.m */; };
-		60953C34231E7CD7A9D1696B /* Subscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6095307B8C778FC45886186D /* Subscription.m */; };
 		60953FA967037432E68D3EDA /* Handler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6095340B834AA7625D4B49FF /* Handler.m */; };
 		A80FAE3822C3687A00F99618 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A80FAE3722C3687A00F99618 /* AppDelegate.m */; };
 		A80FAE4022C3687B00F99618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A80FAE3F22C3687B00F99618 /* Assets.xcassets */; };
@@ -19,12 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6095307B8C778FC45886186D /* Subscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Subscription.m; sourceTree = "<group>"; };
 		6095340B834AA7625D4B49FF /* Handler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Handler.m; sourceTree = "<group>"; };
-		609536CA69D2BBC56E5AACEB /* SubscriptionBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscriptionBuilder.m; sourceTree = "<group>"; };
 		6095398C275A62148A4E6BCF /* Handler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Handler.h; sourceTree = "<group>"; };
-		60953A04F9913C0B1E3249AE /* SubscriptionBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscriptionBuilder.h; sourceTree = "<group>"; };
-		60953AAACB3A89102FA86EEE /* Subscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subscription.h; sourceTree = "<group>"; };
 		60953AD8021D88C1DCC5C751 /* SubscriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscriptionViewController.m; sourceTree = "<group>"; };
 		60953EE303ED2A2E8D32F520 /* SubscriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscriptionViewController.h; sourceTree = "<group>"; };
 		A80FAE3322C3687A00F99618 /* Subscription.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Subscription.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,10 +46,6 @@
 		6095342FB5F4734CAB324A44 /* Subscription */ = {
 			isa = PBXGroup;
 			children = (
-				60953A04F9913C0B1E3249AE /* SubscriptionBuilder.h */,
-				609536CA69D2BBC56E5AACEB /* SubscriptionBuilder.m */,
-				60953AAACB3A89102FA86EEE /* Subscription.h */,
-				6095307B8C778FC45886186D /* Subscription.m */,
 			);
 			path = Subscription;
 			sourceTree = "<group>";
@@ -196,8 +186,6 @@
 				A80FAE4622C3687B00F99618 /* main.m in Sources */,
 				A80FAE3822C3687A00F99618 /* AppDelegate.m in Sources */,
 				6095396312FE12B5E49DB20B /* SubscriptionViewController.m in Sources */,
-				609537DBFA68C3D693E08834 /* SubscriptionBuilder.m in Sources */,
-				60953C34231E7CD7A9D1696B /* Subscription.m in Sources */,
 				60953FA967037432E68D3EDA /* Handler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
