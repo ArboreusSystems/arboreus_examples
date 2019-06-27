@@ -18,6 +18,8 @@
 	self = [super init];
 	if (self) {
 		self.view.backgroundColor = [UIColor whiteColor];
+		_pDefaultQueue = [SKPaymentQueue defaultQueue];
+		[_pDefaultQueue addTransactionObserver:self];
 	}
 	return self;
 }
@@ -40,7 +42,47 @@
 	[self.view addSubview:[self
 		mCreateLabel: _pScreenHeight * 0.15 inTitle:@"Auto-renewable subscription"
 	]];
-	[self mViewSubscribe:@"Subscribe"];
+	if (![SKPaymentQueue canMakePayments]) {
+		[self mViewCanNotPay];
+		return;
+	}
+	[self mViewInProgress];
+
+	SKProductsRequest *oRequest = [[SKProductsRequest alloc]
+		initWithProductIdentifiers:[NSSet setWithObject:SUBS_PRODUCT_ID]
+	];
+	oRequest.delegate = self;
+	[oRequest start];
+}
+
+
+#pragma SKProductsRequestDelegate methods
+
+-(void) productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response {
+
+	_pSubscriptionProduct = response.products[0];
+	[self mViewSubscribe:[NSString stringWithFormat:
+		@"Subscribe %@%@",
+		_pSubscriptionProduct.price,
+		_pSubscriptionProduct.priceLocale.currencySymbol
+	]];
+}
+
+
+#pragma SKPaymentTransactionObserver methods
+
+-(void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray<SKPaymentTransaction *> *)transactions {
+
+	for (SKPaymentTransaction *iTransactions in transactions) {
+		switch (iTransactions.transactionState) {
+			case SKPaymentTransactionStatePurchasing:
+				break;
+			case SKPaymentTransactionStatePurchased:
+				[self mViewSubscribed:@"You've subscribed"];
+				break;
+			default: break;
+		}
+	}
 }
 
 
@@ -175,7 +217,8 @@
 
 -(void) mDoSubscribe {
 
-	[_pSubscription mSubscribe];
+	[self mViewInProgress];
+	[_pDefaultQueue addPayment:[SKPayment paymentWithProduct:_pSubscriptionProduct]];
 }
 
 @end

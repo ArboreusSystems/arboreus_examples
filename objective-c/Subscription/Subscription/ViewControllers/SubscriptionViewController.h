@@ -13,17 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol SubscriptionViewProtocol
-
-@required
--(void) mViewCanNotPay;
--(void) mViewSubscribe: (NSString *) inTitle;
--(void) mViewSubscribed: (NSString *) inText;
--(void) mViewInProgress;
-
-@end
-
-@interface SubscriptionViewController : UIViewController <SubscriptionViewProtocol>
+@interface SubscriptionViewController : UIViewController <SKProductsRequestDelegate,SKPaymentTransactionObserver>
 
 @property CGFloat pScreenWidth;
 @property CGFloat pScreenHeight;
@@ -32,6 +22,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,strong) UIView *pSubscriptionView;
 @property (nonatomic,strong) Subscription *pSubscription;
+@property (nonatomic,strong) SKProduct *pSubscriptionProduct;
+@property (nonatomic,strong) SKPaymentQueue *pDefaultQueue;
+
+-(void) mViewCanNotPay;
+-(void) mViewSubscribe: (NSString *) inTitle;
+-(void) mViewSubscribed: (NSString *) inText;
+-(void) mViewInProgress;
 
 @end
 
