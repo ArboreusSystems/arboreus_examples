@@ -7,10 +7,34 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <StoreKit/StoreKit.h>
+#import "ReceiptHandler.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SubscriptionHandler : NSObject
+#define SUBS_PRODUCT_ID @"arboreus.objectivec.subscription"
+
+@class SubscriptionViewController;
+
+@protocol SubscriptionViewProtocol
+
+-(void) mViewInProgress;
+-(void) mViewSubscribed: (NSString *) inText;
+-(void) mViewSubscribe: (NSString *) inTitle;
+-(void) mViewCanNotSubscribe: (NSString *) inTitle;
+
+@end
+
+@interface SubscriptionHandler : NSObject <SKProductsRequestDelegate,SKPaymentTransactionObserver>
+
+@property (nonatomic,weak) SubscriptionViewController *pViewController;
+@property (nonatomic,strong) ReceiptHandler *pReceipt;
+@property (nonatomic,strong) SKProduct *pSubscriptionProduct;
+@property (nonatomic,strong) SKPaymentQueue *pDefaultPaymentQueue;
+
+-(instancetype) initWithView: (SubscriptionViewController *) inView;
+-(void) mSubscribe;
+-(void) mRestore;
 
 @end
 

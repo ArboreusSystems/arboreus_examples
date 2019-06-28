@@ -10,4 +10,15 @@
 
 @implementation ReceiptHandler
 
+#pragma mark Object init
+
+-(instancetype) init {
+
+	self = [super init];
+	if (self) {
+		NSLog(@"ReceiptHandler initiated");
+	}
+	return self;
+}
+
 @end
