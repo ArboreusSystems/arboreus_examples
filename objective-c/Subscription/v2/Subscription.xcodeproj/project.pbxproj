@@ -297,7 +297,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4KVLMRJ2PM;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = /Users/alexandr/Projects/arboreus/arboreus_storage_mobile_libs/OpenSSL/lib/ios/include;
 				INFOPLIST_FILE = Subscription/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +320,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4KVLMRJ2PM;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = /Users/alexandr/Projects/arboreus/arboreus_storage_mobile_libs/OpenSSL/lib/ios/include;
 				INFOPLIST_FILE = Subscription/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
