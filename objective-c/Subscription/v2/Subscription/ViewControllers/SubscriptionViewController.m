@@ -170,6 +170,7 @@
 
 -(void) mDoExit {
 
+	[_pSubscription.pDefaultPaymentQueue removeTransactionObserver:_pSubscription];
 	[MainHandler mDoExit];
 }
 
