@@ -28,7 +28,6 @@
 
 		_pDefaultPaymentQueue = [SKPaymentQueue defaultQueue];
 		[_pDefaultPaymentQueue addTransactionObserver:self];
-		_pReceipt = [[ReceiptHandler alloc] init];
 
 		SKProductsRequest *oRequest = [[SKProductsRequest alloc]
 			initWithProductIdentifiers:[NSSet setWithObject:SUBS_PRODUCT_ID]

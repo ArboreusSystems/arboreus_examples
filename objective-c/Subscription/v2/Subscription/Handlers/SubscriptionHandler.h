@@ -28,7 +28,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SubscriptionHandler : NSObject <SKProductsRequestDelegate,SKPaymentTransactionObserver>
 
 @property (nonatomic,weak) SubscriptionViewController *pViewController;
-@property (nonatomic,strong) ReceiptHandler *pReceipt;
 @property (nonatomic,strong) SKProduct *pSubscriptionProduct;
 @property (nonatomic,strong) SKPaymentQueue *pDefaultPaymentQueue;
 
