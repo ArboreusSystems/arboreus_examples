@@ -27,19 +27,28 @@ class MainViewController: UIViewController {
 		self.mButtonExit();
 		self.view.addSubview(mLabel(inText: "Swift", inY: 0.1, inHeight: 0.05));
 		self.view.addSubview(mLabel(inText: "Vector Images (PDF) Usage ", inY: 0.15, inHeight: 0.1));
-		
+
+		let oImage: UIImage = UIImage(named: "DemoVectorLogo")!;
+		print("Original image -> Width: ",oImage.size.width," Height: ",oImage.size.height);
+
 		let oImageViewSmall: UIImageView = UIImageView(frame: mCreateSquare(inSideSize: 50, inY: 0.26));
-		oImageViewSmall.image = UIImage(named: "DemoVectorLogo")!;
+		oImageViewSmall.image = oImage;
+		print("Small image -> Width: ",oImage.size.width," Height: ",oImage.size.height);
+		print("Small image View -> Width: ",oImageViewSmall.frame.width," Height: ",oImageViewSmall.frame.height);
 		oImageViewSmall.contentMode = .scaleToFill;
 		self.view.addSubview(oImageViewSmall);
 		
 		let oImageViewMiddle: UIImageView = UIImageView(frame: mCreateSquare(inSideSize: 100, inY: 0.36));
-		oImageViewMiddle.image = UIImage(named: "DemoVectorLogo")!;
+		oImageViewMiddle.image = oImage;
+		print("Middle image -> Width: ",oImage.size.width," Height: ",oImage.size.height);
+		print("Middle image View -> Width: ",oImageViewMiddle.frame.width," Height: ",oImageViewMiddle.frame.height);
 		oImageViewMiddle.contentMode = .scaleToFill;
 		self.view.addSubview(oImageViewMiddle);
 		
 		let oImageViewBig: UIImageView = UIImageView(frame: mCreateSquare(inSideSize: 150, inY: 0.55));
-		oImageViewBig.image = UIImage(named: "DemoVectorLogo")!;
+		oImageViewBig.image = oImage;
+		print("Big image -> Width: ",oImage.size.width," Height: ",oImage.size.height);
+		print("Big image View -> Width: ",oImageViewBig.frame.width," Height: ",oImageViewBig.frame.height);
 		oImageViewBig.contentMode = .scaleToFill;
 		self.view.addSubview(oImageViewBig);
 	}
