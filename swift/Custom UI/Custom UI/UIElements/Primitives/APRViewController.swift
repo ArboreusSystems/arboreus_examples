@@ -9,15 +9,25 @@
 import UIKit
 
 class APRViewController: UIViewController {
-	
-	override func loadView() {
-		
-		super.loadView();
-		self.view.backgroundColor = UIColor.white;
-	}
 
+	let pView: UIView = UIView();
+	
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 
 		return .lightContent
+	}
+
+	override func loadView() {
+
+		super.loadView();
+		self.view.backgroundColor = _COLOR_PURPLE;
+		let oSafeArea: UILayoutGuide = self.view.safeAreaLayoutGuide;
+		pView.translatesAutoresizingMaskIntoConstraints = false;
+		pView.backgroundColor = _COLOR_WHITE;
+		self.view.addSubview(pView);
+		pView.leftAnchor.constraint(equalTo: oSafeArea.leftAnchor).isActive = true;
+		pView.rightAnchor.constraint(equalTo: oSafeArea.rightAnchor).isActive = true;
+		pView.bottomAnchor.constraint(equalTo: oSafeArea.bottomAnchor).isActive = true;
+		pView.topAnchor.constraint(equalTo: oSafeArea.topAnchor).isActive = true;
 	}
 }
