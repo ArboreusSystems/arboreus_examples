@@ -24,6 +24,21 @@
 
     [super viewDidLoad];
 	
+	if ([[[UIDevice currentDevice] systemVersion] floatValue] <= 9.0) {
+		[self mDoConstraint];
+		NSLog(@"Constraint done");
+	} else {
+		[self mDoAnchors];
+		NSLog(@"Anchors done");
+	}
+	
+}
+
+
+#pragma mark iOS version adoptation
+
+-(void) mDoAnchors {
+
 	CGFloat oPadding = 30;
 	CGFloat oElementSize = 45;
 	
@@ -51,6 +66,74 @@
     [oLableApplication.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant:oPadding].active = YES;
     [oLableApplication.rightAnchor constraintEqualToAnchor:self.view.rightAnchor constant:-oPadding].active = YES;
 }
+
+-(void) mDoConstraint {
+
+	UInt8 oPadding = 30;
+    UInt8 oElementHeight = 50;
+	
+	UIButton *oButtonExit = [self mButtonExit];
+	[self.view addSubview:oButtonExit];
+	[NSLayoutConstraint constraintWithItem:oButtonExit
+		attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view
+		attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0
+	].active = YES;
+	[NSLayoutConstraint constraintWithItem:oButtonExit
+		attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view
+		attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-oPadding
+	].active = YES;
+	[NSLayoutConstraint constraintWithItem:oButtonExit
+		attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view
+		attribute:NSLayoutAttributeLeft multiplier:1.0 constant:oPadding
+	].active = YES;
+	[NSLayoutConstraint constraintWithItem:oButtonExit
+		attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view
+		attribute:NSLayoutAttributeRight multiplier:1.0 constant:-oPadding
+	].active = YES;
+	[NSLayoutConstraint constraintWithItem:oButtonExit
+		attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:oButtonExit
+		attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-oElementHeight
+	].active = YES;
+	
+	UILabel *oLabelLanguage = [self mLabelLanguage];
+	[self.view addSubview:oLabelLanguage];
+	[NSLayoutConstraint constraintWithItem:oLabelLanguage
+		attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view
+		attribute:NSLayoutAttributeTop multiplier:1.0 constant:2.5 * oPadding
+	].active = YES;
+	[NSLayoutConstraint constraintWithItem:oLabelLanguage
+		attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view
+		attribute:NSLayoutAttributeLeft multiplier:1.0 constant:oPadding
+	].active = YES;
+	[NSLayoutConstraint constraintWithItem:oLabelLanguage
+		attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view
+		attribute:NSLayoutAttributeRight multiplier:1.0 constant:-oPadding
+	].active = YES;
+	[NSLayoutConstraint constraintWithItem:oLabelLanguage
+		attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:oLabelLanguage
+		attribute:NSLayoutAttributeTop multiplier:1.0 constant:oElementHeight
+	].active = YES;
+	
+	UILabel *oLabelApplication = [self mLabelApplication];
+	[self.view addSubview:oLabelApplication];
+	[NSLayoutConstraint constraintWithItem:oLabelApplication
+		attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:oLabelLanguage
+		attribute:NSLayoutAttributeTop multiplier:1.0 constant:oPadding
+	].active = YES;
+	[NSLayoutConstraint constraintWithItem:oLabelApplication
+		attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view
+		attribute:NSLayoutAttributeLeft multiplier:1.0 constant:oPadding
+	].active = YES;
+	[NSLayoutConstraint constraintWithItem:oLabelApplication
+		attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view
+		attribute:NSLayoutAttributeRight multiplier:1.0 constant:-oPadding
+	].active = YES;
+	[NSLayoutConstraint constraintWithItem:oLabelApplication
+		attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:oLabelApplication
+		attribute:NSLayoutAttributeTop multiplier:1.0 constant:oElementHeight
+	].active = YES;
+}
+
 
 #pragma mark UI Elements
 
