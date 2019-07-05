@@ -33,6 +33,13 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Mohave-Bold.otf</string>
+		<string>Mohave-Italic.otf</string>
+		<string>Mohave-Regular.otf</string>
+		<string>Mohave-BoldItalic.otf</string>
+	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		60953634ED5B2BAD14746321 /* MainHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60953F83DB5605BD201CB960 /* MainHandler.swift */; };
 		60953D87075EE85291321AFE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6095306C04F6BF41E3B67EF8 /* MainViewController.swift */; };
+		A83E9E1622CFA83300390BA0 /* Mohave-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A83E9E1222CFA83300390BA0 /* Mohave-Italic.otf */; };
+		A83E9E1722CFA83300390BA0 /* Mohave-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A83E9E1322CFA83300390BA0 /* Mohave-Bold.otf */; };
+		A83E9E1822CFA83300390BA0 /* Mohave-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A83E9E1422CFA83300390BA0 /* Mohave-BoldItalic.otf */; };
+		A83E9E1922CFA83300390BA0 /* Mohave-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A83E9E1522CFA83300390BA0 /* Mohave-Regular.otf */; };
+		A83E9E1B22CFA90600390BA0 /* ADEFFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E9E1A22CFA90600390BA0 /* ADEFFonts.swift */; };
+		A83E9E1D22CFA9B000390BA0 /* APRLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E9E1C22CFA9B000390BA0 /* APRLabel.swift */; };
+		A83E9E1F22CFAA3D00390BA0 /* APRButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E9E1E22CFAA3D00390BA0 /* APRButton.swift */; };
 		A8870D7F22CDDF3A00C7AC75 /* APRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8870D7E22CDDF3A00C7AC75 /* APRViewController.swift */; };
 		A8BC570F22CCF4B300B9BDE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC570E22CCF4B300B9BDE5 /* AppDelegate.swift */; };
 		A8BC571622CCF4B400B9BDE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8BC571522CCF4B400B9BDE5 /* Assets.xcassets */; };
@@ -19,6 +26,13 @@
 /* Begin PBXFileReference section */
 		6095306C04F6BF41E3B67EF8 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		60953F83DB5605BD201CB960 /* MainHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainHandler.swift; sourceTree = "<group>"; };
+		A83E9E1222CFA83300390BA0 /* Mohave-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mohave-Italic.otf"; sourceTree = "<group>"; };
+		A83E9E1322CFA83300390BA0 /* Mohave-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mohave-Bold.otf"; sourceTree = "<group>"; };
+		A83E9E1422CFA83300390BA0 /* Mohave-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mohave-BoldItalic.otf"; sourceTree = "<group>"; };
+		A83E9E1522CFA83300390BA0 /* Mohave-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mohave-Regular.otf"; sourceTree = "<group>"; };
+		A83E9E1A22CFA90600390BA0 /* ADEFFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADEFFonts.swift; sourceTree = "<group>"; };
+		A83E9E1C22CFA9B000390BA0 /* APRLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APRLabel.swift; sourceTree = "<group>"; };
+		A83E9E1E22CFAA3D00390BA0 /* APRButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APRButton.swift; sourceTree = "<group>"; };
 		A8870D7E22CDDF3A00C7AC75 /* APRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APRViewController.swift; sourceTree = "<group>"; };
 		A8BC570B22CCF4B300B9BDE5 /* Custom UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Custom UI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8BC570E22CCF4B300B9BDE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				A8870D7E22CDDF3A00C7AC75 /* APRViewController.swift */,
+				A83E9E1C22CFA9B000390BA0 /* APRLabel.swift */,
+				A83E9E1E22CFAA3D00390BA0 /* APRButton.swift */,
 			);
 			path = Primitives;
 			sourceTree = "<group>";
@@ -71,6 +87,17 @@
 			path = UIElements;
 			sourceTree = "<group>";
 		};
+		A83E9E1122CFA81F00390BA0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A83E9E1322CFA83300390BA0 /* Mohave-Bold.otf */,
+				A83E9E1422CFA83300390BA0 /* Mohave-BoldItalic.otf */,
+				A83E9E1222CFA83300390BA0 /* Mohave-Italic.otf */,
+				A83E9E1522CFA83300390BA0 /* Mohave-Regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		A8BC570222CCF4B300B9BDE5 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +118,7 @@
 		A8BC570D22CCF4B300B9BDE5 /* Custom UI */ = {
 			isa = PBXGroup;
 			children = (
+				A83E9E1122CFA81F00390BA0 /* Fonts */,
 				A8D8F88622CE717600A9E9ED /* Definitions */,
 				A8BC570E22CCF4B300B9BDE5 /* AppDelegate.swift */,
 				A8BC571522CCF4B400B9BDE5 /* Assets.xcassets */,
@@ -106,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				A8D8F88922CE71AC00A9E9ED /* ADEFColors.swift */,
+				A83E9E1A22CFA90600390BA0 /* ADEFFonts.swift */,
 			);
 			path = Definitions;
 			sourceTree = "<group>";
@@ -168,7 +197,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A83E9E1922CFA83300390BA0 /* Mohave-Regular.otf in Resources */,
+				A83E9E1822CFA83300390BA0 /* Mohave-BoldItalic.otf in Resources */,
+				A83E9E1722CFA83300390BA0 /* Mohave-Bold.otf in Resources */,
 				A8D8F88822CE718700A9E9ED /* LaunchScreen.storyboard in Resources */,
+				A83E9E1622CFA83300390BA0 /* Mohave-Italic.otf in Resources */,
 				A8BC571622CCF4B400B9BDE5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,7 +213,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A83E9E1B22CFA90600390BA0 /* ADEFFonts.swift in Sources */,
+				A83E9E1F22CFAA3D00390BA0 /* APRButton.swift in Sources */,
 				A8D8F88A22CE71AC00A9E9ED /* ADEFColors.swift in Sources */,
+				A83E9E1D22CFA9B000390BA0 /* APRLabel.swift in Sources */,
 				A8870D7F22CDDF3A00C7AC75 /* APRViewController.swift in Sources */,
 				A8BC570F22CCF4B300B9BDE5 /* AppDelegate.swift in Sources */,
 				60953634ED5B2BAD14746321 /* MainHandler.swift in Sources */,
