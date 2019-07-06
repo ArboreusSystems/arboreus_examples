@@ -23,6 +23,8 @@ class APRViewController: UIViewController {
 	
 	override func viewDidLayoutSubviews() {
 		
+		super.viewDidLayoutSubviews();
+		
 		pScreenWidth = pView.frame.size.width;
 		pScreenHeight = pView.frame.size.height;
 		pElementX = (pScreenWidth - (pScreenWidth * 0.8)) / 2;
