@@ -33,6 +33,8 @@ class MainViewController: UIViewController {
 		mButtonExit();
         view.addSubview(mLabel(inText: "Swift examples", inY: 0.1, inHeight: 0.05));
 		view.addSubview(mLabel(inText: "Thread", inY: 0.15, inHeight: 0.1));
+		
+		ThreadHandler.mDoPosix();
 	}
 	
 	// MARK: UI Elements
