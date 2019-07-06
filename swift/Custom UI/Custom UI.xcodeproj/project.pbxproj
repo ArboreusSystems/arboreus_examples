@@ -19,6 +19,9 @@
 		A8870D7F22CDDF3A00C7AC75 /* APRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8870D7E22CDDF3A00C7AC75 /* APRViewController.swift */; };
 		A8A5332022D07B6C005D104A /* DemoVectorLogo.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A8A5331F22D07B6C005D104A /* DemoVectorLogo.pdf */; };
 		A8A5332222D07CC8005D104A /* DemoVectorTree.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A8A5332122D07CC8005D104A /* DemoVectorTree.pdf */; };
+		A8A5332B22D0BAD0005D104A /* DemoButtonNormal.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A8A5332922D0BAD0005D104A /* DemoButtonNormal.pdf */; };
+		A8A5332C22D0BAD0005D104A /* DemoButtonPressed.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A8A5332A22D0BAD0005D104A /* DemoButtonPressed.pdf */; };
+		A8A5332E22D0BB63005D104A /* ARBButtonDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5332D22D0BB63005D104A /* ARBButtonDemo.swift */; };
 		A8BC570F22CCF4B300B9BDE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BC570E22CCF4B300B9BDE5 /* AppDelegate.swift */; };
 		A8BC571622CCF4B400B9BDE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8BC571522CCF4B400B9BDE5 /* Assets.xcassets */; };
 		A8D8F88822CE718700A9E9ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8D8F88722CE718700A9E9ED /* LaunchScreen.storyboard */; };
@@ -38,6 +41,9 @@
 		A8870D7E22CDDF3A00C7AC75 /* APRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APRViewController.swift; sourceTree = "<group>"; };
 		A8A5331F22D07B6C005D104A /* DemoVectorLogo.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = DemoVectorLogo.pdf; sourceTree = "<group>"; };
 		A8A5332122D07CC8005D104A /* DemoVectorTree.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = DemoVectorTree.pdf; sourceTree = "<group>"; };
+		A8A5332922D0BAD0005D104A /* DemoButtonNormal.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = DemoButtonNormal.pdf; sourceTree = "<group>"; };
+		A8A5332A22D0BAD0005D104A /* DemoButtonPressed.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = DemoButtonPressed.pdf; sourceTree = "<group>"; };
+		A8A5332D22D0BB63005D104A /* ARBButtonDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARBButtonDemo.swift; sourceTree = "<group>"; };
 		A8BC570B22CCF4B300B9BDE5 /* Custom UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Custom UI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8BC570E22CCF4B300B9BDE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8BC571522CCF4B400B9BDE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,6 +92,7 @@
 		609539246FDA64418D718976 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				A8A5332522D08D42005D104A /* Buttons */,
 				609533DDBCDB1680F9945532 /* Primitives */,
 			);
 			path = UIElements;
@@ -114,6 +121,7 @@
 		A8A5331C22D07A9A005D104A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A8A5332822D0BABA005D104A /* DemoButton */,
 				A8A5331E22D07B5A005D104A /* LaunchScreen */,
 			);
 			path = Images;
@@ -126,6 +134,23 @@
 				A8A5332122D07CC8005D104A /* DemoVectorTree.pdf */,
 			);
 			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		A8A5332522D08D42005D104A /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				A8A5332D22D0BB63005D104A /* ARBButtonDemo.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		A8A5332822D0BABA005D104A /* DemoButton */ = {
+			isa = PBXGroup;
+			children = (
+				A8A5332922D0BAD0005D104A /* DemoButtonNormal.pdf */,
+				A8A5332A22D0BAD0005D104A /* DemoButtonPressed.pdf */,
+			);
+			path = DemoButton;
 			sourceTree = "<group>";
 		};
 		A8BC570222CCF4B300B9BDE5 = {
@@ -228,8 +253,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A83E9E1922CFA83300390BA0 /* Mohave-Regular.otf in Resources */,
+				A8A5332B22D0BAD0005D104A /* DemoButtonNormal.pdf in Resources */,
 				A83E9E1822CFA83300390BA0 /* Mohave-BoldItalic.otf in Resources */,
 				A8A5332222D07CC8005D104A /* DemoVectorTree.pdf in Resources */,
+				A8A5332C22D0BAD0005D104A /* DemoButtonPressed.pdf in Resources */,
 				A8A5332022D07B6C005D104A /* DemoVectorLogo.pdf in Resources */,
 				A83E9E1722CFA83300390BA0 /* Mohave-Bold.otf in Resources */,
 				A8D8F88822CE718700A9E9ED /* LaunchScreen.storyboard in Resources */,
@@ -249,6 +276,7 @@
 				A83E9E1F22CFAA3D00390BA0 /* APRButton.swift in Sources */,
 				A8D8F88A22CE71AC00A9E9ED /* ADEFColors.swift in Sources */,
 				A83E9E1D22CFA9B000390BA0 /* APRLabel.swift in Sources */,
+				A8A5332E22D0BB63005D104A /* ARBButtonDemo.swift in Sources */,
 				A8870D7F22CDDF3A00C7AC75 /* APRViewController.swift in Sources */,
 				A8BC570F22CCF4B300B9BDE5 /* AppDelegate.swift in Sources */,
 				60953634ED5B2BAD14746321 /* MainHandler.swift in Sources */,
