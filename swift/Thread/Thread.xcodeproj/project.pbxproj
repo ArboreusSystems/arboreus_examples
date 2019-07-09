@@ -13,6 +13,8 @@
 		A8A34B9322D0FF7D001ACBED /* MainHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A34B9222D0FF7D001ACBED /* MainHandler.swift */; };
 		A8A34B9522D0FFE5001ACBED /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A34B9422D0FFE5001ACBED /* MainViewController.swift */; };
 		A8A34B9722D1038E001ACBED /* ThreadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A34B9622D1038E001ACBED /* ThreadHandler.swift */; };
+		A8A7CA0A22D49162002B6B7A /* ThreadQOSHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7CA0922D49162002B6B7A /* ThreadQOSHandler.swift */; };
+		A8A7CA0C22D49B08002B6B7A /* ThreadSyncMutexHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7CA0B22D49B08002B6B7A /* ThreadSyncMutexHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		A8A34B9222D0FF7D001ACBED /* MainHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHandler.swift; sourceTree = "<group>"; };
 		A8A34B9422D0FFE5001ACBED /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A8A34B9622D1038E001ACBED /* ThreadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadHandler.swift; sourceTree = "<group>"; };
+		A8A7CA0922D49162002B6B7A /* ThreadQOSHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadQOSHandler.swift; sourceTree = "<group>"; };
+		A8A7CA0B22D49B08002B6B7A /* ThreadSyncMutexHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSyncMutexHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 			children = (
 				A8A34B9222D0FF7D001ACBED /* MainHandler.swift */,
 				A8A34B9622D1038E001ACBED /* ThreadHandler.swift */,
+				A8A7CA0922D49162002B6B7A /* ThreadQOSHandler.swift */,
+				A8A7CA0B22D49B08002B6B7A /* ThreadSyncMutexHandler.swift */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -154,7 +160,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8A34B9722D1038E001ACBED /* ThreadHandler.swift in Sources */,
+				A8A7CA0C22D49B08002B6B7A /* ThreadSyncMutexHandler.swift in Sources */,
 				A8A34B9522D0FFE5001ACBED /* MainViewController.swift in Sources */,
+				A8A7CA0A22D49162002B6B7A /* ThreadQOSHandler.swift in Sources */,
 				A8A34B5F22D0E7A6001ACBED /* AppDelegate.swift in Sources */,
 				A8A34B9322D0FF7D001ACBED /* MainHandler.swift in Sources */,
 			);
@@ -284,7 +292,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4KVLMRJ2PM;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Thread/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -302,7 +310,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4KVLMRJ2PM;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Thread/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

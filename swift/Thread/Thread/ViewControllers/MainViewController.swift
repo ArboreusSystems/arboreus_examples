@@ -34,7 +34,15 @@ class MainViewController: UIViewController {
         view.addSubview(mLabel(inText: "Swift examples", inY: 0.1, inHeight: 0.05));
 		view.addSubview(mLabel(inText: "Thread", inY: 0.15, inHeight: 0.1));
 		
-		ThreadHandler.mDoPosix();
+//		ThreadHandler.mDoPosix();
+//		ThreadHandler.mDoNSThread();
+
+//		ThreadQOSHandler.mDoTest();
+//		ThreadQOSHandler.mDoNSThread();
+		
+		let oSyncMutex: ThreadSyncMutexHandler = ThreadSyncMutexHandler();
+//		oSyncMutex.mDoDemoPosix();
+		oSyncMutex.mDoDemoNSlock();
 	}
 	
 	// MARK: UI Elements
