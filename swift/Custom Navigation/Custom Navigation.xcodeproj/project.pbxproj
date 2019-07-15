@@ -8,21 +8,44 @@
 
 /* Begin PBXBuildFile section */
 		60953023F28F903103BAB5B1 /* ADEFFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609531E43E68EC98177CD487 /* ADEFFonts.swift */; };
-		609530D0459E5CC97A93CFEF /* ARBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6095386AF4163A92744E3A37 /* ARBViewController.swift */; };
 		609530F32F8263E352907838 /* ADEFColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6095329DE4DF85BCFA79758E /* ADEFColors.swift */; };
-		60953FFF3E18746D792B287F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60953BD01C30DD218AB92AAB /* MainViewController.swift */; };
+		60953199F5B92012DC19FB01 /* VCPage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609538C178B18C8A010074EB /* VCPage3.swift */; };
+		609536ADB06CA2C63B21AB60 /* ELButtonBarNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609538FCF85488A6B71A017A /* ELButtonBarNavigation.swift */; };
+		6095374445BD7A3448924199 /* VCMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60953F084D1006CADD40E1CD /* VCMain.swift */; };
+		609539A18D889CC7F2809D17 /* PRContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60953E0C409C2428829CDEB5 /* PRContentView.swift */; };
+		60953B00CD0EF9849002097B /* VCPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609534156DED8D23C2802A63 /* VCPage2.swift */; };
+		60953B7A46CF8365741D1533 /* VCPage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60953442CBCEDD575F50C7F3 /* VCPage1.swift */; };
+		60953C7079BE938EB8A76905 /* VCBarNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60953B958AE71CDDF8AED75D /* VCBarNavigation.swift */; };
+		60953EDD58B39FAA86CA4F39 /* PRButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6095306D35D073153C5F90CE /* PRButton.swift */; };
+		60953F47912D02C37B4D0066 /* PRLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609535DDB4C0C93C1ACA027A /* PRLabel.swift */; };
+		60953F55EBCE37193CC328BC /* VCMainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60953A276F130DC5C338E843 /* VCMainWrapper.swift */; };
 		A862CDAF22DBB52A00E4A874 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A862CDAE22DBB52A00E4A874 /* LaunchScreen.storyboard */; };
 		A862CDB322DBB58900E4A874 /* DemoVectorLogo.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A862CDB122DBB58900E4A874 /* DemoVectorLogo.pdf */; };
 		A862CDB422DBB58900E4A874 /* DemoVectorTree.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A862CDB222DBB58900E4A874 /* DemoVectorTree.pdf */; };
 		A8A34B7D22D0FDCB001ACBED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A34B7C22D0FDCB001ACBED /* AppDelegate.swift */; };
 		A8A34B8422D0FDCB001ACBED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8A34B8322D0FDCB001ACBED /* Assets.xcassets */; };
+		A8C4453322DCA56F00D97D44 /* DemoButtonNormal.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A8C4453122DCA56F00D97D44 /* DemoButtonNormal.pdf */; };
+		A8C4453422DCA56F00D97D44 /* DemoButtonPressed.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A8C4453222DCA56F00D97D44 /* DemoButtonPressed.pdf */; };
+		A8F0E6CE22DCACA800BC376D /* Mohave-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A862CDAC22DB9BFA00E4A874 /* Mohave-Bold.otf */; };
+		A8F0E6CF22DCACAB00BC376D /* Mohave-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A862CDAD22DB9BFA00E4A874 /* Mohave-BoldItalic.otf */; };
+		A8F0E6D022DCACAD00BC376D /* Mohave-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A862CDAB22DB9BFA00E4A874 /* Mohave-Italic.otf */; };
+		A8F0E6D122DCACB000BC376D /* Mohave-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A862CDAA22DB9BFA00E4A874 /* Mohave-Regular.otf */; };
+		A8F0E6D322DCB78C00BC376D /* MainHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F0E6D222DCB78C00BC376D /* MainHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6095306D35D073153C5F90CE /* PRButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRButton.swift; sourceTree = "<group>"; };
 		609531E43E68EC98177CD487 /* ADEFFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADEFFonts.swift; sourceTree = "<group>"; };
 		6095329DE4DF85BCFA79758E /* ADEFColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADEFColors.swift; sourceTree = "<group>"; };
-		6095386AF4163A92744E3A37 /* ARBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARBViewController.swift; sourceTree = "<group>"; };
-		60953BD01C30DD218AB92AAB /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		609534156DED8D23C2802A63 /* VCPage2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCPage2.swift; sourceTree = "<group>"; };
+		60953442CBCEDD575F50C7F3 /* VCPage1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCPage1.swift; sourceTree = "<group>"; };
+		609535DDB4C0C93C1ACA027A /* PRLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRLabel.swift; sourceTree = "<group>"; };
+		609538C178B18C8A010074EB /* VCPage3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCPage3.swift; sourceTree = "<group>"; };
+		609538FCF85488A6B71A017A /* ELButtonBarNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ELButtonBarNavigation.swift; sourceTree = "<group>"; };
+		60953A276F130DC5C338E843 /* VCMainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMainWrapper.swift; sourceTree = "<group>"; };
+		60953B958AE71CDDF8AED75D /* VCBarNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCBarNavigation.swift; sourceTree = "<group>"; };
+		60953E0C409C2428829CDEB5 /* PRContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRContentView.swift; sourceTree = "<group>"; };
+		60953F084D1006CADD40E1CD /* VCMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMain.swift; sourceTree = "<group>"; };
 		A862CDAA22DB9BFA00E4A874 /* Mohave-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mohave-Regular.otf"; sourceTree = "<group>"; };
 		A862CDAB22DB9BFA00E4A874 /* Mohave-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mohave-Italic.otf"; sourceTree = "<group>"; };
 		A862CDAC22DB9BFA00E4A874 /* Mohave-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mohave-Bold.otf"; sourceTree = "<group>"; };
@@ -34,6 +57,9 @@
 		A8A34B7C22D0FDCB001ACBED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8A34B8322D0FDCB001ACBED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8A34B8822D0FDCB001ACBED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8C4453122DCA56F00D97D44 /* DemoButtonNormal.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = DemoButtonNormal.pdf; sourceTree = "<group>"; };
+		A8C4453222DCA56F00D97D44 /* DemoButtonPressed.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = DemoButtonPressed.pdf; sourceTree = "<group>"; };
+		A8F0E6D222DCB78C00BC376D /* MainHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6095381613665E7A7649F1CF /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				A8C4453122DCA56F00D97D44 /* DemoButtonNormal.pdf */,
+				A8C4453222DCA56F00D97D44 /* DemoButtonPressed.pdf */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		60953D7EC141C83B2EE9EC5E /* Definitions */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				A862CDB022DBB56300E4A874 /* LaunchScreen */,
+				6095381613665E7A7649F1CF /* Buttons */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -128,6 +164,7 @@
 		A8C9ED5522DA3E7600DB5E10 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
+				A8F0E6D222DCB78C00BC376D /* MainHandler.swift */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -135,7 +172,12 @@
 		A8C9ED5622DA3E7C00DB5E10 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				60953BD01C30DD218AB92AAB /* MainViewController.swift */,
+				60953F084D1006CADD40E1CD /* VCMain.swift */,
+				60953A276F130DC5C338E843 /* VCMainWrapper.swift */,
+				60953B958AE71CDDF8AED75D /* VCBarNavigation.swift */,
+				60953442CBCEDD575F50C7F3 /* VCPage1.swift */,
+				609534156DED8D23C2802A63 /* VCPage2.swift */,
+				609538C178B18C8A010074EB /* VCPage3.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -152,7 +194,9 @@
 		A8C9ED5822DA3E9F00DB5E10 /* Primitives */ = {
 			isa = PBXGroup;
 			children = (
-				6095386AF4163A92744E3A37 /* ARBViewController.swift */,
+				60953E0C409C2428829CDEB5 /* PRContentView.swift */,
+				6095306D35D073153C5F90CE /* PRButton.swift */,
+				609535DDB4C0C93C1ACA027A /* PRLabel.swift */,
 			);
 			path = Primitives;
 			sourceTree = "<group>";
@@ -160,6 +204,7 @@
 		A8C9ED5922DA3EA700DB5E10 /* Elements  */ = {
 			isa = PBXGroup;
 			children = (
+				609538FCF85488A6B71A017A /* ELButtonBarNavigation.swift */,
 			);
 			path = "Elements ";
 			sourceTree = "<group>";
@@ -222,10 +267,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8F0E6D122DCACB000BC376D /* Mohave-Regular.otf in Resources */,
+				A8F0E6CF22DCACAB00BC376D /* Mohave-BoldItalic.otf in Resources */,
 				A8A34B8422D0FDCB001ACBED /* Assets.xcassets in Resources */,
 				A862CDB322DBB58900E4A874 /* DemoVectorLogo.pdf in Resources */,
+				A8C4453422DCA56F00D97D44 /* DemoButtonPressed.pdf in Resources */,
+				A8F0E6D022DCACAD00BC376D /* Mohave-Italic.otf in Resources */,
 				A862CDB422DBB58900E4A874 /* DemoVectorTree.pdf in Resources */,
 				A862CDAF22DBB52A00E4A874 /* LaunchScreen.storyboard in Resources */,
+				A8F0E6CE22DCACA800BC376D /* Mohave-Bold.otf in Resources */,
+				A8C4453322DCA56F00D97D44 /* DemoButtonNormal.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,10 +288,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8A34B7D22D0FDCB001ACBED /* AppDelegate.swift in Sources */,
-				60953FFF3E18746D792B287F /* MainViewController.swift in Sources */,
 				60953023F28F903103BAB5B1 /* ADEFFonts.swift in Sources */,
 				609530F32F8263E352907838 /* ADEFColors.swift in Sources */,
-				609530D0459E5CC97A93CFEF /* ARBViewController.swift in Sources */,
+				6095374445BD7A3448924199 /* VCMain.swift in Sources */,
+				60953F55EBCE37193CC328BC /* VCMainWrapper.swift in Sources */,
+				60953C7079BE938EB8A76905 /* VCBarNavigation.swift in Sources */,
+				609539A18D889CC7F2809D17 /* PRContentView.swift in Sources */,
+				60953B7A46CF8365741D1533 /* VCPage1.swift in Sources */,
+				60953B00CD0EF9849002097B /* VCPage2.swift in Sources */,
+				A8F0E6D322DCB78C00BC376D /* MainHandler.swift in Sources */,
+				60953199F5B92012DC19FB01 /* VCPage3.swift in Sources */,
+				60953EDD58B39FAA86CA4F39 /* PRButton.swift in Sources */,
+				60953F47912D02C37B4D0066 /* PRLabel.swift in Sources */,
+				609536ADB06CA2C63B21AB60 /* ELButtonBarNavigation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

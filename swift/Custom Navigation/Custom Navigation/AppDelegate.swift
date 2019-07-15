@@ -17,11 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		let oStatusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView;
 		if (oStatusBar.responds(to: #selector(setter: UIView.backgroundColor))) {
-			oStatusBar.backgroundColor = _COLOR_PURPLE;
+			oStatusBar.backgroundColor = _COLOR_BLACK;
 		}
 
+
+		for family in UIFont.familyNames.sorted() {
+    let names = UIFont.fontNames(forFamilyName: family)
+    print("Family: \(family) Font names: \(names)")
+}
 		window = UIWindow(frame: UIScreen.main.bounds);
-		self.window?.rootViewController = MainViewController() as UIViewController;
+		self.window?.rootViewController = VCMainWrapper() as UIViewController;
 		self.window?.makeKeyAndVisible();
 
 		return true;
