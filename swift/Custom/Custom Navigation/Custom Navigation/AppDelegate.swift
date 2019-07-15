@@ -20,11 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			oStatusBar.backgroundColor = _COLOR_BLACK;
 		}
 
-
-		for family in UIFont.familyNames.sorted() {
-    let names = UIFont.fontNames(forFamilyName: family)
-    print("Family: \(family) Font names: \(names)")
-}
 		window = UIWindow(frame: UIScreen.main.bounds);
 		self.window?.rootViewController = VCMainWrapper() as UIViewController;
 		self.window?.makeKeyAndVisible();
