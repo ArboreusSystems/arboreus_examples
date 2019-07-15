@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DemoVectorLogo" translatesAutoresizingMaskIntoConstraints="NO" id="SMC-Eo-dhZ">
+                                <rect key="frame" x="0.0" y="44" width="124" height="124"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="124" id="eVn-WD-cUg"/>
+                                    <constraint firstAttribute="height" constant="124" id="jaB-cW-AqT"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DemoVectorTree" translatesAutoresizingMaskIntoConstraints="NO" id="T8Q-Od-UF0">
+                                <rect key="frame" x="263" y="584" width="131" height="278"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="131" id="K1r-gK-13D"/>
+                                    <constraint firstAttribute="height" constant="278" id="X2k-ua-6XD"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SMC-Eo-dhZ" firstAttribute="top" secondItem="dpk-rL-9uk" secondAttribute="top" id="b3i-ad-B7Y"/>
+                            <constraint firstItem="dpk-rL-9uk" firstAttribute="trailing" secondItem="T8Q-Od-UF0" secondAttribute="trailing" constant="20" id="fl7-t5-e40"/>
+                            <constraint firstItem="T8Q-Od-UF0" firstAttribute="bottom" secondItem="dpk-rL-9uk" secondAttribute="bottom" id="hvi-Zn-9YX"/>
+                            <constraint firstItem="SMC-Eo-dhZ" firstAttribute="leading" secondItem="dpk-rL-9uk" secondAttribute="leading" id="kRa-c0-Fjw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dpk-rL-9uk"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="DemoVectorLogo" width="396" height="396"/>
+        <image name="DemoVectorTree" width="174" height="577"/>
+    </resources>
+</document>
