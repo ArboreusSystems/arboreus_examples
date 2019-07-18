@@ -13,6 +13,10 @@
 		A8FD593622E08081009D6C5D /* MainHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FD593522E08081009D6C5D /* MainHandler.swift */; };
 		A8FD593822E08098009D6C5D /* VCMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FD593722E08098009D6C5D /* VCMain.swift */; };
 		A8FD593B22E08119009D6C5D /* ADEFColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FD593A22E08119009D6C5D /* ADEFColors.swift */; };
+		A8FD593E22E08B9F009D6C5D /* VCSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FD593D22E08B9F009D6C5D /* VCSplash.swift */; };
+		A8FD594022E08BBB009D6C5D /* VCAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FD593F22E08BBB009D6C5D /* VCAuth.swift */; };
+		A8FD594222E08C07009D6C5D /* VCRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FD594122E08C07009D6C5D /* VCRoot.swift */; };
+		A8FD594422E092C6009D6C5D /* ADEFGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FD594322E092C6009D6C5D /* ADEFGlobal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		A8FD593522E08081009D6C5D /* MainHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHandler.swift; sourceTree = "<group>"; };
 		A8FD593722E08098009D6C5D /* VCMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCMain.swift; sourceTree = "<group>"; };
 		A8FD593A22E08119009D6C5D /* ADEFColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADEFColors.swift; sourceTree = "<group>"; };
+		A8FD593D22E08B9F009D6C5D /* VCSplash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSplash.swift; sourceTree = "<group>"; };
+		A8FD593F22E08BBB009D6C5D /* VCAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCAuth.swift; sourceTree = "<group>"; };
+		A8FD594122E08C07009D6C5D /* VCRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCRoot.swift; sourceTree = "<group>"; };
+		A8FD594322E092C6009D6C5D /* ADEFGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADEFGlobal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +88,9 @@
 			isa = PBXGroup;
 			children = (
 				A8FD593722E08098009D6C5D /* VCMain.swift */,
+				A8FD593D22E08B9F009D6C5D /* VCSplash.swift */,
+				A8FD593F22E08BBB009D6C5D /* VCAuth.swift */,
+				A8FD594122E08C07009D6C5D /* VCRoot.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -104,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				A8FD593A22E08119009D6C5D /* ADEFColors.swift */,
+				A8FD594322E092C6009D6C5D /* ADEFGlobal.swift */,
 			);
 			path = Definitions;
 			sourceTree = "<group>";
@@ -188,6 +200,10 @@
 				A8C92A6422E077D50007D56E /* AppDelegate.swift in Sources */,
 				A8FD593B22E08119009D6C5D /* ADEFColors.swift in Sources */,
 				A8FD593622E08081009D6C5D /* MainHandler.swift in Sources */,
+				A8FD594222E08C07009D6C5D /* VCRoot.swift in Sources */,
+				A8FD594422E092C6009D6C5D /* ADEFGlobal.swift in Sources */,
+				A8FD593E22E08B9F009D6C5D /* VCSplash.swift in Sources */,
+				A8FD594022E08BBB009D6C5D /* VCAuth.swift in Sources */,
 				A8FD593822E08098009D6C5D /* VCMain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

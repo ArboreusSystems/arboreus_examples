@@ -8,18 +8,30 @@
 
 import UIKit
 
+let pVCRoot: VCRoot = AppDelegate.shared.rootViewController;
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-	var window: UIWindow?
+	var pWindow: Optional<UIWindow> = nil;
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		
-		window = UIWindow(frame: UIScreen.main.bounds);
-		self.window?.rootViewController = VCMain() as UIViewController;
-		self.window?.makeKeyAndVisible();
+		pWindow = UIWindow(frame: UIScreen.main.bounds);
+		pWindow?.rootViewController = VCRoot();
+		pWindow?.makeKeyAndVisible();
 		
 		return true;
 	}
 }
 
+extension AppDelegate {
+	
+	static var shared: AppDelegate {
+		return UIApplication.shared.delegate as! AppDelegate;
+	}
+	
+	var rootViewController: VCRoot {
+		return pWindow!.rootViewController as! VCRoot;
+	}
+}
