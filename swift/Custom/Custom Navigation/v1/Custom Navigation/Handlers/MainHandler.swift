@@ -30,5 +30,4 @@ class MainHandler: NSObject {
 			oAlertController, animated: true
 		);
 	}
-
 }
