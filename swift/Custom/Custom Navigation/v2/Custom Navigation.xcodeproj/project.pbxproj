@@ -66,7 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				A8FD593922E080E6009D6C5D /* Definitions */,
-				A8FD593122E07848009D6C5D /* Resources */,
 				A8FD593022E0783D009D6C5D /* ViewControllers */,
 				A8FD592F22E07836009D6C5D /* Handlers */,
 				A8C92A6322E077D50007D56E /* AppDelegate.swift */,
@@ -95,22 +94,6 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		A8FD593122E07848009D6C5D /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				A8FD593222E07855009D6C5D /* Images */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		A8FD593222E07855009D6C5D /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				A8FD593C22E08240009D6C5D /* Button */,
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
 		A8FD593922E080E6009D6C5D /* Definitions */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,13 +101,6 @@
 				A8FD594322E092C6009D6C5D /* ADEFGlobal.swift */,
 			);
 			path = Definitions;
-			sourceTree = "<group>";
-		};
-		A8FD593C22E08240009D6C5D /* Button */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Button;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
