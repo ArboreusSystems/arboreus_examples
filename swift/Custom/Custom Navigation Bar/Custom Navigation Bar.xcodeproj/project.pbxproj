@@ -9,9 +9,15 @@
 /* Begin PBXBuildFile section */
 		A829152722DCC12000B44FC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A829152622DCC12000B44FC6 /* AppDelegate.swift */; };
 		A829152E22DCC12000B44FC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A829152D22DCC12000B44FC6 /* Assets.xcassets */; };
-		A829153922DCC39D00B44FC6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A829153822DCC39D00B44FC6 /* Default-568h@2x.png */; };
 		A829153C22DCC4A300B44FC6 /* MainHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A829153B22DCC4A300B44FC6 /* MainHandler.swift */; };
 		A829153F22DCC4C800B44FC6 /* VCMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A829153E22DCC4C800B44FC6 /* VCMain.swift */; };
+		A8F60A5922E20DB500EB664C /* LaunchScreenLogo.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A8F60A5822E20DB500EB664C /* LaunchScreenLogo.pdf */; };
+		A8F60A5E22E2113500EB664C /* ADEFColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F60A5D22E2113500EB664C /* ADEFColors.swift */; };
+		A8F60A6022E2119100EB664C /* VCSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F60A5F22E2119100EB664C /* VCSplash.swift */; };
+		A8F60A6522E2227C00EB664C /* ELIndicatorLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F60A6422E2227C00EB664C /* ELIndicatorLoad.swift */; };
+		A8F60A6922E2291400EB664C /* IndicatorLoad.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A8F60A6822E2291400EB664C /* IndicatorLoad.pdf */; };
+		A8FD596822E0C4D0009D6C5D /* VCRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FD596722E0C4D0009D6C5D /* VCRoot.swift */; };
+		A8FD596A22E0C54A009D6C5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8FD596922E0C54A009D6C5D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,9 +25,15 @@
 		A829152622DCC12000B44FC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A829152D22DCC12000B44FC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A829153222DCC12000B44FC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A829153822DCC39D00B44FC6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A829153B22DCC4A300B44FC6 /* MainHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHandler.swift; sourceTree = "<group>"; };
 		A829153E22DCC4C800B44FC6 /* VCMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCMain.swift; sourceTree = "<group>"; };
+		A8F60A5822E20DB500EB664C /* LaunchScreenLogo.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LaunchScreenLogo.pdf; sourceTree = "<group>"; };
+		A8F60A5D22E2113500EB664C /* ADEFColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADEFColors.swift; sourceTree = "<group>"; };
+		A8F60A5F22E2119100EB664C /* VCSplash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSplash.swift; sourceTree = "<group>"; };
+		A8F60A6422E2227C00EB664C /* ELIndicatorLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELIndicatorLoad.swift; sourceTree = "<group>"; };
+		A8F60A6822E2291400EB664C /* IndicatorLoad.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = IndicatorLoad.pdf; sourceTree = "<group>"; };
+		A8FD596722E0C4D0009D6C5D /* VCRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCRoot.swift; sourceTree = "<group>"; };
+		A8FD596922E0C54A009D6C5D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +50,6 @@
 		A829151A22DCC11F00B44FC6 = {
 			isa = PBXGroup;
 			children = (
-				A829153822DCC39D00B44FC6 /* Default-568h@2x.png */,
 				A829152522DCC12000B44FC6 /* Custom Navigation Bar */,
 				A829152422DCC12000B44FC6 /* Products */,
 			);
@@ -55,11 +66,15 @@
 		A829152522DCC12000B44FC6 /* Custom Navigation Bar */ = {
 			isa = PBXGroup;
 			children = (
+				A8F60A6122E2221B00EB664C /* UI */,
+				A8F60A5C22E2111800EB664C /* Definitions */,
+				A8FD596322E0C489009D6C5D /* Resources */,
 				A829153D22DCC4A700B44FC6 /* ViewControllers */,
 				A829153A22DCC48D00B44FC6 /* Handlers */,
 				A829152622DCC12000B44FC6 /* AppDelegate.swift */,
 				A829152D22DCC12000B44FC6 /* Assets.xcassets */,
 				A829153222DCC12000B44FC6 /* Info.plist */,
+				A8FD596922E0C54A009D6C5D /* LaunchScreen.storyboard */,
 			);
 			path = "Custom Navigation Bar";
 			sourceTree = "<group>";
@@ -76,8 +91,99 @@
 			isa = PBXGroup;
 			children = (
 				A829153E22DCC4C800B44FC6 /* VCMain.swift */,
+				A8FD596722E0C4D0009D6C5D /* VCRoot.swift */,
+				A8F60A5F22E2119100EB664C /* VCSplash.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A8F60A5722E20D7B00EB664C /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A8F60A5822E20DB500EB664C /* LaunchScreenLogo.pdf */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		A8F60A5C22E2111800EB664C /* Definitions */ = {
+			isa = PBXGroup;
+			children = (
+				A8F60A5D22E2113500EB664C /* ADEFColors.swift */,
+			);
+			path = Definitions;
+			sourceTree = "<group>";
+		};
+		A8F60A6122E2221B00EB664C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A8F60A6322E2222900EB664C /* Primitives */,
+				A8F60A6222E2222200EB664C /* Elements */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		A8F60A6222E2222200EB664C /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				A8F60A6422E2227C00EB664C /* ELIndicatorLoad.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		A8F60A6322E2222900EB664C /* Primitives */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Primitives;
+			sourceTree = "<group>";
+		};
+		A8F60A6622E226E800EB664C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A8F60A6722E226F300EB664C /* Elements */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		A8F60A6722E226F300EB664C /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				A8F60A6822E2291400EB664C /* IndicatorLoad.pdf */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		A8FD596322E0C489009D6C5D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A8FD596422E0C498009D6C5D /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A8FD596422E0C498009D6C5D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A8F60A6622E226E800EB664C /* UI */,
+				A8F60A5722E20D7B00EB664C /* LaunchScreen */,
+				A8FD596622E0C4B0009D6C5D /* Buttons */,
+				A8FD596522E0C4A2009D6C5D /* SplashScreen */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		A8FD596522E0C4A2009D6C5D /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		A8FD596622E0C4B0009D6C5D /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +244,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A829153922DCC39D00B44FC6 /* Default-568h@2x.png in Resources */,
+				A8FD596A22E0C54A009D6C5D /* LaunchScreen.storyboard in Resources */,
+				A8F60A5922E20DB500EB664C /* LaunchScreenLogo.pdf in Resources */,
+				A8F60A6922E2291400EB664C /* IndicatorLoad.pdf in Resources */,
 				A829152E22DCC12000B44FC6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,7 +258,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8FD596822E0C4D0009D6C5D /* VCRoot.swift in Sources */,
 				A829152722DCC12000B44FC6 /* AppDelegate.swift in Sources */,
+				A8F60A5E22E2113500EB664C /* ADEFColors.swift in Sources */,
+				A8F60A6022E2119100EB664C /* VCSplash.swift in Sources */,
+				A8F60A6522E2227C00EB664C /* ELIndicatorLoad.swift in Sources */,
 				A829153C22DCC4A300B44FC6 /* MainHandler.swift in Sources */,
 				A829153F22DCC4C800B44FC6 /* VCMain.swift in Sources */,
 			);
