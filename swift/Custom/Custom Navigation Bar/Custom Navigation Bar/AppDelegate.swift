@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 		
 		pWindow = UIWindow(frame: UIScreen.main.bounds);
-		self.pWindow!.rootViewController = VCSplash();
+		self.pWindow!.rootViewController = VCRoot();
 		self.pWindow!.makeKeyAndVisible();
 		
 		return true;

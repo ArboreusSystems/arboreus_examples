@@ -9,46 +9,42 @@
 import UIKit
 
 class VCSplash: UIViewController {
+	
+	var pIndicator: ELIndicatorLoad = ELIndicatorLoad(
+			frame: CGRect(x: 0, y: 0, width:50, height: 50)
+	);
 
-	var pView: UIViewController = {
-	
-		let oViewController: UIViewController = UIViewController();
-		oViewController.view.backgroundColor = _COLOR_WHITE;
-		oViewController.view.translatesAutoresizingMaskIntoConstraints = false;
-		return oViewController;
-	}();
-	
-	var pIndicator: ELIndicatorLoad = {
+	var pLabel: UILabel = {
 		
-		let oIndicator: ELIndicatorLoad = ELIndicatorLoad(
-			frame: CGRect(x: 0, y: 0, width: 50, height: 50),
-			image: UIImage(named: "IndicatorLoad")!
-		);
-		oIndicator.translatesAutoresizingMaskIntoConstraints = false;
-		return oIndicator;
+		let oLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 30));
+		oLabel.translatesAutoresizingMaskIntoConstraints = false;
+		oLabel.text = "Application Loading";
+		oLabel.textAlignment = NSTextAlignment.center;
+		return oLabel;
 	}();
-
-	override var preferredStatusBarStyle: UIStatusBarStyle {
-
-		return .lightContent;
-	}
 
 	override func loadView() {
 		
 		super.loadView();
-		self.view.backgroundColor = _COLOR_BLACK;
-		
-		let oSafeArea: UILayoutGuide = self.view.safeAreaLayoutGuide;
-		
-		self.view.addSubview(pView.view);
-		pView.view.topAnchor.constraint(equalTo: oSafeArea.topAnchor).isActive = true;
-		pView.view.bottomAnchor.constraint(equalTo: oSafeArea.bottomAnchor).isActive = true;
-		pView.view.leftAnchor.constraint(equalTo: oSafeArea.leftAnchor).isActive = true;
-		pView.view.rightAnchor.constraint(equalTo: oSafeArea.rightAnchor).isActive = true;
+		self.view.backgroundColor = _COLOR_WHITE;
 		
 		self.view.addSubview(pIndicator);
-		pIndicator.centerXAnchor.constraint(equalTo: pView.view.centerXAnchor).isActive = true;
-		pIndicator.centerYAnchor.constraint(equalTo: pView.view.centerYAnchor).isActive = true;
+		pIndicator.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -50).isActive = true;
+		pIndicator.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true;
+		pIndicator.widthAnchor.constraint(equalToConstant: 50).isActive = true;
+		pIndicator.heightAnchor.constraint(equalToConstant: 50).isActive = true;
+		
+		self.view.addSubview(pLabel);
+		pLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 10).isActive = true;
+		pLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true;
+		pLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true;
+		pLabel.heightAnchor.constraint(equalToConstant: 200).isActive = true;
+		
 		pIndicator.mStartAnimating();
+		
+		DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(5), execute: {
+			self.pIndicator.mStopAnimating();
+			AppDelegate.shared.rootViewController.mShowMain();
+		});
 	}
 }

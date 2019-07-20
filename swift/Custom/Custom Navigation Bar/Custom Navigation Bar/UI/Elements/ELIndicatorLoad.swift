@@ -11,42 +11,43 @@ import UIKit
 class ELIndicatorLoad: UIView {
 
 	let pImageView: UIImageView = UIImageView();
+	let pImageName: String = "IndicatorLoad";
 	
-	init(frame: CGRect, image: UIImage) {
+	override init(frame: CGRect) {
 		
 		super.init(frame: frame);
-		mInitialize(inImage: image);
+		self.mInitialize();
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 	
-		fatalError("init(coder:) has not been implemented");
+		super.init(coder: aDecoder);
+		self.mInitialize();
 	}
 	
-    private func mInitialize(inImage: UIImage) -> Void {
-		
-		self.pImageView.backgroundColor = _COLOR_PURPLE;
-//		self.pImageView.frame = bounds;
-		self.pImageView.image = inImage;
-		self.pImageView.contentMode = .scaleAspectFit;
-		self.pImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight];
+    private func mInitialize() -> Void {
+
+		self.isHidden = true;
+		self.translatesAutoresizingMaskIntoConstraints = false;
+		self.pImageView.image = UIImage(named: self.pImageName);
+		self.pImageView.frame = self.bounds;
 		self.addSubview(pImageView);
 	}
-	
+
 	func mStartAnimating() -> Void {
-	
-		isHidden = false;
+
+		self.isHidden = false;
 		mRotate();
 	}
 
 	func mStopAnimating() -> Void {
-		
-		isHidden = true;
+
+		self.isHidden = true;
 		mRemoveRotation();
 	}
-	
+
 	private func mRotate() -> Void {
-	
+
 		let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z");
 		rotation.toValue = NSNumber(value: Double.pi * 2);
 		rotation.duration = 1;
@@ -54,9 +55,9 @@ class ELIndicatorLoad: UIView {
 		rotation.repeatCount = Float.greatestFiniteMagnitude;
 		self.pImageView.layer.add(rotation, forKey: "rotationAnimation");
 	}
-	
+
 	private func mRemoveRotation() -> Void {
-	
+
 		self.pImageView.layer.removeAnimation(forKey: "rotationAnimation");
     }
 }

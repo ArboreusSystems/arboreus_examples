@@ -13,6 +13,6 @@ class VCMain: UIViewController {
 	override func loadView() {
 		
 		super.loadView();
-		self.view.backgroundColor = UIColor.white;
+		self.view.backgroundColor = _COLOR_WHITE;
 	}
 }
