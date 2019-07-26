@@ -28,6 +28,18 @@ class VCMain: UIViewController {
 		self.view.addSubview(mLabel(inText: "Swift", inY: 0.1, inHeight: 0.05));
 		self.view.addSubview(mLabel(inText: "Custom UIControl", inY: 0.15, inHeight: 0.1));
 		self.mButtonExit();
+		
+		let oSwitchSize: CGFloat = 100.0;
+		let oSwitch: CONSwitch = CONSwitch(frame: CGRect(
+			x: (pScreenWidth - oSwitchSize) / 2,
+			y: (pScreenHeight - oSwitchSize) / 2,
+			width: oSwitchSize, height: oSwitchSize
+		));
+		oSwitch.addTarget(self, action: #selector(mDoTestSwitch), for: .touchDown);
+		self.view.addSubview(oSwitch);
+		
+//		let oImage: UIImageView = UIImageView(image: UIImage(named: "switch_no"));
+//		self.view.addSubview(oImage);
 	}
 	
 	private func mButtonExit() -> Void {
@@ -61,5 +73,10 @@ class VCMain: UIViewController {
 	@objc func mDoExit(_ inSender: Any) -> Void {
 
 		MainHandler.mDoExit();
+	}
+	
+	@objc func mDoTestSwitch() -> Void {
+		
+		print("mDoTestSwitch()");
 	}
 }

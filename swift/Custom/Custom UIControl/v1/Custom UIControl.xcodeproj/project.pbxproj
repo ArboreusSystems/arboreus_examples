@@ -13,6 +13,9 @@
 		A85DD88022E88E4B00E12EF7 /* MainHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85DD87F22E88E4B00E12EF7 /* MainHandler.swift */; };
 		A85DD88222E88EC700E12EF7 /* VCMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85DD88122E88EC700E12EF7 /* VCMain.swift */; };
 		A85DD88522E88F3700E12EF7 /* ADEFColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85DD88422E88F3700E12EF7 /* ADEFColors.swift */; };
+		A85DD88722E8B3E100E12EF7 /* CONSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85DD88622E8B3E100E12EF7 /* CONSwitch.swift */; };
+		A8C769A522EAD9D700B2D5E0 /* switch_yes.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A8C769A322EAD9D700B2D5E0 /* switch_yes.pdf */; };
+		A8C769A622EAD9D700B2D5E0 /* switch_no.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A8C769A422EAD9D700B2D5E0 /* switch_no.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		A85DD87F22E88E4B00E12EF7 /* MainHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHandler.swift; sourceTree = "<group>"; };
 		A85DD88122E88EC700E12EF7 /* VCMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCMain.swift; sourceTree = "<group>"; };
 		A85DD88422E88F3700E12EF7 /* ADEFColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADEFColors.swift; sourceTree = "<group>"; };
+		A85DD88622E8B3E100E12EF7 /* CONSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CONSwitch.swift; sourceTree = "<group>"; };
+		A8C769A322EAD9D700B2D5E0 /* switch_yes.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = switch_yes.pdf; sourceTree = "<group>"; };
+		A8C769A422EAD9D700B2D5E0 /* switch_no.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = switch_no.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,7 @@
 		A85DD86722E88D5100E12EF7 /* Custom UIControl */ = {
 			isa = PBXGroup;
 			children = (
+				A8C769A022EAD92C00B2D5E0 /* Resources */,
 				A85DD88322E88F0700E12EF7 /* Definitions */,
 				A85DD87E22E88E2100E12EF7 /* Controls */,
 				A85DD87D22E88E1300E12EF7 /* ViewControllers */,
@@ -87,6 +94,7 @@
 		A85DD87E22E88E2100E12EF7 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				A85DD88622E8B3E100E12EF7 /* CONSwitch.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -97,6 +105,31 @@
 				A85DD88422E88F3700E12EF7 /* ADEFColors.swift */,
 			);
 			path = Definitions;
+			sourceTree = "<group>";
+		};
+		A8C769A022EAD92C00B2D5E0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A8C769A122EAD93A00B2D5E0 /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A8C769A122EAD93A00B2D5E0 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A8C769A222EAD94200B2D5E0 /* CONSwitch */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		A8C769A222EAD94200B2D5E0 /* CONSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				A8C769A422EAD9D700B2D5E0 /* switch_no.pdf */,
+				A8C769A322EAD9D700B2D5E0 /* switch_yes.pdf */,
+			);
+			path = CONSwitch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,8 +190,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8C769A522EAD9D700B2D5E0 /* switch_yes.pdf in Resources */,
 				A85DD87B22E88D9E00E12EF7 /* Default-568h@2x.png in Resources */,
 				A85DD87022E88D5100E12EF7 /* Assets.xcassets in Resources */,
+				A8C769A622EAD9D700B2D5E0 /* switch_no.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +206,7 @@
 			files = (
 				A85DD86922E88D5100E12EF7 /* AppDelegate.swift in Sources */,
 				A85DD88522E88F3700E12EF7 /* ADEFColors.swift in Sources */,
+				A85DD88722E8B3E100E12EF7 /* CONSwitch.swift in Sources */,
 				A85DD88022E88E4B00E12EF7 /* MainHandler.swift in Sources */,
 				A85DD88222E88EC700E12EF7 /* VCMain.swift in Sources */,
 			);
