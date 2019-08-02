@@ -25,6 +25,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         Q_PROPERTY/aproperty.cpp \
+        containers/associative/ahash.cpp \
+        containers/associative/amap.cpp \
+        containers/associative/amultihash.cpp \
+        containers/associative/amultimap.cpp \
+        containers/associative/aset.cpp \
+        containers/consistent/alinkedlist.cpp \
+        containers/consistent/alist.cpp \
+        containers/consistent/aqueue.cpp \
+        containers/consistent/astack.cpp \
+        containers/consistent/avector.cpp \
         main.cpp \
         signals/asignals.cpp \
         signals/aslots.cpp
@@ -37,5 +47,15 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
 	aglobal.h \
 	Q_PROPERTY/aproperty.h \
+	containers/associative/ahash.h \
+	containers/associative/amap.h \
+	containers/associative/amultihash.h \
+	containers/associative/amultimap.h \
+	containers/associative/aset.h \
+	containers/consistent/alinkedlist.h \
+	containers/consistent/alist.h \
+	containers/consistent/aqueue.h \
+	containers/consistent/astack.h \
+	containers/consistent/avector.h \
 	signals/asignals.h \
 	signals/aslots.h
