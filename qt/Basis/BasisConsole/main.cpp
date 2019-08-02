@@ -11,9 +11,12 @@
 // System includes
 #include <QCoreApplication>
 #include <QMetaProperty>
+#include <QObject>
 
 // Application includes
 #include "Q_PROPERTY/aproperty.h"
+#include "signals/asignals.h"
+#include "signals/aslots.h"
 
 
 
@@ -22,7 +25,7 @@ int main(int Counter, char *Arguments[]) {
 	QCoreApplication Application(Counter, Arguments);
 
 	aProperty *oProperty = new aProperty();
-	aLOG << "Testing Q_PROPERTY:\n------------------";
+	aLOG << "\n------------------\nTesting Q_PROPERTY\n------------------";
 	aLOG << "Default values";
 	aLOG << "RO String:" << oProperty->property("pStringRO").toString();
 	aLOG << "RW String:" << oProperty->property("pStringRW").toString();
@@ -37,6 +40,12 @@ int main(int Counter, char *Arguments[]) {
 		QMetaProperty oMetaProperty = oMetaObject->property(i);
 		aLOG << "Position:" << i << "Property name: " << oMetaProperty.name();
 	}
+
+	aLOG << "\n------------------\nTesting signals\n------------------";
+	aSignals *oSignal = new aSignals();
+	aSlots *oSlot = new aSlots();
+	QObject::connect(oSignal,SIGNAL(mDoSignal(quint32,int)),oSlot,SLOT(mDoSlot(quint32,int)));
+	oSignal->mDoTest();
 
 
 	return Application.exec();

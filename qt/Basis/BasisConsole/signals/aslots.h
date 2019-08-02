@@ -20,6 +20,7 @@
 #include <QObject>
 
 // Application includes
+#include "aglobal.h"
 
 
 class aSlots : public QObject {
@@ -30,9 +31,8 @@ class aSlots : public QObject {
 		explicit aSlots(QObject *parent = nullptr);
 		virtual ~aSlots(void);
 
-	signals:
-
-	public slots:
+	private slots:
+		void mDoSlot(quint32 inNumber, int inIteration);
 };
 
 #endif // ASLOTS_H

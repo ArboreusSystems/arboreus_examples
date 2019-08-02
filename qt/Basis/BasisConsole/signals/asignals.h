@@ -18,9 +18,10 @@
 
 // System includes
 #include <QObject>
+#include <QRandomGenerator>
 
 // Application includes
-
+#include "aglobal.h"
 
 class aSignals : public QObject {
 
@@ -29,10 +30,10 @@ class aSignals : public QObject {
 	public:
 		explicit aSignals(QObject *parent = nullptr);
 		virtual ~aSignals(void);
+		void mDoTest(void);
 
 	signals:
-
-	public slots:
+		void mDoSignal(quint32,int);
 };
 
 #endif // ASIGNALS_H

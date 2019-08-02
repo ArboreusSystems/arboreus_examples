@@ -22,10 +22,9 @@
 
 // -----------
 /*!
-	\fn
+	\fn aSlots::aSlots(QObject *parent) : QObject(parent)
 
 	Doc.
-
 */
 
 aSlots::aSlots(QObject *parent) : QObject(parent) {}
@@ -33,10 +32,22 @@ aSlots::aSlots(QObject *parent) : QObject(parent) {}
 
 // -----------
 /*!
-	\fn
+	\fn aSlots::~aSlots(void)
 
 	Doc.
-
 */
 
 aSlots::~aSlots(void) {}
+
+
+// -----------
+/*!
+	\fn aSlots::mDoSlot(quint32 inNumber, int inIteration)
+
+	Test slot functionality.
+*/
+
+void aSlots::mDoSlot(quint32 inNumber, int inIteration) {
+
+	aLOG << "aSlots -> Number:" << inNumber << "from iteration:" << inIteration;
+}

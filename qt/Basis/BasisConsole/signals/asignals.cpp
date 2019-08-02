@@ -17,15 +17,11 @@
 #include "asignals.h"
 
 
-
-
-
 // -----------
 /*!
-	\fn
+	\fn aSignals::aSignals(QObject *parent) : QObject(parent)
 
 	Doc.
-
 */
 
 aSignals::aSignals(QObject *parent) : QObject(parent) {}
@@ -33,10 +29,30 @@ aSignals::aSignals(QObject *parent) : QObject(parent) {}
 
 // -----------
 /*!
-	\fn
+	\fn aSignals::~aSignals(void)
 
 	Doc.
-
 */
 
 aSignals::~aSignals(void) {}
+
+
+// -----------
+/*!
+	\fn aSignals::~aSignals(void)
+
+	Doc.
+*/
+
+void aSignals::mDoTest(void) {
+
+	quint32 oNumber = 0;
+	for (int i = 0; i < 50; i++) {
+		QRandomGenerator::securelySeeded();
+		oNumber = QRandomGenerator::global()->generate() % 100;
+		aLOG << "aSignals -> Iteration:" << i << "Number:" << oNumber;
+		if (!(oNumber % 5)) {
+			emit mDoSignal(oNumber,i);
+		}
+	}
+}
