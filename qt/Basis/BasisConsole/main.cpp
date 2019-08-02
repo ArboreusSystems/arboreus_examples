@@ -47,6 +47,23 @@ int main(int Counter, char *Arguments[]) {
 	QObject::connect(oSignal,SIGNAL(mDoSignal(quint32,int)),oSlot,SLOT(mDoSlot(quint32,int)));
 	oSignal->mDoTest();
 
+	aLOG << "\n------------------\nObjects hierarchy\n------------------";
+	QObject *oTreeRoot = new QObject();
+	oTreeRoot->setObjectName("ROOT");
+	QObject *oTreeNode1 = new QObject(oTreeRoot);
+	oTreeNode1->setObjectName("Node 1");
+	QObject *oTreeNode2 = new QObject(oTreeRoot);
+	oTreeNode2->setObjectName("Node 2");
+	QObject *oTreeNode3 = new QObject(oTreeRoot);
+	oTreeNode3->setObjectName("Node 3");
+	QObject *oTreeNode4 = new QObject(oTreeNode3);
+	oTreeNode4->setObjectName("Node 4");
+	QObject *oTreeNode5 = new QObject(oTreeNode3);
+	oTreeNode5->setObjectName("Node 5");
+	QObject *oTreeNode6 = new QObject(oTreeNode1);
+	oTreeNode6->setObjectName("Node 6");
+	oTreeRoot->dumpObjectTree();
+
 
 	return Application.exec();
 }
