@@ -24,8 +24,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        aproperty.cpp \
-        main.cpp
+        Q_PROPERTY/aproperty.cpp \
+        main.cpp \
+        signals/asignals.cpp \
+        signals/aslots.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -34,4 +36,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
 	aglobal.h \
-	aproperty.h
+	Q_PROPERTY/aproperty.h \
+	signals/asignals.h \
+	signals/aslots.h

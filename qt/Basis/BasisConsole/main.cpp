@@ -10,9 +10,10 @@
 
 // System includes
 #include <QCoreApplication>
+#include <QMetaProperty>
 
 // Application includes
-#include "aproperty.h"
+#include "Q_PROPERTY/aproperty.h"
 
 
 
@@ -30,8 +31,12 @@ int main(int Counter, char *Arguments[]) {
 	aLOG << "Changed values";
 	aLOG << "RO String:" << oProperty->property("pStringRO").toString();
 	aLOG << "RW String:" << oProperty->property("pStringRW").toString();
-	aLOG << "";
-
+	aLOG << "All properties";
+	const QMetaObject *oMetaObject = oProperty->metaObject();
+	for (int i = 0; i < oMetaObject->propertyCount(); i++) {
+		QMetaProperty oMetaProperty = oMetaObject->property(i);
+		aLOG << "Position:" << i << "Property name: " << oMetaProperty.name();
+	}
 
 
 	return Application.exec();
