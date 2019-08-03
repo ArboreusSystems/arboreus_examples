@@ -17,6 +17,8 @@
 #include "Q_PROPERTY/aproperty.h"
 #include "signals/asignals.h"
 #include "signals/aslots.h"
+#include "containers/sequence/avector.h"
+#include "handlers/ahandlermain.h"
 
 
 
@@ -64,6 +66,9 @@ int main(int Counter, char *Arguments[]) {
 	oTreeNode6->setObjectName("Node 6");
 	oTreeRoot->dumpObjectTree();
 
+	aLOG << "\n------------------\nContainers: QVector\n------------------";
+	aVector *oVector = new aVector();
+	oVector->mDoTest();
 
 	return Application.exec();
 }

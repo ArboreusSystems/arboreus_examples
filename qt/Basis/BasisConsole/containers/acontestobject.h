@@ -1,6 +1,6 @@
 // ----------------------------------------------------------
 /*!
-	\headerfile aVector
+	\headerfile aConTestObject
 	\title
 	\brief Template file classes/cpp/file.h
 
@@ -8,30 +8,34 @@
 		\li @notice Template file classes/file.h
 		\li @copyright Arboreus (http://arboreus.systems)
 		\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-		\li @created 02/08/2019 at 16:38:23
+		\li @created 03/08/2019 at 11:45:55
 	\endlist
 */
 // ----------------------------------------------------------
 
-#ifndef AVECTOR_H
-#define AVECTOR_H
+#ifndef ACONTESTOBJECT_H
+#define ACONTESTOBJECT_H
 
 // System includes
 #include <QObject>
+#include <QString>
 #include <QVector>
+#include <QRandomGenerator>
 
 // Application includes
-#include "../../aglobal.h"
+#include "../aglobal.h"
+#include "handlers/ahandlermain.h"
 
 
-class aVector : public QObject {
+class aConTestObject : public QObject {
 
 	Q_OBJECT
 
 	public:
-		explicit aVector(QObject *parent = nullptr);
-		virtual ~aVector(void);
-		void mDoTest(void);
+		explicit aConTestObject(QObject *parent = nullptr);
+		virtual ~aConTestObject(void);
+		QString pString;
+		int pNumber;
 };
 
-#endif // AVECTOR_H
+#endif // ACONTESTOBJECT_H

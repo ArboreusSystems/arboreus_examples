@@ -25,16 +25,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         Q_PROPERTY/aproperty.cpp \
+	containers/acontestobject.cpp \
         containers/associative/ahash.cpp \
         containers/associative/amap.cpp \
         containers/associative/amultihash.cpp \
         containers/associative/amultimap.cpp \
         containers/associative/aset.cpp \
-        containers/consistent/alinkedlist.cpp \
-        containers/consistent/alist.cpp \
-        containers/consistent/aqueue.cpp \
-        containers/consistent/astack.cpp \
-        containers/consistent/avector.cpp \
+		containers/sequence/alinkedlist.cpp \
+		containers/sequence/alist.cpp \
+		containers/sequence/aqueue.cpp \
+		containers/sequence/astack.cpp \
+		containers/sequence/avector.cpp \
+	handlers/ahandlermain.cpp \
         main.cpp \
         signals/asignals.cpp \
         signals/aslots.cpp
@@ -47,15 +49,17 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
 	aglobal.h \
 	Q_PROPERTY/aproperty.h \
+	containers/acontestobject.h \
 	containers/associative/ahash.h \
 	containers/associative/amap.h \
 	containers/associative/amultihash.h \
 	containers/associative/amultimap.h \
 	containers/associative/aset.h \
-	containers/consistent/alinkedlist.h \
-	containers/consistent/alist.h \
-	containers/consistent/aqueue.h \
-	containers/consistent/astack.h \
-	containers/consistent/avector.h \
+	containers/sequence/alinkedlist.h \
+	containers/sequence/alist.h \
+	containers/sequence/aqueue.h \
+	containers/sequence/astack.h \
+	containers/sequence/avector.h \
+	handlers/ahandlermain.h \
 	signals/asignals.h \
 	signals/aslots.h

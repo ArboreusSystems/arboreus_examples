@@ -21,7 +21,7 @@
 #include <QList>
 
 // Application includes
-#include "../../aglobal.h";
+#include "../../aglobal.h"
 
 class aList : public QObject {
 

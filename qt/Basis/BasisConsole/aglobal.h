@@ -23,4 +23,6 @@
 
 #define aLOG qDebug() << QDateTime::currentMSecsSinceEpoch()
 
+#define A_TEST_ITERATIONS_COUNT 10
+
 #endif // AGLOBAL_H
