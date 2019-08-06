@@ -44,4 +44,32 @@ aMultiHash::~aMultiHash(void) {}
 	Doc.
 */
 
-void aMultiHash::mDoTest(void) {}
+void aMultiHash::mDoTest(void) {
+
+	QVector<aDictionaryType> oDictionary = {
+		aDictionaryType::AlphaLower,
+		aDictionaryType::AlphaUpper,
+		aDictionaryType::Numeric
+	};
+
+	QMultiHash<int,QString> oMultiHash;
+	int i = 0;
+	while (i < A_TEST_ITERATIONS_COUNT) {
+		QRandomGenerator::securelySeeded();
+		oMultiHash.insert(
+			QRandomGenerator::global()->generate() % 10,
+			aHandlerMain::mStringRandom(32,aHandlerMain::mStringDictionary(oDictionary))
+		);
+		i++;
+	}
+
+	QMultiHash<int,QString>::iterator oIterator = oMultiHash.begin();
+	for (; oIterator != oMultiHash.end(); ++oIterator) {
+		aLOG << "Key:" << oIterator.key() << "Value:" << oIterator.value();
+	}
+
+	QMultiHash<int,QString>::iterator oIteratorSelection = oMultiHash.find(3);
+	for (; oIteratorSelection != oMultiHash.end() && oIteratorSelection.key() == 3; ++oIteratorSelection) {
+		aLOG << "Selected by Key:" << oIteratorSelection.key() << "Value:" << oIteratorSelection.value();
+	}
+}
