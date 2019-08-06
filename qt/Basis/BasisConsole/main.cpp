@@ -26,6 +26,7 @@
 #include "containers/associative/amultimap.h"
 #include "containers/associative/ahash.h"
 #include "containers/associative/amultihash.h"
+#include "containers/associative/aset.h"
 #include "handlers/ahandlermain.h"
 
 
@@ -109,6 +110,10 @@ int main(int Counter, char *Arguments[]) {
 	aLOG << "\n------------------\nContainers: QMultiHash\n------------------";
 	aMultiHash *oMultiHash = new aMultiHash();
 	oMultiHash->mDoTest();
+
+	aLOG << "\n------------------\nContainers: QSet\n------------------";
+	aSet *oSet = new aSet();
+	oSet->mDoTest();
 
 	return Application.exec();
 }

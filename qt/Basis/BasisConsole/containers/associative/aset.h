@@ -19,9 +19,11 @@
 // System includes
 #include <QObject>
 #include <QSet>
+#include <QVector>
 
 // Application includes
 #include "../../aglobal.h"
+#include "handlers/ahandlermain.h"
 
 
 class aSet : public QObject {

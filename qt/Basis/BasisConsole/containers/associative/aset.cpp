@@ -44,4 +44,20 @@ aSet::~aSet(void) {}
 	Doc.
 */
 
-void aSet::mDoTest(void) {}
+void aSet::mDoTest(void) {
+
+	QSet<QString> oSet1; oSet1 << "1" << "2" << "3" << "4";
+	QSet<QString> oSet2; oSet2 << "3" << "4" << "5" << "6";
+	QSet<QString> oResult;
+
+	oResult = oSet1;
+	aLOG << "Unite:" << oResult.unite(oSet2);
+	oResult = oSet1;
+	aLOG << "Set1 - Set2:" << oResult.subtract(oSet2);
+	oResult = oSet2;
+	aLOG << "Set2 - Set1:" << oResult.subtract(oSet1);
+	oResult = oSet1;
+	aLOG << "Intersect:" << oResult.intersect(oSet2).toList();
+	oResult = oSet1;
+	aLOG << "Intersects:" << oResult.intersects(oSet2);
+}
