@@ -44,4 +44,33 @@ aStack::~aStack(void) {}
 	Doc.
 */
 
-void aStack::mDoTest(void) {}
+void aStack::mDoTest(void) {
+
+	QStack<QString> oStack1;
+	oStack1.push("1");
+	oStack1.push("2");
+	oStack1.push("3");
+	oStack1.push("4");
+	oStack1.push("5");
+	oStack1.push("6");
+	oStack1.push("7");
+	oStack1.push("8");
+	oStack1.push("9");
+
+	while (!oStack1.empty()) {
+		aLOG << oStack1.pop();
+	}
+
+	QVector<aDictionaryType> oDictionary = {
+		aDictionaryType::Numeric
+	};
+
+	QStack<QString> oStack2;
+	while (oStack2.count() < A_TEST_ITERATIONS_COUNT) {
+		oStack2.push(aHandlerMain::mStringRandom(32,aHandlerMain::mStringDictionary(oDictionary)));
+	}
+
+	while (!oStack2.empty()) {
+		aLOG << oStack2.pop();
+	}
+}
