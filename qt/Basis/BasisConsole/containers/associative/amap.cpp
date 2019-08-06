@@ -44,4 +44,24 @@ aMap::~aMap(void) {}
 	Doc.
 */
 
-void aMap::mDoTest(void) {}
+void aMap::mDoTest(void) {
+
+	QVector<aDictionaryType> oDictionary = {
+		aDictionaryType::AlphaLower,
+		aDictionaryType::AlphaUpper,
+		aDictionaryType::Numeric
+	};
+
+	QMap<int,QString> oMap1;
+	int oKey = 0; QString oValue = ""; int oIterator = 0;
+	while (oIterator < A_TEST_ITERATIONS_COUNT) {
+		QRandomGenerator::securelySeeded();
+		oKey = QRandomGenerator::global()->generate() % 10;
+		if (oMap1.find(oKey) == oMap1.end()) {
+			oValue = aHandlerMain::mStringRandom(32,aHandlerMain::mStringDictionary(oDictionary));
+			oMap1[oKey] = oValue;
+			aLOG << "Key:" << oKey << "Value:" << oValue;
+			oIterator++;
+		}
+	}
+}

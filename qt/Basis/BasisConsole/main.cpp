@@ -22,6 +22,7 @@
 #include "containers/sequence/alinkedlist.h"
 #include "containers/sequence/astack.h"
 #include "containers/sequence/aqueue.h"
+#include "containers/associative/amap.h"
 #include "handlers/ahandlermain.h"
 
 
@@ -89,6 +90,10 @@ int main(int Counter, char *Arguments[]) {
 	aLOG << "\n------------------\nContainers: QQueue\n------------------";
 	aQueue *oQueue = new aQueue();
 	oQueue->mDoTest();
+
+	aLOG << "\n------------------\nContainers: QMap\n------------------";
+	aMap *oMap = new aMap();
+	oMap->mDoTest();
 
 	return Application.exec();
 }

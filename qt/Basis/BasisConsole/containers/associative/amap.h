@@ -18,8 +18,14 @@
 
 // System includes
 #include <QObject>
+#include <QMap>
+#include <QRandomGenerator>
+#include <QVector>
 
 // Application includes
+#include "../../aglobal.h"
+#include "handlers/ahandlermain.h"
+
 
 class aMap : public QObject {
 
