@@ -23,6 +23,7 @@
 #include "containers/sequence/astack.h"
 #include "containers/sequence/aqueue.h"
 #include "containers/associative/amap.h"
+#include "containers/associative/amultimap.h"
 #include "handlers/ahandlermain.h"
 
 
@@ -94,6 +95,10 @@ int main(int Counter, char *Arguments[]) {
 	aLOG << "\n------------------\nContainers: QMap\n------------------";
 	aMap *oMap = new aMap();
 	oMap->mDoTest();
+
+	aLOG << "\n------------------\nContainers: QMap\n------------------";
+	aMultiMap *oMultiMap = new aMultiMap();
+	oMultiMap->mDoTest();
 
 	return Application.exec();
 }

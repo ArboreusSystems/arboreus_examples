@@ -44,4 +44,32 @@ aMultiMap::~aMultiMap(void) {}
 	Doc.
 */
 
-void aMultiMap::mDoTest(void) {}
+void aMultiMap::mDoTest(void) {
+
+	QVector<aDictionaryType> oDictionary = {
+		aDictionaryType::AlphaLower,
+		aDictionaryType::AlphaUpper,
+		aDictionaryType::Numeric
+	};
+
+	QMultiMap<int,QString> oMultiMap;
+	int i = 0;
+	while (i < A_TEST_ITERATIONS_COUNT) {
+		QRandomGenerator::securelySeeded();
+		oMultiMap.insert(
+			QRandomGenerator::global()->generate() % 10,
+			aHandlerMain::mStringRandom(32,aHandlerMain::mStringDictionary(oDictionary))
+		);
+		i++;
+	}
+
+	QMultiMap<int,QString>::iterator oIterator = oMultiMap.begin();
+	for (; oIterator != oMultiMap.end(); ++oIterator) {
+		aLOG << "Key:" << oIterator.key() << "Value:" << oIterator.value();
+	}
+
+	QMultiMap<int,QString>::iterator oIteratorSelection = oMultiMap.find(3);
+	for (; oIteratorSelection != oMultiMap.end() && oIteratorSelection.key() == 3; ++oIteratorSelection) {
+		aLOG << "Selected by Key:" << oIteratorSelection.key() << "Value:" << oIteratorSelection.value();
+	}
+}

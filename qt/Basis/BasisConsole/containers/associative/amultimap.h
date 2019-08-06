@@ -22,6 +22,7 @@
 
 // Application includes
 #include "../../aglobal.h"
+#include "handlers/ahandlermain.h"
 
 
 class aMultiMap : public QObject {
