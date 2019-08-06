@@ -21,6 +21,7 @@
 #include "containers/sequence/alist.h"
 #include "containers/sequence/alinkedlist.h"
 #include "containers/sequence/astack.h"
+#include "containers/sequence/aqueue.h"
 #include "handlers/ahandlermain.h"
 
 
@@ -84,6 +85,10 @@ int main(int Counter, char *Arguments[]) {
 	aLOG << "\n------------------\nContainers: QStack\n------------------";
 	aStack *oStack = new aStack();
 	oStack->mDoTest();
+
+	aLOG << "\n------------------\nContainers: QQueue\n------------------";
+	aQueue *oQueue = new aQueue();
+	oQueue->mDoTest();
 
 	return Application.exec();
 }

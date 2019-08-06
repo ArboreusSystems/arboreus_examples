@@ -44,4 +44,16 @@ aQueue::~aQueue(void) {}
 	Doc.
 */
 
-void aQueue::mDoTest(void) {}
+void aQueue::mDoTest(void) {
+
+	QQueue<QString> oQueue;
+	oQueue.enqueue("1");
+	oQueue.enqueue("2");
+	oQueue.enqueue("3");
+	oQueue.enqueue("4");
+	oQueue.enqueue("5");
+
+	while (!oQueue.empty()) {
+		aLOG << oQueue.dequeue();
+	}
+}
