@@ -96,7 +96,7 @@ int main(int Counter, char *Arguments[]) {
 	aMap *oMap = new aMap();
 	oMap->mDoTest();
 
-	aLOG << "\n------------------\nContainers: QMap\n------------------";
+	aLOG << "\n------------------\nContainers: QMultiMap\n------------------";
 	aMultiMap *oMultiMap = new aMultiMap();
 	oMultiMap->mDoTest();
 
