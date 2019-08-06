@@ -41,6 +41,7 @@ class aHandlerMain : public QObject {
 		virtual ~aHandlerMain(void);
 		static QString mStringRandom(int inLength,QString inDictionary);
 		static QString mStringDictionary(QVector<aDictionaryType> inSchema);
+		static int mNumberRandomFromRange(int inA,int inB);
 };
 
 #endif // AHANDLERMAIN_H

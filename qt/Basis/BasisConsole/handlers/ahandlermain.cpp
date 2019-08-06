@@ -90,3 +90,24 @@ QString aHandlerMain::mStringRandom(int inLength,QString inDictionary) {
 	}
 	return oRandomString;
 }
+
+
+// -----------
+/*!
+	\fn int aHandlerMain::mNumberRandomInRange(int inA, int inB)
+
+	Return random number from defined range
+*/
+
+int aHandlerMain::mNumberRandomFromRange(int inA, int inB) {
+
+	int oMinimum = 0; int oMaximum = 0;
+	if (inA > inB) {
+		oMaximum = inA; oMinimum = inB;
+	} else {
+		oMaximum = inB; oMinimum = inA;
+	}
+	QRandomGenerator::securelySeeded();
+	QRandomGenerator *oGenerator = new QRandomGenerator();
+	return oGenerator->bounded(oMinimum,oMaximum);
+}

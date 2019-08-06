@@ -93,6 +93,6 @@ void aVector::mDoTest(void) {
 	QVector<aConTestObject*>::iterator oOBJIterator2 = pVectorObjects.begin();
 	for (; oOBJIterator2 != pVectorObjects.end(); ++oOBJIterator2) {
 		aConTestObject *oObject = *oOBJIterator2;
-		aLOG << "Sorted -> Number:" << oObject->pNumber << "String:" << oObject->pString;
+		aLOG << "Sorted by pointer -> Number:" << oObject->pNumber << "String:" << oObject->pString;
 	}
 }

@@ -19,9 +19,13 @@
 // System includes
 #include <QObject>
 #include <QList>
+#include <QVector>
+#include <QString>
 
 // Application includes
 #include "../../aglobal.h"
+#include "handlers/ahandlermain.h"
+
 
 class aList : public QObject {
 
@@ -30,7 +34,12 @@ class aList : public QObject {
 	public:
 		explicit aList(QObject *parent = nullptr);
 		virtual ~aList(void);
-		void mDotest(void);
+		void mDoTest(void);
+		QList<QString> pTestList;
+		QVector<aDictionaryType> pDictionary;
+
+	private:
+
 };
 
 #endif // ALIST_H

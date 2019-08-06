@@ -18,6 +18,7 @@
 #include "signals/asignals.h"
 #include "signals/aslots.h"
 #include "containers/sequence/avector.h"
+#include "containers/sequence/alist.h"
 #include "handlers/ahandlermain.h"
 
 
@@ -69,6 +70,10 @@ int main(int Counter, char *Arguments[]) {
 	aLOG << "\n------------------\nContainers: QVector\n------------------";
 	aVector *oVector = new aVector();
 	oVector->mDoTest();
+
+	aLOG << "\n------------------\nContainers: QList\n------------------";
+	aList *oList = new aList();
+	oList->mDoTest();
 
 	return Application.exec();
 }

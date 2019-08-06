@@ -24,7 +24,20 @@
 	Doc.
 */
 
-aList::aList(QObject *parent) : QObject(parent) {}
+aList::aList(QObject *parent) : QObject(parent) {
+
+	pDictionary = {
+		aDictionaryType::AlphaLower,
+		aDictionaryType::AlphaUpper
+	};
+
+	for (int i = 0; i < A_TEST_ITERATIONS_COUNT; ++i) {
+		pTestList << aHandlerMain::mStringRandom(
+			aHandlerMain::mNumberRandomFromRange(5,32),
+			aHandlerMain::mStringDictionary(pDictionary)
+		);
+	}
+}
 
 
 // -----------
@@ -44,7 +57,34 @@ aList::~aList(void) {}
 	Doc.
 */
 
-void aList::mDotest(void) {
+void aList::mDoTest(void) {
 
+	aLOG << "Count:" << pTestList.count();
 
+	QList<QString>::iterator oListIterator1 = pTestList.begin();
+	for (; oListIterator1 != pTestList.end(); ++oListIterator1) {
+		aLOG << "QList unsorted value:" << *oListIterator1;
+	}
+
+	std::sort(pTestList.begin(),pTestList.end(),std::less<QString>());
+
+	QList<QString>::iterator oListIterator2 = pTestList.begin();
+	for (; oListIterator2 != pTestList.end(); ++oListIterator2) {
+		aLOG << "pTestList sorted std::sort value:" << *oListIterator2;
+	}
+
+	QList<QString> oTestList;
+	oTestList << "a" << "B" << "A" << "c" << "d" << "E" << "f" << "g" << "1" << "2";
+
+	QList<QString>::iterator oListIterator3 = oTestList.begin();
+	for (; oListIterator3 != oTestList.end(); ++oListIterator3) {
+		aLOG << "oTestList unsorted:" << *oListIterator3;
+	}
+
+	std::sort(oTestList.begin(),oTestList.end(),std::less<QString>());
+
+	QList<QString>::iterator oListIterator4 = oTestList.begin();
+	for (; oListIterator4 != oTestList.end(); ++oListIterator4) {
+		aLOG << "oTestList sorted by std::sort value:" << *oListIterator4;
+	}
 }
