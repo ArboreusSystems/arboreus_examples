@@ -19,9 +19,12 @@
 // System includes
 #include <QObject>
 #include <QLinkedList>
+#include <QVector>
+#include <QRandomGenerator>
 
 // Application includes
 #include "../../aglobal.h"
+#include "handlers/ahandlermain.h"
 
 
 class aLinkedList : public QObject {

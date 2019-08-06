@@ -19,6 +19,8 @@
 #include "signals/aslots.h"
 #include "containers/sequence/avector.h"
 #include "containers/sequence/alist.h"
+#include "containers/sequence/alinkedlist.h"
+#include "containers/sequence/astack.h"
 #include "handlers/ahandlermain.h"
 
 
@@ -74,6 +76,14 @@ int main(int Counter, char *Arguments[]) {
 	aLOG << "\n------------------\nContainers: QList\n------------------";
 	aList *oList = new aList();
 	oList->mDoTest();
+
+	aLOG << "\n------------------\nContainers: QLinkedList\n------------------";
+	aLinkedList *oLinkedList = new aLinkedList();
+	oLinkedList->mDoTest();
+
+	aLOG << "\n------------------\nContainers: QStack\n------------------";
+	aStack *oStack = new aStack();
+	oStack->mDoTest();
 
 	return Application.exec();
 }
