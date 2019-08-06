@@ -19,9 +19,11 @@
 // System includes
 #include <QObject>
 #include <QHash>
+#include <QVector>
 
 // Application includes
 #include "../../aglobal.h"
+#include "handlers/ahandlermain.h"
 
 
 class aHash : public QObject {

@@ -24,6 +24,7 @@
 #include "containers/sequence/aqueue.h"
 #include "containers/associative/amap.h"
 #include "containers/associative/amultimap.h"
+#include "containers/associative/ahash.h"
 #include "handlers/ahandlermain.h"
 
 
@@ -99,6 +100,10 @@ int main(int Counter, char *Arguments[]) {
 	aLOG << "\n------------------\nContainers: QMultiMap\n------------------";
 	aMultiMap *oMultiMap = new aMultiMap();
 	oMultiMap->mDoTest();
+
+	aLOG << "\n------------------\nContainers: QHash\n------------------";
+	aHash *oHash = new aHash();
+	oHash->mDoTest();
 
 	return Application.exec();
 }
