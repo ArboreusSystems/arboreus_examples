@@ -15,6 +15,7 @@
 
 // Application includes
 #include "Q_PROPERTY/aproperty.h"
+#include "QVariant/avariant.h"
 #include "signals/asignals.h"
 #include "signals/aslots.h"
 #include "containers/sequence/avector.h"
@@ -114,6 +115,10 @@ int main(int Counter, char *Arguments[]) {
 	aLOG << "\n------------------\nContainers: QSet\n------------------";
 	aSet *oSet = new aSet();
 	oSet->mDoTest();
+
+	aLOG << "\n------------------\nQVariant\n------------------";
+	aVariant *oVariant = new aVariant();
+	oVariant->mDoTest();
 
 	return Application.exec();
 }
