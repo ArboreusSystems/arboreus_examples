@@ -16,11 +16,13 @@
 class UsecaseFileSaving : public QObject {
 
 	Q_OBJECT
-public:
-	UsecaseFileSaving();
-	~UsecaseFileSaving();
-private slots:
-	void test_case1();
+
+	public:
+		explicit UsecaseFileSaving();
+		virtual ~UsecaseFileSaving();
+
+	private slots:
+		void test_case1();
 };
 
 UsecaseFileSaving::UsecaseFileSaving() {
