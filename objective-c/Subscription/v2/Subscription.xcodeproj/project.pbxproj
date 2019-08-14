@@ -309,7 +309,7 @@
 					"-lcrypto",
 					"-lssl",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Objective-c.Study.Subscription";
+				PRODUCT_BUNDLE_IDENTIFIER = local.bogong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -332,7 +332,7 @@
 					"-lcrypto",
 					"-lssl",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Objective-c.Study.Subscription";
+				PRODUCT_BUNDLE_IDENTIFIER = local.bogong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

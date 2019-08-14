@@ -72,25 +72,34 @@
 
 	for (SKPaymentTransaction *iTransaction in transactions) {
 		switch (iTransaction.transactionState) {
-			case SKPaymentTransactionStatePurchasing:
+			case SKPaymentTransactionStatePurchasing: {
 				NSLog(@"Transaction Purchasing");
 				break;
-			case SKPaymentTransactionStatePurchased:
+			}
+			case SKPaymentTransactionStatePurchased: {
 				NSLog(@"Transaction Purchased");
+				NSURL *oReceiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
+				NSData *oReceipt = [NSData dataWithContentsOfURL:oReceiptURL];
+				NSLog(@"%@", oReceipt);
 				[_pDefaultPaymentQueue finishTransaction:iTransaction];
 				[_pViewController mViewSubscribed:@"You've subscribed"];
 				break;
-			case SKPaymentTransactionStateFailed:
+			}
+			case SKPaymentTransactionStateFailed: {
 				NSLog(@"Transaction  Failed: %@",iTransaction.error.localizedDescription);
 				[_pDefaultPaymentQueue finishTransaction:iTransaction];
-			case SKPaymentTransactionStateRestored:
+			}
+			case SKPaymentTransactionStateRestored: {
 				NSLog(@"Restored: %@",iTransaction.payment.productIdentifier);
 				[_pDefaultPaymentQueue finishTransaction:iTransaction];
-			case SKPaymentTransactionStateDeferred:
+			}
+			case SKPaymentTransactionStateDeferred: {
 				NSLog(@"Transaction Deferred");
 				break;
-			default:
+			}
+			default: {
 				break;
+			}
 		}
 	}
 }

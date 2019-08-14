@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#define SUBS_PRODUCT_ID @"arboreus.objectivec.subscription"
+#define SUBS_PRODUCT_ID @"local.bogong.subscription"
 
 @class SubscriptionViewController;
 
