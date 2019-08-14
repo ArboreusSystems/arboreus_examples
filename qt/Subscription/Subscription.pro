@@ -21,11 +21,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-SOURCES += \
-        main.cpp \
-        subcription.mm \
-        test.cpp
-
 RESOURCES += qml.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
@@ -39,19 +34,25 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-HEADERS += \
-	aglobal.h \
+HEADERS += aglobal.h \
 	subscription.h \
 	test.h
+
+SOURCES += main.cpp \
+		subscription.cpp \
+		test.cpp
 
 ios {
 
 	PRODUCT_NAME = Subscription
 
+	OBJECTIVE_HEADERS = SubscriptionBackend.hpp
+	OBJECTIVE_SOURCES = SubscriptionBackend.mm
+
 	LIBS += -framework StoreKit
 	LIBS += -framework Foundation
 
 	QMAKE_APPLE_TARGETED_DEVICE_FAMILY = 1
-	QMAKE_TARGET_BUNDLE_PREFIX = Objective-c.Study
-	QMAKE_BUNDLE = Subscription
+	QMAKE_TARGET_BUNDLE_PREFIX = local
+	QMAKE_BUNDLE = bogong
 }
