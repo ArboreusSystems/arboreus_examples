@@ -47,7 +47,7 @@ ObjectiveCPPProxyClass::~ObjectiveCPPProxyClass(void) {
 
 QString ObjectiveCPPProxyClass::mGetNSString(void) {
 
-	ObjectiveCPPClass *oObjectiveCPPClass = [[ObjectiveCPPClass alloc] init];;
+	ObjectiveCPPClass *oObjectiveCPPClass = [[ObjectiveCPPClass alloc] init];
 	QString oNSString = QString::fromNSString([oObjectiveCPPClass mGetNSString]);
 	return oNSString;
 }
