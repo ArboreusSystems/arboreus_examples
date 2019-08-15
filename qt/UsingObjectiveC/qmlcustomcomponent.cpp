@@ -8,21 +8,24 @@
  * */// --------------------------------------------------------------
 
 #include "qmlcustomcomponent.h"
-#include "mynotification.h"
 
 
 QMLCustomComponent::QMLCustomComponent(QObject *parent)
 : QObject(parent) {
 
+	aLOG << "QMLCustomComponent::QMLCustomComponent created";
+
 }
 
 QMLCustomComponent::~QMLCustomComponent(){
 
+	aLOG << "QMLCustomComponent::QMLCustomComponent deleted";
 }
 
 QString QMLCustomComponent::text(void) {
 
-	MyNotification::Display("aaa","bbbb");
-	QString vString = QString::fromStdString(MyNotification::Text());
-	return vString;
+	pObjectiveCPP = new ObjectiveCPPProxyClass();
+
+	aLOG << "QMLCustomComponent::text(void)";
+	return pObjectiveCPP->mGetNSString();
 }

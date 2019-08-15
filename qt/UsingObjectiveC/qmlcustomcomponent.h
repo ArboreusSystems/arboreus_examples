@@ -12,6 +12,9 @@
 
 #include <QObject>
 #include <QString>
+#include "aglobal.h"
+#include "objectivecppproxyclass.hpp"
+
 
 class QMLCustomComponent : public QObject {
 
@@ -22,6 +25,9 @@ class QMLCustomComponent : public QObject {
 		explicit QMLCustomComponent(QObject *parent = nullptr);
 		virtual ~QMLCustomComponent();
 		QString text(void);
+
+	private:
+		ObjectiveCPPProxyClass *pObjectiveCPP;
 
 	signals:
 
