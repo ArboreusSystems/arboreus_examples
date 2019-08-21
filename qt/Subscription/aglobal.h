@@ -19,12 +19,7 @@
 #include <QDateTime>
 #include <QDebug>
 
-#define A_APP_ORGANISATION "AR|BO|RE|US"
-#define A_APP_DOMAIN "arboreus.systems"
-#define A_APP_NAME_PHONE "Storage.Mobile"
-
 #define A_DEFAULT_STRING "default string"
-
 #define aLOG qDebug() << QDateTime::currentMSecsSinceEpoch()
 
 #endif // AGLOBAL_H
