@@ -11,14 +11,16 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-
 // Application includes
+#include "aglobal.h"
 
 // Constants
 const QString Main = "qrc:/main.qml";
 
 
-// QtQuick Application
+#ifdef QT_UI_TESTS
+
+// UI Tests Application
 int main(int Counter, char *Arguments[]) {
 
 	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
@@ -29,5 +31,28 @@ int main(int Counter, char *Arguments[]) {
 	if (Engine.rootObjects().isEmpty())
 		return -1;
 
+	aLOG << "UI Tests application started";
+
 	return Application.exec();
 }
+
+#else
+
+// Regular Application
+int main(int Counter, char *Arguments[]) {
+
+	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+	QGuiApplication Application(Counter, Arguments);
+
+	QQmlApplicationEngine Engine;
+	Engine.load(QUrl(Main));
+	if (Engine.rootObjects().isEmpty())
+		return -1;
+
+	aLOG << "Regular application started";
+
+	return Application.exec();
+}
+
+#endif
+

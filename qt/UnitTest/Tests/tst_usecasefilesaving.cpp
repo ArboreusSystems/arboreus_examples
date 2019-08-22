@@ -35,6 +35,9 @@ UsecaseFileSaving::~UsecaseFileSaving() {
 
 void UsecaseFileSaving::test_case1() {
 
+	QVERIFY2(true,"Test case");
+	QVERIFY(2 == 2);
+	QVERIFY(1 == 2);
 }
 
 QTEST_MAIN(UsecaseFileSaving)

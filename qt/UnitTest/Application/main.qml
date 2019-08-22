@@ -98,7 +98,7 @@ Window {
 					id: buttonExitArea;
 					anchors.fill: parent;
 					onClicked: {
-						console.log("Application exit");
+						Qt.quit();
 					}
 				}
 			}
