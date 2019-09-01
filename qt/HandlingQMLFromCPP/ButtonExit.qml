@@ -27,8 +27,8 @@ Rectangle {
 	id: buttonExit;
 	objectName: "buttonExit";
 	color: COLOR.blueDark();
-//	width: parent.width * 0.8;
-//	height: width * 0.2;
+	width: parent.width * 0.8;
+	height: width * 0.2;
 	anchors.horizontalCenter: parent.horizontalCenter;
 
 	Text {

@@ -12,7 +12,8 @@
 #include <QQmlApplicationEngine>
 #include <QQuickView>
 #include <QQmlProperty>
-#include <QtQuick/private/qquicktext_p.h>
+#include <QQmlComponent>
+#include <QQuickItem>
 
 // Application includes
 #include "aglobal.h"
@@ -35,17 +36,14 @@ int main(int Counter, char *Arguments[]) {
 
 	QObject *oRootObject = dynamic_cast<QObject*>(Engine.rootObjects()[0]);
 	QObject *oBottomBlock = oRootObject->findChild<QObject*>("bottomBlock");
-	QQuickItem *oItemBottomBlock = qobject_cast<QQuickItem*>(oBottomBlock);
 
 	if (oBottomBlock) {
 
 		QQmlComponent oComponentButtonExit(&Engine,QUrl(QString("qrc:/ButtonExit.qml")));
 		QObject *oButtonExit = oComponentButtonExit.create();
-		oButtonExit->setParent(oBottomBlock);
-		oButtonExit->setProperty("width",oItemBottomBlock->width() * 0.8);
-		oButtonExit->setProperty("height",oItemBottomBlock->width() * 0.8 * 0.2);
 		QQuickItem *oItemButtonExit = qobject_cast<QQuickItem*>(oButtonExit);
 		oItemButtonExit->setParentItem(qobject_cast<QQuickItem*>(oBottomBlock));
+		oButtonExit->setParent(oBottomBlock);
 
 		QQmlComponent oComponentPaddingBottom(&Engine,QUrl(QString("qrc:/PaddingItem.qml")));
 		QObject *oPaddingBottom = oComponentPaddingBottom.create();

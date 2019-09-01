@@ -25,8 +25,4 @@ Item {
 	id: paddingButtom;
 	objectName: "paddingButtom";
 	width: parent.width;
-
-	Component.onCompleted: {
-		paddingButtom.width = parent.width
-	}
 }
