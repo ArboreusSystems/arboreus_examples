@@ -24,6 +24,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+	OOP/Singleton/oopsingletonecpp.cpp \
+	OOP/Singleton/oopsingletoneqt.cpp \
 	QVariant/avariant.cpp \
         Q_PROPERTY/aproperty.cpp \
 	containers/acontestobject.cpp \
@@ -48,6 +50,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+	OOP/Singleton/oopsingletonecpp.h \
+	OOP/Singleton/oopsingletoneqt.h \
 	QVariant/avariant.h \
 	aglobal.h \
 	Q_PROPERTY/aproperty.h \

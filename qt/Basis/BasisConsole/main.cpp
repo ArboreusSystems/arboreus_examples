@@ -29,6 +29,9 @@
 #include "containers/associative/amultihash.h"
 #include "containers/associative/aset.h"
 #include "handlers/ahandlermain.h"
+#include "OOP/Singleton/oopsingletonecpp.h"
+#include "OOP/Singleton/oopsingletoneqt.h"
+
 
 
 
@@ -119,6 +122,20 @@ int main(int Counter, char *Arguments[]) {
 	aLOG << "\n------------------\nQVariant\n------------------";
 	aVariant *oVariant = new aVariant();
 	oVariant->mDoTest();
+
+	aLOG << "\n------------------\nOOP: Singletone\n------------------";
+	OOPSingletoneCPP &oSingletonCPP1 = OOPSingletoneCPP::Instance();
+	aLOG << "oSingletonCPP1.pTestInt:" << oSingletonCPP1.pTestInt;
+	oSingletonCPP1.pTestInt = 1;
+	aLOG << "oSingletonCPP1.pTestInt:" << oSingletonCPP1.pTestInt;
+	OOPSingletoneCPP &oSingletonCPP2 = OOPSingletoneCPP::Instance();
+	aLOG << "oSingletonCPP2.pTestInt:" << oSingletonCPP2.pTestInt;
+	OOPSingletoneQt &oSingletonQt1 = OOPSingletoneQt::Instance();
+	aLOG << "oSingletonQt1.pTestString:" << oSingletonQt1.pTestString->toUtf8().constData();
+	oSingletonQt1.pTestString = new QString("Changed value");
+	aLOG << "oSingletonQt1.pTestString:" << oSingletonQt1.pTestString->toUtf8().constData();
+	OOPSingletoneQt &oSingletonQt2 = OOPSingletoneQt::Instance();
+	aLOG << "oSingletonQt2.pTestString:" << oSingletonQt2.pTestString->toUtf8().constData();
 
 	return Application.exec();
 }
