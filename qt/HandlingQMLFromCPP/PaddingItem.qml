@@ -25,4 +25,5 @@ Item {
 	id: paddingButtom;
 	objectName: "paddingButtom";
 	width: parent.width;
+//	height: 30;
 }

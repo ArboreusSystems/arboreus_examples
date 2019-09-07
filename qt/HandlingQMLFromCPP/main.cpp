@@ -14,6 +14,7 @@
 #include <QQmlProperty>
 #include <QQmlComponent>
 #include <QQuickItem>
+#include <QMetaObject>
 
 // Application includes
 #include "aglobal.h"
@@ -35,25 +36,27 @@ int main(int Counter, char *Arguments[]) {
 	}
 
 	QObject *oRootObject = dynamic_cast<QObject*>(Engine.rootObjects()[0]);
-	QObject *oBottomBlock = oRootObject->findChild<QObject*>("bottomBlock");
+	QObject *oJSWrapper = oRootObject->findChild<QObject*>("jsWrapper");
 
-	if (oBottomBlock) {
+	if (oJSWrapper) {
 
-		QQmlComponent oComponentButtonExit(&Engine,QUrl(QString("qrc:/ButtonExit.qml")));
-		QObject *oButtonExit = oComponentButtonExit.create();
-		QQuickItem *oItemButtonExit = qobject_cast<QQuickItem*>(oButtonExit);
-		oItemButtonExit->setParentItem(qobject_cast<QQuickItem*>(oBottomBlock));
-		oButtonExit->setParent(oBottomBlock);
+		QMetaObject::invokeMethod(oJSWrapper,"mCreateComponents");
 
-		QQmlComponent oComponentPaddingBottom(&Engine,QUrl(QString("qrc:/PaddingItem.qml")));
-		QObject *oPaddingBottom = oComponentPaddingBottom.create();
-		oPaddingBottom->setParent(oBottomBlock);
-		oPaddingBottom->setProperty("height",30);
-		QQuickItem *oItemPaddingBottom = qobject_cast<QQuickItem*>(oPaddingBottom);
-		oItemPaddingBottom->setParentItem(qobject_cast<QQuickItem*>(oBottomBlock));
+//		QQmlComponent oComponentButtonExit(&Engine,QUrl(QString("qrc:/ButtonExit.qml")));
+//		QQuickItem *oItemButtonExit = dynamic_cast<QQuickItem*>(oComponentButtonExit.beginCreate(Engine.rootContext()));
+//		oItemButtonExit->setParentItem(dynamic_cast<QQuickItem*>(oBottomBlock));
+//		oItemButtonExit->setParent(oBottomBlock);
+//		oComponentButtonExit.completeCreate();
 
-		aLOG << oBottomBlock;
-		aLOG << oBottomBlock->children();
+//		QQmlComponent oComponentPaddingBottom(&Engine,QUrl(QString("qrc:/PaddingItem.qml")));
+//		QQuickItem *oItemPaddingBottom = dynamic_cast<QQuickItem*>(oComponentPaddingBottom.beginCreate(Engine.rootContext()));
+//		oItemPaddingBottom->setParentItem(dynamic_cast<QQuickItem*>(oBottomBlock));
+//		oItemPaddingBottom->setParent(oBottomBlock);
+//		oItemPaddingBottom->setProperty("height",30);
+//		oComponentPaddingBottom.completeCreate();
+
+//		aLOG << oBottomBlock;
+//		aLOG << oBottomBlock->children();
 	}
 
 	return Application.exec();

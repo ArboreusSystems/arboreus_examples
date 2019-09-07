@@ -28,6 +28,25 @@ Window {
 	height: isDesktop ? GLOBAL.desktopApplicationHeight() : maximumHeight;
 	title: qsTr("QtQuick Hello World");
 
+	Item {
+
+		id: jsWrapper;
+		objectName: "jsWrapper";
+
+		function mCreateComponents() {
+
+			var oButtonExit = Qt.createComponent("qrc:/ButtonExit.qml");
+			if (oButtonExit.status === Component.Ready) {
+				var oItemButtonExit = oButtonExit.createObject(bottomBlock);
+			}
+			var oPaddingBottom = Qt.createComponent("qrc:/PaddingItem.qml");
+			if (oPaddingBottom.status === Component.Ready) {
+				var oItemPaddingBottom = oPaddingBottom.createObject(bottomBlock);
+				oItemPaddingBottom.height = 30;
+			}
+		}
+	}
+
 	Rectangle {
 
 		id: contentWrapper;
