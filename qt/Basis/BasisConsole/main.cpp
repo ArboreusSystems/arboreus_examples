@@ -31,7 +31,7 @@
 #include "handlers/ahandlermain.h"
 #include "OOP/Singleton/oopsingletonecpp.h"
 #include "OOP/Singleton/oopsingletoneqt.h"
-
+#include "QRegularExpression/aregex.h"
 
 
 
@@ -136,6 +136,10 @@ int main(int Counter, char *Arguments[]) {
 	aLOG << "oSingletonQt1.pTestString:" << oSingletonQt1.pTestString->toUtf8().constData();
 	OOPSingletoneQt &oSingletonQt2 = OOPSingletoneQt::Instance();
 	aLOG << "oSingletonQt2.pTestString:" << oSingletonQt2.pTestString->toUtf8().constData();
+
+	aLOG << "\n------------------\nQRegularExpression\n------------------";
+	aRegex *oRegexTest1 = new aRegex();
+	oRegexTest1->mDoTest();
 
 	return Application.exec();
 }

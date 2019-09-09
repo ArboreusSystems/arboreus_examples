@@ -26,6 +26,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
 	OOP/Singleton/oopsingletonecpp.cpp \
 	OOP/Singleton/oopsingletoneqt.cpp \
+	QRegularExpression/aregex.cpp \
 	QVariant/avariant.cpp \
         Q_PROPERTY/aproperty.cpp \
 	containers/acontestobject.cpp \
@@ -52,6 +53,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
 	OOP/Singleton/oopsingletonecpp.h \
 	OOP/Singleton/oopsingletoneqt.h \
+	QRegularExpression/aregex.h \
 	QVariant/avariant.h \
 	aglobal.h \
 	Q_PROPERTY/aproperty.h \
