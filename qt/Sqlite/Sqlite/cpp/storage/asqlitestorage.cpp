@@ -75,19 +75,7 @@ aSqliteStorage::~aSqliteStorage(void) {
 
 QVariantList aSqliteStorage::mReadAllRecords(void) {
 
-//	QList<QVariant> oRecord1 = {"textString uytwj jwfj wrewer",true,"1.3a"};
-//	QList<QVariant> oRecord2 = {1,"2.2a","2.3a"};
-//	QList<QVariant> oRecord3 = {"3.1a","3.2a",0.123};
-
 	QVariantList oOutput = {};
-
-//	oOutput.insert(0,oRecord1);
-//	oOutput.insert(1,oRecord2);
-//	oOutput.insert(2,oRecord3);
-
-//	oOutput.append(oRecord1);
-//	oOutput.append(oRecord2);
-//	oOutput.append(oRecord3);
 
 	QSqlQuery oQuery(pDataBase);
 	QString oQueryString = QString(
@@ -110,7 +98,6 @@ QVariantList aSqliteStorage::mReadAllRecords(void) {
 		}
 	}
 
-	aLOG << "oOutput:" << oOutput;
 	return oOutput;
 }
 
@@ -140,8 +127,6 @@ bool aSqliteStorage::mWriteRecord(QList<QString> inRecord) {
 		aLOG << "Writing data into DB failed";
 		return false;
 	}
-
-	aLOG << inRecord;
 
 	return true;
 }
