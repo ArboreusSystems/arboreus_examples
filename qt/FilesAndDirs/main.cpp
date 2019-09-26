@@ -55,13 +55,6 @@ int main(int Counter, char *Arguments[]) {
 		aLOG << oDirIterator.next();
 	}
 
-
-
-//	std::function<void()> f_display_42 = []() { aLOG << "sjdhlfkhdlkhj"; };
-//	f_display_42();
-
-//	oCreateDir(QString("kjhgkjhgkjhg"));
-
 	if (oDemoDir->removeRecursively()) {
 		aLOG << "Demo directory deleted";
 	}
