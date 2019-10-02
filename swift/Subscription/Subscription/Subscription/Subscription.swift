@@ -16,6 +16,7 @@
 //
 
 import UIKit
+import Foundation
 import StoreKit
 
 class Subscription: NSObject {
@@ -23,7 +24,7 @@ class Subscription: NSObject {
 	private static var pInstance: Optional<Subscription> = nil;
 	private var pViewController: Optional<SubscriptionViewController> = nil;
 
-	let pSubscriptionProductID: String = "arboreus.swift.subscription";
+	let pSubscriptionProductID: String = "local.bogong.subscription";
 	var pSubscriptionAbility: Bool = false;
 	var pSubscriptionProduct: Optional<SKProduct> = nil;
 	let pPaymentQueue: SKPaymentQueue = SKPaymentQueue.default();
@@ -101,6 +102,10 @@ extension Subscription: SKPaymentTransactionObserver {
 			switch iTransaction.transactionState {
 				case .purchasing: break;
 				case .purchased:
+					pViewController?.mViewSubscribed();
+					queue.finishTransaction(iTransaction);
+					break;
+				case .restored:
 					pViewController?.mViewSubscribed();
 					queue.finishTransaction(iTransaction);
 					break;

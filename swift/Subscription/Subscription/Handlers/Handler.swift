@@ -20,7 +20,7 @@ class Handler: NSObject {
 		oAlertController.addAction(UIAlertAction.init(
 			title: "Exit", style: .default, handler: {_ in
 				print("Application is about to exit");
-				exit(0);
+				exit(178);
 		}));
 		oAlertController.addAction(UIAlertAction.init(
 			title: "Cancel", style: .cancel, handler: {_ in
