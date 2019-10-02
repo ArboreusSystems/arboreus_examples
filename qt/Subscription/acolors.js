@@ -41,4 +41,4 @@ function purpleLight() {return "#b21875";}
 
 function blue() {return "#50a2d9";}
 function blueDark() {return "#186497";}
-function blueLight() {return "#5cbbfb"}
+function blueLight() {return "#5cbbfb";}
