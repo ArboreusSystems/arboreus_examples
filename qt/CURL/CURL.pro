@@ -46,6 +46,11 @@ ios {
 
 	LIBS += -L$$PWD/libs/openssl_1_1_1_d/ios/lib/ -lssl
 	PRE_TARGETDEPS += $$PWD/libs/openssl_1_1_1_d/ios/lib/libssl.a
+
+	LIBS += -L$$PWD/libs/curl_7_66_0/ios/lib/ -lcurl
+	PRE_TARGETDEPS += $$PWD/libs/curl_7_66_0/ios/lib/libssl.a
+	INCLUDEPATH += $$PWD/libs/curl_7_66_0/ios/include
+
 }
 
 macos {
@@ -56,6 +61,9 @@ macos {
 	LIBS += -L$$PWD/libs/openssl_1_1_1_d/macos/lib/ -lssl
 	PRE_TARGETDEPS += $$PWD/libs/openssl_1_1_1_d/macos/lib/libssl.a
 
+	LIBS += -L$$PWD/libs/curl_7_66_0/macos/lib/ -lcurl
+	PRE_TARGETDEPS += $$PWD/libs/curl_7_66_0/macos/lib/libcurl.a
+	INCLUDEPATH += $$PWD/libs/curl_7_66_0/macos/include
 }
 
 simulator {
@@ -65,6 +73,10 @@ simulator {
 
 	LIBS += -L$$PWD/libs/openssl_1_1_1_d/macos/lib/ -lssl
 	PRE_TARGETDEPS += $$PWD/libs/openssl_1_1_1_d/macos/lib/libssl.a
+
+	LIBS += -L$$PWD/libs/curl_7_66_0/macos/lib/ -lcurl
+	PRE_TARGETDEPS += $$PWD/libs/curl_7_66_0/macos/lib/libssl.a
+	INCLUDEPATH += $$PWD/libs/curl_7_66_0/macos/include
 }
 
 contains(ANDROID_TARGET_ARCH,arm64-v8a) {
