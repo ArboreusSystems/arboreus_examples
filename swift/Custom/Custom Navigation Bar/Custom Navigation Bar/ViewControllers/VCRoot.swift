@@ -61,8 +61,10 @@ class VCRoot: UINavigationController {
 	
 	private func mSetNavigationBar() -> Void {
 	
-		self.navigationBar.isTranslucent = false;
-		self.navigationBar.barTintColor = _COLOR_BLUE;
+//		self.navigationBar.isTranslucent = false;
+//		self.navigationBar.barTintColor = _COLOR_BLUE;
+		
+		
 	}
 	
 	private func mSetCurrentConstraints() -> Void {

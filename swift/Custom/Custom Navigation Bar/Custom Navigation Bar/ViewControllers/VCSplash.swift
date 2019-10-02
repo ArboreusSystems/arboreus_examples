@@ -42,7 +42,7 @@ class VCSplash: UIViewController {
 		
 		pIndicator.mStartAnimating();
 		
-		DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(5), execute: {
+		DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1), execute: {
 			self.pIndicator.mStopAnimating();
 			AppDelegate.shared.rootViewController.mShowMain();
 		});
