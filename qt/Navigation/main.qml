@@ -81,8 +81,10 @@ ApplicationWindow {
 
 						console.log("Clicked",oButtonScreen1.pText);
 
-						oStackView.replace(oScreen1);
-//						oStackView.push(oScreen1);
+//						oStackView.replace(oScreen1);
+
+						oStackView.pop();
+						oStackView.push(oScreen1);
 
 //						var oComponent = ' \
 //							import QtQuick 2.12;
@@ -102,8 +104,10 @@ ApplicationWindow {
 
 						console.log("Clicked",oButtonScreen2.pText);
 
-						oStackView.replace(oScreen2);
-//						oStackView.push(oScreen2);
+//						oStackView.replace(oScreen2);
+
+						oStackView.pop();
+						oStackView.push(oScreen2);
 
 //						var oComponent = ' \
 //							import QtQuick 2.12;
@@ -124,8 +128,10 @@ ApplicationWindow {
 
 						console.log("Clicked",oButtonScreen3.pText);
 
-						oStackView.replace(oScreen3);
-//						oStackView.push(oScreen3);
+//						oStackView.replace(oScreen3);
+
+						oStackView.pop();
+						oStackView.push(oScreen3);
 
 //						var oComponent = ' \
 //							import QtQuick 2.12;
