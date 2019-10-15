@@ -1,13 +1,5 @@
-# -------------------------------------------------------------------
-#  @doc
-#  @notice Template file is qtquickapplication/app.pro
-# 
-#  @copyright Arboreus (http://arboreus.systems)
-#  @author Alexandr Kirilov (http://alexandr.kirilov.me)
-#  @created 25/09/2019 at 21:50:17
-# -------------------------------------------------------------------
-
 QT += quick
+
 CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
@@ -22,6 +14,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        atimer.cpp \
         main.cpp
 
 RESOURCES += qml.qrc
@@ -38,4 +31,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-	aglobal.h
+	aglobal.h \
+	atimer.h
