@@ -15,6 +15,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         atimer.cpp \
+        atimercontroller.cpp \
         main.cpp
 
 RESOURCES += qml.qrc
@@ -32,4 +33,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
 	aglobal.h \
-	atimer.h
+	atimer.h \
+	atimercontroller.h

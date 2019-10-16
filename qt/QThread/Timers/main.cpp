@@ -1,7 +1,9 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QTimer>
+#include <QThread>
 #include "atimer.h"
+#include "atimercontroller.h"
 
 
 int main(int argc, char *argv[])
@@ -10,12 +12,31 @@ int main(int argc, char *argv[])
 
 	QGuiApplication app(argc, argv);
 
+	aLOG << "Main application thread:" << QThread::currentThreadId();
+
+	QThread *oTimerThread = new QThread();
+	QThread *oControllerThread = new QThread();
+
 	ATimer *oTimer = new ATimer();
-	oTimer->start();
+	oTimer->moveToThread(oTimerThread);
+	ATimerController *oController = new ATimerController();
+	oController->moveToThread(oControllerThread);
 
-	emit oTimer->sgStartTimer();
+	QObject::connect(
+		oController,SIGNAL(sgStartTimer()),
+		oTimer,SLOT(slStartTimer())
+	);
+	QObject::connect(
+		oController,SIGNAL(sgStopTimer()),
+		oTimer,SLOT(slStopTimer())
+	);
 
-	QTimer::singleShot(5000,oTimer,SIGNAL(sgStopTimer()));
+	oTimerThread->start();
+	oControllerThread->start();
+
+	oController->mStartTimer();
+	QTimer::singleShot(5000,oController,SIGNAL(sgStopTimer()));
+
 
 	QQmlApplicationEngine engine;
 	const QUrl url(QStringLiteral("qrc:/main.qml"));

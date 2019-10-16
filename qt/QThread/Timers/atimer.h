@@ -1,41 +1,35 @@
 #ifndef ATIMER_H
 #define ATIMER_H
 
-#include <QThread>
+#include <QObject>
 #include <QTimer>
+#include <QThread>
 #include "aglobal.h"
 
 
-class ATimer : public QThread {
+class ATimer : public QObject {
 
 	Q_OBJECT
 
 	public:
 
-		explicit ATimer(
-			QThread::Priority inPriority = QThread::LowestPriority,
-			QObject *inParent = nullptr
-		);
+		explicit ATimer(QObject *parent = nullptr);
 		virtual ~ATimer(void);
-		void run(void);
 
-	signals:
+	public slots:
 
-		void sgStartTimer(void);
-		void sgStopTimer(void);
+		void slStartTimer(void);
+		void slStopTimer(void);
 
 	private:
 
-		QThread::Priority pPriority;
 		QTimer *pTimer;
 		int pCounter;
 		int pInterval;
 
-	public slots:
+	private slots:
 
 		void slAction(void);
-		void slStartTimer(void);
-		void slStopTimer(void);
 };
 
 #endif // ATIMER_H
