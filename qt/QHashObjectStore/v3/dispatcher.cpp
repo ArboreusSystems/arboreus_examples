@@ -66,7 +66,6 @@ QVariantList Dispatcher::mGetListOfObjects(void) {
 	QVariantList *oResult = new QVariantList();
 	int iCounter = 0;
 
-//	QHash<QString,ObjectPrimitive*>::iterator i;
 	for (
 		QHash<QString,ObjectPrimitive*>::iterator i = pObjects.begin();
 		i != pObjects.end();
