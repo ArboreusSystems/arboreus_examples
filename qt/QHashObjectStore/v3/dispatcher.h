@@ -40,6 +40,7 @@ class Dispatcher : public QObject {
 
 		explicit Dispatcher(QObject *parent = nullptr);
 		virtual ~Dispatcher(void);
+		Q_DISABLE_COPY(Dispatcher)
 
 		QHash<QString,ObjectPrimitive*> pObjects;
 };
