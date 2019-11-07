@@ -29,12 +29,17 @@ int main(int inCounter, char *inArguments[]) {
 			oObject2,SIGNAL(sCreated()),
 			oObject3,SLOT(mSetup())
 		);
+		QObject::connect(
+			oObject3,&aObject3::sCreated,
+			[&oObject1,&oObject2,&oObject3](){
+				aLOG << oObject1->mTestString();
+				aLOG << oObject2->mTestString();
+				aLOG << oObject3->mTestString();
+				aLOG << "MAIN: Loading finished";
+			}
+		);
 		oObject1->mSetup();
 	}
-
-	aLOG << oObject1->mTestString();
-	aLOG << oObject2->mTestString();
-	aLOG << oObject3->mTestString();
 
 	return oApplication.exec();
 }

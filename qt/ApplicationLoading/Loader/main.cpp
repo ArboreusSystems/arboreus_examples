@@ -18,17 +18,15 @@ int main(int inCounter, char *inArguments[]) {
 	aObject2* oObject2 = new aObject2();
 	aObject3* oObject3 = new aObject3();
 
-	aLoader* oLoader = new aLoader(
-		oObject1,
-		oObject2,
-		oObject3
-	);
+	aLoader* oLoader = new aLoader(oObject1,oObject2,oObject3);
 
-	if (oLoader) {
-		aLOG << oObject1->mTestString();
-		aLOG << oObject2->mTestString();
-		aLOG << oObject3->mTestString();
-	}
+	QObject::connect(
+		oLoader,&aLoader::sAllCreated,[&oObject1,&oObject2,&oObject3](){
+			aLOG << oObject1->mTestString();
+			aLOG << oObject2->mTestString();
+			aLOG << oObject3->mTestString();
+		}
+	);
 
 	return oApplication.exec();
 }
