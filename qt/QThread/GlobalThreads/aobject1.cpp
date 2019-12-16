@@ -19,7 +19,7 @@
 
 // -----------
 /*!
-	fn
+	\fn
 
 	Doc.
 */
@@ -44,7 +44,7 @@ AObject1::AObject1(QObject *parent) : QObject(parent) {
 
 // -----------
 /*!
-	fn
+	\fn
 
 	Doc.
 */
