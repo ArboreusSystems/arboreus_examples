@@ -32,4 +32,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
 	aglobal.h \
-	ahandlerxml.h
+	ahandlerxml.h \
+	ahandlerxmldatamodels.h

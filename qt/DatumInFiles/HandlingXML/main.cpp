@@ -12,6 +12,9 @@
 #include <QQmlApplicationEngine>
 #include <QDomDocument>
 #include <QDomElement>
+#include <QFile>
+#include <QIODevice>
+#include <QTextStream>
 
 // Application includes
 #include "aglobal.h"
@@ -28,22 +31,30 @@ int main(int argc, char *argv[]) {
 	QGuiApplication app(argc, argv);
 
 	QDomDocument oDomDocument;
-	QDomElement oElementRoot = oDomDocument.createElement("root");
-	oElementRoot.attribute("testAttribute","attributeValue");
-	oDomDocument.appendChild(oElementRoot);
+	oDomDocument.appendChild(oDomDocument.createProcessingInstruction(
+		"xml", "version=\"1.0\" encoding=\"utf-8\""
+	));
 
-	for(int i = 0; i < 5; i++) {
-		QDomElement oElementTest = oDomDocument.createElement("test");
-		oElementTest.setAttribute("Value", "number_0" + QString::number(i));
-		oElementTest.setAttribute("ID", QString::number(i));
-		oElementTest.setNodeValue("Value");
-		oElementRoot.appendChild(oElementTest);
-	}
+	QDomElement oRoot = oDomDocument.createElement("books");
+	oRoot.setAttribute("id","rootID");
+	oDomDocument.appendChild(oRoot);
 
-	A_MESSAGE_DEBUG << "Write DOM Model to XML file:" << AHandlerXML::mToFile(
-		"/Users/alexandr/QtProjects/HandlingXML/test.xml",
+	QDomElement oItem1 = oDomDocument.createElement("item");
+	oItem1.setAttribute("id","item001");
+	QDomText oItem1Text = oDomDocument.createTextNode("aaa");
+	oItem1.appendChild(oItem1Text);
+	oRoot.appendChild(oItem1);
+	A_MESSAGE_DEBUG << "Write DOM model to XML file:" << AHandlerXML::mToFile(
+		"/path/to/file/test.xml",
 		oDomDocument
 	);
+
+	AHandlerXMLReply oXMLReadinProcess = AHandlerXML::mFromFile(
+		"/path/to/file/test.xml"
+	);
+	A_MESSAGE_DEBUG << "Read DOM model from XML file:" << oXMLReadinProcess.Status;
+	QDomDocument oDomDocumentFromFile = oXMLReadinProcess.DomDocument;
+	A_MESSAGE_DEBUG << oDomDocumentFromFile.toString();
 
 	QQmlApplicationEngine engine;
 	const QUrl url(QStringLiteral("qrc:/main.qml"));

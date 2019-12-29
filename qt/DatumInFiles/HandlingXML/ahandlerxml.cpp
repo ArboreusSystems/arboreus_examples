@@ -56,3 +56,27 @@ bool AHandlerXML::mToFile(QString inFile, QDomDocument inDom) {
 
 	return false;
 }
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+AHandlerXMLReply AHandlerXML::mFromFile(QString inFile) {
+
+	AHandlerXMLReply oReply = {};
+
+	QFile oXMlFile(inFile);
+	if (oXMlFile.exists()) {
+		if (oXMlFile.open(QIODevice::ReadOnly|QIODevice::Text)) {
+			if (oReply.DomDocument.setContent(&oXMlFile)) {
+				oReply.Status = true;
+			}
+		}
+	}
+
+	return oReply;
+}

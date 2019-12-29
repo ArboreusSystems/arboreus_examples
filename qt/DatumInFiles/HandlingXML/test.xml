@@ -1,7 +1,4 @@
-<root>
- <test ID="0" Value="number_00"/>
- <test ID="1" Value="number_01"/>
- <test ID="2" Value="number_02"/>
- <test ID="3" Value="number_03"/>
- <test ID="4" Value="number_04"/>
-</root>
+<?xml version="1.0" encoding="utf-8"?>
+<books id="rootID">
+ <item id="item001">aaa</item>
+</books>

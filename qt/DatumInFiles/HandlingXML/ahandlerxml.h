@@ -25,6 +25,7 @@
 
 // Application includes
 #include "aglobal.h"
+#include "ahandlerxmldatamodels.h"
 
 // Constants and definitions
 
@@ -40,6 +41,7 @@ class AHandlerXML : public QObject {
 		virtual ~AHandlerXML(void);
 
 		static bool mToFile(QString inFile,QDomDocument inDom);
+		static AHandlerXMLReply mFromFile(QString inFile);
 };
 
 #endif // AHANDLERXML_H
