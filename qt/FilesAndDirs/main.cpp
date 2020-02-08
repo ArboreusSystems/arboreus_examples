@@ -49,6 +49,7 @@ int main(int Counter, char *Arguments[]) {
 	QStringList oDirList = oDemoDir->entryList(QDir::AllDirs);
 	oDirList.removeOne(".");
 	oDirList.removeOne("..");
+	aLOG << oDirList;
 
 	QStringListIterator oDirIterator(oDirList);
 	while (oDirIterator.hasNext()) {
