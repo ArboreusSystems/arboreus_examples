@@ -4,14 +4,11 @@
 #include <chrono>
 #include <thread>
 
-#include "aglobal.hpp"
-#include "afile.hpp"
+#include "aglobal.h"
+#include "afile.h"
 #include "arandombook.h"
-#include "arandom.hpp"
+#include "arandom.h"
 
-#include <stdio.h>      /* printf, NULL */
-#include <stdlib.h>     /* srand, rand */
-#include <time.h>
 
 using namespace std;
 
@@ -32,20 +29,26 @@ int main() {
 	ALOG << "File exist: " << AFile::mExist(AGlobal::mPwd() + "/file") << endl;
 
 	AFile::mSave(AGlobal::mPwd() + "/test.file",oBytes);
+	ALOG << "String from file1:" << AFile::mReadString(AGlobal::mPwd() + "/test.file") << endl;
+
 	AFile::mSave(AGlobal::mPwd() + "/test1.file",oTestString);
+	ALOG << "String from file2:" << AFile::mReadString(AGlobal::mPwd() + "/test1.file") << endl;
 
-	printf ("First number: %d\n", rand()%100);
-  srand (time(NULL));
-  printf ("Random number: %d\n", rand()%100);
-  srand (1);
-  printf ("Again the first number: %d\n", rand()%100);
-
-	for (int i = 0; i < 10; i++) {
-		ALOG << i << ": " << ARandom::mNumberNoExponent() << endl;
-
+	vector<long long> oDictionary = ARandom::mList(ARandomDictionaryType::Free,5);
+	vector<long long>::iterator oDictionaryIterator = oDictionary.begin();
+	while (oDictionaryIterator != oDictionary.end()) {
+		ALOG << "Dictionary value: " << *oDictionaryIterator << endl;
+		oDictionaryIterator++;
 	}
 
-	ALOG << "Size long long: " << sizeof(long long) << endl;
+	AFile::mSave(AGlobal::mPwd() + "/test2.file",oDictionary);
+
+	oDictionary = AFile::mReadLongLong(AGlobal::mPwd() + "/test2.file");
+	oDictionaryIterator = oDictionary.begin();
+	while (oDictionaryIterator != oDictionary.end()) {
+		ALOG << "Dictionary value1: " << *oDictionaryIterator << endl;
+		oDictionaryIterator++;
+	}
 
 	return 0;
 }

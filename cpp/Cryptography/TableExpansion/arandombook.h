@@ -20,7 +20,7 @@
 #include <vector>
 
 // Application includes
-#include "aglobal.hpp"
+#include "aglobal.h"
 
 // Constants and definitions
 

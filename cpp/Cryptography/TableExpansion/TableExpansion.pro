@@ -4,13 +4,18 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+	afile.cpp \
+	aglobal.cpp \
+	arandom.cpp \
 	arandombook.cpp \
 	astatictable.cpp \
-	afile.hpp \
-	aglobal.hpp \
-	arandom.hpp \
 	main.cpp
 
 HEADERS += \
+    afile.h \
+    afiledatamodels.h \
+    aglobal.h \
+    arandom.h \
     arandombook.h \
+    arandomdatamodels.h \
     astatictable.h

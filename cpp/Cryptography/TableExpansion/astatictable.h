@@ -20,7 +20,7 @@
 #include <string>
 
 // Application includes
-#include "aglobal.hpp"
+#include "aglobal.h"
 
 // Constants and definitions
 
