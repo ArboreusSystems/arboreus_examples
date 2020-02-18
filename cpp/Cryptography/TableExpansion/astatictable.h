@@ -18,11 +18,15 @@
 // System includes
 #include <iostream>
 #include <string>
+#include <list>
 
 // Application includes
 #include "aglobal.h"
+#include "astatictabledatamodels.h"
 
 // Constants and definitions
+#define A_DEMO_TEXT "Hello encrypted world!!!"
+#define A_DEMO_LENGTH_OF_VALUE 4
 
 // Class definitions
 class AStaticTable {
@@ -32,9 +36,15 @@ class AStaticTable {
 		AStaticTable(void);
 		~AStaticTable(void);
 
+		static std::string mEncrypt(std::string inText);
+		static std::string mDecrypt(std::string inText);
+
 	private:
 
-//		map<string,int> pDictionary;
+		std::list<AStaticTableKeyValue> pKey;
+
+		static std::string mCreateNumber(char inChar,int inLength);
+		static std::string mCreateChar(std::string inNumber);
 };
 
 #endif // ASTATICTABLE_H

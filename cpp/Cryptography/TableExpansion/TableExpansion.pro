@@ -18,4 +18,5 @@ HEADERS += \
     arandom.h \
     arandombook.h \
     arandomdatamodels.h \
-    astatictable.h
+    astatictable.h \
+    astatictabledatamodels.h
