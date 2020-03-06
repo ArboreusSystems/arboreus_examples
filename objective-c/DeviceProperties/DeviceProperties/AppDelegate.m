@@ -17,6 +17,7 @@
 
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	
+	// User interface idion: phone or pad
 	switch ([[UIDevice currentDevice] userInterfaceIdiom]) {
 		case UIUserInterfaceIdiomPad:
 			NSLog(@"Pad");
@@ -29,8 +30,24 @@
 			break;
 	}
 	
+	// Device UUID
 	NSString* oUUIDString = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
 	NSLog(@"UUID: %@",oUUIDString);
+	
+	// CPU Architeture type
+	NSLog(@"UIDevice -> name: %@",[[UIDevice currentDevice] name]);
+	NSLog(@"UIDevice -> systemName: %@",[[UIDevice currentDevice] systemName]);
+	NSLog(@"UIDevice -> systemVersion: %@",[[UIDevice currentDevice] systemVersion]);
+	NSLog(@"UIDevice -> model: %@",[[UIDevice currentDevice] model]);
+	NSLog(@"UIDevice -> localizedModel: %@",[[UIDevice currentDevice] localizedModel]);
+
+	struct utsname systemInfo;
+	uname(&systemInfo);
+	NSLog(@"systemInfo.machine: %@",[NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding]);
+	NSLog(@"systemInfo.nodename: %@",[NSString stringWithCString:systemInfo.nodename encoding:NSUTF8StringEncoding]);
+	NSLog(@"systemInfo.release: %@",[NSString stringWithCString:systemInfo.release encoding:NSUTF8StringEncoding]);
+	NSLog(@"systemInfo.sysname: %@",[NSString stringWithCString:systemInfo.sysname encoding:NSUTF8StringEncoding]);
+	NSLog(@"systemInfo.version: %@",[NSString stringWithCString:systemInfo.version encoding:NSUTF8StringEncoding]);
 	
 	return YES;
 }

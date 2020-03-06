@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <SystemConfiguration/SystemConfiguration.h>
+
+#include <sys/utsname.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
