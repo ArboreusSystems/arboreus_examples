@@ -22,6 +22,8 @@
 		[self.window makeKeyAndVisible];
 	}
 	
+	NSLog(@"Status: %li",(long)[NotificationsHandler mCheckPermissions]);
+	
 	return YES;
 }
 

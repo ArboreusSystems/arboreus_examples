@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Definitions/ColorsDefinitions.h"
 #import "ViewControllers/MainViewController.h"
+#import "Handlers/NotificationsHandler.h"
+#import "Handlers/LogHandler.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

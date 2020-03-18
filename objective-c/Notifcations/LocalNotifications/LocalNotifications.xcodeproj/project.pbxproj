@@ -14,6 +14,7 @@
 		A804A762241E4D0700441A75 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A804A761241E4D0700441A75 /* main.m */; };
 		A804A76F241E4D9500441A75 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A804A76E241E4D9500441A75 /* MainViewController.m */; };
 		A804A776241E519F00441A75 /* LogHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A804A775241E519F00441A75 /* LogHandler.m */; };
+		A89492FC24211C3F00EA2ECD /* NotificationsHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A89492FB24211C3F00EA2ECD /* NotificationsHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		A804A770241E4DB800441A75 /* ColorsDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorsDefinitions.h; sourceTree = "<group>"; };
 		A804A774241E519F00441A75 /* LogHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogHandler.h; sourceTree = "<group>"; };
 		A804A775241E519F00441A75 /* LogHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogHandler.m; sourceTree = "<group>"; };
+		A89492FA24211C3F00EA2ECD /* NotificationsHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationsHandler.h; sourceTree = "<group>"; };
+		A89492FB24211C3F00EA2ECD /* NotificationsHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationsHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +103,8 @@
 			children = (
 				A804A774241E519F00441A75 /* LogHandler.h */,
 				A804A775241E519F00441A75 /* LogHandler.m */,
+				A89492FA24211C3F00EA2ECD /* NotificationsHandler.h */,
+				A89492FB24211C3F00EA2ECD /* NotificationsHandler.m */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 				A804A754241E4D0600441A75 /* SceneDelegate.m in Sources */,
 				A804A76F241E4D9500441A75 /* MainViewController.m in Sources */,
 				A804A776241E519F00441A75 /* LogHandler.m in Sources */,
+				A89492FC24211C3F00EA2ECD /* NotificationsHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
