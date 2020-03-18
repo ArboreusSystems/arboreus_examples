@@ -15,9 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NotificationsHandler : NSObject <UNUserNotificationCenterDelegate>
 
-//- (UNAuthorizationStatus)callSite;
-//- (void)testWithHandler:(UNAuthorizationStatus(^)(UNAuthorizationStatus result))handler;
-
 +(UNAuthorizationStatus) mCheckPermissions;
 +(void) mAskPermissions;
 -(void) mShowLocal:(NSString*) inID inTitle:(NSString*)inTitle inBody:(NSString*)inBody;
