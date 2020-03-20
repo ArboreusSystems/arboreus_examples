@@ -49,6 +49,9 @@
 	NSLog(@"systemInfo.sysname: %@",[NSString stringWithCString:systemInfo.sysname encoding:NSUTF8StringEncoding]);
 	NSLog(@"systemInfo.version: %@",[NSString stringWithCString:systemInfo.version encoding:NSUTF8StringEncoding]);
 	
+	// UIElements
+	NSLog(@"Status bar height: %f",[[UIApplication sharedApplication] statusBarFrame].size.height);
+	
 	return YES;
 }
 
