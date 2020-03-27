@@ -17,6 +17,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	
+//	[UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+	[UIApplication sharedApplication].statusBarHidden = NO;
+	
+	NSLog(@"StatusBarHidden: %i",[UIApplication sharedApplication].statusBarHidden);
+	NSLog(@"StatusBarStyle: %li",(long)[UIApplication sharedApplication].statusBarStyle);
+	
 	if (@available(iOS 13, *)) {} else {
 		self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 		self.window.rootViewController = [[MainViewController alloc] init];
