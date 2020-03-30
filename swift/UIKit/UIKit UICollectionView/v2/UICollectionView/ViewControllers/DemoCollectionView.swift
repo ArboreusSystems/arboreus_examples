@@ -21,6 +21,8 @@ class DemoCollectionView: UICollectionView, UICollectionViewDelegate, UICollecti
 		self.translatesAutoresizingMaskIntoConstraints = false;
 		self.backgroundColor = __COLOR_WHITE;
 		self.contentInset = UIEdgeInsets(top: 0, left: 25.0, bottom: 0, right: 25.0);
+		self.showsHorizontalScrollIndicator = false;
+		self.showsVerticalScrollIndicator = false;
 		
 		pCells = DemoData.mGet();
 		
