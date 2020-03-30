@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			
 		if #available (iOS 13.0, *) {} else {
 			window = UIWindow(frame: UIScreen.main.bounds);
-			let oNavigationContoller: RootNavigationController = RootNavigationController();
-			self.window?.rootViewController = oNavigationContoller as UIViewController;
+			let oLoginViewController: LoginViewController = LoginViewController();
+			self.window?.rootViewController = oLoginViewController;
 			self.window?.makeKeyAndVisible();
 		}
 		

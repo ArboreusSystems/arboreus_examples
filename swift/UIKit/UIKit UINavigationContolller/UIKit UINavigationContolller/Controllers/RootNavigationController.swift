@@ -12,7 +12,7 @@ class RootNavigationController: UINavigationController {
 	
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		
-		return .lightContent
+		return .lightContent;
 	}
 	
     override func viewDidLoad() {

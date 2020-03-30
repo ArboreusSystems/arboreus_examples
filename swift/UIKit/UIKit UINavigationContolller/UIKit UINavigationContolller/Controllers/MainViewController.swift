@@ -19,10 +19,6 @@ class MainViewController: UIViewController {
 		
 		super.loadView();
 		title = "Main";
-		
-		if (navigationController?.navigationBar.isHidden == true) {
-			navigationController?.navigationBar.isHidden = false;
-		}
 	}
 	
     override func viewDidLoad() {

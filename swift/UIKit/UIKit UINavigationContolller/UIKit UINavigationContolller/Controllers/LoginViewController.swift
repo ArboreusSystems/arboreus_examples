@@ -12,12 +12,24 @@ class LoginViewController: UIViewController {
 	
 	private var pButtonLogin: UIButton = UIButton();
 	
+	override var prefersStatusBarHidden: Bool {
+		
+		return true;
+	}
+	
+//	override var preferredStatusBarStyle: UIStatusBarStyle {
+//
+//		if #available(iOS 13.0, *) {
+//			return .darkContent;
+//		} else {
+//			return .default;
+//		};
+//	}
+	
 	override func loadView() -> Void {
 		
 		super.loadView();
 		title = "Login";
-		
-		navigationController?.navigationBar.isHidden = true;
 	}
 
     override func viewDidLoad() -> Void {
@@ -33,8 +45,8 @@ class LoginViewController: UIViewController {
 	@objc func mActionButtonLogin() -> Void {
 		
 		LogHandler.mMessage("Button Login pressed", inClass: String(describing: self));
-		navigationController?.setViewControllers([MainViewController()], animated: true);
-		navigationController?.navigationBar.isHidden = false;
+		UIApplication.shared.keyWindow?.rootViewController = RootNavigationController(rootViewController: MainViewController());
+		UIApplication.shared.keyWindow?.makeKeyAndVisible();
 	}
 	
 	// MARK: UI Components

@@ -20,8 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		}
 		
 		window = UIWindow(windowScene: windowScene);
-		let oNavigationContoller: RootNavigationController = RootNavigationController();
-		self.window?.rootViewController = oNavigationContoller as UIViewController;
+		let oLoginViewController: LoginViewController = LoginViewController();
+		self.window?.rootViewController = oLoginViewController;
 		window?.makeKeyAndVisible();
 	}
 
