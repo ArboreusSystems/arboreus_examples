@@ -16,9 +16,11 @@ class DemoCollectionView: UICollectionView, UICollectionViewDelegate, UICollecti
 	
 		let oLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout();
 		oLayout.scrollDirection = .horizontal;
-		oLayout.minimumInteritemSpacing = CGFloat(20);
+		oLayout.minimumLineSpacing = 25.0;
 		super.init(frame: .zero, collectionViewLayout: oLayout);
 		self.translatesAutoresizingMaskIntoConstraints = false;
+		self.backgroundColor = __COLOR_WHITE;
+		self.contentInset = UIEdgeInsets(top: 0, left: 25.0, bottom: 0, right: 25.0);
 		
 		pCells = DemoData.mGet();
 		

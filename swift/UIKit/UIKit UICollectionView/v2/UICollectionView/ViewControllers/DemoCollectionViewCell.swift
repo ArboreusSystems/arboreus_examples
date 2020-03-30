@@ -11,7 +11,7 @@ import UIKit
 class DemoCollectionViewCell: UICollectionViewCell {
 	
 	static let reusedId: String = "DemoCollectionViewCell";
-	let pPadding: CGFloat = 10;
+	let pPadding: CGFloat = 15;
 	
 	let pTitle: UILabel = {
 		
@@ -21,6 +21,8 @@ class DemoCollectionViewCell: UICollectionViewCell {
 		oLabel.textColor = __COLOR_WHITE;
 		oLabel.textAlignment = .center;
 		oLabel.font = oLabel.font.withSize(25);
+		oLabel.layer.masksToBounds = true;
+		oLabel.layer.cornerRadius = 5;
 		return oLabel;
 	}()
 	
@@ -31,6 +33,8 @@ class DemoCollectionViewCell: UICollectionViewCell {
 		oLabel.backgroundColor = __COLOR_PURPLE;
 		oLabel.textColor = __COLOR_WHITE;
 		oLabel.textAlignment = .center;
+		oLabel.layer.masksToBounds = true;
+		oLabel.layer.cornerRadius = 5;
 		return oLabel;
 	}()
 	
