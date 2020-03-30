@@ -26,3 +26,16 @@ let __COLOR_PURPLE_LIGHT: UIColor = UIColor.init(red: 178.0 / 255.0, green: 24.0
 let __COLOR_BLUE: UIColor = UIColor.init(red: 80.0 / 255.0, green: 162.0 / 255.0, blue: 217.0 / 255.0, alpha: 1);
 let __COLOR_BLUE_DARK: UIColor = UIColor.init(red: 24.0 / 255.0, green: 100.0 / 255.0, blue: 151.0 / 255.0, alpha: 1);
 let __COLOR_BLUE_LIGHT: UIColor = UIColor.init(red: 92.0 / 255.0, green: 187.0 / 255.0, blue: 251.0 / 255.0, alpha: 1);
+
+class Colors {
+	
+	static func mRandom() -> UIColor {
+		
+		return UIColor.init(
+			red: CGFloat.random(in: 0...255) / 255.0,
+			green: CGFloat.random(in: 0...255) / 255.0,
+			blue: CGFloat.random(in: 0...255) / 255.0,
+			alpha: 1
+		);
+	}
+}

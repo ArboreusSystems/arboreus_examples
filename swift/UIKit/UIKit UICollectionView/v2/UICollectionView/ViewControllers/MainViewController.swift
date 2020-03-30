@@ -9,15 +9,19 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
-	private var pCollectionView: UICollectionView = UICollectionView();
 	
+	private var pCollectionView: UICollectionView = DemoCollectionView() as UICollectionView;
+
 	override func viewDidLoad() {
 		
 		super.viewDidLoad();
 		view.backgroundColor = __COLOR_BLUE;
 		
 		view.addSubview(pCollectionView);
-		pCollectionView.center = view.center;
+		pCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true;
+		pCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true;
+		pCollectionView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true;
+		pCollectionView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true;
+		pCollectionView.heightAnchor.constraint(equalToConstant: 300.0).isActive = true;
 	}
 }
