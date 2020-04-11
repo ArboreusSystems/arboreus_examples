@@ -26,6 +26,8 @@
 
 ARandomBook::ARandomBook(void) {
 
+	pPath = AGlobal::mPwd();
+	ALOG << "ARandomBook created" << endl;
 }
 
 
@@ -38,5 +40,13 @@ ARandomBook::ARandomBook(void) {
 
 ARandomBook::~ARandomBook(void) {
 
+	ALOG << "ARandomBook deleted" << endl;
 }
 
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/

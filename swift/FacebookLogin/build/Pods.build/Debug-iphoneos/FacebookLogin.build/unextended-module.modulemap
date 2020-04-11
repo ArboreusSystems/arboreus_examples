@@ -1,0 +1,10 @@
+framework module FacebookLogin {
+  umbrella header "FacebookLogin-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module FacebookLogin.__Swift {
+    exclude header "FacebookLogin-Swift.h"
+}

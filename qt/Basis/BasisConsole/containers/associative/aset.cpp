@@ -57,7 +57,7 @@ void aSet::mDoTest(void) {
 	oResult = oSet2;
 	aLOG << "Set2 - Set1:" << oResult.subtract(oSet1);
 	oResult = oSet1;
-	aLOG << "Intersect:" << oResult.intersect(oSet2).toList();
+	aLOG << "Intersect:" << oResult.intersect(oSet2).values();
 	oResult = oSet1;
 	aLOG << "Intersects:" << oResult.intersects(oSet2);
 }

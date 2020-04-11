@@ -1,0 +1,10 @@
+version: "Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
+options: "2e565e135b9c1d98cabe856c61350635"
+build_time: [1576138078, 792192000]
+inputs:
+  "/Users/alexandr/Projects/arboreus/arboreus_examples/swift/FacebookLogin/Pods/FacebookCore/Sources/Core/AccessToken.swift": [1576137906, 540668387]
+  "/Users/alexandr/Projects/arboreus/arboreus_examples/swift/FacebookLogin/Pods/FacebookCore/Sources/Core/Dictionary+KeyValueMap.swift": [1576137906, 540385224]
+  "/Users/alexandr/Projects/arboreus/arboreus_examples/swift/FacebookLogin/Pods/FacebookCore/Sources/Core/FBProfilePictureView.swift": [1576137906, 541009434]
+  "/Users/alexandr/Projects/arboreus/arboreus_examples/swift/FacebookLogin/Pods/FacebookCore/Sources/Core/FBSDKCoreKit+Typealiases.swift": [1576137906, 540057884]
+  "/Users/alexandr/Projects/arboreus/arboreus_examples/swift/FacebookLogin/Pods/FacebookCore/Sources/Core/Permission.swift": [1576137906, 539672533]
+  "/Users/alexandr/Projects/arboreus/arboreus_examples/swift/FacebookLogin/Pods/FacebookCore/Sources/Core/Settings.swift": [1576137906, 541345326]

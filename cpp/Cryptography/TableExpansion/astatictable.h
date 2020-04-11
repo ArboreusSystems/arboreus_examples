@@ -22,10 +22,8 @@
 
 // Application includes
 #include "aglobal.h"
-#include "astatictabledatamodels.h"
 
 // Constants and definitions
-#define A_DEMO_TEXT "Hello encrypted world!!!"
 #define A_DEMO_LENGTH_OF_VALUE 4
 
 // Class definitions
@@ -40,8 +38,6 @@ class AStaticTable {
 		static std::string mDecrypt(std::string inText);
 
 	private:
-
-		std::list<AStaticTableKeyValue> pKey;
 
 		static std::string mCreateNumber(char inChar,int inLength);
 		static std::string mCreateChar(std::string inNumber);

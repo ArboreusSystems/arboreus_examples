@@ -34,7 +34,7 @@
 		for (int i = 0; i < 200; i++) NSLog(@"DISPATCH_QUEUE_PRIORITY_BACKGROUND: %i",i);
 	});
 	
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH,0), ^{
 		for (int i = 0; i < 200; i++) NSLog(@"DISPATCH_QUEUE_PRIORITY_DEFAULT: %i",i);
 	});
 	

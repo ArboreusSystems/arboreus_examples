@@ -1,0 +1,7 @@
+version: "Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
+options: "9501341ad2a0d278eb7a6f67e4eb448c"
+build_time: [1576138080, 242850000]
+inputs:
+  "/Users/alexandr/Projects/arboreus/arboreus_examples/swift/FacebookLogin/Pods/FacebookLogin/Sources/Login/FBLoginButton.swift": [1576137906, 545206583]
+  "/Users/alexandr/Projects/arboreus/arboreus_examples/swift/FacebookLogin/Pods/FacebookLogin/Sources/Login/FBSDKLoginKit+Typealiases.swift": [1576137906, 545534536]
+  "/Users/alexandr/Projects/arboreus/arboreus_examples/swift/FacebookLogin/Pods/FacebookLogin/Sources/Login/LoginManager.swift": [1576137906, 545958589]
