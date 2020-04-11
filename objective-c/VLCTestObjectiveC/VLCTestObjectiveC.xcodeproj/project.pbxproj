@@ -1,0 +1,482 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5E9D022996D05CB64F469ADF /* Pods_VLCTestObjectiveC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B8B43C9AAF741F60365D2BA /* Pods_VLCTestObjectiveC.framework */; };
+		A825A67F243DBBC900A845B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A825A67E243DBBC900A845B6 /* AppDelegate.m */; };
+		A825A682243DBBC900A845B6 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A825A681243DBBC900A845B6 /* SceneDelegate.m */; };
+		A825A68A243DBBCA00A845B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A825A689243DBBCA00A845B6 /* Assets.xcassets */; };
+		A825A68D243DBBCA00A845B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A825A68B243DBBCA00A845B6 /* LaunchScreen.storyboard */; };
+		A825A690243DBBCA00A845B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A825A68F243DBBCA00A845B6 /* main.m */; };
+		A825A699243DBD4800A845B6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A825A698243DBD4800A845B6 /* MainViewController.m */; };
+		A825A6A0243DCC8600A845B6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A825A69F243DCC8600A845B6 /* AudioToolbox.framework */; };
+		A825A6A2243DCC9000A845B6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A825A6A1243DCC9000A845B6 /* AVFoundation.framework */; };
+		A825A6A4243DCC9900A845B6 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A825A6A3243DCC9900A845B6 /* CFNetwork.framework */; };
+		A825A6A6243DCCA300A845B6 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A825A6A5243DCCA300A845B6 /* CoreFoundation.framework */; };
+		A825A6A8243DCCAC00A845B6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A825A6A7243DCCAC00A845B6 /* CoreGraphics.framework */; };
+		A825A6AA243DCCB600A845B6 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A825A6A9243DCCB600A845B6 /* CoreMedia.framework */; };
+		A825A6AC243DCCBE00A845B6 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A825A6AB243DCCBE00A845B6 /* CoreText.framework */; };
+		A825A6AE243DCCC800A845B6 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A825A6AD243DCCC800A845B6 /* CoreVideo.framework */; };
+		A825A6B0243DCCD200A845B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A825A6AF243DCCD200A845B6 /* Foundation.framework */; };
+		A825A6B4243DCCEC00A845B6 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A825A6B3243DCCEC00A845B6 /* OpenGLES.framework */; };
+		A825A6B6243DCCF500A845B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A825A6B5243DCCF500A845B6 /* QuartzCore.framework */; };
+		A825A6B8243DCCFE00A845B6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A825A6B7243DCCFE00A845B6 /* Security.framework */; };
+		A825A6BA243DCD0700A845B6 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A825A6B9243DCD0700A845B6 /* VideoToolbox.framework */; };
+		A825A6BC243DCD1100A845B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A825A6BB243DCD1100A845B6 /* UIKit.framework */; };
+		A8923368243E109700AA0422 /* HandlerVLC.m in Sources */ = {isa = PBXBuildFile; fileRef = A8923367243E109700AA0422 /* HandlerVLC.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		340B608227C7CA95EBAF36F9 /* Pods-VLCTestObjectiveC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VLCTestObjectiveC.release.xcconfig"; path = "Target Support Files/Pods-VLCTestObjectiveC/Pods-VLCTestObjectiveC.release.xcconfig"; sourceTree = "<group>"; };
+		6B8B43C9AAF741F60365D2BA /* Pods_VLCTestObjectiveC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VLCTestObjectiveC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A825A67A243DBBC900A845B6 /* VLCTestObjectiveC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VLCTestObjectiveC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A825A67D243DBBC900A845B6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A825A67E243DBBC900A845B6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A825A680243DBBC900A845B6 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		A825A681243DBBC900A845B6 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		A825A689243DBBCA00A845B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A825A68C243DBBCA00A845B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A825A68E243DBBCA00A845B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A825A68F243DBBCA00A845B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A825A697243DBD4800A845B6 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		A825A698243DBD4800A845B6 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		A825A69E243DBDC900A845B6 /* DefinitionColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DefinitionColors.h; sourceTree = "<group>"; };
+		A825A69F243DCC8600A845B6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A825A6A1243DCC9000A845B6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A825A6A3243DCC9900A845B6 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		A825A6A5243DCCA300A845B6 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		A825A6A7243DCCAC00A845B6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A825A6A9243DCCB600A845B6 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		A825A6AB243DCCBE00A845B6 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		A825A6AD243DCCC800A845B6 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		A825A6AF243DCCD200A845B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A825A6B1243DCCDB00A845B6 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		A825A6B2243DCCE400A845B6 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		A825A6B3243DCCEC00A845B6 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		A825A6B5243DCCF500A845B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A825A6B7243DCCFE00A845B6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A825A6B9243DCD0700A845B6 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		A825A6BB243DCD1100A845B6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A8923366243E109700AA0422 /* HandlerVLC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HandlerVLC.h; sourceTree = "<group>"; };
+		A8923367243E109700AA0422 /* HandlerVLC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HandlerVLC.m; sourceTree = "<group>"; };
+		DB506A05B4F1A19A571D75E7 /* Pods-VLCTestObjectiveC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VLCTestObjectiveC.debug.xcconfig"; path = "Target Support Files/Pods-VLCTestObjectiveC/Pods-VLCTestObjectiveC.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A825A677243DBBC900A845B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A825A6A8243DCCAC00A845B6 /* CoreGraphics.framework in Frameworks */,
+				A825A6A6243DCCA300A845B6 /* CoreFoundation.framework in Frameworks */,
+				5E9D022996D05CB64F469ADF /* Pods_VLCTestObjectiveC.framework in Frameworks */,
+				A825A6A0243DCC8600A845B6 /* AudioToolbox.framework in Frameworks */,
+				A825A6BC243DCD1100A845B6 /* UIKit.framework in Frameworks */,
+				A825A6B4243DCCEC00A845B6 /* OpenGLES.framework in Frameworks */,
+				A825A6B8243DCCFE00A845B6 /* Security.framework in Frameworks */,
+				A825A6AC243DCCBE00A845B6 /* CoreText.framework in Frameworks */,
+				A825A6B0243DCCD200A845B6 /* Foundation.framework in Frameworks */,
+				A825A6BA243DCD0700A845B6 /* VideoToolbox.framework in Frameworks */,
+				A825A6AE243DCCC800A845B6 /* CoreVideo.framework in Frameworks */,
+				A825A6B6243DCCF500A845B6 /* QuartzCore.framework in Frameworks */,
+				A825A6A4243DCC9900A845B6 /* CFNetwork.framework in Frameworks */,
+				A825A6A2243DCC9000A845B6 /* AVFoundation.framework in Frameworks */,
+				A825A6AA243DCCB600A845B6 /* CoreMedia.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4DA0FBDEA366ED072F316A41 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DB506A05B4F1A19A571D75E7 /* Pods-VLCTestObjectiveC.debug.xcconfig */,
+				340B608227C7CA95EBAF36F9 /* Pods-VLCTestObjectiveC.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A825A671243DBBC900A845B6 = {
+			isa = PBXGroup;
+			children = (
+				A825A67C243DBBC900A845B6 /* VLCTestObjectiveC */,
+				A825A67B243DBBC900A845B6 /* Products */,
+				4DA0FBDEA366ED072F316A41 /* Pods */,
+				AF15F0F3ED58E112A6BC63B4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A825A67B243DBBC900A845B6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A825A67A243DBBC900A845B6 /* VLCTestObjectiveC.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A825A67C243DBBC900A845B6 /* VLCTestObjectiveC */ = {
+			isa = PBXGroup;
+			children = (
+				A8923365243E107C00AA0422 /* Handlers */,
+				A825A69A243DBD6100A845B6 /* Definitions */,
+				A825A696243DBCCD00A845B6 /* ViewControllers */,
+				A825A67D243DBBC900A845B6 /* AppDelegate.h */,
+				A825A67E243DBBC900A845B6 /* AppDelegate.m */,
+				A825A680243DBBC900A845B6 /* SceneDelegate.h */,
+				A825A681243DBBC900A845B6 /* SceneDelegate.m */,
+				A825A689243DBBCA00A845B6 /* Assets.xcassets */,
+				A825A68B243DBBCA00A845B6 /* LaunchScreen.storyboard */,
+				A825A68E243DBBCA00A845B6 /* Info.plist */,
+				A825A68F243DBBCA00A845B6 /* main.m */,
+			);
+			path = VLCTestObjectiveC;
+			sourceTree = "<group>";
+		};
+		A825A696243DBCCD00A845B6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A825A697243DBD4800A845B6 /* MainViewController.h */,
+				A825A698243DBD4800A845B6 /* MainViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A825A69A243DBD6100A845B6 /* Definitions */ = {
+			isa = PBXGroup;
+			children = (
+				A825A69E243DBDC900A845B6 /* DefinitionColors.h */,
+			);
+			path = Definitions;
+			sourceTree = "<group>";
+		};
+		A8923365243E107C00AA0422 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				A8923366243E109700AA0422 /* HandlerVLC.h */,
+				A8923367243E109700AA0422 /* HandlerVLC.m */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		AF15F0F3ED58E112A6BC63B4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A825A6BB243DCD1100A845B6 /* UIKit.framework */,
+				A825A6B9243DCD0700A845B6 /* VideoToolbox.framework */,
+				A825A6B7243DCCFE00A845B6 /* Security.framework */,
+				A825A6B5243DCCF500A845B6 /* QuartzCore.framework */,
+				A825A6B3243DCCEC00A845B6 /* OpenGLES.framework */,
+				A825A6B2243DCCE400A845B6 /* libiconv.tbd */,
+				A825A6B1243DCCDB00A845B6 /* libbz2.tbd */,
+				A825A6AF243DCCD200A845B6 /* Foundation.framework */,
+				A825A6AD243DCCC800A845B6 /* CoreVideo.framework */,
+				A825A6AB243DCCBE00A845B6 /* CoreText.framework */,
+				A825A6A9243DCCB600A845B6 /* CoreMedia.framework */,
+				A825A6A7243DCCAC00A845B6 /* CoreGraphics.framework */,
+				A825A6A5243DCCA300A845B6 /* CoreFoundation.framework */,
+				A825A6A3243DCC9900A845B6 /* CFNetwork.framework */,
+				A825A6A1243DCC9000A845B6 /* AVFoundation.framework */,
+				A825A69F243DCC8600A845B6 /* AudioToolbox.framework */,
+				6B8B43C9AAF741F60365D2BA /* Pods_VLCTestObjectiveC.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A825A679243DBBC900A845B6 /* VLCTestObjectiveC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A825A693243DBBCA00A845B6 /* Build configuration list for PBXNativeTarget "VLCTestObjectiveC" */;
+			buildPhases = (
+				A42E134CE4BD5BFDC1B6B7F3 /* [CP] Check Pods Manifest.lock */,
+				A825A676243DBBC900A845B6 /* Sources */,
+				A825A677243DBBC900A845B6 /* Frameworks */,
+				A825A678243DBBC900A845B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VLCTestObjectiveC;
+			productName = VLCTestObjectiveC;
+			productReference = A825A67A243DBBC900A845B6 /* VLCTestObjectiveC.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A825A672243DBBC900A845B6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Alexandr Kirilov";
+				TargetAttributes = {
+					A825A679243DBBC900A845B6 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = A825A675243DBBC900A845B6 /* Build configuration list for PBXProject "VLCTestObjectiveC" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A825A671243DBBC900A845B6;
+			productRefGroup = A825A67B243DBBC900A845B6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A825A679243DBBC900A845B6 /* VLCTestObjectiveC */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A825A678243DBBC900A845B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A825A68D243DBBCA00A845B6 /* LaunchScreen.storyboard in Resources */,
+				A825A68A243DBBCA00A845B6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A42E134CE4BD5BFDC1B6B7F3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VLCTestObjectiveC-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A825A676243DBBC900A845B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A825A67F243DBBC900A845B6 /* AppDelegate.m in Sources */,
+				A825A690243DBBCA00A845B6 /* main.m in Sources */,
+				A8923368243E109700AA0422 /* HandlerVLC.m in Sources */,
+				A825A699243DBD4800A845B6 /* MainViewController.m in Sources */,
+				A825A682243DBBC900A845B6 /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A825A68B243DBBCA00A845B6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A825A68C243DBBCA00A845B6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A825A691243DBBCA00A845B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A825A692243DBBCA00A845B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A825A694243DBBCA00A845B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB506A05B4F1A19A571D75E7 /* Pods-VLCTestObjectiveC.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4KVLMRJ2PM;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = VLCTestObjectiveC/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = systems.arboreus.VLCTestObjectiveC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A825A695243DBBCA00A845B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 340B608227C7CA95EBAF36F9 /* Pods-VLCTestObjectiveC.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4KVLMRJ2PM;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = VLCTestObjectiveC/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = systems.arboreus.VLCTestObjectiveC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A825A675243DBBC900A845B6 /* Build configuration list for PBXProject "VLCTestObjectiveC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A825A691243DBBCA00A845B6 /* Debug */,
+				A825A692243DBBCA00A845B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A825A693243DBBCA00A845B6 /* Build configuration list for PBXNativeTarget "VLCTestObjectiveC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A825A694243DBBCA00A845B6 /* Debug */,
+				A825A695243DBBCA00A845B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A825A672243DBBC900A845B6 /* Project object */;
+}
