@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "ViewControllers/RootViewController.h"
-#import "ViewControllers/DefaultViewViewController.h"
+#import "ViewControllers/DefaultViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

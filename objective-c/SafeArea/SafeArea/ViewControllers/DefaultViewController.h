@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DefaultViewViewController : UIViewController <UIGestureRecognizerDelegate>
+@interface DefaultViewController : UIViewController <UIGestureRecognizerDelegate>
 
 @property (nonatomic,assign) BOOL statusBarHidden;
 

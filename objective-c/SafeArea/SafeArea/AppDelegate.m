@@ -19,7 +19,7 @@
 	
 	if (@available(iOS 13, *)) {} else {
 		self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-		self.window.rootViewController = [[RootViewController alloc] initWithRootViewController:[[DefaultViewViewController alloc] init]];
+		self.window.rootViewController = [[RootViewController alloc] initWithRootViewController:[[DefaultViewController alloc] init]];
 		[self.window makeKeyAndVisible];
 	}
 	

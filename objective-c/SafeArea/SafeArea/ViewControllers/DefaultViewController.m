@@ -6,13 +6,13 @@
 //  Copyright © 2020 Alexandr Kirilov. All rights reserved.
 //
 
-#import "DefaultViewViewController.h"
+#import "DefaultViewController.h"
 
-@interface DefaultViewViewController ()
+@interface DefaultViewController ()
 
 @end
 
-@implementation DefaultViewViewController
+@implementation DefaultViewController
 
 -(void) viewDidLoad {
 	

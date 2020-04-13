@@ -11,7 +11,7 @@
 	
 	if (@available(iOS 13.0, *)) {
 		self.window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene*) scene];
-		self.window.rootViewController = [[RootViewController alloc] initWithRootViewController:[[DefaultViewViewController alloc] init]];
+		self.window.rootViewController = [[RootViewController alloc] initWithRootViewController:[[DefaultViewController alloc] init]];
 		[self.window makeKeyAndVisible];
 	}
 }
