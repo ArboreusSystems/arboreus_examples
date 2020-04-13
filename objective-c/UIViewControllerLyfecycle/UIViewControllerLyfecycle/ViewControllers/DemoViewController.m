@@ -15,12 +15,22 @@
 @implementation DemoViewController
 
 @synthesize pName;
+@synthesize pTestString1;
 
 -(void) loadView {
 	
 	[super loadView];
-	pName = @"DemoViewController";
+	pName = @"3 >> DemoViewController";
 	NSLog(@"%@ -> loadView",pName);
+	
+	pTestString1 = super.pTestString1;
+	NSLog(@"%@ -> loadView :: super.pTestString1 = %@",pName,super.pTestString1);
+	NSLog(@"%@ -> loadView :: pTestString1 = %@",pName,pTestString1);
+	NSLog(@"%@ -> loadView :: super.pTestString2 = %@",pName,super.pTestString2);
+	
+	[self mTestMethod1];
+	[self mTestMethod2];
+	
 	[self.view setBackgroundColor:_COLOR_PURPLE_LIGHT];
 }
 
@@ -70,6 +80,12 @@
 	
 	[super viewDidDisappear:animated];
 	NSLog(@"%@ -> viewDidDisappear",pName);
+}
+
+-(void) mTestMethod1 {
+
+	[super mTestMethod1];
+	NSLog(@"From %@::mTestMethod1",pName);
 }
 
 @end

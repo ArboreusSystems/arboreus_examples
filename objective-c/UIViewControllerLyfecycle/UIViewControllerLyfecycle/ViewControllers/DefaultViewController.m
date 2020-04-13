@@ -15,12 +15,18 @@
 @implementation DefaultViewController
 
 @synthesize pName;
+@synthesize pTestString1;
 
 -(void) loadView {
 	
 	[super loadView];
-	pName = @"DefaultViewController";
-	NSLog(@"%@ -> loadView",pName);
+	pName = @"2 >> DefaultViewController";
+	NSLog(@"%@ -> loadView ",pName);
+	pTestString1 = super.pTestString1;
+	NSLog(@"%@ -> loadView :: super.pTestString1 = %@",pName,super.pTestString1);
+	NSLog(@"%@ -> loadView :: pTestString1 = %@",pName,pTestString1);
+	NSLog(@"%@ -> loadView :: super.pTestString2 = %@",pName,super.pTestString2);
+	pTestString1 = @"Changed in DefaultViewController";
 	[self.view setBackgroundColor:_COLOR_GREEN_LIGHT];
 }
 

@@ -17,7 +17,9 @@
 -(void) loadView {
 	
 	[super loadView];
-	_pName = @"RootViewController";
+	_pName = @"1 >> RootViewController";
+	_pTestString1 = @"RootViewController test string 1";
+	_pTestString2 = @"RootViewController test string 2";
 	NSLog(@"%@ -> loadView",_pName);
 	[self.view setBackgroundColor:_COLOR_BLUE_LIGHT];
 }
@@ -32,8 +34,6 @@
 	
 	[super viewDidLoad];
 	NSLog(@"%@ -> viewDidLoad",_pName);
-	
-//	[self.view setBackgroundColor:_COLOR_BLUE_LIGHT];
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -70,6 +70,16 @@
 	
 	[super viewDidDisappear:animated];
 	NSLog(@"%@ -> viewDidDisappear",_pName);
+}
+
+-(void) mTestMethod1 {
+	
+	NSLog(@"From %@::mTestMethod1",_pName);
+}
+
+-(void) mTestMethod2 {
+	
+	NSLog(@"From %@::mTestMethod2",_pName);
 }
 
 @end
