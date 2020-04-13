@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DefaultViewController : RootViewController
 
+
+//@property (strong,atomic) NSString* pName;
+
 @end
 
 NS_ASSUME_NONNULL_END

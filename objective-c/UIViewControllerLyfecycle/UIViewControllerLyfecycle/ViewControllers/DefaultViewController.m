@@ -14,19 +14,62 @@
 
 @implementation DefaultViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+@synthesize pName;
+
+-(void) loadView {
+	
+	[super loadView];
+	pName = @"DefaultViewController";
+	NSLog(@"%@ -> loadView",pName);
+	[self.view setBackgroundColor:_COLOR_GREEN_LIGHT];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void) loadViewIfNeeded {
+	
+	[super loadView];
+	NSLog(@"%@ -> loadViewIfNeeded",pName);
 }
-*/
+
+-(void) viewDidLoad {
+	
+	[super viewDidLoad];
+	NSLog(@"%@ -> viewDidLoad",pName);
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+	
+	[super viewWillAppear:animated];
+	NSLog(@"%@ -> viewWillAppear",pName);
+}
+
+-(void) viewWillLayoutSubviews {
+	
+	[super viewWillLayoutSubviews];
+	NSLog(@"%@ -> viewWillLayoutSubviews",pName);
+}
+
+-(void) viewDidLayoutSubviews {
+
+	[super viewDidLayoutSubviews];
+	NSLog(@"%@ -> viewDidLayoutSubviews",pName);
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+	
+	[super viewDidAppear:animated];
+	NSLog(@"%@ -> viewDidAppear",pName);
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+	
+	[super viewWillAppear:animated];
+	NSLog(@"%@ -> viewWillAppear",pName);
+}
+
+-(void) viewDidDisappear:(BOOL)animated {
+	
+	[super viewDidDisappear:animated];
+	NSLog(@"%@ -> viewDidDisappear",pName);
+}
 
 @end
