@@ -25,7 +25,7 @@
 	
 	[super viewDidLoad];
 	
-	NSURL* oUrl = [NSURL URLWithString:@"http://185.26.157.6:8081/live/1_test/mpeg.2ts"];
+	NSURL* oUrl = [NSURL URLWithString:@"path to media"];
 	VLCMedia* oMedia = [VLCMedia mediaWithURL:oUrl];
 
 	_pPlayer = [[VLCMediaPlayer alloc] init];
