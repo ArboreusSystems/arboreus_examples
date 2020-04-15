@@ -11,6 +11,7 @@
 #import "Handlers/HandlerVLC.h"
 #import "Definitions/DefinitionColors.h"
 #import "ViewControllers/MainViewController.h"
+#import "ViewControllers/RootNavigationController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

@@ -14,7 +14,16 @@
 	
 	self = [super init];
 	if (self) {
+		
+		_pPlayerView = [[UIView alloc] init];
+		[_pPlayerView setTranslatesAutoresizingMaskIntoConstraints:NO];
+		[_pPlayerView setBackgroundColor:__COLOR_GREEN];
+		
 		_pPlayer = [[VLCMediaPlayer alloc] init];
+		NSURL* oUrl = [NSURL URLWithString:@"The media url should be here"];
+		VLCMedia* oMedia = [VLCMedia mediaWithURL:oUrl];
+		_pPlayer.media = oMedia;
+		_pPlayer.drawable = _pPlayerView;
 	}
 	return self;
 }

@@ -10,7 +10,7 @@
 	
 	if (@available(iOS 13.0, *)) {
 		self.window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene*) scene];
-		self.window.rootViewController = [[MainViewController alloc] init];
+		self.window.rootViewController = [[RootNavigationController alloc] init];
 		[self.window makeKeyAndVisible];
 	}
 }

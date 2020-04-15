@@ -10,6 +10,7 @@
 
 #import "Definitions/DefinitionColors.h"
 #import "ViewControllers/MainViewController.h"
+#import "ViewControllers/RootNavigationController.h"
 
 @interface SceneDelegate : UIResponder <UIWindowSceneDelegate>
 

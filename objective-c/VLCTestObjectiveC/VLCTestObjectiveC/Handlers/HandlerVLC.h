@@ -9,11 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <MobileVLCKit/MobileVLCKit.h>
 
+#import "../Definitions/DefinitionColors.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HandlerVLC : NSObject
 
 @property (strong,atomic) VLCMediaPlayer* pPlayer;
+@property (strong,atomic) UIView* pPlayerView;
 
 +(HandlerVLC*) mInstance;
 

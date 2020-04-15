@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5E9D022996D05CB64F469ADF /* Pods_VLCTestObjectiveC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B8B43C9AAF741F60365D2BA /* Pods_VLCTestObjectiveC.framework */; };
+		A80B4329244648FD005BFD90 /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A80B4328244648FD005BFD90 /* RootNavigationController.m */; };
+		A80B432C24464A9D005BFD90 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A80B432B24464A9D005BFD90 /* SecondViewController.m */; };
 		A825A67F243DBBC900A845B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A825A67E243DBBC900A845B6 /* AppDelegate.m */; };
 		A825A682243DBBC900A845B6 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A825A681243DBBC900A845B6 /* SceneDelegate.m */; };
 		A825A68A243DBBCA00A845B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A825A689243DBBCA00A845B6 /* Assets.xcassets */; };
@@ -34,6 +36,10 @@
 /* Begin PBXFileReference section */
 		340B608227C7CA95EBAF36F9 /* Pods-VLCTestObjectiveC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VLCTestObjectiveC.release.xcconfig"; path = "Target Support Files/Pods-VLCTestObjectiveC/Pods-VLCTestObjectiveC.release.xcconfig"; sourceTree = "<group>"; };
 		6B8B43C9AAF741F60365D2BA /* Pods_VLCTestObjectiveC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VLCTestObjectiveC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A80B4327244648FD005BFD90 /* RootNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootNavigationController.h; sourceTree = "<group>"; };
+		A80B4328244648FD005BFD90 /* RootNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootNavigationController.m; sourceTree = "<group>"; };
+		A80B432A24464A9D005BFD90 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		A80B432B24464A9D005BFD90 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		A825A67A243DBBC900A845B6 /* VLCTestObjectiveC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VLCTestObjectiveC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A825A67D243DBBC900A845B6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A825A67E243DBBC900A845B6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -143,6 +149,10 @@
 			children = (
 				A825A697243DBD4800A845B6 /* MainViewController.h */,
 				A825A698243DBD4800A845B6 /* MainViewController.m */,
+				A80B4327244648FD005BFD90 /* RootNavigationController.h */,
+				A80B4328244648FD005BFD90 /* RootNavigationController.m */,
+				A80B432A24464A9D005BFD90 /* SecondViewController.h */,
+				A80B432B24464A9D005BFD90 /* SecondViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -284,7 +294,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A825A67F243DBBC900A845B6 /* AppDelegate.m in Sources */,
+				A80B4329244648FD005BFD90 /* RootNavigationController.m in Sources */,
 				A825A690243DBBCA00A845B6 /* main.m in Sources */,
+				A80B432C24464A9D005BFD90 /* SecondViewController.m in Sources */,
 				A8923368243E109700AA0422 /* HandlerVLC.m in Sources */,
 				A825A699243DBD4800A845B6 /* MainViewController.m in Sources */,
 				A825A682243DBBC900A845B6 /* SceneDelegate.m in Sources */,

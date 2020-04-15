@@ -23,7 +23,7 @@
 	
 	if (@available(iOS 13, *)) {} else {
 		self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-		self.window.rootViewController = [[MainViewController alloc] init];
+		self.window.rootViewController = [[RootNavigationController alloc] init];
 		[self.window makeKeyAndVisible];
 	}
 	
