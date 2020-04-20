@@ -17,10 +17,9 @@
 		
 		_pPlayerView = [[UIView alloc] init];
 		[_pPlayerView setTranslatesAutoresizingMaskIntoConstraints:NO];
-		[_pPlayerView setBackgroundColor:__COLOR_GREEN];
 		
 		_pPlayer = [[VLCMediaPlayer alloc] init];
-		NSURL* oUrl = [NSURL URLWithString:@"The media url should be here"];
+		NSURL* oUrl = [NSURL URLWithString:@"Media URL here"];
 		VLCMedia* oMedia = [VLCMedia mediaWithURL:oUrl];
 		_pPlayer.media = oMedia;
 		_pPlayer.drawable = _pPlayerView;

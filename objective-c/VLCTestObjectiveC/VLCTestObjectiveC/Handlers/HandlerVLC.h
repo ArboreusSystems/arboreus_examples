@@ -13,7 +13,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HandlerVLC : NSObject
+@interface HandlerVLC : NSObject {
+	
+	UIView* pTestView;
+}
 
 @property (strong,atomic) VLCMediaPlayer* pPlayer;
 @property (strong,atomic) UIView* pPlayerView;
