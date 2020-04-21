@@ -13,6 +13,8 @@
 		60953563A36919C57C7166EC /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60953504CDACDCCE8F74B94C /* MainViewController.xib */; };
 		609539B97F712A470FF9C52F /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 609530FFCC08696364F301CA /* Singleton.m */; };
 		60953FE01AC57D2F10F6C362 /* Handler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6095321501B414EA8EF8E122 /* Handler.m */; };
+		A89449F1244EE5CA005F12E1 /* SuperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A89449F0244EE5CA005F12E1 /* SuperClass.m */; };
+		A89449F4244EE63A005F12E1 /* InUseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A89449F3244EE63A005F12E1 /* InUseClass.m */; };
 		A894562122C2A85000AD36F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A894562022C2A85000AD36F3 /* AppDelegate.m */; };
 		A894562922C2A85100AD36F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A894562822C2A85100AD36F3 /* Assets.xcassets */; };
 		A894562F22C2A85100AD36F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A894562E22C2A85100AD36F3 /* main.m */; };
@@ -31,6 +33,10 @@
 		609539F0887D17D778FADE93 /* ObjectInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectInstance.m; sourceTree = "<group>"; };
 		60953BD13936402590F4E0A7 /* ObjectBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectBuilder.m; sourceTree = "<group>"; };
 		60953CF2C722C729FAEE53FF /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		A89449EF244EE5CA005F12E1 /* SuperClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuperClass.h; sourceTree = "<group>"; };
+		A89449F0244EE5CA005F12E1 /* SuperClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuperClass.m; sourceTree = "<group>"; };
+		A89449F2244EE63A005F12E1 /* InUseClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InUseClass.h; sourceTree = "<group>"; };
+		A89449F3244EE63A005F12E1 /* InUseClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InUseClass.m; sourceTree = "<group>"; };
 		A894561C22C2A85000AD36F3 /* OOP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OOP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A894561F22C2A85000AD36F3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A894562022C2A85000AD36F3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -69,6 +75,17 @@
 				609530FFCC08696364F301CA /* Singleton.m */,
 			);
 			path = Singleton;
+			sourceTree = "<group>";
+		};
+		A89449EE244EE5AF005F12E1 /* Inheritance */ = {
+			isa = PBXGroup;
+			children = (
+				A89449EF244EE5CA005F12E1 /* SuperClass.h */,
+				A89449F0244EE5CA005F12E1 /* SuperClass.m */,
+				A89449F2244EE63A005F12E1 /* InUseClass.h */,
+				A89449F3244EE63A005F12E1 /* InUseClass.m */,
+			);
+			path = Inheritance;
 			sourceTree = "<group>";
 		};
 		A894561322C2A85000AD36F3 = {
@@ -125,6 +142,7 @@
 		A894563722C2A88A00AD36F3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A89449EE244EE5AF005F12E1 /* Inheritance */,
 				60953A1FC968B4F29A9CA84F /* Singleton */,
 				6095310F8B257A87A2591321 /* Builder */,
 			);
@@ -205,6 +223,8 @@
 				A894562122C2A85000AD36F3 /* AppDelegate.m in Sources */,
 				60953FE01AC57D2F10F6C362 /* Handler.m in Sources */,
 				609539B97F712A470FF9C52F /* Singleton.m in Sources */,
+				A89449F4244EE63A005F12E1 /* InUseClass.m in Sources */,
+				A89449F1244EE5CA005F12E1 /* SuperClass.m in Sources */,
 				6095334CC7B1E060A5752925 /* MainViewController.m in Sources */,
 				609533FBC305FE2EC6B6D02A /* ObjectBuilder.m in Sources */,
 				6095320C3FD4AEF25F40C282 /* ObjectInstance.m in Sources */,

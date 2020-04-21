@@ -11,6 +11,8 @@
 #include "../Classes/Singleton/Singleton.h"
 #include "../Classes/Builder/ObjectBuilder.h"
 #include "../Classes/Builder/ObjectInstance.h"
+#include "../Classes/Inheritance/SuperClass.h"
+#include "../Classes/Inheritance/InUseClass.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

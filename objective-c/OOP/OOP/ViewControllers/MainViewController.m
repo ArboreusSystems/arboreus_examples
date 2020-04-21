@@ -32,6 +32,9 @@
 	[oBuilder mSetVersion:[NSNumber numberWithInteger:2]];
 	ObjectInstance *oObjectInstance2 = [oBuilder mBuildInstance];
 	NSLog(@"oObjectInstance2 test string: %@",[oObjectInstance2 mGetString]);
+	
+	InUseClass* oInUseClass = [[InUseClass alloc] init];
+	[oInUseClass mTestString];
 }
 
 -(IBAction) mButtonExit:(id)sender {
