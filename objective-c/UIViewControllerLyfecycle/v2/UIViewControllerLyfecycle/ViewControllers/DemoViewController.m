@@ -198,6 +198,8 @@
 
 -(void) viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
 
+	[super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+
 	NSLog(@"viewWillTransitionToSize");
 	
 	UIDeviceOrientation oDeviceOrientation = [[UIDevice currentDevice] orientation];
