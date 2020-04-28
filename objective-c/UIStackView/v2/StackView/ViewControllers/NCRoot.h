@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "VCMain.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NCRoot : UINavigationController

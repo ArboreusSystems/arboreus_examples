@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ViewControllers/NCRoot.h"
+
 @interface SceneDelegate : UIResponder <UIWindowSceneDelegate>
 
 @property (strong, nonatomic) UIWindow * window;

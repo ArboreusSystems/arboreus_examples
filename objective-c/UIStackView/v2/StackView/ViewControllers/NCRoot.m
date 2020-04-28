@@ -14,19 +14,20 @@
 
 @implementation NCRoot
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+-(instancetype) init {
+
+	self = [super init];
+	if (self) {
+		
+		VCMain* oVCInitial = [[VCMain alloc] init];
+		[self setViewControllers:@[oVCInitial] animated:YES];
+	}
+	return self;
 }
 
-/*
-#pragma mark - Navigation
+-(void)viewDidLoad {
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+	[super viewDidLoad];
 }
-*/
 
 @end
