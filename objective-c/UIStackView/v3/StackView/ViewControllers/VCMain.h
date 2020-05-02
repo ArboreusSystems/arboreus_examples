@@ -13,13 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface VCMain : VCTemplate <UITextFieldDelegate> {
 	
 	BOOL pIsKeyboardShowing;
-	BOOL pIsKeyboardOnRotation;
 	CGRect pKeyboardFrame;
 }
 
 @property (atomic,strong) UIScrollView* pScrollView;
 @property (atomic,strong) UIStackView* pStackView;
-
 
 @property (atomic,strong) UITextField* pFieldUser;
 @property (atomic,strong) UITextField* pFieldPassword;
