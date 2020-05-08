@@ -26,7 +26,7 @@
     if (self) {
         
         pGlobal = [HGlobal mInstance];
-        [self.view setBackgroundColor:__COLOR_BLUE];
+        [self.view setBackgroundColor:__COLOR_GREEN];
         
     }
     return self;
