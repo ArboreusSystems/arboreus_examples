@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  Localization
+
+  Created by Alexandr Kirilov on 08/05/2020.
+  Copyright © 2020 Alexandr Kirilov. All rights reserved.
+*/
+
+"Global.test.string" = "Globaali testijono";
+"VCMain.Title" = "Päänäkymän ohjain";
