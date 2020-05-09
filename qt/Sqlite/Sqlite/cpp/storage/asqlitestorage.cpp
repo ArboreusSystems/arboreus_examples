@@ -37,11 +37,14 @@ aSqliteStorage::aSqliteStorage(QObject *parent) : QObject(parent) {
 		aFile::mRemove(oFile);
 	}
 
-	if (!QSqlDatabase::isDriverAvailable("QSQLITE")) {
+	aLOG << "Available SQL drivers: " << QSqlDatabase::drivers();
+
+	if (!QSqlDatabase::isDriverAvailable("SQLITECIPHER")) {
 		aLOG << "No SQL driver. Available drivers:" << QSqlDatabase::drivers();
 	} else {
-		pDataBase = QSqlDatabase::addDatabase("QSQLITE");
+		pDataBase = QSqlDatabase::addDatabase("SQLITECIPHER");
 		pDataBase.setDatabaseName(oFile);
+		pDataBase.setPassword("Password");
 		if (!pDataBase.open()) {
 			aLOG << "No opened DB";
 		} else {
