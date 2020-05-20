@@ -12,6 +12,7 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QSysInfo>
+#include <QSslSocket>
 
 // Application includes
 #include "cpp/storage/asqlitestorage.h"
@@ -26,6 +27,8 @@ int main(int inCounter, char *inArguments[]) {
 
 	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 	QGuiApplication oApplication(inCounter,inArguments);
+
+	aLOG << "Support SSL: " << QSslSocket::supportsSsl();
 
 	QQmlApplicationEngine oEngine;
 	QQmlContext *oRootContext = oEngine.rootContext();

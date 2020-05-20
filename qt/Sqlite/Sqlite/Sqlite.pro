@@ -47,3 +47,23 @@ HEADERS += \
 	cpp/storage/asqlitestorage.h
 
 DISTFILES +=
+
+ios {
+
+}
+
+
+macos {
+
+}
+
+
+simulator {
+
+}
+
+
+android {
+
+    include(<Path to cloned or downloaded https://github.com/KDAB/android_openssl)
+}
