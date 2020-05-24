@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>QtLanguage_en.qm</file>
+        <file>QtLanguage_ru.qm</file>
+    </qresource>
+</RCC>
