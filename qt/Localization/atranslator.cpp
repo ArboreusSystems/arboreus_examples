@@ -27,7 +27,7 @@
 ATranslator::ATranslator(QObject *parent) : QObject(parent) {
 
 	pTranslator = new QTranslator();
-
+	mSetLanguage("en");
 	aLOG << "ATranslator created";
 }
 
