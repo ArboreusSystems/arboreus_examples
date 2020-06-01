@@ -48,10 +48,10 @@
 	[pCollectionFlowLayot setMinimumLineSpacing:10];
 	[pCollectionFlowLayot setSectionInset:UIEdgeInsetsMake(10, 10, 10, 10)];
 	
-	pCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:pCollectionFlowLayot];
+	pCollectionView = [[UICCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:pCollectionFlowLayot];
 	[pCollectionView setBackgroundColor:__COLOR_PURPLE];
 	[pCollectionView setTranslatesAutoresizingMaskIntoConstraints:NO];
-	[pCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:pClassID];
+	[pCollectionView registerClass:[UICCollectionViewCell class] forCellWithReuseIdentifier:[UICCollectionViewCell mGetClassID]];
 	[pCollectionView setDelegate:self];
 	[pCollectionView setDataSource:self];
 	
@@ -171,7 +171,10 @@
 	NSString* oMessage = [NSString stringWithFormat:@"cellForItemAtIndexPath indexPath: %lu",(unsigned long)[indexPath indexAtPosition:1]];
 	H_LOGGER_MESSAGE_NOTICE(oMessage);
 	
-	UICollectionViewCell* oCell = [pCollectionView dequeueReusableCellWithReuseIdentifier:pClassID forIndexPath:indexPath];
+	UICCollectionViewCell* oCell = [pCollectionView dequeueReusableCellWithReuseIdentifier:[UICCollectionViewCell mGetClassID] forIndexPath:indexPath];
+	[oCell.pButton setTag:[indexPath item]];
+	[oCell.pButton addTarget:self action:@selector(mActionCell:) forControlEvents:UIControlEventTouchUpInside];
+	[oCell mSetupWithTitle:[NSString stringWithFormat:@"Button %lu",(unsigned long)[indexPath indexAtPosition:1]]];
 	if (indexPath == pCurrentItemPath) {
 		[oCell.contentView setBackgroundColor:__COLOR_WHITE];
 	} else {
@@ -179,6 +182,12 @@
 	}
 	
 	return oCell;
+}
+
+-(void) mActionCell:(UIButton*)inCell {
+
+	NSString* oMessage = [NSString stringWithFormat:@"Clicked %@",[inCell.titleLabel text]];
+	H_LOGGER_MESSAGE_NOTICE(oMessage);
 }
 
 -(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -236,6 +245,11 @@
 	H_LOGGER_MESSAGE_NOTICE(oMessage);
 	
 	return UIEdgeInsetsMake(15,15,15,15);
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView canFocusItemAtIndexPath:(NSIndexPath *)indexPath {
+
+	return NO;
 }
 
 

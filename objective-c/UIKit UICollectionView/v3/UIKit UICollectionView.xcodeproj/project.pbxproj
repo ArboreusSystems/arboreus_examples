@@ -16,6 +16,8 @@
 		A8B13067247C02C400CB7093 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8B13065247C02C400CB7093 /* LaunchScreen.storyboard */; };
 		A8B1306A247C02C400CB7093 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B13069247C02C400CB7093 /* main.m */; };
 		A8B1307A247C03E800CB7093 /* VCMain.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B13079247C03E800CB7093 /* VCMain.m */; };
+		A8BC569624852DFC0094DD34 /* UICCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC569524852DFC0094DD34 /* UICCollectionViewCell.m */; };
+		A8BC5699248531E20094DD34 /* UICCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC5698248531E20094DD34 /* UICCollectionView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,10 @@
 		A8B13074247C037400CB7093 /* DColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DColors.h; sourceTree = "<group>"; };
 		A8B13078247C03E800CB7093 /* VCMain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCMain.h; sourceTree = "<group>"; };
 		A8B13079247C03E800CB7093 /* VCMain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCMain.m; sourceTree = "<group>"; };
+		A8BC569424852DFC0094DD34 /* UICCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UICCollectionViewCell.h; sourceTree = "<group>"; };
+		A8BC569524852DFC0094DD34 /* UICCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UICCollectionViewCell.m; sourceTree = "<group>"; };
+		A8BC5697248531E20094DD34 /* UICCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UICCollectionView.h; sourceTree = "<group>"; };
+		A8BC5698248531E20094DD34 /* UICCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UICCollectionView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,7 @@
 		A8B13056247C02C300CB7093 /* UIKit UICollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				A8BC569324852DA40094DD34 /* UIComponents */,
 				A8B13072247C02FE00CB7093 /* Definitions */,
 				A8B13071247C02F500CB7093 /* ViewControllers */,
 				A8B13070247C02ED00CB7093 /* Handlers */,
@@ -112,6 +119,17 @@
 				A8B13074247C037400CB7093 /* DColors.h */,
 			);
 			path = Definitions;
+			sourceTree = "<group>";
+		};
+		A8BC569324852DA40094DD34 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				A8BC569424852DFC0094DD34 /* UICCollectionViewCell.h */,
+				A8BC569524852DFC0094DD34 /* UICCollectionViewCell.m */,
+				A8BC5697248531E20094DD34 /* UICCollectionView.h */,
+				A8BC5698248531E20094DD34 /* UICCollectionView.m */,
+			);
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +203,8 @@
 			files = (
 				A8827CFD247D7F93005372C2 /* HLogger.m in Sources */,
 				A8B13059247C02C300CB7093 /* AppDelegate.m in Sources */,
+				A8BC5699248531E20094DD34 /* UICCollectionView.m in Sources */,
+				A8BC569624852DFC0094DD34 /* UICCollectionViewCell.m in Sources */,
 				A8827CFA247D7B0D005372C2 /* HGlobal.m in Sources */,
 				A8B1307A247C03E800CB7093 /* VCMain.m in Sources */,
 				A8B1306A247C02C400CB7093 /* main.m in Sources */,

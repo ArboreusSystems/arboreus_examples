@@ -11,6 +11,8 @@
 #import "../Definitions/DColors.h"
 #import "../Handlers/HGlobal.h"
 #import "../Handlers/HLogger.h"
+#import "../UIComponents/UICCollectionView.h"
+#import "../UIComponents/UICCollectionViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
