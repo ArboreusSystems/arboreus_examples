@@ -258,17 +258,6 @@
 	NSString* oNameString= [[pTestData objectAtIndex:[indexPath indexAtPosition:1]] pName];
 	CGRect oEstimatedNameFrame = [oNameString boundingRectWithSize:oEstimatedSize options:NSStringDrawingUsesLineFragmentOrigin attributes:oAttributes context:nil];
 	
-//	CGSize oSize;
-//	if ([pGlobal mIsPhone]) {
-//		oSize = CGSizeMake(self.view.safeAreaLayoutGuide.layoutFrame.size.width - 30,oEstimatedNameFrame.size.height + 25);
-//	} else {
-//		if ([pGlobal mIsLandscape]) {
-//			oSize = CGSizeMake(self.view.safeAreaLayoutGuide.layoutFrame.size.width / 2 - 20,oEstimatedNameFrame.size.height + 25);
-//		} else {
-//			oSize = CGSizeMake(self.view.safeAreaLayoutGuide.layoutFrame.size.width - 30,oEstimatedNameFrame.size.height + 25);
-//		}
-//	}
-	
 	return CGSizeMake(
 		self.view.safeAreaLayoutGuide.layoutFrame.size.width,
 		oEstimatedNameFrame.size.height + 23
