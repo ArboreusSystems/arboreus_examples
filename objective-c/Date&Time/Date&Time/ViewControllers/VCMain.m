@@ -194,6 +194,19 @@
 		oTimeZoneName = @"Pacific/Midway";
 		[oFormatter setTimeZone:[NSTimeZone timeZoneWithName:oTimeZoneName]];
 		NSLog(@"Current time %@ -> %@",oTimeZoneName,[oFormatter stringFromDate:oDateNow]);
+		
+		NSLog(@"------------------");
+		NSLog(@"Timezones");
+		NSLog(@"------------------");
+		
+		NSTimeZone* oTimezoneDemo = [NSTimeZone localTimeZone];
+		NSLog(@"Timezone name: %@",[oTimezoneDemo name]);
+		NSLog(@"Timezone localizedName:NSTimeZoneNameStyleStandard -> %@",[oTimezoneDemo localizedName:NSTimeZoneNameStyleStandard locale:[NSLocale currentLocale]]);
+		NSLog(@"Timezone localizedName:NSTimeZoneNameStyleShortStandard -> %@",[oTimezoneDemo localizedName:NSTimeZoneNameStyleShortStandard locale:[NSLocale currentLocale]]);
+		NSLog(@"Timezone localizedName:NSTimeZoneNameStyleGeneric -> %@",[oTimezoneDemo localizedName:NSTimeZoneNameStyleGeneric locale:[NSLocale currentLocale]]);
+		NSLog(@"Timezone localizedName:NSTimeZoneNameStyleShortGeneric -> %@",[oTimezoneDemo localizedName:NSTimeZoneNameStyleShortGeneric locale:[NSLocale currentLocale]]);
+		NSLog(@"Timezone localizedName:NSTimeZoneNameStyleDaylightSaving -> %@",[oTimezoneDemo localizedName:NSTimeZoneNameStyleDaylightSaving locale:[NSLocale currentLocale]]);
+		NSLog(@"Timezone localizedName:NSTimeZoneNameStyleShortDaylightSaving -> %@",[oTimezoneDemo localizedName:NSTimeZoneNameStyleShortDaylightSaving locale:[NSLocale currentLocale]]);
 	};
 	return self;
 }
