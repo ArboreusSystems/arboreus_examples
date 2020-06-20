@@ -61,20 +61,40 @@
 		NSLog(@"Today begin of the day timeIntervalSince1970 microseconds: %lld",(long long)(oBeginOfTheDayTimeIntervalSince1970 * 1000000.0));
 		
 		oTimeZoneName = @"UTC";
+		[oCalendar setTimeZone:[NSTimeZone timeZoneWithName:oTimeZoneName]];
+		NSDate* oDateTodayUTC = [oCalendar dateFromComponents:oComponents];
+		NSLog(@"Today begin of the day in %@: %f",oTimeZoneName,[oDateTodayUTC timeIntervalSince1970]);
+		
+		oTimeZoneName = @"Australia/Sydney";
+		[oCalendar setTimeZone:[NSTimeZone timeZoneWithName:oTimeZoneName]];
+		NSDate* oDateTodayAustraliaSydney = [oCalendar dateFromComponents:oComponents];
+		NSLog(@"Today begin of the day in %@: %f",oTimeZoneName,[oDateTodayAustraliaSydney timeIntervalSince1970]);
+		
+		oTimeZoneName = @"Europe/Paris";
+		[oCalendar setTimeZone:[NSTimeZone timeZoneWithName:oTimeZoneName]];
+		NSDate* oDateTodayEuropeParis = [oCalendar dateFromComponents:oComponents];
+		NSLog(@"Today begin of the day in %@: %f",oTimeZoneName,[oDateTodayEuropeParis timeIntervalSince1970]);
+		
+		oTimeZoneName = @"Pacific/Midway";
+		[oCalendar setTimeZone:[NSTimeZone timeZoneWithName:oTimeZoneName]];
+		NSDate* oDateTodayPacificMidway = [oCalendar dateFromComponents:oComponents];
+		NSLog(@"Today begin of the day in %@: %f",oTimeZoneName,[oDateTodayPacificMidway timeIntervalSince1970]);
+		
+		oTimeZoneName = @"UTC";
 		[oFormatter setTimeZone:[NSTimeZone timeZoneWithName:oTimeZoneName]];
-		NSLog(@"Today begin of the day time %@ -> %@",oTimeZoneName,[oFormatter stringFromDate:oTodayBeginOfTheDay]);
+		NSLog(@"Today begin of the day time at %@ -> %@",oTimeZoneName,[oFormatter stringFromDate:oTodayBeginOfTheDay]);
 		
 		oTimeZoneName = @"Australia/Sydney";
 		[oFormatter setTimeZone:[NSTimeZone timeZoneWithName:oTimeZoneName]];
-		NSLog(@"Today begin of the day time %@ -> %@",oTimeZoneName,[oFormatter stringFromDate:oTodayBeginOfTheDay]);
+		NSLog(@"Today begin of the day time at %@ -> %@",oTimeZoneName,[oFormatter stringFromDate:oTodayBeginOfTheDay]);
 		
 		oTimeZoneName = @"Europe/Paris";
 		[oFormatter setTimeZone:[NSTimeZone timeZoneWithName:oTimeZoneName]];
-		NSLog(@"Today begin of the day time %@ -> %@",oTimeZoneName,[oFormatter stringFromDate:oTodayBeginOfTheDay]);
+		NSLog(@"Today begin of the day time at %@ -> %@",oTimeZoneName,[oFormatter stringFromDate:oTodayBeginOfTheDay]);
 		
 		oTimeZoneName = @"Pacific/Midway";
 		[oFormatter setTimeZone:[NSTimeZone timeZoneWithName:oTimeZoneName]];
-		NSLog(@"Today begin of the day time %@ -> %@",oTimeZoneName,[oFormatter stringFromDate:oTodayBeginOfTheDay]);
+		NSLog(@"Today begin of the day time at %@ -> %@",oTimeZoneName,[oFormatter stringFromDate:oTodayBeginOfTheDay]);
 		
 		[oComponents setHour:23]; [oComponents setMinute:59]; [oComponents setSecond:59];
 		NSDate* oTodayLastSecond = [oCalendar dateFromComponents:oComponents];
