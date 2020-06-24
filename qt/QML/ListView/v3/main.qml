@@ -55,8 +55,6 @@ ApplicationWindow {
 		ListElement {type: 1; text: "In placerat tempus est vel semper. Aenean convallis feugiat diam, sed luctus magna accumsan vitae.";}
 	}
 
-
-
 	DelegateChooser {
 
 		id: oListViewDelegateChooser;
