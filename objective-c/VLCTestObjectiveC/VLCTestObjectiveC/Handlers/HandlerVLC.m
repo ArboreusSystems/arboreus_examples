@@ -19,7 +19,7 @@
 		[_pPlayerView setTranslatesAutoresizingMaskIntoConstraints:NO];
 		
 		_pPlayer = [[VLCMediaPlayer alloc] init];
-		NSURL* oUrl = [NSURL URLWithString:@"http://185.26.157.6:8081/live/animalplanet/mpeg.2ts"];
+		NSURL* oUrl = [NSURL URLWithString:@"past/your/media/url/here"];
 		VLCMedia* oMedia = [VLCMedia mediaWithURL:oUrl];
 		_pPlayer.media = oMedia;
 		_pPlayer.drawable = _pPlayerView;
