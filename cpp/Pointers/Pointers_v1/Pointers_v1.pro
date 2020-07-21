@@ -4,8 +4,10 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        aglobal.cpp \
         alogger.cpp \
         main.cpp
 
 HEADERS += \
+	aglobal.h \
 	alogger.h
