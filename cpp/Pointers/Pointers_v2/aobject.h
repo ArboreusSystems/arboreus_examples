@@ -16,16 +16,33 @@
 #define AOBJECT_H
 
 // System includes
+#include <iostream>
+#include <string>
+#include <memory>
 
 // Application includes
+#include "alogger.h"
 
 // Constants and definitions
+
+// Namespace
+using namespace std;
+
 
 // Class definitions
 class AObject {
 
-public:
-	AObject(void);
+	public:
+
+		AObject(void);
+		AObject(string inName);
+		~AObject(void);
+
+		void mTestMethod(void);
+
+	private:
+
+		string pName = "Default name";
 };
 
 #endif // AOBJECT_H

@@ -16,6 +16,8 @@
 // Class header
 #include "aobject.h"
 
+using namespace std;
+
 
 // -----------
 /*!
@@ -26,6 +28,21 @@
 
 AObject::AObject(void) {
 
+	ALOG << "AObject created" << endl;
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+AObject::AObject(string inName) {
+
+	pName = inName;
+	ALOG << pName << " created" << endl;
 }
 
 
@@ -38,5 +55,18 @@ AObject::AObject(void) {
 
 AObject::~AObject(void) {
 
+	ALOG << pName << " deleted" << endl;
 }
 
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void AObject::mTestMethod(void) {
+
+	ALOG << pName << " mTestMethod called" << endl;
+}
