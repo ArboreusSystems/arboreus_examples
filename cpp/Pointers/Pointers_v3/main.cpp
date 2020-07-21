@@ -48,8 +48,8 @@ int main(int inCounter, char *inArguments[]) {
 	AGlobal oGlobal;
 
 	typedef void (AGlobal::*oFunctionViaPointer)();
-    oFunctionViaPointer oFunction2 = &AGlobal::mTestMethod;
-    (oGlobal.*oFunction2)();
+	oFunctionViaPointer oFunction2 = &AGlobal::mTestMethod;
+	(oGlobal.*oFunction2)();
 
 	typedef void (AGlobal::*oFunctionViaPointerWithParameters)(string);
 	oFunctionViaPointerWithParameters oFunction3 = &AGlobal::mTestMethodWithParameter;
