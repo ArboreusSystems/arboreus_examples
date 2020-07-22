@@ -48,7 +48,6 @@ int main(int inCounter, char *inArguments[]) {
 		}
 	);
 
-
 	ALOG << "Return multiple values demo - OK" << endl;
 	return 0;
 }
