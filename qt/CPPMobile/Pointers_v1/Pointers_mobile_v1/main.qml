@@ -20,13 +20,15 @@ Window {
 	width: 640;
 	height: 480;
 	title: qsTr("CPP Pointers");
+	color: "#0800af";
 
 	Text {
 
 		id: pText;
-		text: "CPP Pointers demo";
+		text: "CPP Pointers demo V1";
 		font.pixelSize: 20;
 		anchors.horizontalCenter: parent.horizontalCenter;
 		anchors.verticalCenter: parent.verticalCenter;
+		color: "white";
 	}
 }

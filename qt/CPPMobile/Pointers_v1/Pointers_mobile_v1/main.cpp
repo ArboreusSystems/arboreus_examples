@@ -64,20 +64,20 @@ int main(int inCounter, char *inArguments[]) {
 	char* oChar1 = (char*)"Char value";
 	AGlobal::mPrintValue("oChar1",oChar1,ADataType::Char);
 
-//	int* oPointerInteger1;
-//	float* oPointerFloat2 = new float(1.23456);
-//	*oPointerInteger1 = static_cast<int>(*oPointerFloat2);
-//	ALOG << "oPointerFloat2: " << *oPointerFloat2 << endl;
-//	ALOG << "oPointerInteger1: " << oPointerInteger1 << endl;
-//	ALOG << "oPointerInteger1 value: " << *oPointerInteger1 << endl;
-//	*oPointerFloat2 = 2.3456f;
-//	ALOG << "oPointerFloat2: " << *oPointerFloat2 << endl;
-//	ALOG << "oPointerInteger1: " << oPointerInteger1 << endl;
-//	ALOG << "oPointerInteger1 value: " << *oPointerInteger1 << endl;
-//	*oPointerInteger1 = 10;
-//	ALOG << "oPointerFloat2: " << *oPointerFloat2 << endl;
-//	ALOG << "oPointerInteger1: " << oPointerInteger1 << endl;
-//	ALOG << "oPointerInteger1 value: " << *oPointerInteger1 << endl;
+	int* oPointerInteger1 = new int(0);
+	float* oPointerFloat2 = new float(1.23456);
+	*oPointerInteger1 = static_cast<int>(*oPointerFloat2);
+	ALOG << "oPointerFloat2: " << *oPointerFloat2 << endl;
+	ALOG << "oPointerInteger1: " << oPointerInteger1 << endl;
+	ALOG << "oPointerInteger1 value: " << *oPointerInteger1 << endl;
+	*oPointerFloat2 = 2.3456f;
+	ALOG << "oPointerFloat2: " << *oPointerFloat2 << endl;
+	ALOG << "oPointerInteger1: " << oPointerInteger1 << endl;
+	ALOG << "oPointerInteger1 value: " << *oPointerInteger1 << endl;
+	*oPointerInteger1 = 10;
+	ALOG << "oPointerFloat2: " << *oPointerFloat2 << endl;
+	ALOG << "oPointerInteger1: " << oPointerInteger1 << endl;
+	ALOG << "oPointerInteger1 value: " << *oPointerInteger1 << endl;
 
 	ALOG << "Pointers demo - OK" << endl;
 
