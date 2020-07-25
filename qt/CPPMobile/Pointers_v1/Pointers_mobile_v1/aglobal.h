@@ -17,6 +17,7 @@
 
 // System includes
 #include <QObject>
+#include <QString>
 #include <string>
 #include <iostream>
 

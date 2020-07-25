@@ -16,38 +16,13 @@
 #define ALOGGER_H
 
 // System includes
-#include <iostream>
-#include <chrono>
-#include <string>
-#include <unistd.h>
 #include <QObject>
+#include <QDateTime>
+#include <QDebug>
 
 // Application includes
 
 // Constants and definitions
-#define ALOG cout << ALogger::mCurrentTimeMicroseconds() << " "
-
-// Namesapce
-using namespace std;
-
-
-// Class definitions
-class ALogger : public QObject {
-
-	Q_OBJECT
-
-	public:
-
-		explicit ALogger(QObject *parent = nullptr);
-		virtual ~ALogger(void);
-
-		static long long mCurrentTimeMicroseconds(void);
-		static long long mCurrentTimeMilliseconds(void);
-		static long long mCurrentTimeSeconds(void);
-
-	signals:
-
-	public slots:
-};
+#define ALOG qDebug() << QDateTime::currentMSecsSinceEpoch() << " "
 
 #endif // ALOGGER_H

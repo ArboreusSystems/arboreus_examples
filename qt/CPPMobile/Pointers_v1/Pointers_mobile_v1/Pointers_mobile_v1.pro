@@ -15,7 +15,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         aglobal.cpp \
-        alogger.cpp \
         main.cpp
 
 RESOURCES += qml.qrc

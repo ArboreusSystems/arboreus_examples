@@ -52,13 +52,13 @@ void AGlobal::mPrintValue(string inName,void* inPointer, ADataType inType) {
 
 	switch (inType) {
 		case ADataType::Integer:
-			ALOG << inName << ": " << *static_cast<int*>(inPointer) << endl;
+			ALOG << QString::fromStdString(inName) << ": " << *static_cast<int*>(inPointer);
 			break;
 		case ADataType::Float:
-			ALOG << inName << ": " << *static_cast<float*>(inPointer) << endl;
+			ALOG << QString::fromStdString(inName) << ": " << *static_cast<float*>(inPointer);
 			break;
 		case ADataType::Char:
-			ALOG << inName << ": " << static_cast<char*>(inPointer) << endl;
+			ALOG << QString::fromStdString(inName) << ": " << static_cast<char*>(inPointer);
 			break;
 		default:
 			break;
