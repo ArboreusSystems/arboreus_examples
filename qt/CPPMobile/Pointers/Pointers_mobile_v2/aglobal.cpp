@@ -8,7 +8,7 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 23/07/2020 at 17:13:20
+	\li @created 25/07/2020 at 12:07:45
 	\endlist
 */
 // ----------------------------------------------------------
@@ -52,13 +52,13 @@ void AGlobal::mPrintValue(string inName,void* inPointer, ADataType inType) {
 
 	switch (inType) {
 		case ADataType::Integer:
-			ALOG << QString::fromStdString(inName) << ": " << *static_cast<int*>(inPointer);
+			ALOG << QString::fromStdString(inName) << ":" << *static_cast<int*>(inPointer);
 			break;
 		case ADataType::Float:
-			ALOG << QString::fromStdString(inName) << ": " << *static_cast<float*>(inPointer);
+			ALOG << QString::fromStdString(inName) << ":" << *static_cast<float*>(inPointer);
 			break;
 		case ADataType::Char:
-			ALOG << QString::fromStdString(inName) << ": " << static_cast<char*>(inPointer);
+			ALOG << QString::fromStdString(inName) << ":" << static_cast<char*>(inPointer);
 			break;
 		default:
 			break;
