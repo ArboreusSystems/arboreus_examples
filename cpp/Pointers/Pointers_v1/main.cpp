@@ -51,7 +51,7 @@ int main(int inCounter, char *inArguments[]) {
 	char* oChar1 = "Char value";
 	AGlobal::mPrintValue("oChar1",oChar1,ADataType::Char);
 
-	int* oPointerInteger1;
+	int* oPointerInteger1 = new int(0);
 	float* oPointerFloat2 = new float(1.23456);
 	*oPointerInteger1 = static_cast<int>(*oPointerFloat2);
 	ALOG << "oPointerFloat2: " << *oPointerFloat2 << endl;
