@@ -47,16 +47,16 @@ int main(int inCounter, char *inArguments[]) {
 			AUnion oData = inValue.pData;
 			switch (inValue.pType) {
 				case AUnionType::One:
-					ALOG << "Type 1: " << (string)oData.pOne->pString << endl;
+					ALOG << "Type 1: " << oData.pOne->pString << endl;
 					break;
 				case AUnionType::Two:
-					ALOG << "Type 2: " << (int)oData.pTwo->pInteger1 << endl;
-					ALOG << "Type 2: " << (int)oData.pTwo->pInteger2 << endl;
-					ALOG << "Type 2: " << (int)oData.pTwo->pInteger3 << endl;
+					ALOG << "Type 2: " << oData.pTwo->pInteger1 << endl;
+					ALOG << "Type 2: " << oData.pTwo->pInteger2 << endl;
+					ALOG << "Type 2: " << oData.pTwo->pInteger3 << endl;
 				case AUnionType::Three:
-					ALOG << "Type 3: " << (float)oData.pThree->pFloat1 << endl;
-					ALOG << "Type 3: " << (float)oData.pThree->pFloat2 << endl;
-					ALOG << "Type 3: " << (float)oData.pThree->pFloat3 << endl;
+					ALOG << "Type 3: " << oData.pThree->pFloat1 << endl;
+					ALOG << "Type 3: " << oData.pThree->pFloat2 << endl;
+					ALOG << "Type 3: " << oData.pThree->pFloat3 << endl;
 				default:
 					break;
 			}
