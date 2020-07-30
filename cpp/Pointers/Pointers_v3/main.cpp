@@ -21,19 +21,19 @@ using namespace std;
 // Constants
 
 // Functions
-void mFunction(void) {
+void fFunction(void) {
 
 	ALOG << "mFunction" << endl;
 }
 
-void mForEach(const vector<int>& inValues, void (*inCallback)(int)) {
+void fForEach(const vector<int>& inValues, void (*inCallback)(int)) {
 
 	for (int iValue:inValues) {
 		inCallback(iValue);
 	}
 }
 
-void mValueCallBack(int inValue) {
+void fValueCallBack(int inValue) {
 
 	ALOG << "Value from callback: " << inValue << endl;
 }
@@ -42,7 +42,7 @@ void mValueCallBack(int inValue) {
 // Application
 int main(int inCounter, char *inArguments[]) {
 
-	auto oFunction1 = mFunction;
+	auto oFunction1 = fFunction;
 	oFunction1();
 
 	AGlobal oGlobal;
@@ -58,11 +58,11 @@ int main(int inCounter, char *inArguments[]) {
 	auto oFunction4 = AGlobal::mTestStaticMethod;
 	oFunction4();
 
-	void (*oFunction5)() = mFunction;
+	void (*oFunction5)() = fFunction;
 	oFunction5();
 
 	vector<int> oVector = {1,2,3,4,5,6,7,8,9};
-	mForEach(oVector,mValueCallBack);
+	fForEach(oVector,fValueCallBack);
 
 	ALOG << "Function pointers - OK" << endl;
 	return 0;
