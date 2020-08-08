@@ -45,7 +45,7 @@ ios {
     CONFIG -= bitcode
 
     LIBS += -framework Foundation
-    LIBS += -framework UserNotifications
+    LIBS += -framework UIKit
 
     OBJECTIVE_SOURCES += \
 	asafeareaios.mm
