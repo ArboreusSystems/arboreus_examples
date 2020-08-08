@@ -52,6 +52,25 @@
 	// UIElements
 	NSLog(@"Status bar height: %f",[[UIApplication sharedApplication] statusBarFrame].size.height);
 	
+	// Safe Area
+	CGFloat oPaddingTop = 0.0;
+	CGFloat oPaddingBottom = 0.0;
+	CGFloat oPaddingLeft = 0.0;
+	CGFloat oPaddingRight = 0.0;
+	
+	if (@available(iOS 11.0, *)) {
+		UIWindow *window = UIApplication.sharedApplication.keyWindow;
+		oPaddingTop = window.safeAreaInsets.top;
+		oPaddingBottom = window.safeAreaInsets.bottom;
+		oPaddingLeft = window.safeAreaInsets.left;
+		oPaddingRight = window.safeAreaInsets.right;
+	}
+	
+	NSLog(@"oPaddingTop: %f",oPaddingTop);
+	NSLog(@"oPaddingBottom: %f",oPaddingBottom);
+	NSLog(@"oPaddingLeft: %f",oPaddingLeft);
+	NSLog(@"oPaddingRight: %f",oPaddingRight);
+	
 	return YES;
 }
 
