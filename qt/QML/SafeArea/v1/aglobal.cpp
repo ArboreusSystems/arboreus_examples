@@ -37,6 +37,12 @@ AGlobal::AGlobal(QObject *parent) : QObject(parent) {
 		pScreen,SIGNAL(orientationChanged(Qt::ScreenOrientation)),
 		this,SLOT(mOrientationChanged(Qt::ScreenOrientation))
 	);
+	connect(
+		this,&AGlobal::sgOrientationChanged,
+		[](){
+			ALOG_SYSTEM << "Orientation changed signal sent";
+		}
+	);
 }
 
 

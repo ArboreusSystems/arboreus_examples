@@ -46,6 +46,10 @@ ApplicationWindow {
 	Connections {
 
 		target: AGlobal;
+
+//		Uncomment it for older version of Qt
+//		onSgOrientationChanged: onSgOrientationChanged(0);
+
 		function onSgOrientationChanged(inOrientation) {
 
 			mSetInsets();
