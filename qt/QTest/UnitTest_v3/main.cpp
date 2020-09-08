@@ -44,8 +44,4 @@ int main(int inCounter, char *inArguments[]) {
 	oTests->mRun(inCounter,inArguments);
 
 	return oApplication.exec();
-
-//	QGuiApplication oApplication(inCounter,inArguments);
-//	return mUnitTests(inCounter,inArguments);
-
 }
