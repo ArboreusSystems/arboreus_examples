@@ -36,3 +36,5 @@ HEADERS += \
 	atestcase1.h \
 	atestcase2.h \
 	aunittest.h
+
+ANDROID_ABIS = armeabi-v7a
