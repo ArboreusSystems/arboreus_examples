@@ -4,7 +4,7 @@
  *
  *  @copyright Arboreus (http://arboreus.systems)
  *  @author Alexandr Kirilov (http://alexandr.kirilov.me)
- *  @created 07/09/2020 at 17:35:27
+ *  @created 11/09/2020 at 17:31:00
  * */// --------------------------------------------------------------
 
 // System includes
@@ -14,11 +14,11 @@
 
 // Application includes
 #include "alogger.h"
+#include "auitest.h"
 
 // Namespace
 
 
-// Application
 int main(int inCounter, char *inArguments[]) {
 
 	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
@@ -30,6 +30,9 @@ int main(int inCounter, char *inArguments[]) {
 	ALogger* oLogger = new ALogger();
 	oContext->setContextProperty("ALogger",oLogger);
 
+	AUITest* oUITest = new AUITest(&oEngine,nullptr);
+	oContext->setContextProperty("AUITest",oUITest);
+
 	const QUrl oURL(QStringLiteral("qrc:/main.qml"));
 	QObject::connect(
 		&oEngine, &QQmlApplicationEngine::objectCreated,
@@ -39,6 +42,7 @@ int main(int inCounter, char *inArguments[]) {
 			}
 		}, Qt::QueuedConnection
 	);
+
 	oEngine.load(oURL);
 
 	return oApplication.exec();
