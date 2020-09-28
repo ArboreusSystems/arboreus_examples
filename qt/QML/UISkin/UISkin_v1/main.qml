@@ -70,6 +70,7 @@ ApplicationWindow {
 
 			onClicked: {
 
+				ALogger.mWriteToLog("Button: " + oButtonSkin1.objectName + " clicked");
 				ASkin.mSetSkin("Skin1");
 			}
 		}
@@ -87,6 +88,7 @@ ApplicationWindow {
 
 			onClicked: {
 
+				ALogger.mWriteToLog("Button: " + oButtonSkin2.objectName + " clicked");
 				ASkin.mSetSkin("Skin2");
 			}
 		}
@@ -104,6 +106,7 @@ ApplicationWindow {
 
 			onClicked: {
 
+				ALogger.mWriteToLog("Button: " + oButtonSkin3.objectName + " clicked");
 				ASkin.mSetSkin("Skin3");
 			}
 		}

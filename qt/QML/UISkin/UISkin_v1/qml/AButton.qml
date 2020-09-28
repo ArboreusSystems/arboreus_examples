@@ -46,11 +46,6 @@ Button {
 		color: ASkin.mGetColorFor("button_background");
 	}
 
-	onClicked: {
-
-		ALogger.mWriteToLog("Button: " + oButtonRoot.objectName + " clicked");
-	}
-
 	Connections {
 
 		target: ASkin;
@@ -58,7 +53,7 @@ Button {
 
 			oButtonText.color = ASkin.mGetColorFor("button_text");
 			oButtonBackground.color = ASkin.mGetColorFor("button_background");
-			ALogger.mWriteToLog("Skin changed for button: ",oButtonRoot.objectName);
+			ALogger.mWriteToLog("Skin changed for button: " + oButtonRoot.objectName);
 		}
 	}
 }
