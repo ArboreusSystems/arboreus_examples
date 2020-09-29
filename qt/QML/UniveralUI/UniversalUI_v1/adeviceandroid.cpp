@@ -52,5 +52,5 @@ ADeviceType::Enum ADeviceAndroid::mType(void) {
 
 	// TODO: ANDROID -> Develop device type detection
 
-	return ADeviceType::Enum::Tablet;
+	return ADeviceType::Enum::Phone;
 }
