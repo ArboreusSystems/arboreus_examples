@@ -22,7 +22,6 @@
 #include <QPoint>
 #include <QWindow>
 #include <QTest>
-#include <QtTest/QtTest>
 
 // Application includes
 #include "alogger.h"
