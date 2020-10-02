@@ -38,6 +38,33 @@ Rectangle {
 		Qt.inputMethod.onVisibleChanged.disconnect(mUpdateSize);
 	}
 
+	Timer {
+
+		property real offset: 0;
+
+		id: oTimerResize;
+		interval: 100;
+		repeat: false;
+		running: false;
+		onTriggered: {
+
+			oRoot.anchors.bottomMargin = offset;
+			oTimerResize.stop();
+		}
+	}
+
+	Connections {
+
+		target: AGlobal;
+		function onSgOrientationChanged(inOrientation) {
+
+			Qt.inputMethod.hide();
+			oRoot.anchors.bottomMargin = 0;
+			oTimerResize.restart();
+			oTimerResize.stop();
+		}
+	}
+
 	function mUpdateSize() {
 
 		var oDeviceSafeArea = AGlobal.mDeviceSafeArea();
@@ -57,21 +84,6 @@ Rectangle {
 		} else {
 			oTimerResize.stop();
 			oRoot.anchors.bottomMargin = 0;
-		}
-	}
-
-	Timer {
-
-		property real offset: 0;
-
-		id: oTimerResize;
-		interval: 100;
-		repeat: false;
-		running: false;
-		onTriggered: {
-
-			oRoot.anchors.bottomMargin = offset;
-			oTimerResize.stop();
 		}
 	}
 }
