@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qml/AText.qml</file>
+        <file>qml/AButton.qml</file>
+    </qresource>
+</RCC>

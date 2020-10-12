@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>js/Global.js</file>
+        <file>js/Colors.js</file>
+        <file>js/Text.js</file>
+        <file>js/Components.js</file>
+    </qresource>
+</RCC>
