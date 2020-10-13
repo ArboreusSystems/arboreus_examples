@@ -26,8 +26,8 @@
 
 ABackend::ABackend(QObject *parent) : QObject(parent) {
 
-	pObjectA = new AObjectA(this,this);
-	pObjectB = new AObjectB(this,this);
+	pObjectA = new AObjectA(this);
+	pObjectB = new AObjectB(this);
 
 	ALOG_SYSTEM << "ABackend created";
 }

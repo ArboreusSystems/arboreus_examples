@@ -27,9 +27,9 @@
 	Doc.
 */
 
-AObjectB::AObjectB(ABackend* inBackend, QObject *parent) : QObject(parent) {
+AObjectB::AObjectB(QObject *parent) : QObject(parent) {
 
-	pBackend = inBackend;
+	pBackend = qobject_cast<ABackend*>(parent);
 
 	ALOG_SYSTEM << "AObjectB created";
 }
@@ -57,5 +57,5 @@ AObjectB::~AObjectB(void) {
 
 void AObjectB::mTestMethod(void) {
 
-	pBackend->mTestMethod("Inside AObjectB");
+	pBackend->pObjectA->mTestMethod();
 }

@@ -39,7 +39,7 @@ class AObjectB : public QObject {
 
 		ABackend* pBackend = nullptr;
 
-		explicit AObjectB(ABackend* inBackend, QObject* parent = nullptr);
+		explicit AObjectB(QObject* parent = nullptr);
 		virtual ~AObjectB(void);
 
 		void mTestMethod(void);

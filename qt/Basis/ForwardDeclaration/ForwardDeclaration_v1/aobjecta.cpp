@@ -27,9 +27,9 @@
 	Doc.
 */
 
-AObjectA::AObjectA(ABackend* inBackend, QObject *parent) : QObject(parent) {
+AObjectA::AObjectA(QObject* parent) : QObject(parent) {
 
-	pBackend = inBackend;
+	pBackend = qobject_cast<ABackend*>(parent);
 
 	ALOG_SYSTEM << "AObjectA created";
 }
