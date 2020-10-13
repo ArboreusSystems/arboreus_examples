@@ -40,7 +40,7 @@ AObjectB::AObjectB(void) {
 AObjectB::AObjectB(AObjectA* inObjectA) {
 
 	pObjectA = inObjectA;
-	ALOG << "AObjectB created with reference onto AObjectA" << endl;
+	ALOG << "AObjectB created within AObjectA reference" << endl;
 }
 
 
