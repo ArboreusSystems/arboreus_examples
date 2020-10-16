@@ -11,8 +11,8 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-
 // Application includes
+#define AUTESTS_QML_MAIN "qrc:/UnitTests/qml/Main/UnitTests.qml"
 
 // Namespace
 
@@ -24,15 +24,15 @@ int main(int inCounter, char *inArguments[]) {
 	QGuiApplication oApplication(inCounter, inArguments);
 
 	QQmlApplicationEngine oEngine;
-	const QUrl oURL(QStringLiteral("qrc:/main.qml"));
+	const QUrl oURL(QStringLiteral(AUTESTS_QML_MAIN));
 	QObject::connect(
-				&oEngine, &QQmlApplicationEngine::objectCreated,
-				&oApplication, [oURL](QObject *obj, const QUrl &objUrl) {
-		if (!obj && oURL == objUrl) {
-			QCoreApplication::exit(-1);
-		}
-	}, Qt::QueuedConnection
-			);
+		&oEngine, &QQmlApplicationEngine::objectCreated,
+		&oApplication, [oURL](QObject *obj, const QUrl &objUrl) {
+			if (!obj && oURL == objUrl) {
+				QCoreApplication::exit(-1);
+			}
+		}, Qt::QueuedConnection
+	);
 	oEngine.load(oURL);
 
 	return oApplication.exec();

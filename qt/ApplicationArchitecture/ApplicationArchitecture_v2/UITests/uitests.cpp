@@ -37,7 +37,7 @@ int main(int inCounter, char* inArguments[]) {
 	oResult = AMobileApplication::mExecute(inCounter,inArguments);
 #elif defined(Q_OS_ANDROID)
 	oResult = AMobileApplication::mExecute(inCounter,inArguments);
-#elif defined(Q_OS_MAC)
+#elif defined(Q_OS_MACOS)
 	oResult = ADesktopApplication::mExecute(inCounter,inArguments);
 #else
 

@@ -1,5 +1,3 @@
 <RCC>
-    <qresource prefix="/">
-        <file>uitests.qml</file>
-    </qresource>
+    <qresource prefix="/"/>
 </RCC>

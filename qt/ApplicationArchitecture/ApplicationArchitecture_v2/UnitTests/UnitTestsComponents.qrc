@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/UnitTests">
+        <file>qml/Main/UnitTests.qml</file>
+    </qresource>
+</RCC>
