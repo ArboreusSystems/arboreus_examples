@@ -30,13 +30,10 @@ class ABackend : public QObject {
 
 	Q_OBJECT
 
-public:
+	public:
 
-	explicit ABackend(QObject *parent = nullptr);
-	virtual ~ABackend(void);
-
-signals:
-
+		explicit ABackend(QObject *parent = nullptr);
+		virtual ~ABackend(void);
 };
 
 #endif // ABACKEND_H

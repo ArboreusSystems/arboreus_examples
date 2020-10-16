@@ -44,13 +44,14 @@ AMobileApplication::~AMobileApplication(void) {}
 	Doc.
 */
 
-int AMobileApplication::mExecute(int inCounter, char* inArguments[]) {
+int AMobileApplication::mExecute(int inCounter, char* inArguments[],AUITest* inTests) {
 
 	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
 	QGuiApplication oApplication(inCounter, inArguments);
-
 	QQmlApplicationEngine oEngine;
+	QQmlContext* oContext = oEngine.rootContext();
+
 	const QUrl oURL(QStringLiteral(AMOBILE_QML_MAIN));
 	QObject::connect(
 		&oEngine, &QQmlApplicationEngine::objectCreated,
@@ -61,6 +62,12 @@ int AMobileApplication::mExecute(int inCounter, char* inArguments[]) {
 		}, Qt::QueuedConnection
 	);
 	oEngine.load(oURL);
+
+	if (inTests) {
+		inTests->mSetEngine(&oEngine);
+		oContext->setContextProperty("AUITest",inTests);
+		inTests->mStart(1000);
+	}
 
 	return oApplication.exec();
 }

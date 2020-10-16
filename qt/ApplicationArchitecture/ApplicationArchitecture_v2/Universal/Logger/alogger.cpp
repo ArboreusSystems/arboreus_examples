@@ -40,3 +40,15 @@ ALogger::~ALogger(void) {
 
 }
 
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void ALogger::mWriteToLog(QString inMessage) {
+
+	ALOG_QML << inMessage.toUtf8();
+}

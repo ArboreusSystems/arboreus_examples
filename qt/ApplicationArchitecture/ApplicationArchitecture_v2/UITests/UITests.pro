@@ -1,4 +1,5 @@
 QT += quick
+QT += testlib
 
 CONFIG += c++11
 
@@ -14,6 +15,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+	cpp/auitest.cpp \
 	uitests.cpp
 
 RESOURCES +=
@@ -46,3 +48,6 @@ android {
 }
 
 ANDROID_ABIS = armeabi-v7a arm64-v8a x86 x86_64
+
+HEADERS += \
+	cpp/auitest.h

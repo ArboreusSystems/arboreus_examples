@@ -32,9 +32,10 @@
 int main(int inCounter, char* inArguments[]) {
 
 	int oResult = false;
+	AUITest* oTest = new AUITest();
 
 #ifdef Q_OS_IOS
-	oResult = AMobileApplication::mExecute(inCounter,inArguments);
+	oResult = AMobileApplication::mExecute(inCounter,inArguments,oTest);
 #elif defined(Q_OS_ANDROID)
 	oResult = AMobileApplication::mExecute(inCounter,inArguments);
 #elif defined(Q_OS_MACOS)
