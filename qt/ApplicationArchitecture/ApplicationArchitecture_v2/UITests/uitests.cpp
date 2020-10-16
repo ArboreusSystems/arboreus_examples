@@ -11,29 +11,37 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
+// MacOS Desktop application includes
+#ifdef Q_OS_MACOS
+#include "../DesktopApplication/cpp/Main/adesktopapplication.h"
+#endif
 
-// Application includes
+// iOS Mobile application includes
+#ifdef Q_OS_IOS
+#include "../MobileApplication/cpp/Main/amobileapplication.h"
+#endif
+
+// Android Mobile application includes
+#ifdef Q_OS_ANDROID
+#include "../MobileApplication/cpp/Main/amobileapplication.h"
+#endif
 
 // Namespace
 
 
-int main(int inCounter, char *inArguments[]) {
+int main(int inCounter, char* inArguments[]) {
 
-	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+	int oResult = false;
 
-	QGuiApplication oApplication(inCounter, inArguments);
+#ifdef Q_OS_IOS
+	oResult = AMobileApplication::mExecute(inCounter,inArguments);
+#elif defined(Q_OS_ANDROID)
+	oResult = AMobileApplication::mExecute(inCounter,inArguments);
+#elif defined(Q_OS_MAC)
+	oResult = ADesktopApplication::mExecute(inCounter,inArguments);
+#else
 
-	QQmlApplicationEngine oEngine;
-	const QUrl oURL(QStringLiteral("qrc:/main.qml"));
-	QObject::connect(
-				&oEngine, &QQmlApplicationEngine::objectCreated,
-				&oApplication, [oURL](QObject *obj, const QUrl &objUrl) {
-		if (!obj && oURL == objUrl) {
-			QCoreApplication::exit(-1);
-		}
-	}, Qt::QueuedConnection
-			);
-	oEngine.load(oURL);
+#endif
 
-	return oApplication.exec();
+	return oResult;
 }

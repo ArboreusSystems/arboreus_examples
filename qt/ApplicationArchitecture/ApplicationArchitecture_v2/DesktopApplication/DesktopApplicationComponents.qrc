@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/DesktopApplication">
+        <file>qml/Main/DesktopApplication.qml</file>
+    </qresource>
+</RCC>

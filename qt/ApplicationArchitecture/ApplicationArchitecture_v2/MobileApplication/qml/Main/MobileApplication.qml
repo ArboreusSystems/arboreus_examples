@@ -4,10 +4,10 @@
 	\brief
 
 	\list
-	\li @notice Template file projects/qtquickapplication/empty/main.qml.tpl
+	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 14/10/2020 at 19:19:34
+	\li @created 16/10/2020 at 11:55:54
 	\endlist
 */
 // ----------------------------------------------------------
@@ -26,5 +26,15 @@ Window {
 	visible: true;
 	width: 640;
 	height: 480;
-	title: qsTr("Hello World");
+	title: qsTr("Mobile application");
+
+	Text {
+
+		id: oTestText;
+		text: qsTr("Mobile application");
+		anchors.verticalCenter: parent.verticalCenter;
+		anchors.horizontalCenter: parent.horizontalCenter;
+		font.pixelSize: 30;
+		font.bold: true;
+	}
 }

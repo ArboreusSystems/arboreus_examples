@@ -8,32 +8,32 @@
  * */// --------------------------------------------------------------
 
 // System includes
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
-
 
 // Application includes
+#include "cpp/Main/adesktopapplication.h"
 
 // Namespace
 
 
-int main(int inCounter, char *inArguments[]) {
+int main(int inCounter, char* inArguments[]) {
 
-	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+	return ADesktopApplication::mExecute(inCounter,inArguments);
 
-	QGuiApplication oApplication(inCounter, inArguments);
+//	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
-	QQmlApplicationEngine oEngine;
-	const QUrl oURL(QStringLiteral("qrc:/main.qml"));
-	QObject::connect(
-				&oEngine, &QQmlApplicationEngine::objectCreated,
-				&oApplication, [oURL](QObject *obj, const QUrl &objUrl) {
-		if (!obj && oURL == objUrl) {
-			QCoreApplication::exit(-1);
-		}
-	}, Qt::QueuedConnection
-			);
-	oEngine.load(oURL);
+//	QGuiApplication oApplication(inCounter, inArguments);
 
-	return oApplication.exec();
+//	QQmlApplicationEngine oEngine;
+//	const QUrl oURL(QStringLiteral("qrc:/main.qml"));
+//	QObject::connect(
+//				&oEngine, &QQmlApplicationEngine::objectCreated,
+//				&oApplication, [oURL](QObject *obj, const QUrl &objUrl) {
+//		if (!obj && oURL == objUrl) {
+//			QCoreApplication::exit(-1);
+//		}
+//	}, Qt::QueuedConnection
+//			);
+//	oEngine.load(oURL);
+
+//	return oApplication.exec();
 }
