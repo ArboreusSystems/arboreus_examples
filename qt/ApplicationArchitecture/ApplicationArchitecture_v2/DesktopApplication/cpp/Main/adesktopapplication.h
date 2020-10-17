@@ -23,7 +23,7 @@
 #include <QQmlContext>
 
 // Application includes
-#include "../Universal/Main/abackend.h"
+#include "../Universal/cpp/Main/abackend.h"
 
 // Constants and definitions
 #define ADESKTOP_QML_MAIN "qrc:/DesktopApplication/qml/Main/DesktopApplication.qml"
