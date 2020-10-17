@@ -17,6 +17,7 @@ import QtQuick 2.15
 import QtQuick.Window 2.15
 
 // Application includes
+import "qrc:/UniversalComponents/qml/Components/"
 
 
 // Application window component
@@ -33,8 +34,16 @@ Window {
 		id: oTestText;
 		text: qsTr("Desktop application");
 		anchors.verticalCenter: parent.verticalCenter;
+		anchors.verticalCenterOffset: -oUniversalButton.height - 15;
 		anchors.horizontalCenter: parent.horizontalCenter;
 		font.pixelSize: 30;
 		font.bold: true;
+	}
+
+	AButton {
+
+		id: oUniversalButton;
+		anchors.verticalCenter: parent.verticalCenter;
+		anchors.horizontalCenter: parent.horizontalCenter;
 	}
 }
