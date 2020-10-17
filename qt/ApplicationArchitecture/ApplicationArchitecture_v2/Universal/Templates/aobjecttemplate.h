@@ -25,18 +25,20 @@
 
 // Namespace
 
+// Classes
+class ABackend;
+
 // Class definitions
 class AObjectTemplate : public QObject {
 
 	Q_OBJECT
 
-public:
+	public:
 
-	explicit AObjectTemplate(QObject *parent = nullptr);
-	virtual ~AObjectTemplate(void);
+		ABackend* pBackend = nullptr;
 
-signals:
-
+		explicit AObjectTemplate(QObject *parent = nullptr);
+		virtual ~AObjectTemplate(void);
 };
 
 #endif // AOBJECTTEMPLATE_H

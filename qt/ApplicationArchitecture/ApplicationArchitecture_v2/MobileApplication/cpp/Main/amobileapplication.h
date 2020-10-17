@@ -23,6 +23,7 @@
 #include <QQmlContext>
 
 // Application includes
+#include "../Universal/Main/abackend.h"
 
 // Constants and definitions
 #define AMOBILE_QML_MAIN "qrc:/MobileApplication/qml/Main/MobileApplication.qml"

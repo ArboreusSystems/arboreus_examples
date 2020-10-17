@@ -22,6 +22,7 @@
 #include <QDebug>
 
 // Application includes
+#include "../Templates/aobjecttemplate.h"
 
 // Constants and definitions
 #define ALOG qDebug() << QDateTime::currentMSecsSinceEpoch()
@@ -32,18 +33,26 @@
 
 
 // Class definitions
-class ALogger : public QObject {
+class ALogger : public AObjectTemplate {
 
 	Q_OBJECT
 
 	public:
 
-		explicit ALogger(QObject *parent = nullptr);
-		virtual ~ALogger(void);
+		static ALogger& mInstance(void) {
+			static ALogger oInstance;
+			return oInstance;
+		}
 
 	public slots:
 
 		void mWriteToLog(QString inMessage);
+
+	private:
+
+		explicit ALogger(QObject *parent = nullptr);
+		virtual ~ALogger(void);
+		Q_DISABLE_COPY(ALogger)
 };
 
 #endif // ALOGGER_H

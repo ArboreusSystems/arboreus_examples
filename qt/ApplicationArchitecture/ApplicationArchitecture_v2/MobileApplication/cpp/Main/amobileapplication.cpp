@@ -31,6 +31,8 @@ AMobileApplication::AMobileApplication(int inCounter, char* inArguments[], QObje
 	pGuiApplication = new QGuiApplication(inCounter,inArguments);
 	pEngine = new QQmlApplicationEngine();
 	pRootContext = pEngine->rootContext();
+
+	ALOG_SYSTEM << "AMobileApplication created with arguments";
 }
 
 
@@ -41,7 +43,10 @@ AMobileApplication::AMobileApplication(int inCounter, char* inArguments[], QObje
 	Doc.
 */
 
-AMobileApplication::AMobileApplication(QObject *parent) : QObject(parent) {}
+AMobileApplication::AMobileApplication(QObject *parent) : QObject(parent) {
+
+	ALOG_SYSTEM << "AMobileApplication created";
+}
 
 
 // -----------
@@ -51,7 +56,10 @@ AMobileApplication::AMobileApplication(QObject *parent) : QObject(parent) {}
 	Doc.
 */
 
-AMobileApplication::~AMobileApplication(void) {}
+AMobileApplication::~AMobileApplication(void) {
+
+	ALOG_SYSTEM << "AMobileApplication deleted";
+}
 
 
 // -----------
@@ -66,6 +74,9 @@ int AMobileApplication::mExecute(int inCounter, char* inArguments[]) {
 	Q_UNUSED(inCounter);
 	Q_UNUSED(inArguments);
 
+	ABackend* oBackend = &ABackend::mInstance();
+	oBackend->mSetup();
+
 	const QUrl oURL(QStringLiteral(AMOBILE_QML_MAIN));
 	QObject::connect(
 		pEngine, &QQmlApplicationEngine::objectCreated,
@@ -77,5 +88,6 @@ int AMobileApplication::mExecute(int inCounter, char* inArguments[]) {
 	);
 	pEngine->load(oURL);
 
+	ALOG_SYSTEM << "AMobileApplication executing GUI Application";
 	return pGuiApplication->exec();
 }

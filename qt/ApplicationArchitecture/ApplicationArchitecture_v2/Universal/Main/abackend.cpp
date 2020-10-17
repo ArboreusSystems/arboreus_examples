@@ -26,6 +26,7 @@
 
 ABackend::ABackend(QObject *parent) : QObject(parent) {
 
+	ALOG_SYSTEM << "ABackend created";
 }
 
 
@@ -38,5 +39,22 @@ ABackend::ABackend(QObject *parent) : QObject(parent) {
 
 ABackend::~ABackend(void) {
 
+	pLogger->deleteLater();
+
+	ALOG_SYSTEM << "ABackend deleted";
 }
 
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void ABackend::mSetup(void) {
+
+	pLogger = &ALogger::mInstance();
+
+	ALOG_SYSTEM << "ABackend setup performed";
+}

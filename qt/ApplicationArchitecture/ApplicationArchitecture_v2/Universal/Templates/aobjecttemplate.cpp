@@ -16,6 +16,9 @@
 // Class header
 #include "aobjecttemplate.h"
 
+// Forward classes
+#include "../Main/abackend.h"
+
 
 // -----------
 /*!
@@ -26,6 +29,7 @@
 
 AObjectTemplate::AObjectTemplate(QObject *parent) : QObject(parent) {
 
+	pBackend = &ABackend::mInstance();
 }
 
 

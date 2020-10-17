@@ -31,6 +31,8 @@ ADesktopApplication::ADesktopApplication(int inCounter, char* inArguments[], QOb
 	pGuiApplication = new QGuiApplication(inCounter,inArguments);
 	pEngine = new QQmlApplicationEngine();
 	pRootContext = pEngine->rootContext();
+
+	ALOG_SYSTEM << "ADesktopApplication created with arguments";
 }
 
 
@@ -41,7 +43,10 @@ ADesktopApplication::ADesktopApplication(int inCounter, char* inArguments[], QOb
 	Doc.
 */
 
-ADesktopApplication::ADesktopApplication(QObject *parent) : QObject(parent) {}
+ADesktopApplication::ADesktopApplication(QObject *parent) : QObject(parent) {
+
+	ALOG_SYSTEM << "ADesktopApplication created";
+}
 
 
 // -----------
@@ -51,7 +56,10 @@ ADesktopApplication::ADesktopApplication(QObject *parent) : QObject(parent) {}
 	Doc.
 */
 
-ADesktopApplication::~ADesktopApplication(void) {}
+ADesktopApplication::~ADesktopApplication(void) {
+
+	ALOG_SYSTEM << "ADesktopApplication deleted";
+}
 
 
 // -----------
@@ -62,6 +70,12 @@ ADesktopApplication::~ADesktopApplication(void) {}
 */
 
 int ADesktopApplication::mExecute(int inCounter, char *inArguments[]) {
+
+	Q_UNUSED(inCounter);
+	Q_UNUSED(inArguments);
+
+	ABackend* oBackend = &ABackend::mInstance();
+	oBackend->mSetup();
 
 	const QUrl oURL(QStringLiteral(ADESKTOP_QML_MAIN));
 	QObject::connect(
@@ -74,5 +88,6 @@ int ADesktopApplication::mExecute(int inCounter, char *inArguments[]) {
 	);
 	pEngine->load(oURL);
 
+	ALOG_SYSTEM << "ADesktopApplication executing GUI Application";
 	return pGuiApplication->exec();
 }

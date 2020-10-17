@@ -20,6 +20,7 @@
 #include <QObject>
 
 // Application includes
+#include "../Logger/alogger.h"
 
 // Constants and definitions
 
@@ -32,8 +33,20 @@ class ABackend : public QObject {
 
 	public:
 
+		ALogger* pLogger = nullptr;
+
+		static ABackend& mInstance(void) {
+			static ABackend oInstance;
+			return oInstance;
+		}
+
+		void mSetup(void);
+
+	private:
+
 		explicit ABackend(QObject *parent = nullptr);
 		virtual ~ABackend(void);
+		Q_DISABLE_COPY(ABackend)
 };
 
 #endif // ABACKEND_H

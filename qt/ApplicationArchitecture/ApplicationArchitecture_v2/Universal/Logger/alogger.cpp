@@ -16,6 +16,9 @@
 // Class header
 #include "alogger.h"
 
+// Forwarded classes
+#include "../Main/abackend.h"
+
 
 // -----------
 /*!
@@ -24,8 +27,9 @@
 	Doc.
 */
 
-ALogger::ALogger(QObject *parent) : QObject(parent) {
+ALogger::ALogger(QObject *parent) : AObjectTemplate(parent) {
 
+	ALOG_SYSTEM << "ALogger created";
 }
 
 
@@ -38,6 +42,7 @@ ALogger::ALogger(QObject *parent) : QObject(parent) {
 
 ALogger::~ALogger(void) {
 
+	ALOG_SYSTEM << "ALogger deleted";
 }
 
 
