@@ -24,6 +24,23 @@
 	Doc.
 */
 
+AMobileApplication::AMobileApplication(int inCounter, char* inArguments[], QObject *parent) : QObject(parent) {
+
+	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+
+	pGuiApplication = new QGuiApplication(inCounter,inArguments);
+	pEngine = new QQmlApplicationEngine();
+	pRootContext = pEngine->rootContext();
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
 AMobileApplication::AMobileApplication(QObject *parent) : QObject(parent) {}
 
 
@@ -44,30 +61,21 @@ AMobileApplication::~AMobileApplication(void) {}
 	Doc.
 */
 
-int AMobileApplication::mExecute(int inCounter, char* inArguments[],AUITest* inTests) {
+int AMobileApplication::mExecute(int inCounter, char* inArguments[]) {
 
-	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-
-	QGuiApplication oApplication(inCounter, inArguments);
-	QQmlApplicationEngine oEngine;
-	QQmlContext* oContext = oEngine.rootContext();
+	Q_UNUSED(inCounter);
+	Q_UNUSED(inArguments);
 
 	const QUrl oURL(QStringLiteral(AMOBILE_QML_MAIN));
 	QObject::connect(
-		&oEngine, &QQmlApplicationEngine::objectCreated,
-		&oApplication, [oURL](QObject *obj, const QUrl &objUrl) {
+		pEngine, &QQmlApplicationEngine::objectCreated,
+		pGuiApplication, [oURL](QObject *obj, const QUrl &objUrl) {
 			if (!obj && oURL == objUrl) {
 				QCoreApplication::exit(-1);
 			}
 		}, Qt::QueuedConnection
 	);
-	oEngine.load(oURL);
+	pEngine->load(oURL);
 
-	if (inTests) {
-		inTests->mSetEngine(&oEngine);
-		oContext->setContextProperty("AUITest",inTests);
-		inTests->mStart(1000);
-	}
-
-	return oApplication.exec();
+	return pGuiApplication->exec();
 }

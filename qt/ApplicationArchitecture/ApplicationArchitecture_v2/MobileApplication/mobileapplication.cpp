@@ -18,5 +18,6 @@
 
 int main(int inCounter, char *inArguments[]) {
 
-	return AMobileApplication::mExecute(inCounter,inArguments);
+	AMobileApplication oApplication(inCounter,inArguments);
+	return oApplication.mExecute(inCounter,inArguments);
 }

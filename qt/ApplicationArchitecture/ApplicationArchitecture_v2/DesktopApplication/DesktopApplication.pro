@@ -31,3 +31,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 include($$PWD/../DesktopApplication/DesktopApplication.pri)
 include($$PWD/../Universal/Universal.pri)
+
+ANDROID_ABIS = armeabi-v7a

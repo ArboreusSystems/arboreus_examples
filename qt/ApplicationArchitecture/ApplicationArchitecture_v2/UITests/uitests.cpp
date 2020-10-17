@@ -11,6 +11,9 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
+// Application includes
+#include "cpp/auitest.h"
+
 // MacOS Desktop application includes
 #ifdef Q_OS_MACOS
 #include "../DesktopApplication/cpp/Main/adesktopapplication.h"
@@ -35,11 +38,14 @@ int main(int inCounter, char* inArguments[]) {
 	AUITest* oTest = new AUITest();
 
 #ifdef Q_OS_IOS
-	oResult = AMobileApplication::mExecute(inCounter,inArguments,oTest);
+	AMobileApplication oApplication(inCounter,inArguments);
+	oResult = oApplication.mExecute(inCounter,inArguments);
 #elif defined(Q_OS_ANDROID)
-	oResult = AMobileApplication::mExecute(inCounter,inArguments);
+	AMobileApplication oApplication(inCounter,inArguments);
+	oResult = oApplication.mExecute(inCounter,inArguments);
 #elif defined(Q_OS_MACOS)
-	oResult = ADesktopApplication::mExecute(inCounter,inArguments);
+	ADesktopApplication oApplication(inCounter,inArguments);
+	oResult = oApplication.mExecute(inCounter,inArguments);
 #else
 
 #endif

@@ -24,6 +24,23 @@
 	Doc.
 */
 
+ADesktopApplication::ADesktopApplication(int inCounter, char* inArguments[], QObject *parent) : QObject(parent) {
+
+	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+
+	pGuiApplication = new QGuiApplication(inCounter,inArguments);
+	pEngine = new QQmlApplicationEngine();
+	pRootContext = pEngine->rootContext();
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
 ADesktopApplication::ADesktopApplication(QObject *parent) : QObject(parent) {}
 
 
@@ -46,21 +63,16 @@ ADesktopApplication::~ADesktopApplication(void) {}
 
 int ADesktopApplication::mExecute(int inCounter, char *inArguments[]) {
 
-	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-
-	QGuiApplication oApplication(inCounter, inArguments);
-
-	QQmlApplicationEngine oEngine;
 	const QUrl oURL(QStringLiteral(ADESKTOP_QML_MAIN));
 	QObject::connect(
-		&oEngine, &QQmlApplicationEngine::objectCreated,
-		&oApplication, [oURL](QObject *obj, const QUrl &objUrl) {
+		pEngine, &QQmlApplicationEngine::objectCreated,
+		pGuiApplication, [oURL](QObject *obj, const QUrl &objUrl) {
 			if (!obj && oURL == objUrl) {
 				QCoreApplication::exit(-1);
 			}
 		}, Qt::QueuedConnection
 	);
-	oEngine.load(oURL);
+	pEngine->load(oURL);
 
-	return oApplication.exec();
+	return pGuiApplication->exec();
 }

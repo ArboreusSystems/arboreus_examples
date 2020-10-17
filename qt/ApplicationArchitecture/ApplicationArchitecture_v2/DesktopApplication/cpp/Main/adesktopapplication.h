@@ -20,6 +20,7 @@
 #include <QObject>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 
 // Application includes
 
@@ -35,10 +36,15 @@ class ADesktopApplication : public QObject {
 
 	public:
 
+		QGuiApplication* pGuiApplication = nullptr;
+		QQmlApplicationEngine* pEngine = nullptr;
+		QQmlContext* pRootContext = nullptr;
+
+		explicit ADesktopApplication(int inCounter, char* inArguments[], QObject* parent = nullptr);
 		explicit ADesktopApplication(QObject *parent = nullptr);
 		virtual ~ADesktopApplication(void);
 
-		static int mExecute(int inCounter, char* inArguments[]);
+		int mExecute(int inCounter, char* inArguments[]);
 };
 
 #endif // ADESKTOPAPPLICATION_H

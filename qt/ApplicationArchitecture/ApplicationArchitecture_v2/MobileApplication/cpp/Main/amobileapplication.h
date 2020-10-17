@@ -23,7 +23,6 @@
 #include <QQmlContext>
 
 // Application includes
-#include "../UITests/cpp/auitest.h"
 
 // Constants and definitions
 #define AMOBILE_QML_MAIN "qrc:/MobileApplication/qml/Main/MobileApplication.qml"
@@ -37,10 +36,15 @@ class AMobileApplication : public QObject {
 
 	public:
 
+		QGuiApplication* pGuiApplication = nullptr;
+		QQmlApplicationEngine* pEngine = nullptr;
+		QQmlContext* pRootContext = nullptr;
+
+		explicit AMobileApplication(int inCounter, char* inArguments[], QObject* parent = nullptr);
 		explicit AMobileApplication(QObject* parent = nullptr);
 		virtual ~AMobileApplication(void);
 
-		static int mExecute(int inCounter, char* inArguments[],AUITest* inTests = nullptr);
+		int mExecute(int inCounter, char* inArguments[]);
 };
 
 #endif // AMOBILEAPPLICATION_H

@@ -17,23 +17,6 @@
 
 int main(int inCounter, char* inArguments[]) {
 
-	return ADesktopApplication::mExecute(inCounter,inArguments);
-
-//	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-
-//	QGuiApplication oApplication(inCounter, inArguments);
-
-//	QQmlApplicationEngine oEngine;
-//	const QUrl oURL(QStringLiteral("qrc:/main.qml"));
-//	QObject::connect(
-//				&oEngine, &QQmlApplicationEngine::objectCreated,
-//				&oApplication, [oURL](QObject *obj, const QUrl &objUrl) {
-//		if (!obj && oURL == objUrl) {
-//			QCoreApplication::exit(-1);
-//		}
-//	}, Qt::QueuedConnection
-//			);
-//	oEngine.load(oURL);
-
-//	return oApplication.exec();
+	ADesktopApplication oApplication(inCounter,inArguments);
+	return oApplication.mExecute(inCounter,inArguments);
 }
