@@ -53,9 +53,6 @@ int main(int inCounter, char *inArguments[]) {
 	QQmlApplicationEngine oEngine;
 	QQmlContext* oContext = oEngine.rootContext();
 
-	ObjectType* oObject = new ObjectType();
-	qInstallMessageHandler(oObject->objectMethod());
-
 	qInstallMessageHandler(myMessageOutput);
 
 	qDebug() << "Debug";
