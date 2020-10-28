@@ -45,8 +45,6 @@ void myMessageOutput(QtMsgType inType, const QMessageLogContext& inContext, cons
 
 int main(int inCounter, char *inArguments[]) {
 
-
-
 	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
 	QGuiApplication oApplication(inCounter, inArguments);
