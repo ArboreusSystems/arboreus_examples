@@ -12,7 +12,7 @@ AThread::~AThread(void) {
 
 void AThread::run(void) {
 
-	aLOG << "AThread run";
+	aLOG << "Thread:" << QThread::currentThread() << "Thread ID:" << QThread::currentThreadId() << "AThread run";
 	for (int i = 0; i < 100; i++) {
 		aLOG << qPrintable(objectName()) << ": " << i;
 	}
