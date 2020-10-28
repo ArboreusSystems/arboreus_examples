@@ -19,7 +19,7 @@
 
 // Namespace
 
-void myMessageOutput(QtMsgType inType, const QMessageLogContext& inContext, const QString &inMessage) {
+void myMessageOutput(QtMsgType inType, const QMessageLogContext& inContext, const QString& inMessage) {
 
 	QByteArray oLocalMessage = inMessage.toLocal8Bit();
 	const char* oFile = inContext.file ? inContext.file : "";
@@ -45,7 +45,7 @@ void myMessageOutput(QtMsgType inType, const QMessageLogContext& inContext, cons
 
 int main(int inCounter, char *inArguments[]) {
 
-	qInstallMessageHandler(myMessageOutput);
+
 
 	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
@@ -53,13 +53,17 @@ int main(int inCounter, char *inArguments[]) {
 	QQmlApplicationEngine oEngine;
 	QQmlContext* oContext = oEngine.rootContext();
 
+	ObjectType* oObject = new ObjectType();
+	qInstallMessageHandler(oObject->objectMethod());
+
+	qInstallMessageHandler(myMessageOutput);
+
 	qDebug() << "Debug";
 	qInfo() << "Info";
 	qWarning() << "Warning";
 	qCritical() << "Critical";
 //	qFatal("Fatal");
-
-	Q_ASSERT(0 == 0);
+//	Q_ASSERT(0 != 0);
 
 	const QUrl oURL(QStringLiteral("qrc:/main.qml"));
 	QObject::connect(
