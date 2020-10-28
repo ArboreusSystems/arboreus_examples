@@ -38,7 +38,11 @@ ApplicationWindow {
 
 	Component.onCompleted: {
 
-		oMainWindow1.text = "eee";
-		console.log("From QML");
+//		oMainWindow1.text = "eee";
+		console.log("console.log QML");
+		console.debug("console.debug from QML");
+		console.info("console.info from QML");
+		console.warn("console.warn from QML");
+		console.error("console.error from QML");
 	}
 }

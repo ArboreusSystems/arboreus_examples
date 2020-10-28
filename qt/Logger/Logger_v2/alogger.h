@@ -48,7 +48,6 @@ class ALogger : public QObject {
 			const QString& inMessage
 		);
 
-
 	public slots:
 
 		void mWriteToLog(QString inMessage);
