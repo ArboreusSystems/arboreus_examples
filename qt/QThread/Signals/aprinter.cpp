@@ -12,5 +12,7 @@ APrinter::~APrinter(void) {
 
 void APrinter::slPrint(int inValue) {
 
+	aLOG << "APrinter thread ID:" << QThread::currentThreadId();
+	aLOG << "APrinter thread:" << QThread::currentThread();
 	aLOG << "Value from thread:" << inValue;
 }

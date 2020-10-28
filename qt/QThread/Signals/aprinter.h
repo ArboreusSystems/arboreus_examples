@@ -3,6 +3,9 @@
 
 #include <QObject>
 #include "aglobal.h"
+#include <QDateTime>
+#include <QDebug>
+#include <QThread>
 
 
 class APrinter : public QObject {
