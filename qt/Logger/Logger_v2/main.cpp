@@ -32,8 +32,7 @@ int main(int inCounter, char *inArguments[]) {
 	ALogger* oLogger = &ALogger::mInstance();
 	oContext->setContextProperty("ALogger",oLogger);
 
-//	qInstallMessageHandler(ALogger::mWriteToLog);
-	qInstallMessageHandler(&oLogger::mWriteToLog);
+	qInstallMessageHandler(ALogger::mWriteToLog);
 
 	qDebug() << "Debug";
 	qInfo() << "Info";
