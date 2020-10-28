@@ -12,8 +12,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
-#include <stdio.h>
-#include <stdlib.h>
 
 // Application includes
 #include "alogger.h"
