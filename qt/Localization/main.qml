@@ -79,7 +79,9 @@ Window {
 	Connections {
 
 		target: ATranslator;
-		onSgLanguageChanged: mSetLanguage();
+		function onSgLanguageChanged() {
+			aMainWindow.mSetLanguage();
+		}
 	}
 
 	function mSetLanguage() {
