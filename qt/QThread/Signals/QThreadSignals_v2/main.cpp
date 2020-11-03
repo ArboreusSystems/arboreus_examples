@@ -37,8 +37,12 @@ int main(int inCounter, char *inArguments[]) {
 	oObjectHandler->moveToThread(oThreadHandler);
 	AObject* oObject = new AObject(oObjectHandler,nullptr);
 	oContext->setContextProperty("AObject",oObject);
+	oObjectHandler->mTest(2);
 	oObject->mTest();
 	oObjectHandler->mTest(2);
+	oObject->mTest();
+	oObjectHandler->mTest(2);
+	oObject->mTest();
 
 	const QUrl oURL(QStringLiteral("qrc:/main.qml"));
 	QObject::connect(
