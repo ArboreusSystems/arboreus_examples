@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>js/AGlobal.js</file>
+        <file>js/AColor.js</file>
+        <file>qml/AHeader.qml</file>
+        <file>qml/AFooter.qml</file>
+        <file>qml/ATableView.qml</file>
+    </qresource>
+</RCC>
