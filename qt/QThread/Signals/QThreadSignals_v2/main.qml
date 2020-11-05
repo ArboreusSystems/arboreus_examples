@@ -39,5 +39,6 @@ ApplicationWindow {
 	Component.onCompleted: {
 
 		AObject.mTestQML();
+		AObjectHandler.mTest(4);
 	}
 }

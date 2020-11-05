@@ -35,6 +35,7 @@ int main(int inCounter, char *inArguments[]) {
 
 	AObjectHandler* oObjectHandler = new AObjectHandler();
 	oObjectHandler->moveToThread(oThreadHandler);
+	oContext->setContextProperty("AObjectHandler",oObjectHandler);
 	AObject* oObject = new AObject(oObjectHandler,nullptr);
 	oContext->setContextProperty("AObject",oObject);
 	oObjectHandler->mTest(2);
