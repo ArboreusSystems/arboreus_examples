@@ -26,12 +26,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 
-#A_PREBUILT_LIBS_ROOT = $$system(echo $A_PREBUILT_LIBS_ROOT)
+A_PREBUILT_LIBS_ROOT = $$system(echo $A_PREBUILT_LIBS_ROOT)
 
-#PRI_LIBRARIES_LIBBITCOIN = $$A_PREBUILT_LIBS_ROOT/Prebuilt/LibrariesLibbitcoin.pri
-#include($$PRI_LIBRARIES_LIBBITCOIN)
-
-include(/Users/alexandr/Projects/excdev/kent-wallet/LibrariesLibbitcoin.pri)
+PRI_LIBRARIES_LIBBITCOIN = $$A_PREBUILT_LIBS_ROOT/Prebuilt/LibrariesLibbitcoin.pri
+include($$PRI_LIBRARIES_LIBBITCOIN)
 
 HEADERS += \
 	cpp/Bitcoin/abitcoin.h \
