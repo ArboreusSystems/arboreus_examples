@@ -28,7 +28,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 A_PREBUILT_LIBS_ROOT = $$system(echo $A_PREBUILT_LIBS_ROOT)
 
-PRI_LIBRARIES_LIBBITCOIN = $$A_PREBUILT_LIBS_ROOT/Prebuilt/LibrariesLibbitcoin.pri
+PRI_LIBRARIES_LIBBITCOIN = $$A_PREBUILT_LIBS_ROOT/Builds/LibrariesLibbitcoin.pri
 include($$PRI_LIBRARIES_LIBBITCOIN)
 
 HEADERS += \
