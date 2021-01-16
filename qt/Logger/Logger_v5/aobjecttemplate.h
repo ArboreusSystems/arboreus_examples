@@ -1,6 +1,6 @@
 // ----------------------------------------------------------
 /*!
-	\headerfile AThreadTemplate
+	\headerfile AObjectTemplate
 	\title
 	\brief Template file wizard/classes/cpp/file.h
 
@@ -8,16 +8,16 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 24/12/2020 at 20:14:42
+	\li @created 16/01/2021 at 17:18:02
 	\endlist
 */
 // ----------------------------------------------------------
 
-#ifndef ATHREADTEMPLATE_H
-#define ATHREADTEMPLATE_H
+#ifndef AOBJECTTEMPLATE_H
+#define AOBJECTTEMPLATE_H
 
 // System includes
-#include <QThread>
+#include <QObject>
 
 // Application includes
 
@@ -25,19 +25,20 @@
 
 // Namespace
 
+// Classes
+class ABackend;
+
 // Class definitions
-class AThreadTemplate : public QThread {
+class AObjectTemplate : public QObject {
 
 	Q_OBJECT
 
 	public:
 
-		explicit AThreadTemplate(QObject *parent = nullptr);
-		virtual ~AThreadTemplate(void);
+		ABackend* pBackend = nullptr;
 
-		void mStart(QThread::Priority inPriority);
-		void mQuit(void);
-		void mTerminate(void);
+		explicit AObjectTemplate(QObject *parent = nullptr);
+		virtual ~AObjectTemplate(void);
 };
 
-#endif // ATHREADTEMPLATE_H
+#endif // AOBJECTTEMPLATE_H
