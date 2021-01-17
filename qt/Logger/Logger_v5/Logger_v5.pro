@@ -16,6 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         abackend.cpp \
         alogger.cpp \
+        aloggermodelmessage.cpp \
         aloggerservice.cpp \
         aobjecttemplate.cpp \
         athreadtemplate.cpp \
@@ -37,6 +38,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
 	abackend.h \
 	alogger.h \
+	aloggermodelmessage.h \
 	aloggerservice.h \
 	aobjecttemplate.h \
 	athreadtemplate.h

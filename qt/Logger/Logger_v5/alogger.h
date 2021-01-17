@@ -22,6 +22,7 @@
 #include "aobjecttemplate.h"
 #include "athreadtemplate.h"
 #include "aloggerservice.h"
+#include "aloggermodelmessage.h"
 
 // Constants and definitions
 
@@ -46,25 +47,18 @@ class ALogger : public AObjectTemplate {
 			const QMessageLogContext& inContext,
 			const QString& inMessage
 		);
-		void mEmitSgWriteToLog(
-			QtMsgType inType,
-			const QMessageLogContext& inContext,
-			const QString& inMessage
-		);
-		void mWriteToConsole(
-			QtMsgType inType,
-			const QMessageLogContext& inContext,
-			const QString& inMessage
-		);
+		void mEmitSgWriteToLog(ALoggerModelMessage* inMessage);
 
 
 	signals:
 
-		void sgWriteToLog(QString inType);
+		void sgWriteToLog(ALoggerModelMessage* inMessage);
+		void sgLogUpdated(void);
 
 	private:
 
 		void mWriteToDB(QString inMessage);
+		void mLogUpdated(void);
 };
 
 #endif // ALOGGER_H

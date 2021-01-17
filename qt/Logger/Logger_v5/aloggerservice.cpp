@@ -24,9 +24,7 @@
 	Doc.
 */
 
-ALoggerService::ALoggerService(QObject *parent) : QObject(parent) {
-
-}
+ALoggerService::ALoggerService(QObject *parent) : QObject(parent) {}
 
 
 // -----------
@@ -36,9 +34,7 @@ ALoggerService::ALoggerService(QObject *parent) : QObject(parent) {
 	Doc.
 */
 
-ALoggerService::~ALoggerService(void) {
-
-}
+ALoggerService::~ALoggerService(void) {}
 
 
 // -----------
@@ -48,45 +44,52 @@ ALoggerService::~ALoggerService(void) {
 	Doc.
 */
 
-void ALoggerService::mWriteToLog(const QString &inMessage) {
+void ALoggerService::mWriteToLog(ALoggerModelMessage* inMessage) {
 
-	ALOG_SYSTEM << "ALoggerService::mWriteToLog" << QThread::currentThreadId();
-	ALOG_QML << inMessage.toUtf8();
-	emit sgLogUpdated();
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void ALoggerService::mTestSlot(QString inType) {
-
-
-	fprintf(stderr,inType.toUtf8());
-
-//	switch (inType) {
-//		case QtDebugMsg:
-//#ifdef QT_DEBUG
-//			fprintf(stderr, "[DBG]");
-//#endif
-//			break;
-//		case QtInfoMsg:
-//			fprintf(stderr, "[INF]");
-//			break;
-//		case QtWarningMsg:
-//			fprintf(stderr, "[WAR]");
-//			break;
-//		case QtCriticalMsg:
-//			fprintf(stderr, "[CRI]");
-//			break;
-//		case QtFatalMsg:
-//			fprintf(stderr, "[FAT]");
-//			break;
-//		}
+	switch (inMessage->pMsgType) {
+		case QtDebugMsg:
+#ifdef QT_DEBUG
+			fprintf(
+				stderr, "%llu [DBG]:%s %s [%s]:[%u]:[%s]\n",
+				inMessage->pTime, inMessage->pActorType.toStdString().c_str(),
+				inMessage->pMessage.toStdString().c_str(), inMessage->pFile.toStdString().c_str(),
+				inMessage->pLine, inMessage->pFuntcion.toStdString().c_str()
+			);
+#endif
+			break;
+		case QtInfoMsg:
+			fprintf(
+				stderr, "%llu [INF]:%s %s [%s]:[%u]:[%s]\n",
+				inMessage->pTime, inMessage->pActorType.toStdString().c_str(),
+				inMessage->pMessage.toStdString().c_str(), inMessage->pFile.toStdString().c_str(),
+				inMessage->pLine, inMessage->pFuntcion.toStdString().c_str()
+			);
+			break;
+		case QtWarningMsg:
+			fprintf(
+				stderr, "%llu [WAR]:%s %s [%s]:[%u]:[%s]\n",
+				inMessage->pTime, inMessage->pActorType.toStdString().c_str(),
+				inMessage->pMessage.toStdString().c_str(), inMessage->pFile.toStdString().c_str(),
+				inMessage->pLine, inMessage->pFuntcion.toStdString().c_str()
+			);
+			break;
+		case QtCriticalMsg:
+			fprintf(
+				stderr, "%llu [CRI]:%s %s [%s]:[%u]:[%s]\n",
+				inMessage->pTime, inMessage->pActorType.toStdString().c_str(),
+				inMessage->pMessage.toStdString().c_str(), inMessage->pFile.toStdString().c_str(),
+				inMessage->pLine, inMessage->pFuntcion.toStdString().c_str()
+			);
+			break;
+		case QtFatalMsg:
+			fprintf(
+				stderr, "%llu [FAT]:%s %s [%s]:[%u]:[%s]\n",
+				inMessage->pTime, inMessage->pActorType.toStdString().c_str(),
+				inMessage->pMessage.toStdString().c_str(), inMessage->pFile.toStdString().c_str(),
+				inMessage->pLine, inMessage->pFuntcion.toStdString().c_str()
+			);
+			break;
+	}
 
 	emit sgLogUpdated();
 }

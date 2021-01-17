@@ -23,6 +23,7 @@
 #include <QThread>
 
 // Application includes
+#include "aloggermodelmessage.h"
 
 // Constants and definitions
 #define ALOG qDebug() << QDateTime::currentMSecsSinceEpoch()
@@ -47,8 +48,7 @@ class ALoggerService : public QObject {
 
 	public slots:
 
-		void mTestSlot(QString inType);
-		void mWriteToLog(const QString& inMessage);
+		void mWriteToLog(ALoggerModelMessage* inMessage);
 };
 
 #endif // ALOGGERSERVICE_H

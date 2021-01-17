@@ -14,7 +14,6 @@
 #include <QQmlContext>
 
 // Application includes
-#include "alogger.h"
 #include "abackend.h"
 
 // Namespace
@@ -31,12 +30,8 @@ int main(int inCounter, char *inArguments[]) {
 	ABackend* oBackend = &ABackend::mInstance(
 		&oApplication,&oEngine,oEngine.rootContext()
 	);
-	oBackend->mInit();
-
-//	ALogger* oLogger = &ALogger::mInstance();
-//	oContext->setContextProperty("ALogger",oLogger);
-
 	qInstallMessageHandler(ALogger::mWriteToLog);
+	oBackend->mInit();
 
 	qInfo() << "Main thread:" << QThread::currentThreadId();
 

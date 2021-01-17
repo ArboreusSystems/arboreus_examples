@@ -57,26 +57,6 @@ void ALogger::mWriteToLog(
 	const QString& inMessage
 ) {
 
-	ALogger* oLogger = (&ABackend::mInstance())->pLogger;
-	oLogger->mWriteToConsole(inType,inContext,inMessage);
-	oLogger->mWriteToDB(inMessage);
-	oLogger->mEmitSgWriteToLog(inType,inContext,inMessage);
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void ALogger::mWriteToConsole(
-	QtMsgType inType,
-	const QMessageLogContext& inContext,
-	const QString& inMessage
-) {
-
 	QByteArray oLocalMessage;
 	QString oLogType = inMessage.left(5);
 	if (oLogType != QString("[USR]")) {
@@ -85,28 +65,18 @@ void ALogger::mWriteToConsole(
 	} else {
 		oLocalMessage = inMessage.right(inMessage.length() - 6).toLocal8Bit();
 	}
-	const char* oFile = inContext.file ? inContext.file : "no file";
-	const char* oFunction = inContext.function ? inContext.function : "no function";
-	int64_t oTime = QDateTime::currentMSecsSinceEpoch();
-	switch (inType) {
-	case QtDebugMsg:
-#ifdef QT_DEBUG
-		fprintf(stderr, "%llu [DBG]:%s %s [%s]:[%u]:[%s]\n", oTime, oLogType.toLocal8Bit().constData(), oLocalMessage.constData(), oFile, inContext.line, oFunction);
-#endif
-		break;
-	case QtInfoMsg:
-		fprintf(stderr, "%llu [INF]:%s %s [%s]:[%u]:[%s]\n", oTime, oLogType.toLocal8Bit().constData(), oLocalMessage.constData(), oFile, inContext.line, oFunction);
-		break;
-	case QtWarningMsg:
-		fprintf(stderr, "%llu [WAR]:%s %s [%s]:[%u]:[%s]\n", oTime, oLogType.toLocal8Bit().constData(), oLocalMessage.constData(), oFile, inContext.line, oFunction);
-		break;
-	case QtCriticalMsg:
-		fprintf(stderr, "%llu [CRI]:%s %s [%s]:[%u]:[%s]\n", oTime, oLogType.toLocal8Bit().constData(), oLocalMessage.constData(), oFile, inContext.line, oFunction);
-		break;
-	case QtFatalMsg:
-		fprintf(stderr, "%llu [FAT]:%s %s [%s]:[%u]:[%s]\n", oTime, oLogType.toLocal8Bit().constData(), oLocalMessage.constData(), oFile, inContext.line, oFunction);
-		break;
-	}
+
+	ALoggerModelMessage* oMessage = new ALoggerModelMessage();
+	oMessage->pMsgType = inType;
+	oMessage->pTime = QDateTime::currentMSecsSinceEpoch();
+	oMessage->pActorType = oLogType;
+	oMessage->pMessage = QString::fromStdString(oLocalMessage.toStdString());
+	oMessage->pFile = inContext.file ? QString(inContext.file) : QString("no file");
+	oMessage->pLine = inContext.line;
+	oMessage->pFuntcion = inContext.function ? QString(inContext.function) : QString("no function");
+
+	ALogger* oLogger = (&ABackend::mInstance())->pLogger;
+	oLogger->mEmitSgWriteToLog(oMessage);
 }
 
 
@@ -117,23 +87,9 @@ void ALogger::mWriteToConsole(
 	Doc.
 */
 
-void ALogger::mWriteToDB(QString inMessage) {}
+void ALogger::mEmitSgWriteToLog(ALoggerModelMessage* inMessage) {
 
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void ALogger::mEmitSgWriteToLog(
-	QtMsgType inType,
-	const QMessageLogContext &inContext,
-	const QString &inMessage
-) {
-
-	emit sgWriteToLog(QString("TestEmitString"));
+	emit sgWriteToLog(inMessage);
 }
 
 
@@ -152,12 +108,25 @@ void ALogger::mInitWithThread(AThreadTemplate *inThread) {
 
 	QObject::connect(
 		this,&ALogger::sgWriteToLog,
-		pService,&ALoggerService::mTestSlot
+		pService,&ALoggerService::mWriteToLog
 	);
 
-//	QObject::connect(
-//		pService,&ALoggerService::sgLogUpdated,
-//		this,&ALogger::mLogUpdated
-//	);
+	QObject::connect(
+		pService,&ALoggerService::sgLogUpdated,
+		this,&ALogger::mLogUpdated
+	);
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void ALogger::mLogUpdated(void) {
+
+	emit sgLogUpdated();
 }
 
