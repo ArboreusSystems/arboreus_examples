@@ -30,6 +30,5 @@ HEADERS += \
     abackend.h \
     alogger.h \
     aloggerdatamodels.h \
-    aloggerfunctions.h \
     aloggerservice.h \
     aproperties.h
