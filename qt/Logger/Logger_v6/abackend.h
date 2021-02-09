@@ -8,7 +8,7 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 16/01/2021 at 17:09:37
+	\li @created 09/02/2021 at 21:58:50
 	\endlist
 */
 // ----------------------------------------------------------
@@ -18,13 +18,8 @@
 
 // System includes
 #include <QObject>
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
-#include <QQmlContext>
 
 // Application includes
-#include "athreadtemplate.h"
-#include "alogger.h"
 
 // Constants and definitions
 
@@ -35,43 +30,13 @@ class ABackend : public QObject {
 
 	Q_OBJECT
 
-	public:
+public:
 
-		QGuiApplication* pGuiApplication = nullptr;
-		QQmlApplicationEngine* pEngine = nullptr;
-		QQmlContext* pRootContext = nullptr;
+	explicit ABackend(QObject *parent = nullptr);
+	virtual ~ABackend(void);
 
-		AThreadTemplate* pThreadLowest = nullptr;
-		AThreadTemplate* pThreadLow = nullptr;
-		AThreadTemplate* pThreadNormal = nullptr;
-		AThreadTemplate* pThreadHigh = nullptr;
-		AThreadTemplate* pThreadHighest = nullptr;
+signals:
 
-		ALogger* pLogger = nullptr;
-
-		static ABackend& mInstance(
-			QGuiApplication* inApplication = nullptr,
-			QQmlApplicationEngine* inEngine = nullptr,
-			QQmlContext* inRootContext = nullptr
-		) {
-			static ABackend oInstance;
-			if (inApplication) oInstance.pGuiApplication = inApplication;
-			if (inRootContext) oInstance.pRootContext = inRootContext;
-			if (inEngine) oInstance.pEngine = inEngine;
-			return oInstance;
-		}
-
-		void mInit(void);
-
-	private:
-
-		explicit ABackend(QObject *parent = nullptr);
-		virtual ~ABackend(void);
-		Q_DISABLE_COPY(ABackend)
-
-		void mInitThreads(void);
-		void mInitLogger(void);
-
-		void mDeleteThreads(void);
 };
+
 #endif // ABACKEND_H

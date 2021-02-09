@@ -8,16 +8,13 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 28/10/2020 at 15:03:15
+	\li @created 09/02/2021 at 18:16:22
 	\endlist
 */
 // ----------------------------------------------------------
 
 // Class header
 #include "alogger.h"
-
-// Forwarded classes
-#include "abackend.h"
 
 
 // -----------
@@ -27,8 +24,9 @@
 	Doc.
 */
 
-ALogger::ALogger(QObject *parent) : AObjectTemplate(parent) {
+ALogger::ALogger(QObject *parent) : QObject(parent) {
 
+	A_CONSOLE_DEBUG("ALogger created");
 }
 
 
@@ -41,6 +39,7 @@ ALogger::ALogger(QObject *parent) : AObjectTemplate(parent) {
 
 ALogger::~ALogger(void) {
 
+	A_CONSOLE_DEBUG("ALogger deleted");
 }
 
 
@@ -51,32 +50,13 @@ ALogger::~ALogger(void) {
 	Doc.
 */
 
-void ALogger::mWriteToLog(
-	QtMsgType inType,
-	const QMessageLogContext& inContext,
-	const QString& inMessage
-) {
+ALogger& ALogger::mInstance(AProperties* inProperties) {
 
-	QByteArray oLocalMessage;
-	QString oLogType = inMessage.left(5);
-	if (oLogType != QString("[USR]")) {
-		oLogType = QString("[SYS]");
-		oLocalMessage = inMessage.toLocal8Bit();
-	} else {
-		oLocalMessage = inMessage.right(inMessage.length() - 6).toLocal8Bit();
+	static ALogger oInstance;
+	if (inProperties) {
+		oInstance.mSetup();
 	}
-
-	ALoggerModelMessage* oMessage = new ALoggerModelMessage();
-	oMessage->pMsgType = inType;
-	oMessage->pTime = QDateTime::currentMSecsSinceEpoch();
-	oMessage->pActorType = oLogType;
-	oMessage->pMessage = QString::fromStdString(oLocalMessage.toStdString());
-	oMessage->pFile = inContext.file ? QString(inContext.file) : QString("no file");
-	oMessage->pLine = inContext.line;
-	oMessage->pFuntcion = inContext.function ? QString(inContext.function) : QString("no function");
-
-	ALogger* oLogger = (&ABackend::mInstance())->pLogger;
-	oLogger->mEmitSgWriteToLog(oMessage);
+	return oInstance;
 }
 
 
@@ -87,46 +67,8 @@ void ALogger::mWriteToLog(
 	Doc.
 */
 
-void ALogger::mEmitSgWriteToLog(ALoggerModelMessage* inMessage) {
+void ALogger::mSetup(void) {
 
-	emit sgWriteToLog(inMessage);
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void ALogger::mInitWithThread(AThreadTemplate *inThread) {
-
-	pThread = inThread;
-	pService = new ALoggerService();
-	pService->moveToThread(pThread);
-
-	QObject::connect(
-		this,&ALogger::sgWriteToLog,
-		pService,&ALoggerService::mWriteToLog
-	);
-
-	QObject::connect(
-		pService,&ALoggerService::sgLogUpdated,
-		this,&ALogger::mLogUpdated
-	);
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void ALogger::mLogUpdated(void) {
-
-	emit sgLogUpdated();
+	A_CONSOLE_DEBUG("ALogger initialised");
 }
 

@@ -8,7 +8,7 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 16/01/2021 at 17:21:46
+	\li @created 09/02/2021 at 21:26:31
 	\endlist
 */
 // ----------------------------------------------------------
@@ -19,16 +19,31 @@
 // System includes
 #include <QObject>
 #include <QDateTime>
-#include <QDebug>
-#include <QThread>
 
 // Application includes
-#include "aloggermodelmessage.h"
+#include "aloggerdatamodels.h"
 
 // Constants and definitions
-#define ALOG qDebug() << QDateTime::currentMSecsSinceEpoch()
-#define ALOG_SYSTEM ALOG << "[SYSTEM]"
-#define ALOG_QML ALOG << "[QML]"
+#define A_CONSOLE_DEBUG(inMessage) \
+	ALoggerService::mConsoleMessageDebug( \
+		QDateTime::currentMSecsSinceEpoch(),"DBG","SYS",inMessage,__LINE__,__FILE__,__FUNCTION__ \
+	)
+#define A_CONSOLE_INFO(inMessage) \
+	ALoggerService::mConsoleMessage( \
+		QDateTime::currentMSecsSinceEpoch(),"INF","SYS",inMessage,__LINE__,__FILE__,__FUNCTION__ \
+	)
+#define A_CONSOLE_WARNING(inMessage) \
+	ALoggerService::mConsoleMessage( \
+		QDateTime::currentMSecsSinceEpoch(),"WRN","SYS",inMessage,__LINE__,__FILE__,__FUNCTION__ \
+	)
+#define A_CONSOLE_ERROR(inMessage) \
+	ALoggerService::mConsoleMessage( \
+		QDateTime::currentMSecsSinceEpoch(),"ERR","SYS",inMessage,__LINE__,__FILE__,__FUNCTION__ \
+	)
+#define A_CONSOLE_CRITICAL(inMessage) \
+	ALoggerService::mConsoleMessage( \
+		QDateTime::currentMSecsSinceEpoch(),"CRI","SYS",inMessage,__LINE__,__FILE__,__FUNCTION__ \
+	)
 
 // Namespace
 
@@ -42,13 +57,16 @@ class ALoggerService : public QObject {
 		explicit ALoggerService(QObject *parent = nullptr);
 		virtual ~ALoggerService(void);
 
-	signals:
-
-		void sgLogUpdated(void);
-
-	public slots:
-
-		void mWriteToLog(ALoggerModelMessage* inMessage);
+		static void mConsoleMessageDebug(
+			uint64_t inTime, const char* inType, const char* inActor,
+			const char* inMessage,
+			int inLine, const char* inFile,	const char* inFunction
+		);
+		static void mConsoleMessage(
+			uint64_t inTime, const char* inType, const char* inActor,
+			const char* inMessage,
+			int inLine, const char* inFile,	const char* inFunction
+		);
 };
 
 #endif // ALOGGERSERVICE_H

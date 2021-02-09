@@ -1,6 +1,6 @@
 // ----------------------------------------------------------
 /*!
-	\class AObjectTemplate
+	\class AProperties
 	\title
 	\brief Template file classes/cpp/file.cpp
 
@@ -8,16 +8,13 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 16/01/2021 at 17:18:02
+	\li @created 09/02/2021 at 18:05:31
 	\endlist
 */
 // ----------------------------------------------------------
 
 // Class header
-#include "aobjecttemplate.h"
-
-// Forwarded classes
-#include "abackend.h"
+#include "aproperties.h"
 
 
 // -----------
@@ -27,9 +24,9 @@
 	Doc.
 */
 
-AObjectTemplate::AObjectTemplate(QObject *parent) : QObject(parent) {
+AProperties::AProperties(QObject *parent) : QObject(parent) {
 
-	pBackend = &ABackend::mInstance();
+	A_CONSOLE_DEBUG("AProperties created");
 }
 
 
@@ -40,7 +37,20 @@ AObjectTemplate::AObjectTemplate(QObject *parent) : QObject(parent) {
 	Doc.
 */
 
-AObjectTemplate::~AObjectTemplate(void) {
+AProperties::~AProperties(void) {
 
+	A_CONSOLE_DEBUG("AProperties deleted");
 }
 
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+AProperties& AProperties::mInstance(void) {
+	static AProperties oInstance;
+	return oInstance;
+}

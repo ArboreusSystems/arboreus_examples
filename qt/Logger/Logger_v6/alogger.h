@@ -8,7 +8,7 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 28/10/2020 at 15:03:15
+	\li @created 09/02/2021 at 18:16:22
 	\endlist
 */
 // ----------------------------------------------------------
@@ -17,49 +17,33 @@
 #define ALOGGER_H
 
 // System includes
-#include <QJSEngine>
-#include <QJSValue>
+#include <QObject>
+#include <QDateTime>
 
 // Application includes
-#include "aobjecttemplate.h"
-#include "athreadtemplate.h"
+#include "aproperties.h"
 #include "aloggerservice.h"
-#include "aloggermodelmessage.h"
 
 // Constants and definitions
 
 // Namespace
 
 // Class definitions
-class ALogger : public AObjectTemplate {
+class ALogger : public QObject {
 
 	Q_OBJECT
 
 	public:
 
-		AThreadTemplate* pThread = nullptr;
-		ALoggerService* pService = nullptr;
-
-		explicit ALogger(QObject *parent = nullptr);
-		virtual ~ALogger(void);
-
-		void mInitWithThread(AThreadTemplate* inThread);
-		static void mWriteToLog(
-			QtMsgType inType,
-			const QMessageLogContext& inContext,
-			const QString& inMessage
-		);
-		void mEmitSgWriteToLog(ALoggerModelMessage* inMessage);
-
-	signals:
-
-		void sgWriteToLog(ALoggerModelMessage* inMessage);
-		void sgLogUpdated(void);
+		static ALogger& mInstance(AProperties* inProperties = nullptr);
 
 	private:
 
-		void mWriteToDB(QString inMessage);
-		void mLogUpdated(void);
+		explicit ALogger(QObject *parent = nullptr);
+		virtual ~ALogger(void);
+		Q_DISABLE_COPY(ALogger)
+
+		void mSetup(void);
 };
 
 #endif // ALOGGER_H
