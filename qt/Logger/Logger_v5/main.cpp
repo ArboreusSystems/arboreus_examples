@@ -35,6 +35,10 @@ int main(int inCounter, char *inArguments[]) {
 
 	qInfo() << "Main thread:" << QThread::currentThreadId();
 
+	qInfo() << "File:" << __FILE__;
+	qInfo() << "Line:" << __LINE__;
+	qInfo() << "Function:" << __FUNCTION__;
+
 	qDebug() << "Debug";
 	qInfo() << "Info";
 	qWarning() << "Warning";

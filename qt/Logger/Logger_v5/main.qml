@@ -45,16 +45,5 @@ ApplicationWindow {
 		console.info("console.info from QML");
 		console.warn("console.warn from QML");
 		console.error("console.error from QML");
-
-		oMainWindow.mTestLog();
-	}
-
-	function mTestLog() {
-
-		console.log("console.log QML Function");
-		console.debug("[USR]","console.debug from QML Function");
-		console.info("console.info from QML Function");
-		console.warn("console.warn from QML Function");
-		console.error("console.error from QML Function");
 	}
 }

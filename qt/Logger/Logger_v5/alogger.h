@@ -17,6 +17,8 @@
 #define ALOGGER_H
 
 // System includes
+#include <QJSEngine>
+#include <QJSValue>
 
 // Application includes
 #include "aobjecttemplate.h"
@@ -48,7 +50,6 @@ class ALogger : public AObjectTemplate {
 			const QString& inMessage
 		);
 		void mEmitSgWriteToLog(ALoggerModelMessage* inMessage);
-
 
 	signals:
 
