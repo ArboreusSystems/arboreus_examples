@@ -24,6 +24,10 @@
 #include "aloggerdatamodels.h"
 
 // Constants and definitions
+#define A_CONSOLE_OUTPUT \
+	fprintf(stderr, "%llu [%s]:[%s] %s [%s]:[%u]:[%s]\n", \
+		inTime,inType,inActor,inMessage,inFile,inLine,inFunction \
+	)
 #define A_CONSOLE_DEBUG(inMessage) \
 	ALoggerService::mConsoleMessageDebug( \
 		QDateTime::currentMSecsSinceEpoch(),"DBG","SYS",inMessage,__LINE__,__FILE__,__FUNCTION__ \
@@ -35,10 +39,6 @@
 #define A_CONSOLE_WARNING(inMessage) \
 	ALoggerService::mConsoleMessage( \
 		QDateTime::currentMSecsSinceEpoch(),"WRN","SYS",inMessage,__LINE__,__FILE__,__FUNCTION__ \
-	)
-#define A_CONSOLE_ERROR(inMessage) \
-	ALoggerService::mConsoleMessage( \
-		QDateTime::currentMSecsSinceEpoch(),"ERR","SYS",inMessage,__LINE__,__FILE__,__FUNCTION__ \
 	)
 #define A_CONSOLE_CRITICAL(inMessage) \
 	ALoggerService::mConsoleMessage( \
@@ -66,6 +66,27 @@ class ALoggerService : public QObject {
 			uint64_t inTime, const char* inType, const char* inActor,
 			const char* inMessage,
 			int inLine, const char* inFile,	const char* inFunction
+		);
+
+	public slots:
+
+		void mWriteToLog(ALoggerMessageModel* inMessage);
+
+	signals:
+
+		void sgLogUpdated(void);
+
+	private:
+
+		void mWriteToDB(
+			uint64_t inTime, const char* inType, const char* inActor,
+			const char* inMessage,
+			int inLine, const char* inFile, const char* inFunction
+		);
+		void mWriteToConsole(
+			uint64_t inTime, const char* inType, const char* inActor,
+			const char* inMessage,
+			int inLine, const char* inFile, const char* inFunction
 		);
 };
 

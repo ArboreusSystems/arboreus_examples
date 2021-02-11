@@ -12,8 +12,7 @@
 #include <QQmlApplicationEngine>
 
 // Application includes
-#include "aproperties.h"
-#include "alogger.h"
+#include "abackend.h"
 
 // Constants
 
@@ -27,14 +26,30 @@ int main(int inCounter, char *inArguments[]) {
 	QGuiApplication oApplication(inCounter, inArguments);
 	QQmlApplicationEngine oEngine;
 
-	A_CONSOLE_DEBUG("Debug message");
-	A_CONSOLE_INFO("Info message");
-	A_CONSOLE_WARNING("Warning message");
-	A_CONSOLE_ERROR("Error message");
-	A_CONSOLE_CRITICAL("Critical message");
+//	A_CONSOLE_DEBUG("Debug message");
+//	A_CONSOLE_INFO("Info message");
+//	A_CONSOLE_WARNING("Warning message");
+//	A_CONSOLE_CRITICAL("Critical message");
+
+	qDebug() << "Initial message";
 
 	AProperties* oProperties = &AProperties::mInstance();
+
 	ALogger* oLogger = &ALogger::mInstance(oProperties);
+	qInstallMessageHandler(ALogger::mWriteToLog);
+
+	ABackend* oBackend = &ABackend::mInstance();
+	oBackend->pGuiApplication = &oApplication;
+	oBackend->pEngine = &oEngine;
+	oBackend->pRootContext = oEngine.rootContext();
+	oBackend->pProperties = oProperties;
+	oBackend->pLogger = oLogger;
+	oBackend->mInit();
+
+	qDebug() << "Debug from main";
+	qInfo() << "Info from main";
+	qWarning() << "Warning from main";
+	qCritical() << "Debug from main";
 
 	const QUrl oURL(QStringLiteral("qrc:/main.qml"));
 	QObject::connect(

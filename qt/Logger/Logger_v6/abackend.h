@@ -18,8 +18,14 @@
 
 // System includes
 #include <QObject>
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
 
 // Application includes
+#include "athreadtemplate.h"
+#include "alogger.h"
+#include "aproperties.h"
 
 // Constants and definitions
 
@@ -30,13 +36,33 @@ class ABackend : public QObject {
 
 	Q_OBJECT
 
-public:
+	public:
 
-	explicit ABackend(QObject *parent = nullptr);
-	virtual ~ABackend(void);
+		QGuiApplication* pGuiApplication = nullptr;
+		QQmlApplicationEngine* pEngine = nullptr;
+		QQmlContext* pRootContext = nullptr;
 
-signals:
+		AThreadTemplate* pThreadLowest = nullptr;
+		AThreadTemplate* pThreadLow = nullptr;
+		AThreadTemplate* pThreadNormal = nullptr;
+		AThreadTemplate* pThreadHigh = nullptr;
+		AThreadTemplate* pThreadHighest = nullptr;
 
+		ALogger* pLogger = nullptr;
+		AProperties* pProperties = nullptr;
+
+		static ABackend& mInstance(void);
+		void mInit(void);
+
+	private:
+
+		explicit ABackend(QObject *parent = nullptr);
+		virtual ~ABackend(void);
+		Q_DISABLE_COPY(ABackend)
+
+		void mInitThreads(void);
+		void mInitLogger(void);
+		void mDeleteThreads(void);
 };
 
 #endif // ABACKEND_H

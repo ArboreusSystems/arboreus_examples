@@ -51,15 +51,13 @@ ALoggerService::~ALoggerService(void) {
 */
 
 void ALoggerService::mConsoleMessageDebug(
-	uint64_t inTime, const char *inType, const char *inActor,
-	const char *inMessage,
-	int inLine, const char *inFile, const char *inFunction
+	uint64_t inTime, const char* inType, const char* inActor,
+	const char* inMessage,
+	int inLine, const char* inFile, const char* inFunction
 ) {
 
 #ifdef QT_DEBUG
-	fprintf(stderr, "%llu [%s]:[%s] %s [%s]:[%u]:[%s]\n",
-		inTime,inType,inActor,inMessage,inFile,inLine,inFunction
-	);
+	A_CONSOLE_OUTPUT;
 #else
 	Q_UNUSED(inTime)
 	Q_UNUSED(inType)
@@ -80,12 +78,92 @@ void ALoggerService::mConsoleMessageDebug(
 */
 
 void ALoggerService::mConsoleMessage(
-	uint64_t inTime, const char *inType, const char *inActor,
-	const char *inMessage,
-	int inLine, const char *inFile, const char *inFunction
+	uint64_t inTime, const char* inType, const char* inActor,
+	const char* inMessage,
+	int inLine, const char* inFile, const char* inFunction
 ) {
 
-	fprintf(stderr, "%llu [%s]:[%s] %s [%s]:[%u]:[%s]\n",
-		inTime,inType,inActor,inMessage,inFile,inLine,inFunction
+	A_CONSOLE_OUTPUT;
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void ALoggerService::mWriteToLog(ALoggerMessageModel* inMessage) {
+
+	const char* oType;
+	switch (inMessage->Type) {
+		case QtInfoMsg: oType = "DBG"; break;
+		case QtWarningMsg: oType = "WAR"; break;
+		case QtCriticalMsg: oType = "CRI"; break;
+		case QtFatalMsg: oType = "FAT"; break;
+		default: oType = "DBG";	break;
+	}
+
+	const char* oMessage;
+	const char* oActor;
+	if (inMessage->Message->left(5).toLocal8Bit().data() != "[USR]") {
+		oActor = "SYS";
+		oMessage = inMessage->Message->toLocal8Bit().data();
+	} else {
+		oActor = "USR";
+		oMessage = inMessage->Message->right(inMessage->Message->length() - 6).toLocal8Bit().data();
+	}
+
+	this->mWriteToDB(
+		inMessage->Time,oType,oActor,oMessage,
+		inMessage->Context->line,inMessage->Context->file,inMessage->Context->function
 	);
+
+	this->mWriteToConsole(
+		inMessage->Time,oType,oActor,oMessage,
+		inMessage->Context->line,inMessage->Context->file,inMessage->Context->function
+	);
+
+	emit sgLogUpdated();
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void ALoggerService::mWriteToDB(
+	uint64_t inTime, const char* inType, const char* inActor,
+	const char* inMessage,
+	int inLine, const char* inFile, const char* inFunction
+){
+
+	Q_UNUSED(inTime);
+	Q_UNUSED(inType);
+	Q_UNUSED(inActor);
+	Q_UNUSED(inMessage);
+	Q_UNUSED(inLine);
+	Q_UNUSED(inFile);
+	Q_UNUSED(inFunction);
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void ALoggerService::mWriteToConsole(
+	uint64_t inTime, const char* inType, const char* inActor,
+	const char* inMessage,
+	int inLine, const char* inFile, const char* inFunction
+) {
+
+	A_CONSOLE_OUTPUT;
 }

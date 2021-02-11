@@ -26,18 +26,20 @@
 
 // Namespace
 
-struct ALoggerMessage {
+class ALoggerMessageModel {
 
-	uint64_t Time = 0;
-	const char* Type = "DBG";
-	const char* Actor = "SYS";
-	const char* Message = "no_message";
-	int Line = 0;
-	const char* File = "no_file";
-	const char* Function = "no_function";
+	public:
+
+		uint64_t Time = 0;
+		QtMsgType Type = QtMsgType::QtDebugMsg;
+		const QMessageLogContext* Context = nullptr;
+		const QString* Message = nullptr;
+
+		ALoggerMessageModel() {}
+		~ALoggerMessageModel() {}
 };
 
-Q_DECLARE_METATYPE(ALoggerMessage)
+Q_DECLARE_METATYPE(ALoggerMessageModel)
 
 
 #endif // ALOGGERDATAMODELS_H

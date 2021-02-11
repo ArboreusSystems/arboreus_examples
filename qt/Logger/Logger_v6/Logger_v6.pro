@@ -10,7 +10,9 @@ SOURCES += \
         abackend.cpp \
         alogger.cpp \
         aloggerservice.cpp \
+        aobjecttemplate.cpp \
         aproperties.cpp \
+        athreadtemplate.cpp \
         main.cpp
 
 RESOURCES += qml.qrc
@@ -31,4 +33,6 @@ HEADERS += \
     alogger.h \
     aloggerdatamodels.h \
     aloggerservice.h \
-    aproperties.h
+    aobjecttemplate.h \
+    aproperties.h \
+    athreadtemplate.h

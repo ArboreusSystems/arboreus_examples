@@ -36,4 +36,9 @@ ApplicationWindow {
 		anchors.verticalCenter: parent.verticalCenter;
 		anchors.horizontalCenter: parent.horizontalCenter;
 	}
+
+	Component.onCompleted: {
+
+		console.log("Console log from QML");
+	}
 }

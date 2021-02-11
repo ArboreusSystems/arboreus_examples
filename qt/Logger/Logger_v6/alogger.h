@@ -23,6 +23,7 @@
 // Application includes
 #include "aproperties.h"
 #include "aloggerservice.h"
+#include "athreadtemplate.h"
 
 // Constants and definitions
 
@@ -35,11 +36,30 @@ class ALogger : public QObject {
 
 	public:
 
+		AThreadTemplate* pThread = nullptr;
+		ALoggerService* pService = nullptr;
+
 		static ALogger& mInstance(AProperties* inProperties = nullptr);
+		void mInitWithThread(AThreadTemplate* inThread);
+		static void mWriteToLog(
+			QtMsgType inType,
+			const QMessageLogContext& inContext,
+			const QString& inMessage
+		);
+		void mEmitSgWriteToLog(ALoggerMessageModel* inMessage);
+
+	public slots:
+
+		void mLogUpdated(void);
+
+	signals:
+
+		void sgWriteToLog(ALoggerMessageModel* inMessage);
+		void sgLogUpdated(void);
 
 	private:
 
-		explicit ALogger(QObject *parent = nullptr);
+		explicit ALogger(QObject* parent = nullptr);
 		virtual ~ALogger(void);
 		Q_DISABLE_COPY(ALogger)
 
