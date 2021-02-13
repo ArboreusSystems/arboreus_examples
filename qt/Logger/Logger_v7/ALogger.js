@@ -1,5 +1,3 @@
-.pragma library
-
 // ----------------------------------------------------------
 /*!
 	\module
@@ -25,6 +23,120 @@
 
 function mUserDebug(inMessage) {
 
-	var err = new Error();
-	console.log(inMessage,err.stack);
+	var oError = new Error();
+	var oStack = oError.stack.split("\n");
+
+	ALogger.slWriteToLogDebug("USR",inMessage,oStack[oStack.length - 1]);
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Function description.
+*/
+
+function mUserInfo(inMessage) {
+
+	var oError = new Error();
+	var oStack = oError.stack.split("\n");
+
+	ALogger.slWriteToLogInfo("USR",inMessage,oStack[oStack.length - 1]);
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Function description.
+*/
+
+function mUserWarning(inMessage) {
+
+	var oError = new Error();
+	var oStack = oError.stack.split("\n");
+
+	ALogger.slWriteToLogWarning("USR",inMessage,oStack[oStack.length - 1]);
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Function description.
+*/
+
+function mUserCritical(inMessage) {
+
+	var oError = new Error();
+	var oStack = oError.stack.split("\n");
+
+	ALogger.slWriteToLogCritical("USR",inMessage,oStack[oStack.length - 1]);
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Function description.
+*/
+
+function mQMLDebug(inMessage) {
+
+	var oError = new Error();
+	var oStack = oError.stack.split("\n");
+
+	ALogger.slWriteToLogDebug("QML",inMessage,oStack[oStack.length - 1]);
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Function description.
+*/
+
+function mQMLInfo(inMessage) {
+
+	var oError = new Error();
+	var oStack = oError.stack.split("\n");
+
+	ALogger.slWriteToLogInfo("QML",inMessage,oStack[oStack.length - 1]);
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Function description.
+*/
+
+function mQMLWarning(inMessage) {
+
+	var oError = new Error();
+	var oStack = oError.stack.split("\n");
+
+	ALogger.slWriteToLogWarning("QML",inMessage,oStack[oStack.length - 1]);
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Function description.
+*/
+
+function mQMLCritical(inMessage) {
+
+	var oError = new Error();
+	var oStack = oError.stack.split("\n");
+
+	ALogger.slWriteToLogCritical("QML",inMessage,oStack[oStack.length - 1]);
 }

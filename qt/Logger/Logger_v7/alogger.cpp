@@ -26,7 +26,6 @@
 
 ALogger::ALogger(QObject *parent) : QObject(parent) {
 
-	A_CONSOLE_DEBUG("ALogger created");
 }
 
 
@@ -40,8 +39,6 @@ ALogger::ALogger(QObject *parent) : QObject(parent) {
 ALogger::~ALogger(void) {
 
 	delete pService;
-
-	A_CONSOLE_DEBUG("ALogger deleted");
 }
 
 
@@ -66,32 +63,20 @@ ALogger& ALogger::mInstance(void) {
 	Doc.
 */
 
-void ALogger::mInitWithThread(AThreadTemplate *inThread) {
+void ALogger::mInitWithThread(AThreadTemplate* inThread) {
 
 	pThread = inThread;
 	pService = new ALoggerService();
 	pService->moveToThread(pThread);
 
 	QObject::connect(
-		this,&ALogger::sgWriteToLogDebug,
-		pService,&ALoggerService::mWriteToLogDebug
-	);
-	QObject::connect(
-		this,&ALogger::sgWriteToLogInfo,
-		pService,&ALoggerService::mWriteToLogInfo
-	);
-	QObject::connect(
-		this,&ALogger::sgWriteToLogWarning,
-		pService,&ALoggerService::mWriteToLogWarning
-	);
-	QObject::connect(
-		this,&ALogger::sgWriteToLogCritical,
-		pService,&ALoggerService::mWriteToLogCritical
+		this,&ALogger::sgWriteToLog,
+		pService,&ALoggerService::slWriteToLog
 	);
 
 	QObject::connect(
 		pService,&ALoggerService::sgLogUpdated,
-		this,&ALogger::mLogUpdated
+		this,&ALogger::slLogUpdated
 	);
 }
 
@@ -103,20 +88,15 @@ void ALogger::mInitWithThread(AThreadTemplate *inThread) {
 	Doc.
 */
 
-void ALogger::mDebug(
-	const char *inMessage, int inLine, const char *inFile, const char *inFunction
+void ALogger::mWriteToLogDebug(
+	const char* inMessage, const char* inFile, int inLine, const char* inFunction
 ) {
 
-#ifdef QT_DEBUG
-	A_LOGGER_CREATE_MESSAGE_FROM_CPP;
-	emit sgWriteToLogDebug(oMessage);
-#else
-	Q_UNUSED(inMessage)
-	Q_UNUSED(inLine)
-	Q_UNUSED(inFile)
-	Q_UNUSED(inFunction)
-#endif
-
+	this->mWriteToLog(
+		A_LOGGER_DEFAULT_STRING_DEBUG,A_LOGGER_DEFAULT_STRING_SYSTEM,
+		QString(inMessage),QString(inFile),
+		QString::number(inLine),QString(inFunction)
+	);
 }
 
 
@@ -127,12 +107,15 @@ void ALogger::mDebug(
 	Doc.
 */
 
-void ALogger::mInfo(
-	const char *inMessage, int inLine, const char *inFile, const char *inFunction
+void ALogger::mWriteToLogInfo(
+	const char* inMessage, const char* inFile, int inLine, const char* inFunction
 ) {
 
-	A_LOGGER_CREATE_MESSAGE_FROM_CPP;
-	emit sgWriteToLogInfo(oMessage);
+	this->mWriteToLog(
+		A_LOGGER_DEFAULT_STRING_INFO,A_LOGGER_DEFAULT_STRING_SYSTEM,
+		QString(inMessage),QString(inFile),
+		QString::number(inLine),QString(inFunction)
+	);
 }
 
 
@@ -143,12 +126,15 @@ void ALogger::mInfo(
 	Doc.
 */
 
-void ALogger::mWarning(
-	const char *inMessage, int inLine, const char *inFile, const char *inFunction
+void ALogger::mWriteToLogWarning(
+	const char* inMessage, const char* inFile, int inLine, const char* inFunction
 ) {
 
-	A_LOGGER_CREATE_MESSAGE_FROM_CPP;
-	emit sgWriteToLogWarning(oMessage);
+	this->mWriteToLog(
+		A_LOGGER_DEFAULT_STRING_WARNING,A_LOGGER_DEFAULT_STRING_SYSTEM,
+		QString(inMessage),QString(inFile),
+		QString::number(inLine),QString(inFunction)
+	);
 }
 
 
@@ -159,12 +145,37 @@ void ALogger::mWarning(
 	Doc.
 */
 
-void ALogger::mCritical(
-	const char *inMessage, int inLine, const char *inFile, const char *inFunction
+void ALogger::mWriteToLogCritical(
+	const char* inMessage, const char* inFile, int inLine, const char* inFunction
 ) {
 
-	A_LOGGER_CREATE_MESSAGE_FROM_CPP;
-	emit sgWriteToLogCritical(oMessage);
+	this->mWriteToLog(
+		A_LOGGER_DEFAULT_STRING_CRITICAL,A_LOGGER_DEFAULT_STRING_SYSTEM,
+		QString(inMessage),QString(inFile),
+		QString::number(inLine),QString(inFunction)
+	);
+}
+
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void ALogger::slWriteToLogDebug(QString inActor,QString inMessage,QString inInfo) {
+
+	QStringList oParsedInfo = inInfo.split("@");
+	QStringList oParseLineAndFunction = oParsedInfo[1].split(":");
+	QString oLine = oParseLineAndFunction.takeLast();
+
+	this->mWriteToLog(
+		A_LOGGER_DEFAULT_STRING_DEBUG,inActor,inMessage,
+		oParsedInfo[1].left(oParsedInfo[1].length() - oLine.length() - 1),
+		oLine,oParsedInfo[0]
+	);
 }
 
 
@@ -175,32 +186,17 @@ void ALogger::mCritical(
 	Doc.
 */
 
-void ALogger::mQMLDebug(
-	QString inActor, QString inMessage, QString inFile, QString inLine, QString inFunction
-) {
+void ALogger::slWriteToLogInfo(QString inActor,QString inMessage,QString inInfo) {
 
-	qDebug() << "inActor" << inActor << inActor.toLocal8Bit().data();
-	qDebug() << "inMessage" << inMessage << inMessage.toLocal8Bit().data();
-	qDebug() << "inFile" << inFile << inFile.toLocal8Bit().data();
-	qDebug() << "inLine" << inLine << inLine.toLocal8Bit().data();
-	qDebug() << "inFunction" << inFunction << inFunction.toLocal8Bit().data();
+	QStringList oParsedInfo = inInfo.split("@");
+	QStringList oParseLineAndFunction = oParsedInfo[1].split(":");
+	QString oLine = oParseLineAndFunction.takeLast();
 
-#ifdef QT_DEBUG
-	ALoggerMessageModel* oMessage = new ALoggerMessageModel();
-	oMessage->Time = QDateTime::currentMSecsSinceEpoch();
-	oMessage->Actor = inActor.toLocal8Bit().data();
-	oMessage->Message = inMessage.toLocal8Bit().data();
-	oMessage->Line = inLine.toInt();
-	oMessage->File = inFile.toLocal8Bit().data();
-	oMessage->Function = inFunction.toLocal8Bit().data();
-	emit sgWriteToLogDebug(oMessage);
-#else
-	Q_UNUSED(inActor)
-	Q_UNUSED(inMessage)
-	Q_UNUSED(inFile)
-	Q_UNUSED(inLine)
-	Q_UNUSED(inFunction)
-#endif
+	this->mWriteToLog(
+		A_LOGGER_DEFAULT_STRING_INFO,inActor,inMessage,
+		oParsedInfo[1].left(oParsedInfo[1].length() - oLine.length() - 1),
+		oLine,oParsedInfo[0]
+	);
 }
 
 
@@ -211,12 +207,17 @@ void ALogger::mQMLDebug(
 	Doc.
 */
 
-void ALogger::mQMLInfo(
-	QString inActor, QString inMessage, QString inFile, QString inLine, QString inFunction
-) {
+void ALogger::slWriteToLogWarning(QString inActor,QString inMessage,QString inInfo) {
 
-	A_LOGGER_CREATE_MESSAGE_FROM_QML;
-	emit sgWriteToLogInfo(oMessage);
+	QStringList oParsedInfo = inInfo.split("@");
+	QStringList oParseLineAndFunction = oParsedInfo[1].split(":");
+	QString oLine = oParseLineAndFunction.takeLast();
+
+	this->mWriteToLog(
+		A_LOGGER_DEFAULT_STRING_WARNING,inActor,inMessage,
+		oParsedInfo[1].left(oParsedInfo[1].length() - oLine.length() - 1),
+		oLine,oParsedInfo[0]
+	);
 }
 
 
@@ -227,12 +228,17 @@ void ALogger::mQMLInfo(
 	Doc.
 */
 
-void ALogger::mQMLWarning(
-	QString inActor, QString inMessage, QString inFile, QString inLine, QString inFunction
-) {
+void ALogger::slWriteToLogCritical(QString inActor,QString inMessage,QString inInfo) {
 
-	A_LOGGER_CREATE_MESSAGE_FROM_QML;
-	emit sgWriteToLogWarning(oMessage);
+	QStringList oParsedInfo = inInfo.split("@");
+	QStringList oParseLineAndFunction = oParsedInfo[1].split(":");
+	QString oLine = oParseLineAndFunction.takeLast();
+
+	this->mWriteToLog(
+		A_LOGGER_DEFAULT_STRING_CRITICAL,inActor,inMessage,
+		oParsedInfo[1].left(oParsedInfo[1].length() - oLine.length() - 1),
+		oLine,oParsedInfo[0]
+	);
 }
 
 
@@ -243,24 +249,34 @@ void ALogger::mQMLWarning(
 	Doc.
 */
 
-void ALogger::mQMLCritical(
-	QString inActor, QString inMessage, QString inFile, QString inLine, QString inFunction
-) {
-
-	A_LOGGER_CREATE_MESSAGE_FROM_QML;
-	emit sgWriteToLogCritical(oMessage);
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-
-void ALogger::mLogUpdated(void) {
+void ALogger::slLogUpdated(void) {
 
 	emit sgLogUpdated();
 }
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void ALogger::mWriteToLog(
+	QString inType, QString inActor, QString inMessage,
+	QString inFile, QString inLine, QString inFunction
+) {
+
+	ALoggerMessageModel* oMessage = new ALoggerMessageModel();
+	oMessage->Type = inType;
+	oMessage->Actor = inActor;
+	oMessage->Message = inMessage;
+	oMessage->Line = inLine;
+	oMessage->File = inFile;
+	oMessage->Function = inFunction;
+
+	emit sgWriteToLog(oMessage);
+}
+
+
+

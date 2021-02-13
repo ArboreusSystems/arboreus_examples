@@ -26,7 +26,6 @@
 
 ABackend::ABackend(QObject *parent) : QObject(parent) {
 
-	A_CONSOLE_DEBUG("ABackend created");
 }
 
 
@@ -40,8 +39,6 @@ ABackend::ABackend(QObject *parent) : QObject(parent) {
 ABackend::~ABackend(void) {
 
 	this->mDeleteThreads();
-
-	A_CONSOLE_DEBUG("ABackend deleted");
 }
 
 
@@ -70,8 +67,6 @@ void ABackend::mInit(void) {
 
 	this->mInitThreads();
 	this->mInitLogger();
-
-	A_LOGGER_DEBUG("ABackend initialized");
 }
 
 

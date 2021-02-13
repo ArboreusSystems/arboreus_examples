@@ -40,11 +40,14 @@ ApplicationWindow {
 
 	Component.onCompleted: {
 
-		var err = new Error();
-		console.log("Test1",err.stack);
+		LOGGER.mUserDebug("User DEBUG Message from QML");
+		LOGGER.mUserInfo("User INFO Message from QML");
+		LOGGER.mUserWarning("User WARNING Message from QML");
+		LOGGER.mUserCritical("User CRITICAL Message from QML");
 
-		LOGGER.mUserDebug("Test2");
-
-		ALogger.mQMLDebug("SYS","QML Debug message","file","5","function");
+		LOGGER.mQMLDebug("DEBUG Message from QML");
+		LOGGER.mQMLInfo("INFO Message from QML");
+		LOGGER.mQMLWarning("WARNING Message from QML");
+		LOGGER.mQMLCritical("CRITICAL Message from QML");
 	}
 }

@@ -32,13 +32,23 @@ class ALoggerMessageModel {
 	public:
 
 		uint64_t Time;
-		const char* Actor;
-		const char* Message;
-		int Line;
-		const char* File;
-		const char* Function;
+		QString Type;
+		QString Actor;
+		QString Message;
+		QString Line;
+		QString File;
+		QString Function;
 
-		ALoggerMessageModel() {}
+		ALoggerMessageModel() {
+
+			this->Time = QDateTime::currentMSecsSinceEpoch();
+			this->Type = QString("DBG");
+			this->Actor = QString("SYS");
+			this->Message = QString("NoMessage");
+			this->Line = QString("0");
+			this->File = QString("NoFile");
+			this->Function = QString("NoFunction");
+		}
 		~ALoggerMessageModel() {}
 };
 

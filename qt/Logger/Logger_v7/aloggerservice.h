@@ -30,27 +30,30 @@
 #define A_LOGGER_DEFAULT_STRING_INFO "INF"
 #define A_LOGGER_DEFAULT_STRING_WARNING "WRN"
 #define A_LOGGER_DEFAULT_STRING_CRITICAL "CRT"
+#define A_LOGGER_DEFAULT_STRING_SYSTEM "SYS"
+#define A_LOGGER_DEFAULT_STRING_QML "QML"
+#define A_LOGGER_DEFAULT_STRING_USER "USR"
 
-#define A_CONSOLE_DEBUG(inMessage) \
-	ALoggerService::mWriteToConsoleDebug( \
-		QDateTime::currentMSecsSinceEpoch(), \
-		"SYS",inMessage,__LINE__,__FILE__,__FUNCTION__ \
-	);
-#define A_CONSOLE_INFO(inMessage) \
-	ALoggerService::mWriteToConsoleInfo( \
-		QDateTime::currentMSecsSinceEpoch(), \
-		"SYS",inMessage,__LINE__,__FILE__,__FUNCTION__ \
-	);
-#define A_CONSOLE_WARNING(inMessage) \
-	ALoggerService::mWriteToConsoleWarning( \
-		QDateTime::currentMSecsSinceEpoch(), \
-		"SYS",inMessage,__LINE__,__FILE__,__FUNCTION__ \
-	);
-#define A_CONSOLE_CRITICAL(inMessage) \
-	ALoggerService::mWriteToConsoleCritical( \
-		QDateTime::currentMSecsSinceEpoch(), \
-		"SYS",inMessage,__LINE__,__FILE__,__FUNCTION__ \
-	);
+#define A_CONSOLE_MESSAGE_DEBUG(inMessage) \
+	ALoggerService::mWriteToConsole( \
+		QDateTime::currentMSecsSinceEpoch(),A_LOGGER_DEFAULT_STRING_DEBUG, \
+		"SYS",inMessage,__FILE__,__LINE__,__FUNCTION__ \
+	)
+#define A_CONSOLE_MESSAGE_INFO(inMessage) \
+	ALoggerService::mWriteToConsole( \
+		QDateTime::currentMSecsSinceEpoch(),A_LOGGER_DEFAULT_STRING_INFO, \
+		"SYS",inMessage,__FILE__,__LINE__,__FUNCTION__ \
+	)
+#define A_CONSOLE_MESSAGE_WARNING(inMessage) \
+	ALoggerService::mWriteToConsole( \
+		QDateTime::currentMSecsSinceEpoch(),A_LOGGER_DEFAULT_STRING_WARNING, \
+		"SYS",inMessage,__FILE__,__LINE__,__FUNCTION__ \
+	)
+#define A_CONSOLE_MESSAGE_CRITICAL(inMessage) \
+	ALoggerService::mWriteToConsole( \
+		QDateTime::currentMSecsSinceEpoch(),A_LOGGER_DEFAULT_STRING_CRITICAL, \
+		"SYS",inMessage,__FILE__,__LINE__,__FUNCTION__ \
+	)
 
 // Namespace
 
@@ -64,29 +67,15 @@ class ALoggerService : public QObject {
 		explicit ALoggerService(QObject *parent = nullptr);
 		virtual ~ALoggerService(void);
 
-		static void mWriteToConsoleDebug(
-			uint64_t inTime, const char* inActor,const char* inMessage,
-			int inLine, const char* inFile,	const char* inFunction
-		);
-		static void mWriteToConsoleInfo(
-			uint64_t inTime, const char* inActor,const char* inMessage,
-			int inLine, const char* inFile,	const char* inFunction
-		);
-		static void mWriteToConsoleWarning(
-			uint64_t inTime, const char* inActor,const char* inMessage,
-			int inLine, const char* inFile,	const char* inFunction
-		);
-		static void mWriteToConsoleCritical(
-			uint64_t inTime, const char* inActor,const char* inMessage,
-			int inLine, const char* inFile,	const char* inFunction
+		static void mWriteToConsole(
+			uint64_t inTime, const char* inType, const char* inActor,
+			const char* inMessage,
+			const char* inFile,int inLine,const char* inFunction
 		);
 
 	public slots:
 
-		void mWriteToLogDebug(ALoggerMessageModel* inMessage);
-		void mWriteToLogInfo(ALoggerMessageModel* inMessage);
-		void mWriteToLogWarning(ALoggerMessageModel* inMessage);
-		void mWriteToLogCritical(ALoggerMessageModel* inMessage);
+		void slWriteToLog(ALoggerMessageModel* inMessage);
 
 	signals:
 
@@ -94,22 +83,8 @@ class ALoggerService : public QObject {
 
 	private:
 
-		static std::string mCreateLogInfo(
-			int inLine, const char* inFile,	const char* inFunction
-		);
-		static std::string mCreateLogType(
-			const char* inType, const char* inActor
-		);
-		void mWriteToDB(
-			uint64_t inTime, const char* inType, const char* inActor,
-			const char* inMessage,
-			int inLine, const char* inFile,	const char* inFunction
-		);
-		void mWriteToConsole(
-			uint64_t inTime, const char* inType, const char* inActor,
-			const char* inMessage,
-			int inLine, const char* inFile,	const char* inFunction
-		);
+		void mWriteToDB(ALoggerMessageModel* inMessage);
+
 };
 
 #endif // ALOGGERSERVICE_H

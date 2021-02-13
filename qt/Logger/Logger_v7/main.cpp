@@ -39,15 +39,15 @@ int main(int inCounter, char *inArguments[]) {
 	oBackend->pRootContext = oEngine.rootContext();
 	oBackend->mInit();
 
-//	A_CONSOLE_DEBUG("Debug message");
-//	A_CONSOLE_INFO("Info message");
-//	A_CONSOLE_WARNING("Warning message");
-//	A_CONSOLE_CRITICAL("Critical message");
+	A_CONSOLE_MESSAGE_DEBUG("Debug console message");
+	A_CONSOLE_MESSAGE_INFO("Info console message");
+	A_CONSOLE_MESSAGE_WARNING("Warning console message");
+	A_CONSOLE_MESSAGE_CRITICAL("Critical console message");
 
-//	A_LOGGER_DEBUG("Debug message");
-//	A_LOGGER_INFO("Info message");
-//	A_LOGGER_WARNING("Warning message");
-//	A_LOGGER_CRITICAL("Critical message");
+	A_LOGGER_DEBUG("Debug message");
+	A_LOGGER_INFO("Info message");
+	A_LOGGER_WARNING("Warning message");
+	A_LOGGER_CRITICAL("Critical message");
 
 	const QUrl oURL(QStringLiteral("qrc:/main.qml"));
 	QObject::connect(

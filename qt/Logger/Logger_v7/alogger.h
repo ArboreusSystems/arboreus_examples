@@ -20,6 +20,8 @@
 #include <QObject>
 #include <QDateTime>
 #include <QString>
+#include <QStringList>
+#include <QRegExp>
 
 // Application includes
 #include "aloggerservice.h"
@@ -28,31 +30,14 @@
 #include "athreadtemplate.h"
 
 // Constants and definitions
-#define A_LOGGER_CREATE_MESSAGE_FROM_CPP \
-	ALoggerMessageModel* oMessage = new ALoggerMessageModel(); \
-	oMessage->Time = QDateTime::currentMSecsSinceEpoch(); \
-	oMessage->Actor = "SYS"; \
-	oMessage->Message = inMessage; \
-	oMessage->Line = inLine; \
-	oMessage->File = inFile; \
-	oMessage->Function = inFunction
-#define A_LOGGER_CREATE_MESSAGE_FROM_QML \
-	ALoggerMessageModel* oMessage = new ALoggerMessageModel(); \
-	oMessage->Time = QDateTime::currentMSecsSinceEpoch(); \
-	oMessage->Actor = inActor.toLocal8Bit().data(); \
-	oMessage->Message = inMessage.toLocal8Bit().data(); \
-	oMessage->Line = inLine.toInt(); \
-	oMessage->File = inFile.toLocal8Bit().data(); \
-	oMessage->Function = inFunction.toLocal8Bit().data()
-
 #define A_LOGGER_DEBUG(inMessage) \
-	(&ALogger::mInstance())->mDebug(inMessage,__LINE__,__FILE__,__FUNCTION__)
+	(&ALogger::mInstance())->mWriteToLogDebug(inMessage,__FILE__,__LINE__,__FUNCTION__)
 #define A_LOGGER_INFO(inMessage) \
-	(&ALogger::mInstance())->mInfo(inMessage,__LINE__,__FILE__,__FUNCTION__)
+	(&ALogger::mInstance())->mWriteToLogInfo(inMessage,__FILE__,__LINE__,__FUNCTION__)
 #define A_LOGGER_WARNING(inMessage) \
-	(&ALogger::mInstance())->mWarning(inMessage,__LINE__,__FILE__,__FUNCTION__)
+	(&ALogger::mInstance())->mWriteToLogWarning(inMessage,__FILE__,__LINE__,__FUNCTION__)
 #define A_LOGGER_CRITICAL(inMessage) \
-	(&ALogger::mInstance())->mCritical(inMessage,__LINE__,__FILE__,__FUNCTION__)
+	(&ALogger::mInstance())->mWriteToLogCritical(inMessage,__FILE__,__LINE__,__FUNCTION__)
 
 // Namespace
 
@@ -69,25 +54,31 @@ class ALogger : public QObject {
 
 		static ALogger& mInstance(void);
 		void mInitWithThread(AThreadTemplate* inThread);
-		void mDebug(const char* inMessage, int inLine, const char* inFile, const char* inFunction);
-		void mInfo(const char* inMessage, int inLine, const char* inFile, const char* inFunction);
-		void mWarning(const char* inMessage, int inLine, const char* inFile, const char* inFunction);
-		void mCritical(const char* inMessage, int inLine, const char* inFile, const char* inFunction);
+
+		void mWriteToLogDebug(
+			const char* inMessage,const char* inFile,int inLine,const char* inFunction
+		);
+		void mWriteToLogInfo(
+			const char* inMessage,const char* inFile,int inLine,const char* inFunction
+		);
+		void mWriteToLogWarning(
+			const char* inMessage,const char* inFile,int inLine,const char* inFunction
+		);
+		void mWriteToLogCritical(
+			const char* inMessage,const char* inFile,int inLine,const char* inFunction
+		);
 
 	public slots:
 
-		void mLogUpdated(void);
-		void mQMLDebug(QString inActor,QString inMessage,QString inFile,QString inLine,QString inFunction);
-		void mQMLInfo(QString inActor,QString inMessage,QString inFile,QString inLine,QString inFunction);
-		void mQMLWarning(QString inActor,QString inMessage,QString inFile,QString inLine,QString inFunction);
-		void mQMLCritical(QString inActor,QString inMessage,QString inFile,QString inLine,QString inFunction);
+		void slLogUpdated(void);
+		void slWriteToLogDebug(QString inActor,QString inMessage,QString inInfo);
+		void slWriteToLogInfo(QString inActor,QString inMessage,QString inInfo);
+		void slWriteToLogWarning(QString inActor,QString inMessage,QString inInfo);
+		void slWriteToLogCritical(QString inActor,QString inMessage,QString inInfo);
 
 	signals:
 
-		void sgWriteToLogDebug(ALoggerMessageModel* inMessage);
-		void sgWriteToLogInfo(ALoggerMessageModel* inMessage);
-		void sgWriteToLogWarning(ALoggerMessageModel* inMessage);
-		void sgWriteToLogCritical(ALoggerMessageModel* inMessage);
+		void sgWriteToLog(ALoggerMessageModel* inMessage);
 		void sgLogUpdated(void);
 
 	private:
@@ -95,6 +86,11 @@ class ALogger : public QObject {
 		explicit ALogger(QObject* parent = nullptr);
 		virtual ~ALogger(void);
 		Q_DISABLE_COPY(ALogger)
+
+		void mWriteToLog(
+			QString inType, QString inActor, QString inMessage,
+			QString inFile, QString inLine, QString inFunction
+		);
 };
 
 #endif // ALOGGER_H
