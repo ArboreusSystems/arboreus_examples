@@ -58,17 +58,26 @@ class AClosure {
         
         print("------------\nmTestTrick");
         
-        var oTestValue: String = "1";
-        print("From code. Step 1: ",oTestValue);
+        var oTestValue: String = "Initial";
+        print("From code: ",oTestValue);
         
-        let oClosure = { [oTestValue] in
-            
-            print("From closure. Step: ",oTestValue);
+        let oClosure1 = { [oTestValue] in
+            print("From oClosure1: ",oTestValue);
         };
-        oClosure();
+        let oClosure2 = {
+            print("From oClosure2: ",oTestValue);
+        };
+        let oClosure3: (String) -> (Void) = { inValue in
+            print("From oClosure3: ",inValue);
+        };
+        oClosure1();
+        oClosure2();
+        oClosure3(oTestValue);
         
-        oTestValue = "2";
-        print("From code. Step 2: ",oTestValue);
-        oClosure();
+        oTestValue = "Changed";
+        print("From code: ",oTestValue);
+        oClosure1();
+        oClosure2();
+        oClosure3(oTestValue);
     }
 }
