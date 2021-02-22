@@ -23,7 +23,7 @@ class MainViewController: APRViewController {
         pView.addSubview(mLabel(inText: "Swift", inY: 0.1, inHeight: 0.05));
 		pView.addSubview(mLabel(inText: "Custom UI", inY: 0.15, inHeight: 0.1));
 		
-		self.mButtonDemo(inSize:100);
+		self.mButtonDemo(inSize:200);
 	}
 	
     // MARK: UI Elements

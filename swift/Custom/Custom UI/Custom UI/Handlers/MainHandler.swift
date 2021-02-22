@@ -26,9 +26,22 @@ class MainHandler: NSObject {
 			title: "Cancel", style: .cancel, handler: {_ in
 			print("Application exit canceled")
 		}));
-		UIApplication.shared.keyWindow?.rootViewController?.present(
-			oAlertController, animated: true
-		);
+		
+		if #available(iOS 13.0, *) {
+			let oKeyWindow = UIApplication.shared.connectedScenes
+        		.filter({$0.activationState == .foregroundActive})
+        		.map({$0 as? UIWindowScene})
+        		.compactMap({$0})
+        		.first?.windows
+        		.filter({$0.isKeyWindow}).first;
+			oKeyWindow?.rootViewController?.present(
+				oAlertController, animated: true
+			);
+		} else {
+			UIApplication.shared.keyWindow?.rootViewController?.present(
+				oAlertController, animated: true
+			);
+		}
 	}
 
 	static func mRandomColor() -> UIColor {
