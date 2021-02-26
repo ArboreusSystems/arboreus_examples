@@ -21,6 +21,8 @@
 	self.window.rootViewController = [[VCMain alloc] init];
 	[self.window makeKeyAndVisible];
 	
+	[UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+	
 	return YES;
 }
 
