@@ -37,7 +37,7 @@ android {
     ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 
     DISTFILES += \
-	android/src/systems.arboreus.usingjava_v1/MyJavaClass.java
+		android/src/systems.arboreus.usingjava_v1/MyJavaClass.java
 }
 
 
