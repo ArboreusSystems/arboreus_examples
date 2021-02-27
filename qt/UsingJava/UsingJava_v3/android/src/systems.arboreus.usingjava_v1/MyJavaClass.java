@@ -4,6 +4,6 @@ public class MyJavaClass {
 
     public static int mTest(int inNumber) {
 
-	return inNumber;
+		return inNumber;
     }
 }
