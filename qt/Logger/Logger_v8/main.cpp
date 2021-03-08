@@ -34,6 +34,7 @@ int main(int inCounter, char *inArguments[]) {
 	AProperties* oProperties = &AProperties::mInstance();
 
 	ALogger* oLogger = &ALogger::mInstance();
+	oLogger->pProperties = oProperties;
 
 	ABackend* oBackend = &ABackend::mInstance();
 	oBackend->pEngine = &oEngine;
