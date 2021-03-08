@@ -64,7 +64,7 @@ namespace ARB {
 	Doc.
 */
 
-static void fLoggerWriteToConsole(
+static void __attribute__((unused)) fLoggerWriteToConsole(
 	uint64_t inTime, const char* inType, const char* inActor,
 	const char* inMessage,
 	const char* inFile,int inLine,const char* inFunction
