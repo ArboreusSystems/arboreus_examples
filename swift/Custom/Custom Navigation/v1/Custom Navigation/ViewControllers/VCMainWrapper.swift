@@ -21,7 +21,7 @@ class VCMainWrapper: UIViewController {
 
 		super.loadView();
 
-		self.view.backgroundColor = _COLOR_BLACK;
+		self.view.backgroundColor = _COLOR_GREEN_DARK;
 
 		let oSafeArea: UILayoutGuide = self.view.safeAreaLayoutGuide;
 		self.view.addSubview(pMainView.view);

@@ -15,11 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-		let oStatusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView;
-		if (oStatusBar.responds(to: #selector(setter: UIView.backgroundColor))) {
-			oStatusBar.backgroundColor = _COLOR_BLACK;
-		}
-
 		window = UIWindow(frame: UIScreen.main.bounds);
 		self.window?.rootViewController = VCMainWrapper() as UIViewController;
 		self.window?.makeKeyAndVisible();
@@ -27,4 +22,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		return true;
 	}
 }
-
