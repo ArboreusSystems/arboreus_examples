@@ -16,6 +16,8 @@
 #ifndef ALOGGERSERVICE_H
 #define ALOGGERSERVICE_H
 
+// System includes
+#include <QObject>
 #include <QDateTime>
 #include <QDebug>
 #include <QThread>
