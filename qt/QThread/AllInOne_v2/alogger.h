@@ -35,7 +35,7 @@ class ALogger : public AThread<ALoggerService> {
 
 	public:
 
-		explicit ALogger(QObject *parent = nullptr);
+		explicit ALogger(QThread::Priority inPriority,QObject *parent = nullptr);
 		virtual ~ALogger(void);
 
 		void mWriteToLog(const QString& inEvent);

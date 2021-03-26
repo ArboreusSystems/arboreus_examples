@@ -24,7 +24,8 @@
 	Doc.
 */
 
-ALogger::ALogger(QObject *parent) : AThread<ALoggerService>(new ALoggerService,parent) {
+ALogger::ALogger(QThread::Priority inPriority,QObject *parent)
+	: AThread<ALoggerService>(inPriority, new ALoggerService,parent) {
 
 	QObject::connect(
 		this,&ALogger::sgLogEvent,

@@ -26,7 +26,7 @@ int main(int inCounter, char *inArguments[]) {
 	QGuiApplication oApplication(inCounter, inArguments);
 	QQmlApplicationEngine oEngine;
 
-	ALogger oLogger;
+	ALogger oLogger(QThread::Priority::LowPriority);
 	oLogger.mWriteToLog("Test Message 1");
 	oLogger.mSuspend();
 	oLogger.mWriteToLog("Test Message 2");

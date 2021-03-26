@@ -32,10 +32,16 @@ class AThread : public QThread {
 
 	public:
 
-		explicit AThread(TService* inService, QObject* parent = nullptr): QThread(parent) {
+		explicit AThread(
+			QThread::Priority inPriority,
+			TService* inService,
+			QObject* parent = nullptr
+		): QThread(parent) {
 
 			pService = inService;
 			pService->moveToThread(this);
+
+			this->setPriority(inPriority);
 			this->start();
 
 			ALOG << "AThread created";
