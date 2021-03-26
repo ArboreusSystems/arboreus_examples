@@ -12,7 +12,8 @@
 #include <QQmlApplicationEngine>
 
 // Application includes
-#include <abackend.h>
+#include <alogger.h>
+#include <aobject.h>
 
 // Constants
 
@@ -26,11 +27,8 @@ int main(int inCounter, char *inArguments[]) {
 	QGuiApplication oApplication(inCounter, inArguments);
 	QQmlApplicationEngine oEngine;
 
-	ABackend* oBackend = &ABackend::mInstance();
-
 	AObject oObject;
 	oObject.mInitService();
-	oBackend->pObject = &oObject;
 
 	const QUrl oURL(QStringLiteral("qrc:/main.qml"));
 	QObject::connect(

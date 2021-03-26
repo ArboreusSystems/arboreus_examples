@@ -7,7 +7,6 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        abackend.cpp \
         adbsqlite.cpp \
         adir.cpp \
         alogger.cpp \
@@ -30,7 +29,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-	abackend.h \
 	adbsqlite.h \
 	adbsqlitedatamodels.h \
 	adir.h \
