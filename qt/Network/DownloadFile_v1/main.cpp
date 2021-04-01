@@ -34,7 +34,7 @@ int main(int inCounter, char *inArguments[]) {
 	oBackend->mInit();
 
 	ADownloadManager oDownloadManager;
-	oDownloadManager.mDownload("https://instatscout.com/images/teams/180/3.png");
+	oDownloadManager.mDownload("past/url/here");
 
 	const QUrl oURL(QStringLiteral("qrc:/main.qml"));
 	QObject::connect(
