@@ -118,6 +118,13 @@ void ANetwork::mDownload(QString inURL) {
 		&oAgent,&ANetworkAgent::slStartDownload
 	);
 
+	QEventLoop oEventLoop;
+	QObject::connect(
+		&oAgent,&ANetworkAgent::sgFinished,
+		&oEventLoop,&QEventLoop::quit
+	);
+
 	oAgent.moveToThread(this);
 	emit oController.sgStartAction();
+	oEventLoop.exec();
 }

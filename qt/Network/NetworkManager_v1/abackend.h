@@ -19,6 +19,9 @@
 // System includes
 #include <QObject>
 #include <QEventLoop>
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
 
 // Application includes
 #include <athreadobjectcontrollertemplate.h>
@@ -37,12 +40,20 @@ class ABackend : public QObject {
 
 	public:
 
+		QGuiApplication* pApplication = nullptr;
+		QQmlApplicationEngine* pQmlApplication = nullptr;
+		QQmlContext* pRootContext = nullptr;
+
 		AProperties* pProperties = nullptr;
 		ALogger* pLogger = nullptr;
 		ANetwork* pNetwork = nullptr;
 
 		static ABackend& mInstance(void);
 		void mInit(void);
+
+	signals:
+
+		void sgReadyToUse(void);
 
 	private:
 

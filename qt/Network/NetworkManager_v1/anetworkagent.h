@@ -44,6 +44,10 @@ class ANetworkAgent : public QObject {
 
 		void slStartDownload(void);
 
+	signals:
+
+		void sgFinished(void);
+
 	private:
 
 

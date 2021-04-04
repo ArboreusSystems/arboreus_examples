@@ -24,6 +24,7 @@
 #include <athreadobjectcontrollertemplate.h>
 #include <athreadtemplate.h>
 #include <anetworkservice.h>
+#include <anetworkagent.h>
 
 // Constants and definitions
 
@@ -42,9 +43,9 @@ class ANetwork : public AThread<ANetworkService> {
 		explicit ANetwork(QObject *parent = nullptr);
 		virtual ~ANetwork(void);
 
-		void mDownload(QString inURL);
-
 	public slots:
+
+		void mDownload(QString inURL);
 
 		void slInit(void);
 		void slInitialised(void);

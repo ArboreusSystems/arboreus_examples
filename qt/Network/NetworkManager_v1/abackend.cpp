@@ -88,10 +88,12 @@ void ABackend::mInit(void) {
 			this->mRegisterProperties();
 			this->mRegisterLogger();
 			this->mRegisterNetwork();
+
+			emit this->sgReadyToUse();
 		}
 	);
 
-	emit oController.sgInit();
+	emit oController.sgStartAction();
 }
 
 
@@ -103,6 +105,8 @@ void ABackend::mInit(void) {
 */
 
 void ABackend::mRegisterProperties(void) {
+
+	pRootContext->setContextProperty("AProperties",pProperties);
 
 	ALOG << "AProperties registered";
 }
@@ -117,6 +121,8 @@ void ABackend::mRegisterProperties(void) {
 
 void ABackend::mRegisterLogger(void) {
 
+	pRootContext->setContextProperty("ALogger",pLogger);
+
 	ALOG << "ALogger registered";
 }
 
@@ -129,6 +135,8 @@ void ABackend::mRegisterLogger(void) {
 */
 
 void ABackend::mRegisterNetwork(void) {
+
+	pRootContext->setContextProperty("ANetwork",pNetwork);
 
 	ALOG << "ANetwork registered";
 }

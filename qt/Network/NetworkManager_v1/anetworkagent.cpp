@@ -24,21 +24,6 @@
 	Doc.
 */
 
-ANetworkAgent::ANetworkAgent(ANetworkService* inNetworkService, QObject* parent) {
-
-	pNetworkService = inNetworkService;
-
-	ALOG << "ANetworkAgent created with service";
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
 ANetworkAgent::ANetworkAgent(QObject *parent) : QObject(parent) {
 
 	ALOG << "ANetworkAgent created";
@@ -57,3 +42,16 @@ ANetworkAgent::~ANetworkAgent(void) {
 	ALOG << "ANetworkAgent deleted";
 }
 
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void ANetworkAgent::slStartDownload(void) {
+
+	ALOG << "File" << pURL << "downloaded";
+	emit sgFinished();
+}

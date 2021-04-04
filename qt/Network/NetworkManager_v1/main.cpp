@@ -27,6 +27,11 @@ int main(int inCounter, char *inArguments[]) {
 	QQmlApplicationEngine oEngine;
 
 	ABackend* oBackend = &ABackend::mInstance();
+	oEngine.rootContext()->setContextProperty("ABackend",oBackend);
+
+	oBackend->pApplication = &oApplication;
+	oBackend->pQmlApplication = &oEngine;
+	oBackend->pRootContext = oEngine.rootContext();
 
 	AProperties oProperties; oBackend->pProperties = &oProperties;
 	ALogger oLogger; oBackend->pLogger = &oLogger;
