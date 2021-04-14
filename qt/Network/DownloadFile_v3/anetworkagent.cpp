@@ -127,7 +127,6 @@ QNetworkRequest ANetworkAgent::mCreateRequest(void) {
 	QMapIterator<QString,QString> oIterator(pProperties.Headers);
 	while (oIterator.hasNext()) {
 		oIterator.next();
-		ALOG << "Header ->" << &oIterator.key() << ":" << &oIterator.value();
 		oOutput.setRawHeader(oIterator.key().toLocal8Bit(),oIterator.value().toLocal8Bit());
 	}
 
