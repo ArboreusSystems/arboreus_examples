@@ -55,5 +55,4 @@ class ALogger : public QObject {
 		ABackend* pBackend = nullptr;
 };
 
-
 #endif // ALOGGER_H

@@ -72,7 +72,7 @@ void ANetwork::mInit(void) {
 void ANetwork::mDownload(void) {
 
 	QNetworkRequest oRequest;
-	oRequest.setUrl(QUrl("https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg"));
+	oRequest.setUrl(QUrl("write/url/here"));
 	oRequest.setRawHeader("User-Agent", "MyOwnBrowser 1.0");
 
 	QEventLoop oEventLoop;
