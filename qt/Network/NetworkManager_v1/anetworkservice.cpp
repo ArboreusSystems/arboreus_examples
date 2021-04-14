@@ -57,3 +57,17 @@ void ANetworkService::slInitService(void) {
 	ALOG << "ANetworkService initialised";
 	emit sgInitialised();
 }
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+
+QNetworkAccessManager* ANetworkService::mGetNetworkManager(void) {
+
+	return pNetworkManager;
+}

@@ -109,22 +109,25 @@ void ANetwork::slInitialised(void) {
 void ANetwork::mDownload(QString inURL) {
 
 	AThreadObjectControllerTemplate oController;
+	QEventLoop oEventLoop;
 
-	ANetworkAgent oAgent;
-	oAgent.pNetworkService = this->mService();
-	oAgent.pURL = inURL;
+	ANetworkAgent oAgent(
+		this->mService()->mGetNetworkManager(),
+		pBackend->pProperties->mPathNetworkCache(),
+		nullptr
+	);
 	QObject::connect(
 		&oController,&AThreadObjectControllerTemplate::sgStartAction,
-		&oAgent,&ANetworkAgent::slStartDownload
+		[&oAgent,&inURL](){
+			oAgent.mDownload(inURL);
+		}
 	);
-
-	QEventLoop oEventLoop;
 	QObject::connect(
 		&oAgent,&ANetworkAgent::sgFinished,
 		&oEventLoop,&QEventLoop::quit
 	);
-
 	oAgent.moveToThread(this);
+
 	emit oController.sgStartAction();
 	oEventLoop.exec();
 }

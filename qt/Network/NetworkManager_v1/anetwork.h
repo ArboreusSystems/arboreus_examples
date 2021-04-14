@@ -58,6 +58,7 @@ class ANetwork : public AThread<ANetworkService> {
 	private:
 
 		ABackend* pBackend = nullptr;
+		QString pCacheFolder = QString("NoDefinedCacheFolder");
 
 		void mInitService(void);
 };

@@ -1,4 +1,4 @@
-QT += quick
+QT += quick network
 
 CONFIG += c++11
 
@@ -35,6 +35,7 @@ HEADERS += \
 	alogger.h \
 	anetwork.h \
 	anetworkagent.h \
+	anetworkdatamodels.h \
 	anetworkservice.h \
 	aproperties.h \
 	athreadobjectcontrollertemplate.h \

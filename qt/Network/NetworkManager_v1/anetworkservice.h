@@ -37,6 +37,8 @@ class ANetworkService : public AThreadServiceTemplate {
 		explicit ANetworkService(QObject *parent = nullptr);
 		virtual ~ANetworkService(void);
 
+		QNetworkAccessManager* mGetNetworkManager(void);
+
 	public slots:
 
 		void slInitService(void);
