@@ -1,7 +1,7 @@
 // ----------------------------------------------------------
 /*!
 	\class
-    \title
+	\title
 	\brief Template file files/cppheader/file.h
 
 	\list
