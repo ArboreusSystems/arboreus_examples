@@ -23,12 +23,12 @@
 	Function description.
 */
 
-function mCreateFormItem(inObjectname,inLabel,inParent,inObjectName) {
+function mCreateFormItem(inObjectNameValue,inLabel,inParent,inObjectName) {
 
 	var oQMLString = "import QtQuick 2.15;" +
 		"import \"qrc:/qml\";" +
 		"AFormItem {" +
-			"objectName: \"" + inObjectname + "\";" +
+			"objectName: \"" + inObjectNameValue + "\";" +
 			"pLabel: \"" + inLabel + "\";" +
 		"}";
 
