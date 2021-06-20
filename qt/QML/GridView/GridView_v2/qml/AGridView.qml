@@ -53,20 +53,6 @@ Item {
 				oListModel.append(oRoot.pData[i]);
 			}
 		}
-
-
-//		ListElement {pImagePath:"qrc:/images/photo_alexandriya_set_7.jpg";}
-//		ListElement {pImagePath:"qrc:/images/photo_aphines.acropolis_set_18.jpg";}
-//		ListElement {pImagePath:"qrc:/images/photo_banton_set_2.jpg";}
-//		ListElement {pImagePath:"qrc:/images/photo_caribeanstorm_set_3.jpg";}
-//		ListElement {pImagePath:"qrc:/images/photo_cartagenabay_set_5.jpg";}
-//		ListElement {pImagePath:"qrc:/images/photo_helsinki_set_16.jpg";}
-//		ListElement {pImagePath:"qrc:/images/photo_houston_set_7.jpg";}
-//		ListElement {pImagePath:"qrc:/images/photo_maracaibo_set_1.jpg";}
-//		ListElement {pImagePath:"qrc:/images/photo_petergoff_set_6.jpg";}
-//		ListElement {pImagePath:"qrc:/images/photo_rok5iceage_set_6.jpg";}
-//		ListElement {pImagePath:"qrc:/images/photo_rok5seacuisine_set_3.jpg";}
-//		ListElement {pImagePath:"qrc:/images/photo_suez_set_12.jpg";}
 	}
 
 	Component {
