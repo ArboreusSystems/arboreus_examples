@@ -25,6 +25,7 @@
 // Namespace
 using namespace std;
 
+
 enum ATypes: int {
 
 	Integer,
