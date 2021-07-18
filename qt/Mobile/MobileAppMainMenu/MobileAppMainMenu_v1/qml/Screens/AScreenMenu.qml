@@ -50,7 +50,7 @@ AScreenTemplate {
 		Loader {
 
 			id: oMenuLoader;
-			width: parent.width;
+			anchors.fill: parent;
 			source: "qrc:/qml/Menu/AMenuViewMain.qml";
 		}
 	}

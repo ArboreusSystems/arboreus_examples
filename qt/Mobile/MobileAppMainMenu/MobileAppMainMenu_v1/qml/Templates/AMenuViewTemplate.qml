@@ -22,6 +22,6 @@ import QtQuick 2.15
 Column {
 
 	id: oRoot;
-	width: parent.width;
+	width: oApplicationMenu.width;
 	topPadding: 5;
 }
