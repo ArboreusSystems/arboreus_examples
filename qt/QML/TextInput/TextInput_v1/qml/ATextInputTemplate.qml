@@ -91,6 +91,26 @@ Rectangle {
 				console.log("onAcceptableInputChanged");
 			}
 
+			onActiveFocusOnPressChanged: {
+
+				console.log("onActiveFocusOnPressChanged");
+			}
+
+			onActiveFocusOnTabChanged: {
+
+				console.log("onActiveFocusOnTabChanged");
+			}
+
+			onCursorPositionChanged: {
+
+				console.log("onActiveFocusOnTabChanged");
+			}
+
+			onTextChanged: {
+
+				console.log("onTextChanged");
+			}
+
 			onActiveFocusChanged: {
 
 				console.log("onActiveFocusChanged");
