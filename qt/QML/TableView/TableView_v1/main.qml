@@ -44,26 +44,35 @@ ApplicationWindow {
 		console.log(oApplicationWindow.objectName);
 	}
 
-	AHeader {
+	Item {
 
-		id: oHeader;
-		objectName: "oHeader";
-		height: 75;
-	}
+		id: oApplicationWrapper;
+		anchors.fill: parent;
 
-	ATableView {
+		AHeader {
 
-		id: oTableView;
-		anchors.top: oHeader.bottom;
-		anchors.bottom: oFooter.top;
-		anchors.left: parent.left;
-		anchors.right: parent.right;
-	}
+			id: oHeader;
+			width: parent.width;
+			objectName: "oHeader";
+			height: 75;
+		}
 
-	AFooter {
+		ATableView {
 
-		id: oFooter;
-		objectName: "oFooter";
-		height: 75;
+			id: oTableView;
+			width: parent.width;
+			anchors.top: oHeader.bottom;
+			anchors.bottom: oFooter.top;
+			anchors.left: parent.left;
+			anchors.right: parent.right;
+		}
+
+		AFooter {
+
+			id: oFooter;
+			width: parent.width;
+			objectName: "oFooter";
+			height: 75;
+		}
 	}
 }

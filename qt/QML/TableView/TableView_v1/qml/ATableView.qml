@@ -23,6 +23,7 @@ import "qrc:/js/AColor.js" as COLORS;
 // Component
 TableView {
 
+	id: oRoot;
 	columnSpacing: 1;
 	rowSpacing: 1;
 	clip: true;
@@ -69,12 +70,15 @@ TableView {
 
 	delegate: Rectangle {
 
-		implicitWidth: parent.width / 2 - 0.5;
-		implicitHeight: 50;
+		id: oCell;
+		implicitWidth: oTextLabel.width + 50;
+		implicitHeight: oTextLabel.height + 50;
+		color: COLORS.mWhite();
 
 		Text {
 
-			text: display;
+			id: oTextLabel;
+			text: "Index: "+ index + " Value: " + display;
 			anchors.centerIn: parent;
 		}
 	}
