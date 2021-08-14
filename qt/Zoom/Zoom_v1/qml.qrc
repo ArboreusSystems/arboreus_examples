@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>js/AGlobal.js</file>
+        <file>js/AColors.js</file>
+        <file>qml/ASlider.qml</file>
+        <file>img/photo_houston_set_0.jpg</file>
+    </qresource>
+</RCC>
