@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>js/AColors.js</file>
+        <file>js/AGlobal.js</file>
+    </qresource>
+</RCC>
