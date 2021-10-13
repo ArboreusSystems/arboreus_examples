@@ -305,7 +305,9 @@ qlonglong ADBSqlCipher::mLastRowID(void) {
 	ADBSqlCipherReply oReply = this->mStringExecute("SELECT last_insert_rowid();");
 
 	if (oReply.Status) {
-		oOutput = qvariant_cast<qlonglong>(qvariant_cast<QVariantList>(oReply.Output.at(0)).at(0));
+		oOutput = qvariant_cast<qlonglong>(
+			qvariant_cast<QVariantList>(oReply.Output.at(0)).at(0)
+		);
 	}
 
 	return oOutput;
