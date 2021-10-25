@@ -30,8 +30,11 @@ int main(int inCounter, char *inArguments[]) {
 	qInstallMessageHandler(fLoggerMessageHandler);
 
 	ASort* oSort = new ASort(&oEngine);
+	oSort->mRun(0,_A_ENUMS_SORT_DIRECTION::Ascending);
 	oSort->mRun(1,_A_ENUMS_SORT_DIRECTION::Descending);
 	oSort->mRun(1,_A_ENUMS_SORT_DIRECTION::Ascending);
+	oSort->mRun(2,_A_ENUMS_SORT_DIRECTION::Ascending);
+	oSort->mRun(5,_A_ENUMS_SORT_DIRECTION::Descending);
 
 	const QUrl oURL(QStringLiteral("qrc:/main.qml"));
 	QObject::connect(

@@ -110,19 +110,25 @@ void ASort::mRun(int inIndex,_A_ENUMS_SORT_DIRECTION inDirection) {
 	pIndex = inIndex;
 	pDirection = inDirection;
 
-	std::sort(pData.begin(),pData.end(),[this](
-		QVariantList inFirst,QVariantList inSecond
-	){
-		bool oOutput = false;
-		if (this->pDirection == _A_ENUMS_SORT_DIRECTION::Ascending) {
-			oOutput = inFirst[this->pIndex] < inSecond[this->pIndex];
-		} else {
-			oOutput = inFirst[this->pIndex] > inSecond[this->pIndex];
-		}
-		return oOutput;
-	});
+	if (this->pIndex < (pData[0].length() - 1)) {
 
-	this->mPrint();
+		std::sort(pData.begin(),pData.end(),[this](
+			QVariantList lFirst,QVariantList lSecond
+		){
+			bool oOutput = false;
+			if (this->pDirection == _A_ENUMS_SORT_DIRECTION::Ascending) {
+				oOutput = lFirst[this->pIndex] < lSecond[this->pIndex];
+			} else {
+				oOutput = lFirst[this->pIndex] > lSecond[this->pIndex];
+			}
+			return oOutput;
+		});
+
+		this->mPrint();
+
+	} else {
+		_A_WARNING << "The index is out of range";
+	}
 
 	_A_DEBUG << "Sort procedure for" << inIndex << "finished";
 }
