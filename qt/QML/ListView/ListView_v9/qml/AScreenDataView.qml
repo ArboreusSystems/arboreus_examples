@@ -31,20 +31,36 @@ Rectangle {
 
 		id: oHeader;
 		width: parent.width;
-		height: 80;
-		color: COLORS.mFiolent();
+		height: 100;
+		color: COLORS.mFiolentDark();
 		anchors.top: parent.top;
 		anchors.left: parent.left;
 		anchors.right: parent.right;
 
+		AComboBox {
+
+			id: oComboBox;
+			height: oHeader.height * 0.5;
+			anchors.verticalCenter: parent.verticalCenter;
+			anchors.left: parent.left;
+			anchors.leftMargin: 20;
+			anchors.right: oButtonNew.left;
+			anchors.rightMargin: 20;
+
+			onActivated: {
+
+				oListViewModel.mSort(oComboBox.pIndex);
+			}
+		}
+
 		AButtonNew {
 
 			id: oButtonNew;
-			width: 60;
-			height: 60;
+			width: oComboBox.height;
+			height: oComboBox.height;
 			anchors.verticalCenter: parent.verticalCenter;
 			anchors.right: parent.right;
-			anchors.rightMargin: 10;
+			anchors.rightMargin: 20;
 
 
 			onClicked: {
@@ -75,9 +91,9 @@ Rectangle {
 		delegate: Rectangle {
 
 			id: oDelegate;
-			color: oDelegate.ListView.isCurrentItem ? COLORS.mOrange() : COLORS.mGreyLight();
-			width: oListView.width;
-			height: oDelegateContent.height + 25;
+			color: oDelegate.ListView.isCurrentItem ? COLORS.mSaladDark() : COLORS.mGreyLight();
+			implicitWidth: oListView.width;
+			implicitHeight: oDelegateContent.height + 25;
 
 			MouseArea {
 
@@ -97,8 +113,8 @@ Rectangle {
 				spacing: 5;
 				anchors.top: parent.top;
 				anchors.topMargin: oDelegate.ListView.isCurrentItem ? 10 : 8;
-				leftPadding: 10;
-				rightPadding: 10;
+				leftPadding: 20;
+				rightPadding: 20;
 
 				Text {
 
@@ -132,7 +148,7 @@ Rectangle {
 				id: oBottomBlock;
 				width: parent.width;
 				height: 3;
-				color: COLORS.mBlueDark();
+				color: oDelegate.ListView.isCurrentItem ? COLORS.mSaladLight() : COLORS.mGreyDark();
 				anchors.bottom: parent.bottom;
 			}
 		}

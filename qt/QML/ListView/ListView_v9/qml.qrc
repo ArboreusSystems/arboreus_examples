@@ -10,5 +10,6 @@
         <file>qml/AButtonFormTemplate.qml</file>
         <file>qml/AButtonOk.qml</file>
         <file>qml/AInputFieldTemplate.qml</file>
+        <file>qml/AComboBox.qml</file>
     </qresource>
 </RCC>

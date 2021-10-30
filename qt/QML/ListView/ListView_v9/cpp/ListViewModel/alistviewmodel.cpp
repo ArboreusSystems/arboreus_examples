@@ -83,7 +83,6 @@ QVariant AListViewModel::data(const QModelIndex& index, int role) const {
 	if (!index.isValid()) return QVariant();
 
 	int oIndexRow = index.row();
-//	_A_DEBUG << "ATableViewModel data for index:" << oIndexRow;
 	return pCache[oIndexRow];
 }
 
@@ -96,8 +95,6 @@ QVariant AListViewModel::data(const QModelIndex& index, int role) const {
 */
 
 int AListViewModel::rowCount(const QModelIndex& parent) const {
-
-//	_A_DEBUG << "ATableViewModel rowCount for index:" << parent.row();
 
 	return pRowCount;
 }
@@ -123,6 +120,45 @@ qlonglong AListViewModel::mAdd(QString inFirstName, QString inLastName, QString 
 
 	Doc.
 */
+
+void AListViewModel::mSort(int inFieldNumber) {
+
+	pIndex = inFieldNumber;
+
+	beginResetModel();
+
+	std::sort(pCache.begin(),pCache.end(),[this](
+		QVariant lFirst,QVariant lSecond
+	){
+		return qvariant_cast<QVariantList>(lFirst)[this->pIndex] < qvariant_cast<QVariantList>(lSecond)[this->pIndex];
+	});
+
+	endResetModel();
+	_A_DEBUG << "Sorted by:" << inFieldNumber;
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+QVariantList AListViewModel::mStructure(void) {
+
+	QVariantList oOutput = {};
+	return oOutput;
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
 void AListViewModel::slDataUpdated(void) {
 
 	_A_DEBUG << "ATableViewModel slDataUpdated begin";

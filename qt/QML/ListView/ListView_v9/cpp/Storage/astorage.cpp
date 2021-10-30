@@ -145,26 +145,8 @@ qlonglong AStorage::mAdd(QString inFirstName, QString inLastName, QString inPhon
 
 void AStorage::slInitiated(void) {
 
-	this->mAdd("Vasya","Pupkin","6543564363");
-	this->mAdd("Lisa","Shnobel","65436543");
-	this->mAdd("Greg","Sweanny","987697658765");
-	this->mAdd("Gregry","Mooooody","987697658765");
-	this->mAdd("Vanya","Lokhov","987691211221");
-	this->mAdd("Baran","Tuporylkin","9876911365");
-	this->mAdd("Polkovnik","Isaev","463246425");
-	this->mAdd("Petka","Todorov","4754345346");
 	this->mAdd("Brenda","Khomchik","634543563465");
 	this->mAdd("Kengard","Bjorns","987234523524");
-	this->mAdd("Helga","Davuchka","3253252354");
-	this->mAdd("Rutger","Hauer","6456454911365");
-	this->mAdd("Cindy","Bibikala","4436534565");
-	this->mAdd("Cindy","Rpoport","946456546");
-	this->mAdd("Xren","Morjovij","9464654536545");
-	this->mAdd("Akkala","Kakkala","945434543");
-	this->mAdd("Ikkala","Pukkala","1242114233534465");
-	this->mAdd("Ded","Moroz","934664646346");
-	this->mAdd("Shtepsel","Toropunkin","9464325233225");
-	this->mAdd("Krutoj","Kloun","923231231221");
 	this->mAdd("Richard","Miller","315313541");
 	this->mAdd("Harold","Morris","31543425645");
 	this->mAdd("Richard","Miller","564654676456");

@@ -21,6 +21,7 @@
 #include <QVariant>
 #include <QList>
 #include <QVariantList>
+#include <algorithm>
 
 // Application includes
 #include <abackend.h>
@@ -49,6 +50,8 @@ class AListViewModel : public QAbstractListModel {
 	public slots:
 
 		qlonglong mAdd(QString inFirstName, QString inLastName, QString inPhoneNumber);
+		void mSort(int inFieldNumber);
+		QVariantList mStructure(void);
 
 	private:
 
@@ -56,6 +59,7 @@ class AListViewModel : public QAbstractListModel {
 		QHash<int, QByteArray> pRoleNames;
 		QVariantList pCache = {};
 		int pRowCount = 0;
+		int pIndex = 0;
 
 	private slots:
 

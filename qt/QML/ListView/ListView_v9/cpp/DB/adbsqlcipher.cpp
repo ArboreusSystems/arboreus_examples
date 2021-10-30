@@ -129,6 +129,21 @@ QSqlDatabase ADBSqlCipher::mGetDB(void) {
 	Doc.
 */
 
+ADBSqlCipherReply ADBSqlCipher::mGetTableInfo(QString inTableName) {
+
+	QString oSQLString = "PRAGMA table_info(" + inTableName + ");";
+	ADBSqlCipherReply oOutput = this->mStringExecute(oSQLString);
+	return oOutput;
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
 ADBSqlCipherReply ADBSqlCipher::mStringExecute(QString inQueryString) {
 
 	ADBSqlCipherReply oReply = {};
