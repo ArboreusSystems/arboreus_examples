@@ -25,7 +25,6 @@
 #include <athreadtemplate.h>
 #include <athreadobjectcontrollertemplate.h>
 #include <astorageservice.h>
-#include <adbrequestall.h>
 #include <adbrequestadd.h>
 #include <adbrequestallordered.h>
 
@@ -51,7 +50,6 @@ class AStorage : public AThreadTemplate<AStorageService> {
 
 	public slots:
 
-		QVariantList mGetAll(void);
 		QVariantList mGetAllOrdered(QString inFieldname,_A_ENUM_DB_SORTING_DIRECTION inDirection);
 		qlonglong mAdd(QString inFirstName, QString inLastName, QString inPhoneNumber);
 

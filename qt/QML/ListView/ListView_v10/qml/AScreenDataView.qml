@@ -88,6 +88,16 @@ Rectangle {
 
 				oListViewModel.mSort(oComboBox.pIndex);
 			}
+
+			Component.onCompleted: {
+
+				var oModel = [];
+				var oStructure = oListViewModel.mStructure();
+				for (var i = 0; i < oStructure.length; i++) {
+					oModel[i] = "Sort by: " + oStructure[i].DisplayName;
+				}
+				oComboBox.model = oModel;
+			}
 		}
 
 		AButtonNew {
@@ -98,7 +108,6 @@ Rectangle {
 			anchors.verticalCenter: parent.verticalCenter;
 			anchors.right: parent.right;
 			anchors.rightMargin: 20;
-
 
 			onClicked: {
 
@@ -115,8 +124,6 @@ Rectangle {
 		Component.onCompleted: {
 
 			oListViewModel.mSetDirection(AEnumsDBSortingDirection.Ascendant);
-
-			console.log(AStorage.mGetAllOrdered("first_name",AEnumsDBSortingDirection.Descendant));
 		}
 	}
 

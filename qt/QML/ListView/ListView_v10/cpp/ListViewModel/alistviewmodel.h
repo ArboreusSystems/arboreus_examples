@@ -61,7 +61,7 @@ class AListViewModel : public QAbstractListModel {
 		ABackend* pBackend;
 		QHash<int, QByteArray> pRoleNames;
 		QVariantList pCache = {};
-		QVariantList pStructure = {};
+		QList<ADBFieldProperty> pStructure = {};
 		int pRowCount = 0;
 		int pIndex = 0;
 		_A_ENUM_DB_SORTING_DIRECTION pDirection = _A_ENUM_DB_SORTING_DIRECTION::Ascendant;

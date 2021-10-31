@@ -34,10 +34,9 @@ AListViewModel::AListViewModel(QObject* parent) : QAbstractListModel(parent) {
 	);
 
 	pRoleNames = {{ARow,"ARow"}};
-	pCache = pBackend->pStorage->mGetAll();
-	pRowCount = pCache.count();
 
 	this->mInitStructure();
+	this->slDataUpdated();
 
 	_A_DEBUG << "ATableViewModel created";
 }
@@ -126,16 +125,8 @@ qlonglong AListViewModel::mAdd(QString inFirstName, QString inLastName, QString 
 void AListViewModel::mSort(int inFieldNumber) {
 
 	pIndex = inFieldNumber;
+	this->slDataUpdated();
 
-	beginResetModel();
-
-	std::sort(pCache.begin(),pCache.end(),[this](
-		QVariant lFirst,QVariant lSecond
-	){
-		return qvariant_cast<QVariantList>(lFirst)[this->pIndex] < qvariant_cast<QVariantList>(lSecond)[this->pIndex];
-	});
-
-	endResetModel();
 	_A_DEBUG << "Sorted by:" << inFieldNumber;
 }
 
@@ -150,7 +141,9 @@ void AListViewModel::mSort(int inFieldNumber) {
 void AListViewModel::mSetDirection(_A_ENUM_DB_SORTING_DIRECTION inDirection) {
 
 	pDirection = inDirection;
-	_A_DEBUG << "Sorting direction changed, current direction:" << pDirection;
+	this->slDataUpdated();
+
+	_A_DEBUG << "Sorting direction changed onto:" << pDirection;
 }
 
 
@@ -176,7 +169,11 @@ _A_ENUM_DB_SORTING_DIRECTION AListViewModel::mGetDirection(void) {
 
 QVariantList AListViewModel::mStructure(void) {
 
-	return pStructure;
+	QVariantList oOutput = {};
+	for (int i = 0; i < pStructure.length(); i++) {
+		oOutput.append(pStructure[i].mToVariantMap());
+	}
+	return oOutput;
 }
 
 
@@ -189,28 +186,28 @@ QVariantList AListViewModel::mStructure(void) {
 
 void AListViewModel::mInitStructure(void) {
 
-	QVariantMap oFieldID = {};
-	oFieldID.insert("Type",QVariant::fromValue(_A_ENUM_DB_DATATYPE::Integer));
-	oFieldID.insert("Name","id");
-	oFieldID.insert("DisplayName","ID");
+	ADBFieldProperty oFieldID = {};
+	oFieldID.Type = _A_ENUM_DB_DATATYPE::Integer;
+	oFieldID.Name = "id";
+	oFieldID.DisplayName = "ID";
 	pStructure.append(oFieldID);
 
-	QVariantMap oFieldFirstName = {};
-	oFieldFirstName.insert("Type",QVariant::fromValue(_A_ENUM_DB_DATATYPE::Text));
-	oFieldFirstName.insert("Name","first_name");
-	oFieldFirstName.insert("DisplayName","First Name");
+	ADBFieldProperty oFieldFirstName = {};
+	oFieldFirstName.Type = _A_ENUM_DB_DATATYPE::Text;
+	oFieldFirstName.Name = "first_name";
+	oFieldFirstName.DisplayName = "First Name";
 	pStructure.append(oFieldFirstName);
 
-	QVariantMap oFieldLastName = {};
-	oFieldLastName.insert("Type",QVariant::fromValue(_A_ENUM_DB_DATATYPE::Text));
-	oFieldLastName.insert("Name","last_name");
-	oFieldLastName.insert("DisplayName","Last Name");
+	ADBFieldProperty oFieldLastName = {};
+	oFieldLastName.Type = _A_ENUM_DB_DATATYPE::Text;
+	oFieldLastName.Name = "last_name";
+	oFieldLastName.DisplayName = "Last Name";
 	pStructure.append(oFieldLastName);
 
-	QVariantMap oFieldPhoneNumber = {};
-	oFieldPhoneNumber.insert("Type",QVariant::fromValue(_A_ENUM_DB_DATATYPE::Text));
-	oFieldPhoneNumber.insert("Name","phone_number");
-	oFieldPhoneNumber.insert("DisplayName","Phone Number");
+	ADBFieldProperty oFieldPhoneNumber = {};
+	oFieldPhoneNumber.Type = _A_ENUM_DB_DATATYPE::Text;
+	oFieldPhoneNumber.Name = "phone_number";
+	oFieldPhoneNumber.DisplayName = "Phone Number";
 	pStructure.append(oFieldPhoneNumber);
 }
 
@@ -227,7 +224,10 @@ void AListViewModel::slDataUpdated(void) {
 	_A_DEBUG << "ATableViewModel slDataUpdated begin";
 
 	beginResetModel();
-	pCache = pBackend->pStorage->mGetAll();
+	pCache = pBackend->pStorage->mGetAllOrdered(
+		pStructure[pIndex].Name,
+		pDirection
+	);
 	pRowCount = pCache.count();
 	endResetModel();
 

@@ -77,37 +77,6 @@ void AStorage::mInit(void) {
 	Doc.
 */
 
-QVariantList AStorage::mGetAll(void) {
-
-	QEventLoop oEventLoop;
-
-	AThreadObjectControllerTemplate oController;
-	ADBRequestAll oRequest(this->mService()->mGetDB());
-
-	QObject::connect(
-		&oController,&AThreadObjectControllerTemplate::sgRun,
-		&oRequest,&ADBRequestAll::slRun
-	);
-	QObject::connect(
-		&oRequest,&ADBRequestAll::sgFinished,
-		&oEventLoop,&QEventLoop::quit
-	);
-	oRequest.moveToThread(this);
-
-	emit oController.sgRun();
-	oEventLoop.exec();
-
-	return oRequest.pResult;
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
 QVariantList AStorage::mGetAllOrdered(QString inFieldname, _A_ENUM_DB_SORTING_DIRECTION inDirection) {
 
 	QEventLoop oEventLoop;

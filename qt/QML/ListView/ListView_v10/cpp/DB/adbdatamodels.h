@@ -19,6 +19,7 @@
 #include <QObject>
 #include <QString>
 #include <QVariantList>
+#include <QVariantMap>
 #include <QQmlEngine>
 
 // Application includes
@@ -85,6 +86,27 @@ class AEnumsDBSortingDirection: public QObject {
 			Descendant
 		};
 		Q_ENUM(ADBSortingDirection)
+};
+
+class ADBFieldProperty {
+
+	public:
+
+		_A_ENUM_DB_DATATYPE Type = _A_ENUM_DB_DATATYPE::Undefined;
+		QString Name = "NoDefinedName";
+		QString DisplayName = "NoDefinedDisplayName";
+
+		ADBFieldProperty(void) {}
+		virtual ~ADBFieldProperty(void) {}
+
+		QVariantMap mToVariantMap(void) {
+
+			QVariantMap oOutput = {};
+			oOutput.insert("Type",QVariant::fromValue(Type));
+			oOutput.insert("Name",Name);
+			oOutput.insert("DisplayName",DisplayName);
+			return oOutput;
+		}
 };
 
 #endif // ADBDATAMODELS_H

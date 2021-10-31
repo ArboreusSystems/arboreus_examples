@@ -26,7 +26,6 @@ ComboBox {
 	property int pIndex: 0;
 
 	id: oRoot;
-	model: ["By Registered ID","By First Name", "By Last Name","By Phone Number"];
 	font.pixelSize: 18;
 	font.bold: true;
 

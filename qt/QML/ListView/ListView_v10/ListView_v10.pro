@@ -39,7 +39,6 @@ HEADERS += \
 	cpp/Logger/aloggerglobal.h \
 	cpp/Properties/aproperties.h \
 	cpp/Storage/adbrequestadd.h \
-	cpp/Storage/adbrequestall.h \
 	cpp/Storage/adbrequestallordered.h \
 	cpp/Storage/astorage.h \
 	cpp/Storage/astoragedatamodels.h \
@@ -56,7 +55,6 @@ SOURCES += \
 	cpp/ListViewModel/alistviewmodel.cpp \
 	cpp/Properties/aproperties.cpp \
 	cpp/Storage/adbrequestadd.cpp \
-	cpp/Storage/adbrequestall.cpp \
 	cpp/Storage/adbrequestallordered.cpp \
 	cpp/Storage/astorage.cpp \
 	cpp/Storage/astorageservice.cpp \
