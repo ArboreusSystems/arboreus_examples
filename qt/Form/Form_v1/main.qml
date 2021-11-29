@@ -51,7 +51,7 @@ ApplicationWindow {
 
 			Component.onCompleted: {
 
-				oApplicationStackView.push(oFormView);
+				oApplicationStackView.push(oDataView);
 			}
 
 			Component {id: oDataView; ADataView {}}

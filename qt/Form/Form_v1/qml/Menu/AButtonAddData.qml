@@ -22,7 +22,8 @@ import QtQuick 2.15
 AButtonTemplate {
 
 	id: oRoot;
-	text: "Add Data";
+	objectName: "ButtonAddData";
+	text: "Add Multipart Data";
 	height: 50;
 
 	onClicked: {

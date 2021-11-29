@@ -21,6 +21,7 @@ import "qrc:/js/AColors.js" as COLORS;
 
 // Application paths
 import "qrc:/qml/Menu";
+import "qrc:/qml/Text";
 
 
 // Component
@@ -28,6 +29,25 @@ Rectangle {
 
 	id: oRoot;
 	color: COLORS.mWhite();
+
+	Rectangle {
+
+		id: oApplicationNameWrapper;
+		width: parent.width * 0.8;
+		height: oApplicationName.height * 7;
+		anchors.verticalCenter: parent.verticalCenter;
+		anchors.verticalCenterOffset: -oApplicationNameWrapper.height * 0.1;
+		anchors.horizontalCenter: parent.horizontalCenter;
+		color: COLORS.mPurpleDark();
+
+		ATextHeader {
+
+			id: oApplicationName;
+			text: "Multipart Form";
+			anchors.centerIn: parent;
+			color: COLORS.mWhiteLight();
+		}
+	}
 
 	AButtonAddData {
 

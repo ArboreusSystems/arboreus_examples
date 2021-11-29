@@ -22,5 +22,11 @@ import QtQuick 2.15
 AButtonTemplate {
 
 	id: oRoot;
-	text: "Ok";
+	objectName: "ButtonOK";
+	text: "OK";
+
+	onClicked: {
+
+		oApplicationStackView.pop();
+	}
 }
