@@ -1,0 +1,29 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>js/AColors.js</file>
+        <file>js/AGlobal.js</file>
+        <file>qml/Inputs/ATextInput.qml</file>
+        <file>qml/Inputs/ATextInputWithLabelTemplate.qml</file>
+        <file>qml/Content/AContentWrapper.qml</file>
+        <file>qml/Inputs/ATextInputWithLabel.qml</file>
+        <file>qml/Menu/ACarousel.qml</file>
+        <file>qml/Menu/AButtonTemplate.qml</file>
+        <file>qml/Menu/AButtonOK.qml</file>
+        <file>qml/Menu/AButtonCancel.qml</file>
+        <file>qml/Menu/AFormMenu.qml</file>
+        <file>qml/Views/ADataView.qml</file>
+        <file>qml/Views/AFormView.qml</file>
+        <file>qml/Menu/AButtonAddData.qml</file>
+        <file>qml/Menu/AFormMenuItem.qml</file>
+        <file>qml/FormParts/AFormPartPersonal.qml</file>
+        <file>qml/Text/AText.qml</file>
+        <file>qml/Text/ATextHeader.qml</file>
+        <file>qml/FormParts/AFormPartNextOfKin.qml</file>
+        <file>qml/FormParts/AFormPartEducation.qml</file>
+        <file>qml/FormParts/AFormPartHomeAdress.qml</file>
+        <file>qml/FormParts/AFormPartJob.qml</file>
+        <file>qml/FormParts/AFormPartHobbies.qml</file>
+        <file>qml/FormParts/AFormPartContacts.qml</file>
+    </qresource>
+</RCC>
