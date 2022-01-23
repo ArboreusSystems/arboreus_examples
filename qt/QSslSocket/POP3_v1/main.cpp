@@ -30,10 +30,10 @@ int main(int inCounter, char *inArguments[]) {
 	qInstallMessageHandler(fLoggerMessageHandler);
 
 	APOP3Properties* oProperties = new APOP3Properties();
-	oProperties->User = "ip@alexandr.kirilov.me";
-	oProperties->Server = "alexandr.kirilov.me";
-	oProperties->Port = 995;
-	oProperties->Password = "1508Fktrcfylh!Kirilov";
+	oProperties->User = "";
+	oProperties->Server = "";
+	oProperties->Port = 0;
+	oProperties->Password = "";
 
 	APOP3* oPOP3 = new APOP3(oProperties,&oEngine);
 	oPOP3->mInit();
