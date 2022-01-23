@@ -11,8 +11,9 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-
 // Application includes
+#include <aloggerglobal.h>
+#include <asmtp.h>
 
 // Constants
 
@@ -26,15 +27,19 @@ int main(int inCounter, char *inArguments[]) {
 	QGuiApplication oApplication(inCounter, inArguments);
 	QQmlApplicationEngine oEngine;
 
+	qInstallMessageHandler(fLoggerMessageHandler);
+
+	ASMTP* oSMTP = new ASMTP(&oEngine);
+
 	const QUrl oURL(QStringLiteral("qrc:/main.qml"));
 	QObject::connect(
-				&oEngine, &QQmlApplicationEngine::objectCreated,
-				&oApplication, [oURL](QObject *obj, const QUrl &objUrl) {
-		if (!obj && oURL == objUrl) {
-			QCoreApplication::exit(-1);
-		}
-	}, Qt::QueuedConnection
-			);
+		&oEngine, &QQmlApplicationEngine::objectCreated,
+		&oApplication, [oURL](QObject *obj, const QUrl &objUrl) {
+			if (!obj && oURL == objUrl) {
+				QCoreApplication::exit(-1);
+			}
+		}, Qt::QueuedConnection
+	);
 	oEngine.load(oURL);
 
 	return oApplication.exec();
