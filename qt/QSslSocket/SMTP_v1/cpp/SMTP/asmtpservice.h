@@ -1,6 +1,6 @@
 // ----------------------------------------------------------
 /*!
-	\headerfile ASMTP
+	\headerfile ASMTPService
 	\title
 	\brief Template file wizard/classes/cpp/file.h
 
@@ -8,38 +8,38 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 23/01/2022 at 18:00:10
+	\li @created 23/01/2022 at 20:40:41
 	\endlist
 */
 // ----------------------------------------------------------
 
-#ifndef ASMTP_H
-#define ASMTP_H
+#ifndef ASMTPSERVICE_H
+#define ASMTPSERVICE_H
 
 // System includes
 #include <QObject>
 
 // Application includes
-#include <athreadtemplate.h>
-#include <asmtpservice.h>
+#include <athreadservicetemplate.h>
 #include <aloggerglobal.h>
+#include <asmtpdatamodels.h>
 
 // Constants and definitions
 
 // Namespace
 
 // Class definitions
-class ASMTP : public AThreadTemplate<ASMTPService> {
+class ASMTPService : public AThreadServiceTemplate {
 
 	Q_OBJECT
 
 	public:
 
-		explicit ASMTP(QObject* parent = nullptr);
-		virtual ~ASMTP(void);
+		explicit ASMTPService(QObject* parent = nullptr);
+		virtual ~ASMTPService(void);
 
 	signals:
 
 };
 
-#endif // ASMTP_H
+#endif // ASMTPSERVICE_H

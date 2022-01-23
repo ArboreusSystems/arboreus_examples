@@ -16,11 +16,57 @@
 #define ATHREADSERVICETEMPLATE_H
 
 // System includes
+#include <QObject>
+#include <QMutex>
+#include <QWaitCondition>
 
 // Application includes
 
 // Constants and defintions
 
 // Namespace
+
+// Class definitions
+class AThreadServiceTemplate : public QObject {
+
+	Q_OBJECT
+
+	public:
+
+		explicit AThreadServiceTemplate(QObject *parent = nullptr): QObject(parent) {
+
+			pMutex.lock();
+		}
+
+		virtual ~AThreadServiceTemplate(void){
+
+			pWaitCondition.wakeAll();
+			pMutex.unlock();
+		}
+
+		void mResume(void){
+
+			pWaitCondition.wakeAll();
+		}
+
+		void mSuspend(void) {
+
+			QMetaObject::invokeMethod(this,&AThreadServiceTemplate::slSuspend);
+			pMutex.lock();
+			pMutex.unlock();
+		}
+
+	private slots:
+
+		void slSuspend(void) {
+
+			pWaitCondition.wait(&pMutex);
+		}
+
+	private:
+
+		QMutex pMutex;
+		QWaitCondition pWaitCondition;
+};
 
 #endif // ATHREADSERVICETEMPLATE_H

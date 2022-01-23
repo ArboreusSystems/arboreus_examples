@@ -1,6 +1,6 @@
 // ----------------------------------------------------------
 /*!
-	\class ASMTP
+	\class ASMTPService
 	\title
 	\brief Template file classes/cpp/file.cpp
 
@@ -8,13 +8,13 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 23/01/2022 at 18:00:10
+	\li @created 23/01/2022 at 20:40:41
 	\endlist
 */
 // ----------------------------------------------------------
 
 // Class header
-#include "asmtp.h"
+#include "asmtpservice.h"
 
 
 // -----------
@@ -24,9 +24,9 @@
 	Doc.
 */
 
-ASMTP::ASMTP(QObject* parent) : AThreadTemplate<ASMTPService>(new ASMTPService, parent) {
+ASMTPService::ASMTPService(QObject* parent) : AThreadServiceTemplate(parent) {
 
-	_A_DEBUG << "ASMTP created";
+	_A_DEBUG << "ASMTPService created";
 }
 
 
@@ -37,8 +37,8 @@ ASMTP::ASMTP(QObject* parent) : AThreadTemplate<ASMTPService>(new ASMTPService, 
 	Doc.
 */
 
-ASMTP::~ASMTP(void) {
+ASMTPService::~ASMTPService(void) {
 
-	_A_DEBUG << "ASMTP deleted";
+	_A_DEBUG << "ASMTPService deleted";
 }
 

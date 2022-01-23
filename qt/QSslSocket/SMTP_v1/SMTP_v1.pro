@@ -1,4 +1,4 @@
-QT += quick
+QT += quick network
 
 CONFIG += c++11
 
@@ -26,11 +26,16 @@ HEADERS += \
 	cpp/Logger/aloggerdatamodels.h \
 	cpp/Logger/aloggerglobal.h \
 	cpp/SMTP/asmtp.h \
+	cpp/SMTP/asmtpdatamodels.h \
+	cpp/SMTP/asmtpservice.h \
+	cpp/Templates/athreadobjectcontrollertemplate.h \
+	cpp/Templates/athreadobjecttemplate.h \
 	cpp/Templates/athreadservicetemplate.h \
 	cpp/Templates/athreadtemplate.h
 
 SOURCES += \
 	cpp/SMTP/asmtp.cpp \
+	cpp/SMTP/asmtpservice.cpp \
 	main.cpp
 
 RESOURCES += \
