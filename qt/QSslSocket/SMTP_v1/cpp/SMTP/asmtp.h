@@ -21,12 +21,16 @@
 
 // Application includes
 #include <athreadtemplate.h>
+#include <athreadobjectcontrollertemplate.h>
 #include <asmtpservice.h>
 #include <aloggerglobal.h>
 
 // Constants and definitions
 
 // Namespace
+
+// Classes
+class ABackend;
 
 // Class definitions
 class ASMTP : public AThreadTemplate<ASMTPService> {
@@ -38,8 +42,20 @@ class ASMTP : public AThreadTemplate<ASMTPService> {
 		explicit ASMTP(QObject* parent = nullptr);
 		virtual ~ASMTP(void);
 
+		void mInit(void);
+
+	public slots:
+
+		void slInitiated(void);
+
 	signals:
 
+		void sgInit(void);
+		void sgInitiated(void);
+
+	private:
+
+		ABackend* pBackend = nullptr;
 };
 
 #endif // ASMTP_H

@@ -10,10 +10,11 @@
 // System includes
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QEventLoop>
 
 // Application includes
-#include <aloggerglobal.h>
-#include <asmtp.h>
+#include <abackend.h>
+#include <athreadobjectcontrollertemplate.h>
 
 // Constants
 
@@ -29,7 +30,30 @@ int main(int inCounter, char *inArguments[]) {
 
 	qInstallMessageHandler(fLoggerMessageHandler);
 
-	ASMTP* oSMTP = new ASMTP(&oEngine);
+	QEventLoop* oEventLoop = new QEventLoop();
+	AThreadObjectControllerTemplate* oController = new AThreadObjectControllerTemplate();
+
+	ABackend* oBackend = &ABackend::mInstance();
+	QObject::connect(
+		oController,&AThreadObjectControllerTemplate::sgRun,
+		oBackend,[oBackend,&oApplication,&oEngine](){
+			oBackend->mInit(
+				&oApplication,&oEngine,oEngine.rootContext()
+			);
+		}
+	);
+	QObject::connect(
+		oBackend,&ABackend::sgInitiated,
+		oEventLoop,&QEventLoop::quit
+	);
+
+	emit oController->sgRun();
+	oEventLoop->exec();
+
+	QObject::disconnect(oController,nullptr,nullptr,nullptr);
+	QObject::disconnect(oBackend,nullptr,oEventLoop,nullptr);
+	delete oController;
+	delete oEventLoop;
 
 	const QUrl oURL(QStringLiteral("qrc:/main.qml"));
 	QObject::connect(

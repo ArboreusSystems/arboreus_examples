@@ -18,11 +18,13 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 INCLUDEPATH += \
+	$$PWD/cpp/Backend \
 	$$PWD/cpp/Logger \
 	$$PWD/cpp/SMTP \
 	$$PWD/cpp/Templates
 
 HEADERS += \
+	cpp/Backend/abackend.h \
 	cpp/Logger/aloggerdatamodels.h \
 	cpp/Logger/aloggerglobal.h \
 	cpp/SMTP/asmtp.h \
@@ -34,6 +36,7 @@ HEADERS += \
 	cpp/Templates/athreadtemplate.h
 
 SOURCES += \
+	cpp/Backend/abackend.cpp \
 	cpp/SMTP/asmtp.cpp \
 	cpp/SMTP/asmtpservice.cpp \
 	main.cpp

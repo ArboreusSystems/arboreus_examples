@@ -16,6 +16,9 @@
 // Class header
 #include "asmtp.h"
 
+// Forwarded classes
+#include <abackend.h>
+
 
 // -----------
 /*!
@@ -25,6 +28,15 @@
 */
 
 ASMTP::ASMTP(QObject* parent) : AThreadTemplate<ASMTPService>(new ASMTPService, parent) {
+
+	QObject::connect(
+		this,&ASMTP::sgInit,
+		this->mService(),&ASMTPService::slInit
+	);
+	QObject::connect(
+		this->mService(),&ASMTPService::sgInitiated,
+		this,&ASMTP::slInitiated
+	);
 
 	_A_DEBUG << "ASMTP created";
 }
@@ -40,5 +52,36 @@ ASMTP::ASMTP(QObject* parent) : AThreadTemplate<ASMTPService>(new ASMTPService, 
 ASMTP::~ASMTP(void) {
 
 	_A_DEBUG << "ASMTP deleted";
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void ASMTP::mInit(void) {
+
+	pBackend = &ABackend::mInstance();
+	this->start(QThread::Priority::LowPriority);
+
+	emit sgInit();
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void ASMTP::slInitiated(void) {
+
+	_A_DEBUG << "ASMTP initiated";
+
+	emit sgInitiated();
 }
 

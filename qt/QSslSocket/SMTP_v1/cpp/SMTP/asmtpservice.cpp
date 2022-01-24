@@ -42,3 +42,18 @@ ASMTPService::~ASMTPService(void) {
 	_A_DEBUG << "ASMTPService deleted";
 }
 
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void ASMTPService::slInit(void) {
+
+	_A_DEBUG << "ASMTPService initiated";
+
+	emit sgInitiated();
+}
+

@@ -38,8 +38,13 @@ class ASMTPService : public AThreadServiceTemplate {
 		explicit ASMTPService(QObject* parent = nullptr);
 		virtual ~ASMTPService(void);
 
+	public slots:
+
+		void slInit(void);
+
 	signals:
 
+		void sgInitiated(void);
 };
 
 #endif // ASMTPSERVICE_H
