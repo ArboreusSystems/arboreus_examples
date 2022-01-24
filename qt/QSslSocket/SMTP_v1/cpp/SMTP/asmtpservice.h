@@ -18,6 +18,9 @@
 
 // System includes
 #include <QObject>
+#include <QSslSocket>
+#include <QSslPreSharedKeyAuthenticator>
+#include <QAuthenticator>
 
 // Application includes
 #include <athreadservicetemplate.h>
@@ -45,6 +48,34 @@ class ASMTPService : public AThreadServiceTemplate {
 	signals:
 
 		void sgInitiated(void);
+
+	private:
+
+		QSslSocket* pSslSocket = nullptr;
+
+		void mInit(void);
+
+	private slots:
+
+		void slAboutToClose(void);
+		void slBitesWritten(quint64 inBytes);
+		void slChannelBytesWritten(int inChannel,quint64 inBytes);
+		void slChannelReadyRead(int inChannel);
+		void slConnected(void);
+		void slDestroyed(QObject* inPointer);
+		void slDisconnected(void);
+		void slEncrypted(void);
+		void slEncryptedBytesWritten(qint64 inBytes);
+		void slErrorOccurred(QAbstractSocket::SocketError inError);
+		void slHostFound(void);
+		void slModeChanged(QSslSocket::SslMode inNewMode);
+		void slNewSessionTicketReceived(void);
+		void slPeerVerifyError(const QSslError& inError);
+		void slPreSharedKeyAuthenticationRequired(QSslPreSharedKeyAuthenticator* inAuthenticator);
+		void slProxyAuthenticationRequired(const QNetworkProxy& inProxy,QAuthenticator* inAuthenticator);
+		void slReadChannelFinished(void);
+		void slReadyRead(void);
+		void slStateChanged(QAbstractSocket::SocketState inState);
 };
 
 #endif // ASMTPSERVICE_H
