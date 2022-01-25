@@ -37,6 +37,14 @@ ASMTP::ASMTP(QObject* parent) : AThreadTemplate<ASMTPService>(new ASMTPService, 
 		this->mService(),&ASMTPService::sgInitiated,
 		this,&ASMTP::slInitiated
 	);
+	QObject::connect(
+		this,&ASMTP::sgSetProperties,
+		this->mService(),&ASMTPService::slSetProperties
+	);
+	QObject::connect(
+		this->mService(),&ASMTPService::sgPropertiesUpdated,
+		this,&ASMTP::slPropertiesUpdated
+	);
 
 	_A_DEBUG << "ASMTP created";
 }
@@ -65,7 +73,7 @@ ASMTP::~ASMTP(void) {
 void ASMTP::mInit(void) {
 
 	pBackend = &ABackend::mInstance();
-	this->start(QThread::Priority::LowPriority);
+	this->setPriority(QThread::Priority::LowPriority);
 
 	emit sgInit();
 }
@@ -83,5 +91,46 @@ void ASMTP::slInitiated(void) {
 	_A_DEBUG << "ASMTP initiated";
 
 	emit sgInitiated();
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void ASMTP::slPropertiesUpdated(void) {
+
+	emit sgPropertiesUpdated();
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+QVariantMap ASMTP::mGetProperties(void) {
+
+	return this->mService()->mGetProperties().mToVariantMap();
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void ASMTP::mSetProperties(QVariantMap inProperties) {
+
+	ASMTPProperties oProperties;
+	oProperties.mFromVariantMap(inProperties);
+	emit sgSetProperties(oProperties);
 }
 

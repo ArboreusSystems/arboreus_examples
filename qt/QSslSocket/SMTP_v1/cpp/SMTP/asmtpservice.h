@@ -41,17 +41,22 @@ class ASMTPService : public AThreadServiceTemplate {
 		explicit ASMTPService(QObject* parent = nullptr);
 		virtual ~ASMTPService(void);
 
+		ASMTPProperties mGetProperties(void);
+
 	public slots:
 
 		void slInit(void);
+		void slSetProperties(ASMTPProperties inProperties);
 
 	signals:
 
 		void sgInitiated(void);
+		void sgPropertiesUpdated(void);
 
 	private:
 
 		QSslSocket* pSslSocket = nullptr;
+		ASMTPProperties pProperties;
 
 		void mInit(void);
 

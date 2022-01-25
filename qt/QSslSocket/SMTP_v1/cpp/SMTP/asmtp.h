@@ -47,11 +47,17 @@ class ASMTP : public AThreadTemplate<ASMTPService> {
 	public slots:
 
 		void slInitiated(void);
+		void slPropertiesUpdated(void);
+
+		QVariantMap mGetProperties(void);
+		void mSetProperties(QVariantMap inProperties);
 
 	signals:
 
 		void sgInit(void);
 		void sgInitiated(void);
+		void sgSetProperties(ASMTPProperties inProperties);
+		void sgPropertiesUpdated(void);
 
 	private:
 

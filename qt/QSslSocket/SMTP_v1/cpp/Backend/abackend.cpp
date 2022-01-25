@@ -98,4 +98,6 @@ void ABackend::mInit(
 void ABackend::mInitSMTP(void) {
 
 	pSMTP->mInit();
+	pRootContext->setContextProperty("ASMTP",pSMTP);
+	qRegisterMetaType<ASMTPProperties>("ASMTPProperties");
 }

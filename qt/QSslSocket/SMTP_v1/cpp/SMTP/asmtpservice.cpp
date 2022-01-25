@@ -50,6 +50,19 @@ ASMTPService::~ASMTPService(void) {
 	Doc.
 */
 
+ASMTPProperties ASMTPService::mGetProperties(void) {
+
+	return this->pProperties;
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
 void ASMTPService::slInit(void) {
 
 	this->mInit();
@@ -67,9 +80,25 @@ void ASMTPService::slInit(void) {
 	Doc.
 */
 
+void ASMTPService::slSetProperties(ASMTPProperties inProperties) {
+
+	pProperties = inProperties;
+
+	emit sgPropertiesUpdated();
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
 void ASMTPService::mInit(void) {
 
 	pSslSocket = new QSslSocket(this);
+	pProperties = ASMTPProperties();
 
 	QObject::connect(
 		pSslSocket,&QSslSocket::aboutToClose,
