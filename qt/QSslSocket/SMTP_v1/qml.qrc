@@ -6,5 +6,10 @@
         <file>qml/Content/AContentWrapper.qml</file>
         <file>qml/Screens/AScreenMail.qml</file>
         <file>qml/Screens/AScreenServer.qml</file>
+        <file>qml/Templates/AButtonTemplate.qml</file>
+        <file>qml/Buttons/AButtonServer.qml</file>
+        <file>qml/Buttons/AButtonSendMessage.qml</file>
+        <file>qml/Buttons/AButtonCancel.qml</file>
+        <file>qml/Buttons/AButtonSetServer.qml</file>
     </qresource>
 </RCC>

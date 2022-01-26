@@ -14,9 +14,13 @@
 
 // System includes
 import QtQuick 2.15
+import QtQuick.Controls 2.15
 
 // Application includes
 import "qrc:/js/AColors.js" as COLORS;
+
+// Application paths
+import "qrc:/qml/Buttons";
 
 
 // Component
@@ -24,4 +28,44 @@ Rectangle {
 
 	id: oRoot;
 	color: COLORS.mFiolent();
+
+	Rectangle {
+
+		id: oHeader;
+		color: COLORS.mRedDark();
+		width: parent.width;
+		height: 75;
+
+		Text {
+
+			id: oHeaderText;
+			text: "Write message";
+			color: COLORS.mWhiteLight();
+			font.bold: true;
+			font.pixelSize: 20;
+			anchors.fill: parent;
+			verticalAlignment: Text.AlignVCenter;
+			horizontalAlignment: Text.AlignHCenter;
+		}
+	}
+
+	AButtonServer {
+
+		id: oButtonServerSettings;
+		width: parent.width * 0.8;
+		height: 50;
+		anchors.horizontalCenter: parent.horizontalCenter;
+		anchors.bottom: parent.bottom;
+		anchors.bottomMargin: 50;
+	}
+
+	AButtonSendMessage {
+
+		id: oButtonSendMessage;
+		width: parent.width * 0.8;
+		height: 75;
+		anchors.horizontalCenter: parent.horizontalCenter;
+		anchors.bottom: oButtonServerSettings.top;
+		anchors.bottomMargin: 20;
+	}
 }
