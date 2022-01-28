@@ -20,6 +20,7 @@ import "qrc:/js/AColors.js" as COLORS;
 
 // Application paths
 import "qrc:/qml/Buttons";
+import "qrc:/qml/Input";
 
 
 // Component
@@ -45,6 +46,36 @@ Rectangle {
 			anchors.fill: parent;
 			verticalAlignment: Text.AlignVCenter;
 			horizontalAlignment: Text.AlignHCenter;
+		}
+	}
+
+	Column {
+
+		id: oMessageForm;
+		width: parent.width * 0.8;
+		anchors.top: oHeader.bottom;
+		anchors.horizontalCenter: parent.horizontalCenter;
+		topPadding: 10;
+		spacing: 5;
+
+		AInputServerName {
+
+			id: oInputServerName;
+		}
+
+		AInputServerPort {
+
+			id: oInputServerPort;
+		}
+
+		AInputUser {
+
+			id: oInputUser;
+		}
+
+		AInputPassword {
+
+			id: oInputPassword;
 		}
 	}
 

@@ -11,5 +11,18 @@
         <file>qml/Buttons/AButtonSendMessage.qml</file>
         <file>qml/Buttons/AButtonCancel.qml</file>
         <file>qml/Buttons/AButtonSetServer.qml</file>
+        <file>qml/Templates/AInputTextWithLabelTemplate.qml</file>
+        <file>qml/Input/AInputTextWithLabel.qml</file>
+        <file>qml/Templates/AInputTextTemplate.qml</file>
+        <file>qml/Input/AInputText.qml</file>
+        <file>qml/Input/AInputFrom.qml</file>
+        <file>qml/Input/AInputTo.qml</file>
+        <file>qml/Input/AInputSubject.qml</file>
+        <file>qml/Input/AInputMessage.qml</file>
+        <file>qml/Input/AInputServerName.qml</file>
+        <file>qml/Input/AInputServerPort.qml</file>
+        <file>qml/Input/AInputUser.qml</file>
+        <file>qml/Input/AInputPassword.qml</file>
+        <file>qml/Input/AInputPasswordWithLabel.qml</file>
     </qresource>
 </RCC>

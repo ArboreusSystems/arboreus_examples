@@ -75,11 +75,18 @@ void ABackend::mInit(
 	if (inRootContext) this->pRootContext = inRootContext;
 
 	pSMTP = new ASMTP(pQmlApplicationEngine);
+	pCache = new ACache(pQmlApplicationEngine);
 
 	QObject::connect(
 		pSMTP,&ASMTP::sgInitiated,
 		this,[this](){
-			_A_DEBUG << "ABackend initiated";
+			this->mInitCache();
+		}
+	);
+	QObject::connect(
+		pCache,&ACache::sgInitiated,
+		this,[this](){
+			_A_DEBUG << "ABackend services initiated";
 			emit this->sgInitiated();
 		}
 	);
@@ -100,4 +107,18 @@ void ABackend::mInitSMTP(void) {
 	pSMTP->mInit();
 	pRootContext->setContextProperty("ASMTP",pSMTP);
 	qRegisterMetaType<ASMTPProperties>("ASMTPProperties");
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void ABackend::mInitCache(void) {
+
+	pCache->mInit();
+	pRootContext->setContextProperty("ACache",pCache);
 }

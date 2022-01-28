@@ -26,6 +26,7 @@
 // Application includes
 #include <aloggerglobal.h>
 #include <asmtp.h>
+#include <acache.h>
 
 // Constants and definitions
 
@@ -43,6 +44,7 @@ class ABackend : public QObject {
 		QQmlContext* pRootContext = nullptr;
 
 		ASMTP* pSMTP = nullptr;
+		ACache* pCache = nullptr;
 
 		static ABackend& mInstance();
 		void mInit(
@@ -62,6 +64,7 @@ class ABackend : public QObject {
 		Q_DISABLE_COPY(ABackend)
 
 		void mInitSMTP(void);
+		void mInitCache(void);
 };
 
 #endif // ABACKEND_H

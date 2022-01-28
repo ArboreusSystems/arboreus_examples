@@ -19,12 +19,15 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 INCLUDEPATH += \
 	$$PWD/cpp/Backend \
+	$$PWD/cpp/Cache \
 	$$PWD/cpp/Logger \
 	$$PWD/cpp/SMTP \
 	$$PWD/cpp/Templates
 
 HEADERS += \
 	cpp/Backend/abackend.h \
+	cpp/Cache/acache.h \
+	cpp/Cache/acachedatamodels.h \
 	cpp/Logger/aloggerdatamodels.h \
 	cpp/Logger/aloggerglobal.h \
 	cpp/SMTP/asmtp.h \
@@ -37,6 +40,7 @@ HEADERS += \
 
 SOURCES += \
 	cpp/Backend/abackend.cpp \
+	cpp/Cache/acache.cpp \
 	cpp/SMTP/asmtp.cpp \
 	cpp/SMTP/asmtpservice.cpp \
 	main.cpp
