@@ -43,7 +43,6 @@ Rectangle {
 
 	property string pPlaceholder;
 	property alias pText: oTextInput.text;
-//	property alias pTextEchoMode: oTextInput.echoMode;
 
 	property string pFontFamily;
 	property alias pFontPixelSize: oTextInput.font.pixelSize;
@@ -65,85 +64,25 @@ Rectangle {
 
 		Flickable {
 
-			id: flick;
+			id: oFlickable;
 			anchors.fill: parent;
-//			contentWidth: oTextInput.paintedWidth;
-//			contentHeight: oTextInput.paintedHeight;
-			clip: true
+			clip: true;
 
 			TextArea.flickable: TextArea {
 
-				 id: oTextInput
-				 width: flick.width
-				 height: flick.height
-				 focus: true
+				 id: oTextInput;
+				 width: oFlickable.width;
+				 height: oFlickable.height;
+				 focus: true;
 				 font.pixelSize: 22;
-				 wrapMode: TextEdit.Wrap
-//				 onCursorRectangleChanged: flick.ensureVisible(cursorRectangle)
+				 wrapMode: TextEdit.Wrap;
 			}
 
-			ScrollBar.vertical: ScrollBar {}
+			ScrollBar.vertical: ScrollBar {
 
-//			function ensureVisible(r) {
-
-//				if (contentX >= r.x) {
-//					contentX = r.x;
-//				} else if (contentX+width <= r.x+r.width) {
-//					contentX = r.x+r.width-width;
-//				}
-
-//				if (contentY >= r.y) {
-//					contentY = r.y;
-//				} else if (contentY+height <= r.y+r.height) {
-//					contentY = r.y+r.height-height;
-//				}
-//			}
-		 }
-
-//		TextArea {
-
-//			id: oTextInput;
-//			anchors.fill: parent;
-//			verticalAlignment: Text.AlignVCenter;
-//			horizontalAlignment: Text.AlignLeft;
-//			font.pixelSize: 18;
-//			wrapMode: TextEdit.WordWrap;
-
-//			font.family: {
-
-//				if (oRoot.pFontFamily !== null) {
-//					oTextInput.font.family = oRoot.pFontFamily;
-//				}
-//			}
-
-//			Component.onCompleted: {
-
-//				if (oRoot.pPlaceholder) {
-//					oTextInput.text = oRoot.pPlaceholder;
-//				}
-//			}
-
-//			onFocusChanged: {
-
-//				if (typeof oRoot.mOnFocusChanged === "function") {
-//					oRoot.mOnFocusChanged();
-//				}
-//			}
-
-//			onEditingFinished: {
-
-//				if (typeof oRoot.mOnEditingFinished === "function") {
-//					oRoot.mOnEditingFinished();
-//				}
-//			}
-
-//			onAccepted: {
-
-//				if (typeof oRoot.mOnAccepted === "function") {
-//					oRoot.mOnAccepted();
-//				}
-//			}
-//		}
+				id: oScrollBar;
+			}
+		}
 	}
 
 	states: [
