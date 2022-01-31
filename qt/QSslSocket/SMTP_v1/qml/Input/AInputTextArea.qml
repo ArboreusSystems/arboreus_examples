@@ -7,7 +7,7 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 28/01/2022 at 18:00:14
+	\li @created 31/01/2022 at 13:06:38
 	\endlist
 */
 // ----------------------------------------------------------
@@ -16,20 +16,17 @@
 import QtQuick 2.15
 
 // Application includes
-import "qrc:/js/AColors.js" as COLORS;
+
+// Application paths
+import "qrc:/qml/Templates";
 
 
 // Component
-AInputTextWithLabel {
+AInputTextAreaTemplate {
 
 	id: oRoot;
-	pTextLabel: "Message";
-
-	pInputText.data: AInputTextArea {
-
-		id: oInputText;
-		implicitHeight: 100;
-		implicitWidth: parent.width;
-		color: COLORS.mWhite();
-	}
+	pSizeBorder: 2;
+	pPaddingLeft: 10;
+	pPaddingRight: 10;
+	implicitHeight: 35;
 }

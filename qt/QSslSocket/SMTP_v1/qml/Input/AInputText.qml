@@ -28,5 +28,5 @@ AInputTextTemplate {
 	pSizeBorder: 2;
 	pPaddingLeft: 10;
 	pPaddingRight: 10;
-	height: 35;
+	implicitHeight: 35;
 }

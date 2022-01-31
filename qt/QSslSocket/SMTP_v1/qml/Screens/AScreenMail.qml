@@ -40,7 +40,7 @@ Rectangle {
 		Text {
 
 			id: oHeaderText;
-			text: "Write message";
+			text: "Message";
 			color: COLORS.mWhiteLight();
 			font.bold: true;
 			font.pixelSize: 20;
