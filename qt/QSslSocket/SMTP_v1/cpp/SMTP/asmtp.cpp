@@ -45,6 +45,14 @@ ASMTP::ASMTP(QObject* parent) : AThreadTemplate<ASMTPService>(new ASMTPService, 
 		this->mService(),&ASMTPService::sgPropertiesUpdated,
 		this,&ASMTP::slPropertiesUpdated
 	);
+	QObject::connect(
+		this,&ASMTP::sgMessageSend,
+		this->mService(),&ASMTPService::slMessageSend
+	);
+	QObject::connect(
+		this->mService(),&ASMTPService::sgMessageSent,
+		this,&ASMTP::slMessageSent
+	);
 
 	_A_DEBUG << "ASMTP created";
 }
@@ -114,9 +122,36 @@ void ASMTP::slPropertiesUpdated(void) {
 	Doc.
 */
 
+void ASMTP::slMessageSent(QString inMessageID) {
+
+	emit sgMessageSent(inMessageID);
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
 QVariantMap ASMTP::mGetProperties(void) {
 
 	return this->mService()->mGetProperties().mToVariantMap();
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+QVariantMap ASMTP::mTemplateMessage(void) {
+
+	ASMTPMessage oMessage;
+	return oMessage.mToVariantMap();
 }
 
 
@@ -132,5 +167,28 @@ void ASMTP::mSetProperties(QVariantMap inProperties) {
 	ASMTPProperties oProperties;
 	oProperties.mFromVariantMap(inProperties);
 	emit sgSetProperties(oProperties);
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void ASMTP::mMessageSend(QString inMessageID) {
+
+	ASMTPMessage oMessage;
+
+	oMessage.mFromVariantMap(pBackend->pCache->mGetOutFromCache(inMessageID));
+	_A_DEBUG << "Got message to send.";
+	_A_DEBUG << "ID:" << oMessage.ID;
+	_A_DEBUG << "to:" << oMessage.To;
+	_A_DEBUG << "from:" << oMessage.From;
+	_A_DEBUG << "subject:" << oMessage.Subject;
+	_A_DEBUG << "body:" << oMessage.Body;
+
+	emit sgMessageSend(oMessage);
 }
 

@@ -95,6 +95,22 @@ void ASMTPService::slSetProperties(ASMTPProperties inProperties) {
 	Doc.
 */
 
+void ASMTPService::slMessageSend(ASMTPMessage inMessage) {
+
+	_A_DEBUG << "Sending message:" << inMessage.ID;
+
+	_A_DEBUG << "Message sent:" << inMessage.ID;
+	emit sgMessageSent(inMessage.ID);
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
 void ASMTPService::mInit(void) {
 
 	pSslSocket = new QSslSocket(this);

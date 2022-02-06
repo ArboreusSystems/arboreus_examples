@@ -47,11 +47,13 @@ class ASMTPService : public AThreadServiceTemplate {
 
 		void slInit(void);
 		void slSetProperties(ASMTPProperties inProperties);
+		void slMessageSend(ASMTPMessage inMessage);
 
 	signals:
 
 		void sgInitiated(void);
 		void sgPropertiesUpdated(void);
+		void sgMessageSent(QString inMessageID);
 
 	private:
 

@@ -60,15 +60,10 @@ ApplicationWindow {
 	Component.onCompleted: {
 
 		var oProperties = ASMTP.mGetProperties();
-		console.log("User:",oProperties.User);
-		console.log("Password:",oProperties.Password);
-		console.log("ServerName:",oProperties.ServerName);
-		console.log("Port:",oProperties.Port);
-
-		oProperties.User = "User1";
-		oProperties.Password = "Password1";
-		oProperties.ServerName = "ServerName1";
-		oProperties.Port = 123;
+		oProperties.User = "";
+		oProperties.Password = "";
+		oProperties.ServerName = "";
+		oProperties.Port = 465;
 
 		ASMTP.mSetProperties(oProperties);
 	}

@@ -48,9 +48,12 @@ class ASMTP : public AThreadTemplate<ASMTPService> {
 
 		void slInitiated(void);
 		void slPropertiesUpdated(void);
+		void slMessageSent(QString inMessageID);
 
 		QVariantMap mGetProperties(void);
+		QVariantMap mTemplateMessage(void);
 		void mSetProperties(QVariantMap inProperties);
+		void mMessageSend(QString inMessageID);
 
 	signals:
 
@@ -58,6 +61,8 @@ class ASMTP : public AThreadTemplate<ASMTPService> {
 		void sgInitiated(void);
 		void sgSetProperties(ASMTPProperties inProperties);
 		void sgPropertiesUpdated(void);
+		void sgMessageSend(ASMTPMessage inMessage);
+		void sgMessageSent(QString inMessageID);
 
 	private:
 
