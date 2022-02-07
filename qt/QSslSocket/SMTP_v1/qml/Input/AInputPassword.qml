@@ -22,5 +22,6 @@ import QtQuick 2.15
 AInputPasswordWithLabel {
 
 	id: oRoot;
+	objectName: "InputPassword";
 	pTextLabel: "Password";
 }

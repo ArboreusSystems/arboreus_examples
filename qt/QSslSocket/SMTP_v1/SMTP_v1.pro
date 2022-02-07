@@ -22,7 +22,8 @@ INCLUDEPATH += \
 	$$PWD/cpp/Cache \
 	$$PWD/cpp/Logger \
 	$$PWD/cpp/SMTP \
-	$$PWD/cpp/Templates
+	$$PWD/cpp/Templates \
+	$$PWD/cpp/Universal
 
 HEADERS += \
 	cpp/Backend/abackend.h \
@@ -36,13 +37,18 @@ HEADERS += \
 	cpp/Templates/athreadobjectcontrollertemplate.h \
 	cpp/Templates/athreadobjecttemplate.h \
 	cpp/Templates/athreadservicetemplate.h \
-	cpp/Templates/athreadtemplate.h
+	cpp/Templates/athreadtemplate.h \
+	cpp/Universal/asequencenumber.h \
+	cpp/Universal/asequencestring.h \
+	cpp/Universal/auniversaldatamodels.h
 
 SOURCES += \
 	cpp/Backend/abackend.cpp \
 	cpp/Cache/acache.cpp \
 	cpp/SMTP/asmtp.cpp \
 	cpp/SMTP/asmtpservice.cpp \
+	cpp/Universal/asequencenumber.cpp \
+	cpp/Universal/asequencestring.cpp \
 	main.cpp
 
 RESOURCES += \

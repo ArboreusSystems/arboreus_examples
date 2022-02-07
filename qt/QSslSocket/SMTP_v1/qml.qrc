@@ -24,7 +24,5 @@
         <file>qml/Input/AInputUser.qml</file>
         <file>qml/Input/AInputPassword.qml</file>
         <file>qml/Input/AInputPasswordWithLabel.qml</file>
-        <file>qml/Templates/AInputTextAreaTemplate.qml</file>
-        <file>qml/Input/AInputTextArea.qml</file>
     </qresource>
 </RCC>

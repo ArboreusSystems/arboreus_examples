@@ -181,6 +181,8 @@ void ASMTP::mMessageSend(QString inMessageID) {
 
 	ASMTPMessage oMessage;
 
+	_A_DEBUG << "111111111111" << pBackend->pCache->mGetFromCache(inMessageID);
+
 	oMessage.mFromVariantMap(pBackend->pCache->mGetOutFromCache(inMessageID));
 	_A_DEBUG << "Got message to send.";
 	_A_DEBUG << "ID:" << oMessage.ID;
@@ -190,5 +192,19 @@ void ASMTP::mMessageSend(QString inMessageID) {
 	_A_DEBUG << "body:" << oMessage.Body;
 
 	emit sgMessageSend(oMessage);
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+QString ASMTP::mMessageIDGenerate(void) {
+
+	QString oMessageID = ASequenceString::mRandom(32);
+	return oMessageID;
 }
 

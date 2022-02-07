@@ -24,6 +24,7 @@
 #include <athreadobjectcontrollertemplate.h>
 #include <asmtpservice.h>
 #include <aloggerglobal.h>
+#include <asequencestring.h>
 
 // Constants and definitions
 
@@ -54,6 +55,7 @@ class ASMTP : public AThreadTemplate<ASMTPService> {
 		QVariantMap mTemplateMessage(void);
 		void mSetProperties(QVariantMap inProperties);
 		void mMessageSend(QString inMessageID);
+		QString mMessageIDGenerate(void);
 
 	signals:
 

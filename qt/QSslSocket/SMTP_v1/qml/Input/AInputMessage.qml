@@ -23,13 +23,6 @@ import "qrc:/js/AColors.js" as COLORS;
 AInputTextWithLabel {
 
 	id: oRoot;
+	objectName: "InputMessage";
 	pTextLabel: "Message";
-
-	pInputText.data: AInputTextArea {
-
-		id: oInputText;
-		implicitHeight: 100;
-		implicitWidth: parent.width;
-		color: COLORS.mWhite();
-	}
 }

@@ -22,5 +22,6 @@ import QtQuick 2.15
 AInputTextWithLabel {
 
 	id: oRoot;
+	objectName: "InputTo";
 	pTextLabel: "To";
 }

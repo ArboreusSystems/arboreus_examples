@@ -34,5 +34,6 @@ AInputTextWithLabel {
 		implicitWidth: parent.width;
 		color: COLORS.mWhite();
 		pTextEchoMode: TextInput.Password;
+		pRootObject: oRoot;
 	}
 }

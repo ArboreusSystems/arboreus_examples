@@ -21,6 +21,8 @@ import QtQuick 2.15
 // Component
 Rectangle {
 
+	property Item pRootObject;
+
 	property string pStateNormalName: "NORMAL";
 	property string pStateErrorName: "ERROR";
 	property string pStateOnFocusName: "ON_FOCUS";
@@ -86,22 +88,22 @@ Rectangle {
 
 			onFocusChanged: {
 
-				if (typeof oRoot.mOnFocusChanged === "function") {
-					oRoot.mOnFocusChanged();
+				if (typeof oRoot.pRootObject.mOnFocusChanged === "function") {
+					oRoot.pRootObject.mOnFocusChanged();
 				}
 			}
 
 			onEditingFinished: {
 
-				if (typeof oRoot.mOnEditingFinished === "function") {
-					oRoot.mOnEditingFinished();
+				if (typeof oRoot.pRootObject.mOnEditingFinished === "function") {
+					oRoot.pRootObject.mOnEditingFinished();
 				}
 			}
 
 			onAccepted: {
 
-				if (typeof oRoot.mOnAccepted === "function") {
-					oRoot.mOnAccepted();
+				if (typeof oRoot.pRootObject.mOnAccepted === "function") {
+					oRoot.pRootObject.mOnAccepted();
 				}
 			}
 		}

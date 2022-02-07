@@ -31,7 +31,6 @@ AInputTextWithLabelTemplate {
 	id: oRoot;
 	width: parent.width;
 
-
 	pSeparator.data: Rectangle {
 
 		id: oSeparator;
@@ -69,6 +68,7 @@ AInputTextWithLabelTemplate {
 		implicitHeight: 45;
 		implicitWidth: parent.width;
 		color: COLORS.mWhite();
+		pRootObject: oRoot;
 	}
 }
 

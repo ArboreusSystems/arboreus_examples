@@ -27,8 +27,18 @@ import "qrc:/qml/Input";
 // Component
 Rectangle {
 
+	property var pMessage;
+
 	id: oRoot;
 	color: COLORS.mFiolent();
+
+	Component.onCompleted: {
+
+		oRoot.pMessage = ASMTP.mTemplateMessage();
+		oRoot.pMessage.ID = ASMTP.mMessageIDGenerate();
+
+		oRoot.mUpdateMessage();
+	}
 
 	Rectangle {
 
@@ -62,21 +72,93 @@ Rectangle {
 		AInputFrom {
 
 			id: oInputFrom;
+
+			function mOnFocusChanged() {
+
+				console.log(oInputFrom.objectName,"mOnFocusChanged");
+			}
+
+			function mOnEditingFinished() {
+
+				oRoot.pMessage.From = oInputFrom.pInputText;
+				oRoot.mUpdateMessage();
+
+				console.log(oInputFrom.objectName,"mOnEditingFinished");
+			}
+
+			function mOnAccepted() {
+
+				console.log(oInputFrom.objectName,"mOnAccepted");
+			}
 		}
 
 		AInputTo {
 
 			id: oInputTo;
+
+			function mOnFocusChanged() {
+
+				console.log(oInputTo.objectName,"mOnFocusChanged");
+			}
+
+			function mOnEditingFinished() {
+
+				oRoot.pMessage.To = oInputTo.pInputText;
+				oRoot.mUpdateMessage();
+
+				console.log(oInputTo.objectName,"mOnEditingFinished");
+			}
+
+			function mOnAccepted() {
+
+				console.log(oInputTo.objectName,"mOnAccepted");
+			}
 		}
 
 		AInputSubject {
 
 			id: oInputSubject;
+
+			function mOnFocusChanged() {
+
+				console.log(oInputSubject.objectName,"mOnFocusChanged");
+			}
+
+			function mOnEditingFinished() {
+
+				oRoot.pMessage.Subject = oInputSubject.pInputText;
+				oRoot.mUpdateMessage();
+
+				console.log(oInputSubject.objectName,"mOnEditingFinished");
+			}
+
+			function mOnAccepted() {
+
+				console.log(oInputSubject.objectName,"mOnAccepted");
+			}
 		}
 
 		AInputMessage {
 
 			id: oInputMessage;
+
+			function mOnFocusChanged() {
+
+				console.log(oInputMessage.objectName,"mOnFocusChanged");
+			}
+
+			function mOnEditingFinished() {
+
+				oRoot.pMessage.Message = oInputMessage.pInputText;
+				oRoot.mUpdateMessage();
+
+				console.log(oInputMessage.objectName,"mOnEditingFinished");
+			}
+
+			function mOnAccepted() {
+
+				console.log(oInputMessage.objectName,"mOnAccepted");
+			}
 		}
 	}
 
@@ -98,5 +180,18 @@ Rectangle {
 		anchors.horizontalCenter: parent.horizontalCenter;
 		anchors.bottom: oButtonServerSettings.top;
 		anchors.bottomMargin: 20;
+
+		onClicked: {
+
+			ASMTP.mMessageSend(oRoot.pMessage.ID);
+
+			console.log("!!!!!!!!!!",oRoot.pMessage.ID);
+		}
+	}
+
+	function mUpdateMessage() {
+
+		ACache.mPutInCache(oRoot.pMessage.ID,oRoot.pMessage);
+		console.log("Message update in cache. ID:",oRoot.pMessage.ID);
 	}
 }
