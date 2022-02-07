@@ -37,12 +37,6 @@ Rectangle {
 		oRoot.pMessage = ASMTP.mTemplateMessage();
 		oRoot.pMessage.ID = ASMTP.mMessageIDGenerate();
 
-		console.log("pMessage.ID:",oRoot.pMessage.ID);
-		console.log("pMessage.To:",oRoot.pMessage.To);
-		console.log("pMessage.From:",oRoot.pMessage.From);
-		console.log("pMessage.Subject:",oRoot.pMessage.Subject);
-		console.log("pMessage.Body:",oRoot.pMessage.Body);
-
 		oRoot.mUpdateMessage();
 	}
 
