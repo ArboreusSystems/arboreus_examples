@@ -181,15 +181,18 @@ void ASMTP::mMessageSend(QString inMessageID) {
 
 	ASMTPMessage oMessage;
 
-	_A_DEBUG << "111111111111" << pBackend->pCache->mGetFromCache(inMessageID);
-
-	oMessage.mFromVariantMap(pBackend->pCache->mGetOutFromCache(inMessageID));
-	_A_DEBUG << "Got message to send.";
-	_A_DEBUG << "ID:" << oMessage.ID;
-	_A_DEBUG << "to:" << oMessage.To;
-	_A_DEBUG << "from:" << oMessage.From;
-	_A_DEBUG << "subject:" << oMessage.Subject;
-	_A_DEBUG << "body:" << oMessage.Body;
+	ACacheReply oRawMessage = pBackend->pCache->mGet(inMessageID);
+	if (oRawMessage.Status) {
+		oMessage.mFromVariantMap(qvariant_cast<QVariantMap>(oRawMessage.Data));
+		_A_DEBUG << "Got message to send.";
+		_A_DEBUG << "ID:" << oMessage.ID;
+		_A_DEBUG << "To:" << oMessage.To;
+		_A_DEBUG << "From:" << oMessage.From;
+		_A_DEBUG << "Subject:" << oMessage.Subject;
+		_A_DEBUG << "Message:" << oMessage.Message;
+	} else {
+		_A_CRITICAL << "No message by ID";
+	}
 
 	emit sgMessageSend(oMessage);
 }

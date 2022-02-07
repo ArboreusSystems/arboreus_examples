@@ -77,7 +77,7 @@ class ASMTPMessage {
 		QString To = "NoTo";
 		QString From = "NoFrom";
 		QString Subject = "NoSubject";
-		QString Body = "NoBody";
+		QString Message = "NoMessage";
 
 		explicit ASMTPMessage(void) {}
 		virtual ~ASMTPMessage(void) {}
@@ -89,7 +89,7 @@ class ASMTPMessage {
 			oOutput.insert("To",To);
 			oOutput.insert("From",From);
 			oOutput.insert("Subject",Subject);
-			oOutput.insert("Body",Body);
+			oOutput.insert("Message",Message);
 			return oOutput;
 		}
 
@@ -109,8 +109,8 @@ class ASMTPMessage {
 			QString oSubject = qvariant_cast<QString>(inMap.value("Subject",oErrorValue));
 			if (QString::compare(oSubject,oErrorValue) != 0) this->Subject = oSubject;
 
-			QString oBody = qvariant_cast<QString>(inMap.value("Body",oErrorValue));
-			if (QString::compare(oBody,oErrorValue) != 0) this->Body = oBody;
+			QString oMessage = qvariant_cast<QString>(inMap.value("Message",oErrorValue));
+			if (QString::compare(oMessage,oErrorValue) != 0) this->Message = oMessage;
 		}
 };
 

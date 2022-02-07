@@ -37,6 +37,12 @@ Rectangle {
 		oRoot.pMessage = ASMTP.mTemplateMessage();
 		oRoot.pMessage.ID = ASMTP.mMessageIDGenerate();
 
+		console.log("pMessage.ID:",oRoot.pMessage.ID);
+		console.log("pMessage.To:",oRoot.pMessage.To);
+		console.log("pMessage.From:",oRoot.pMessage.From);
+		console.log("pMessage.Subject:",oRoot.pMessage.Subject);
+		console.log("pMessage.Body:",oRoot.pMessage.Body);
+
 		oRoot.mUpdateMessage();
 	}
 
@@ -80,7 +86,8 @@ Rectangle {
 
 			function mOnEditingFinished() {
 
-				oRoot.pMessage.From = oInputFrom.pInputText;
+				console.log("oInputFrom.pInputText:",oInputFrom.pTextInput);
+				oRoot.pMessage.From = oInputFrom.pTextInput;
 				oRoot.mUpdateMessage();
 
 				console.log(oInputFrom.objectName,"mOnEditingFinished");
@@ -103,7 +110,8 @@ Rectangle {
 
 			function mOnEditingFinished() {
 
-				oRoot.pMessage.To = oInputTo.pInputText;
+				console.log("oInputTo.pInputText:",oInputTo.pTextInput);
+				oRoot.pMessage.To = oInputTo.pTextInput;
 				oRoot.mUpdateMessage();
 
 				console.log(oInputTo.objectName,"mOnEditingFinished");
@@ -126,7 +134,8 @@ Rectangle {
 
 			function mOnEditingFinished() {
 
-				oRoot.pMessage.Subject = oInputSubject.pInputText;
+				console.log("oInputSubject.pInputText:",oInputSubject.pTextInput);
+				oRoot.pMessage.Subject = oInputSubject.pTextInput;
 				oRoot.mUpdateMessage();
 
 				console.log(oInputSubject.objectName,"mOnEditingFinished");
@@ -149,7 +158,8 @@ Rectangle {
 
 			function mOnEditingFinished() {
 
-				oRoot.pMessage.Message = oInputMessage.pInputText;
+				console.log("oInputMessage.pInputText:",oInputMessage.pTextInput);
+				oRoot.pMessage.Message = oInputMessage.pTextInput;
 				oRoot.mUpdateMessage();
 
 				console.log(oInputMessage.objectName,"mOnEditingFinished");
@@ -184,8 +194,6 @@ Rectangle {
 		onClicked: {
 
 			ASMTP.mMessageSend(oRoot.pMessage.ID);
-
-			console.log("!!!!!!!!!!",oRoot.pMessage.ID);
 		}
 	}
 
