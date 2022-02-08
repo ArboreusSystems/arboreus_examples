@@ -26,7 +26,7 @@ import "qrc:/qml/Templates";
 AButtonTemplate {
 
 	id: oRoot;
-	text: "Set server";
+	text: "Set";
 	pObjectName: "ButtonSetServer";
 	pTextColor: COLORS.mWhiteLight();
 	pTextPixelSize: 22;
@@ -37,10 +37,5 @@ AButtonTemplate {
 		id: oBackground;
 		color: oRoot.pressed ? COLORS.mRedDark() : COLORS.mOrangeDark();
 		anchors.fill: parent;
-	}
-
-	onClicked: {
-
-		oApplicationStackView.pop();
 	}
 }

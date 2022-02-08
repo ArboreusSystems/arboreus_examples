@@ -25,6 +25,8 @@ import "qrc:/qml/Templates";
 // Component
 AInputTextWithLabel {
 
+	property alias pTextInput: oInputText.pText;
+
 	id: oRoot;
 
 	pInputText.data: AInputText {

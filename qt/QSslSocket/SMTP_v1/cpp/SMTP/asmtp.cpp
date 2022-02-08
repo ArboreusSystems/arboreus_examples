@@ -124,6 +124,13 @@ void ASMTP::slPropertiesUpdated(void) {
 
 void ASMTP::slMessageSent(QString inMessageID) {
 
+	ACacheReply oRemovingMessage = pBackend->pCache->mRemove(inMessageID);
+	if (oRemovingMessage.Status) {
+		_A_DEBUG << "Message deleted from cache:" << inMessageID;
+	} else {
+		_A_CRITICAL << "Message from cache not deleted properly";
+	}
+
 	emit sgMessageSent(inMessageID);
 }
 

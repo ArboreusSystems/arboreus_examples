@@ -56,30 +56,4 @@ ApplicationWindow {
 			Component {id: oScreenServer; AScreenServer {}}
 		}
 	}
-
-	Component.onCompleted: {
-
-		var oProperties = ASMTP.mGetProperties();
-		oProperties.User = "";
-		oProperties.Password = "";
-		oProperties.ServerName = "";
-		oProperties.Port = 465;
-
-		ASMTP.mSetProperties(oProperties);
-	}
-
-	Connections {
-
-		target: ASMTP;
-		function onSgPropertiesUpdated() {
-
-			console.log("Updated properties");
-
-			var oProperties = ASMTP.mGetProperties();
-			console.log("User:",oProperties.User);
-			console.log("Password:",oProperties.Password);
-			console.log("ServerName:",oProperties.ServerName);
-			console.log("Port:",oProperties.Port);
-		}
-	}
 }

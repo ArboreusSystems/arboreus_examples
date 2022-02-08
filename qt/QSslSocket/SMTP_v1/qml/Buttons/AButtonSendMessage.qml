@@ -26,7 +26,7 @@ import "qrc:/qml/Templates";
 AButtonTemplate {
 
 	id: oRoot;
-	text: "Send Message";
+	text: "Send";
 	pObjectName: "ButtonSendMessage";
 	pTextColor: COLORS.mWhiteLight();
 	pTextPixelSize: 22;

@@ -99,6 +99,30 @@ void ASMTPService::slMessageSend(ASMTPMessage inMessage) {
 
 	_A_DEBUG << "Sending message:" << inMessage.ID;
 
+	pSslSocket->connectToHostEncrypted(pProperties.ServerName,pProperties.Port);
+
+	QString oHELO = QString("HELO ") + pProperties.ServerName + "\n";
+	this->mWrite(oHELO.toLatin1().data());
+
+	QString oMAIL_FROM = QString("MAIL FROM: ") + inMessage.From + "\n";
+	this->mWrite(oMAIL_FROM.toLatin1().data());
+
+	QString oRCPT_TO = QString("RCPT TO: ") + inMessage.To + "\n";
+	this->mWrite(oRCPT_TO.toLatin1().data());
+
+	this->mWrite("DATA\n");
+
+	QString oMessageBody = QString("") +
+		"to: " + inMessage.To + "\n" +
+		"from: " + inMessage.From + "\n" +
+		"subject: " + inMessage.Subject + "\n" +
+		"\n" +
+		inMessage.Message + "\n" +
+		".\n";
+	this->mWrite(oMessageBody.toLatin1().data());
+
+	this->mWrite("QUIT\n");
+
 	_A_DEBUG << "Message sent:" << inMessage.ID;
 	emit sgMessageSent(inMessage.ID);
 }
@@ -191,7 +215,22 @@ void ASMTPService::mInit(void) {
 	QObject::connect(
 		pSslSocket,&QSslSocket::stateChanged,
 		this,&ASMTPService::slStateChanged
-	);
+				);
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void ASMTPService::mWrite(const char* inData) {
+
+	_A_DEBUG << inData;
+	pSslSocket->write(inData);
+	_A_DEBUG << "Server:" << pSslSocket->readAll().data();
 }
 
 

@@ -37,9 +37,4 @@ AButtonTemplate {
 		color: oRoot.pressed ? COLORS.mRedDark() : COLORS.mFiolentLight();
 		anchors.fill: parent;
 	}
-
-	onClicked: {
-
-		oApplicationStackView.push(oScreenServer);
-	}
 }

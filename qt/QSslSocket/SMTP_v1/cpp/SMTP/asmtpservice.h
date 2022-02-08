@@ -61,6 +61,7 @@ class ASMTPService : public AThreadServiceTemplate {
 		ASMTPProperties pProperties;
 
 		void mInit(void);
+		void mWrite(const char* inData);
 
 	private slots:
 

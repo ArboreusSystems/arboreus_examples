@@ -14,6 +14,7 @@
 
 // System includes
 import QtQuick 2.15
+import QtQuick.Controls 2.15
 
 // Application includes
 import "qrc:/js/AColors.js" as COLORS;
@@ -26,8 +27,20 @@ import "qrc:/qml/Input";
 // Component
 Rectangle {
 
+	property var pProperties;
+
 	id: oRoot;
 	color: COLORS.mGreen();
+
+	Component.onCompleted: {
+
+		oRoot.pProperties = ASMTP.mGetProperties();
+
+		oInputServerName.pTextInput = oRoot.pProperties.ServerName;
+		oInputServerPort.pTextInput = oRoot.pProperties.Port;
+		oInputUser.pTextInput = oRoot.pProperties.User;
+		oInputPassword.pTextInput = oRoot.pProperties.Password;
+	}
 
 	Rectangle {
 
@@ -49,53 +62,154 @@ Rectangle {
 		}
 	}
 
-	Column {
+	ScrollView {
 
-		id: oMessageForm;
-		width: parent.width * 0.8;
+		id: oScrollFormView;
+		contentWidth: oMessageForm.width;
 		anchors.top: oHeader.bottom;
-		anchors.horizontalCenter: parent.horizontalCenter;
-		topPadding: 10;
-		spacing: 5;
+		anchors.left: parent.left;
+		anchors.right: parent.right;
+		anchors.bottom: oFooter.top;
+		clip: true;
 
-		AInputServerName {
+		Column {
 
-			id: oInputServerName;
-		}
+			id: oMessageForm;
+			width: oScrollFormView.width * 0.8;
+			topPadding: 10;
+			leftPadding: oScrollFormView.width * 0.1;
+			spacing: 5;
 
-		AInputServerPort {
+			AInputServerName {
 
-			id: oInputServerPort;
-		}
+				id: oInputServerName;
 
-		AInputUser {
+				function mOnFocusChanged() {
 
-			id: oInputUser;
-		}
+					console.log(oInputServerName.objectName,"mOnFocusChanged");
+				}
 
-		AInputPassword {
+				function mOnEditingFinished() {
 
-			id: oInputPassword;
+					console.log(oInputServerName.objectName,"mOnEditingFinished");
+				}
+
+				function mOnAccepted() {
+
+					console.log(oInputServerName.objectName,"mOnAccepted");
+				}
+			}
+
+			AInputServerPort {
+
+				id: oInputServerPort;
+
+				function mOnFocusChanged() {
+
+					console.log(oInputServerPort.objectName,"mOnFocusChanged");
+				}
+
+				function mOnEditingFinished() {
+
+					console.log(oInputServerPort.objectName,"mOnEditingFinished");
+				}
+
+				function mOnAccepted() {
+
+					console.log(oInputServerPort.objectName,"mOnAccepted");
+				}
+			}
+
+			AInputUser {
+
+				id: oInputUser;
+
+				function mOnFocusChanged() {
+
+					console.log(oInputUser.objectName,"mOnFocusChanged");
+				}
+
+				function mOnEditingFinished() {
+
+					console.log(oInputUser.objectName,"mOnEditingFinished");
+				}
+
+				function mOnAccepted() {
+
+					console.log(oInputUser.objectName,"mOnAccepted");
+				}
+			}
+
+			AInputPassword {
+
+				id: oInputPassword;
+
+				function mOnFocusChanged() {
+
+					console.log(oInputPassword.objectName,"mOnFocusChanged");
+				}
+
+				function mOnEditingFinished() {
+
+					console.log(oInputPassword.objectName,"mOnEditingFinished");
+				}
+
+				function mOnAccepted() {
+
+					console.log(oInputPassword.objectName,"mOnAccepted");
+				}
+			}
 		}
 	}
 
-	AButtonCancel {
+	Rectangle {
 
-		id: oButtonCancel;
-		width: parent.width * 0.8;
-		height: 50;
-		anchors.horizontalCenter: parent.horizontalCenter;
+		id: oFooter;
+		color: COLORS.mSaladDark();
+		width: parent.width;
+		height: 100;
 		anchors.bottom: parent.bottom;
-		anchors.bottomMargin: 50;
+		anchors.horizontalCenter: parent.horizontalCenter;
+
+		AButtonCancel {
+
+			id: oButtonCancel;
+			width: (parent.width - 75) / 2;
+			height: 50;
+			anchors.verticalCenter: parent.verticalCenter;
+			anchors.left: parent.left;
+			anchors.leftMargin: 25;
+
+			onClicked: {
+
+				oApplicationStackView.pop();
+			}
+		}
+
+		AButtonSetServer {
+
+			id: oButtonSetServer;
+			width: oButtonCancel.width;
+			height: 50;
+			anchors.verticalCenter: parent.verticalCenter;
+			anchors.right: parent.right;
+			anchors.rightMargin: 25;
+
+			onClicked: {
+
+				oRoot.mSetProperties();
+				oApplicationStackView.pop();
+			}
+		}
 	}
 
-	AButtonSetServer {
+	function mSetProperties() {
 
-		id: oButtonSetServer;
-		width: parent.width * 0.8;
-		height: 75;
-		anchors.horizontalCenter: parent.horizontalCenter;
-		anchors.bottom: oButtonCancel.top;
-		anchors.bottomMargin: 20;
+		oRoot.pProperties.ServerName = oInputServerName.pTextInput;
+		oRoot.pProperties.Port = oInputServerPort.pTextInput;
+		oRoot.pProperties.User = oInputUser.pTextInput;
+		oRoot.pProperties.Password = oInputPassword.pTextInput;
+
+		ASMTP.mSetProperties(oRoot.pProperties);
 	}
 }

@@ -37,9 +37,4 @@ AButtonTemplate {
 		color: oRoot.pressed ? COLORS.mRedDark() : COLORS.mGreenLight();
 		anchors.fill: parent;
 	}
-
-	onClicked: {
-
-		oApplicationStackView.pop();
-	}
 }

@@ -34,10 +34,12 @@ Rectangle {
 
 	Component.onCompleted: {
 
-		oRoot.pMessage = ASMTP.mTemplateMessage();
-		oRoot.pMessage.ID = ASMTP.mMessageIDGenerate();
+		oRoot.mResetMessage();
+	}
 
-		oRoot.mUpdateMessage();
+	Component.onDestruction: {
+
+		oRoot.mDeleteMessage();
 	}
 
 	Rectangle {
@@ -60,134 +62,170 @@ Rectangle {
 		}
 	}
 
-	Column {
+	ScrollView {
 
-		id: oMessageForm;
-		width: parent.width * 0.8;
+		id: oScrollMessageView;
+		width: parent.width;
+		contentWidth: oMessageForm.width;
 		anchors.top: oHeader.bottom;
-		anchors.horizontalCenter: parent.horizontalCenter;
-		topPadding: 10;
-		spacing: 5;
+		anchors.left: parent.left;
+		anchors.right: parent.right;
+		anchors.bottom: oFooter.top;
+		clip: true;
 
-		AInputFrom {
+		Column {
 
-			id: oInputFrom;
+			id: oMessageForm;
+			width: oScrollMessageView.width * 0.8;
+			topPadding: 10;
+			bottomPadding: 25;
+			leftPadding: oScrollMessageView.width * 0.1;
+			spacing: 5;
 
-			function mOnFocusChanged() {
+			AInputFrom {
 
-				console.log(oInputFrom.objectName,"mOnFocusChanged");
+				id: oInputFrom;
+
+				function mOnFocusChanged() {
+
+					console.log(oInputFrom.objectName,"mOnFocusChanged");
+				}
+
+				function mOnEditingFinished() {
+
+					console.log("oInputFrom.pInputText:",oInputFrom.pTextInput);
+					oRoot.pMessage.From = oInputFrom.pTextInput;
+					oRoot.mUpdateMessage();
+
+					console.log(oInputFrom.objectName,"mOnEditingFinished");
+				}
+
+				function mOnAccepted() {
+
+					console.log(oInputFrom.objectName,"mOnAccepted");
+				}
 			}
 
-			function mOnEditingFinished() {
+			AInputTo {
 
-				console.log("oInputFrom.pInputText:",oInputFrom.pTextInput);
-				oRoot.pMessage.From = oInputFrom.pTextInput;
-				oRoot.mUpdateMessage();
+				id: oInputTo;
 
-				console.log(oInputFrom.objectName,"mOnEditingFinished");
+				function mOnFocusChanged() {
+
+					console.log(oInputTo.objectName,"mOnFocusChanged");
+				}
+
+				function mOnEditingFinished() {
+
+					console.log("oInputTo.pInputText:",oInputTo.pTextInput);
+					oRoot.pMessage.To = oInputTo.pTextInput;
+					oRoot.mUpdateMessage();
+
+					console.log(oInputTo.objectName,"mOnEditingFinished");
+				}
+
+				function mOnAccepted() {
+
+					console.log(oInputTo.objectName,"mOnAccepted");
+				}
 			}
 
-			function mOnAccepted() {
+			AInputSubject {
 
-				console.log(oInputFrom.objectName,"mOnAccepted");
-			}
-		}
+				id: oInputSubject;
 
-		AInputTo {
+				function mOnFocusChanged() {
 
-			id: oInputTo;
+					console.log(oInputSubject.objectName,"mOnFocusChanged");
+				}
 
-			function mOnFocusChanged() {
+				function mOnEditingFinished() {
 
-				console.log(oInputTo.objectName,"mOnFocusChanged");
-			}
+					console.log("oInputSubject.pInputText:",oInputSubject.pTextInput);
+					oRoot.pMessage.Subject = oInputSubject.pTextInput;
+					oRoot.mUpdateMessage();
 
-			function mOnEditingFinished() {
+					console.log(oInputSubject.objectName,"mOnEditingFinished");
+				}
 
-				console.log("oInputTo.pInputText:",oInputTo.pTextInput);
-				oRoot.pMessage.To = oInputTo.pTextInput;
-				oRoot.mUpdateMessage();
+				function mOnAccepted() {
 
-				console.log(oInputTo.objectName,"mOnEditingFinished");
-			}
-
-			function mOnAccepted() {
-
-				console.log(oInputTo.objectName,"mOnAccepted");
-			}
-		}
-
-		AInputSubject {
-
-			id: oInputSubject;
-
-			function mOnFocusChanged() {
-
-				console.log(oInputSubject.objectName,"mOnFocusChanged");
+					console.log(oInputSubject.objectName,"mOnAccepted");
+				}
 			}
 
-			function mOnEditingFinished() {
+			AInputMessage {
 
-				console.log("oInputSubject.pInputText:",oInputSubject.pTextInput);
-				oRoot.pMessage.Subject = oInputSubject.pTextInput;
-				oRoot.mUpdateMessage();
+				id: oInputMessage;
 
-				console.log(oInputSubject.objectName,"mOnEditingFinished");
-			}
+				function mOnFocusChanged() {
 
-			function mOnAccepted() {
+					console.log(oInputMessage.objectName,"mOnFocusChanged");
+				}
 
-				console.log(oInputSubject.objectName,"mOnAccepted");
-			}
-		}
+				function mOnEditingFinished() {
 
-		AInputMessage {
+					console.log("oInputMessage.pInputText:",oInputMessage.pTextInput);
+					oRoot.pMessage.Message = oInputMessage.pTextInput;
+					oRoot.mUpdateMessage();
 
-			id: oInputMessage;
+					console.log(oInputMessage.objectName,"mOnEditingFinished");
+				}
 
-			function mOnFocusChanged() {
+				function mOnAccepted() {
 
-				console.log(oInputMessage.objectName,"mOnFocusChanged");
-			}
-
-			function mOnEditingFinished() {
-
-				console.log("oInputMessage.pInputText:",oInputMessage.pTextInput);
-				oRoot.pMessage.Message = oInputMessage.pTextInput;
-				oRoot.mUpdateMessage();
-
-				console.log(oInputMessage.objectName,"mOnEditingFinished");
-			}
-
-			function mOnAccepted() {
-
-				console.log(oInputMessage.objectName,"mOnAccepted");
+					console.log(oInputMessage.objectName,"mOnAccepted");
+				}
 			}
 		}
 	}
 
-	AButtonServer {
+	Rectangle {
 
-		id: oButtonServerSettings;
-		width: parent.width * 0.8;
-		height: 50;
-		anchors.horizontalCenter: parent.horizontalCenter;
+		id: oFooter;
+		color: COLORS.mSaladDark();
+		width: parent.width;
+		height: 100;
 		anchors.bottom: parent.bottom;
-		anchors.bottomMargin: 50;
+		anchors.horizontalCenter: parent.horizontalCenter;
+
+		AButtonServer {
+
+			id: oButtonServerSettings;
+			width: (parent.width - 75) / 2;
+			height: 50;
+			anchors.verticalCenter: parent.verticalCenter;
+			anchors.left: parent.left;
+			anchors.leftMargin: 25;
+
+			onClicked: {
+
+				oApplicationStackView.push(oScreenServer);
+			}
+		}
+
+		AButtonSendMessage {
+
+			id: oButtonSendMessage;
+			width: oButtonServerSettings.width;
+			height: 50;
+			anchors.verticalCenter: parent.verticalCenter;
+			anchors.right: parent.right;
+			anchors.rightMargin: 25;
+
+			onClicked: {
+
+				ASMTP.mMessageSend(oRoot.pMessage.ID);
+			}
+		}
 	}
 
-	AButtonSendMessage {
+	Connections {
 
-		id: oButtonSendMessage;
-		width: parent.width * 0.8;
-		height: 75;
-		anchors.horizontalCenter: parent.horizontalCenter;
-		anchors.bottom: oButtonServerSettings.top;
-		anchors.bottomMargin: 20;
+		target: ASMTP;
+		function onSgMessageSent(inMessageID) {
 
-		onClicked: {
-
-			ASMTP.mMessageSend(oRoot.pMessage.ID);
+			oRoot.mResetMessage();
 		}
 	}
 
@@ -195,5 +233,23 @@ Rectangle {
 
 		ACache.mPutInCache(oRoot.pMessage.ID,oRoot.pMessage);
 		console.log("Message update in cache. ID:",oRoot.pMessage.ID);
+	}
+
+	function mDeleteMessage() {
+
+		ACache.mRemoveFromCache(oRoot.pMessage.ID);
+	}
+
+	function mResetMessage() {
+
+		oRoot.pMessage = ASMTP.mTemplateMessage();
+		oRoot.pMessage.ID = ASMTP.mMessageIDGenerate();
+
+		oInputFrom.pTextInput = "";
+		oInputTo.pTextInput = "";
+		oInputSubject.pTextInput = "";
+		oInputMessage.pTextInput = "";
+
+		oRoot.mUpdateMessage();
 	}
 }
