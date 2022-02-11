@@ -57,8 +57,10 @@ AScreenTemplate {
 			for (var i = 0; i < 5; i++) {
 				var iItem = {
 					Text: 'Text_' + i,
-					Value: i
+					Value: i,
+					Color: "" + COLORS.mRandom()
 				};
+				console.log("Color_" + i + ":",iItem.Color);
 				oListModel.append(iItem);
 			}
 		}
@@ -76,22 +78,10 @@ AScreenTemplate {
 		anchors.right: parent.right;
 		model: oListModel;
 
-//		delegate: AListViewItem {
+		delegate: AListViewItem {
 
-//			id: oListViewDelegate;
-//			pText: model.Text;
-//		}
-
-		delegate: AListViewItemSwipe {}
-
-		onCurrentIndexChanged: {
-
-			console.log("Current Index changed:",oListView.currentIndex);
-		}
-
-		onCurrentItemChanged: {
-
-			console.log("Current Item changed:",oListView.currentItem);
+			id: oListViewDelegate;
+			pText: model.Text;
 		}
 	}
 
@@ -114,7 +104,8 @@ AScreenTemplate {
 			var oCounter = oListModel.count;
 			var oItem = {
 				Text: 'Text_' + oCounter,
-				Value: oCounter
+				Value: oCounter,
+				Color: "" + COLORS.mRandom()
 			}
 			oListModel.append(oItem);
 		}

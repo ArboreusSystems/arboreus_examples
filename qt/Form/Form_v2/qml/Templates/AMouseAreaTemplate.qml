@@ -23,18 +23,16 @@ MouseArea {
 
 	signal sgSwipeLeft();
 	signal sgSwipeRight();
-	signal sgSwipeUp();
 	signal sgSwipeDown();
+	signal sgSwipeUp();
 
 	QtObject {
 
-		property real pPreviousX: 0;
-		property real pPreviousY: 0;
-		property real pVelocityX: 0.0;
-		property real pVelocityY: 0.0;
-		property int pStartX: 0;
-		property int pStartY: 0;
 		property bool pTracing: false;
+		property real pXVelocity: 0.0;
+		property real pYVelocity: 0.0;
+		property int pXPrev: 0;
+		property int pYPrev: 0;
 
 		id: oPrivate;
 	}
@@ -46,38 +44,35 @@ MouseArea {
 
 		console.log("onPressed");
 
-		oPrivate.pStartX = mouse.x;
-		oPrivate.pStartY = mouse.y;
-		oPrivate.pPreviousX = mouse.x;
-		oPrivate.pPreviousY = mouse.y;
-		oPrivate.pVelocityX = 0;
-		oPrivate.pVelocityY = 0;
 		oPrivate.pTracing = true;
+		oPrivate.pXVelocity = 0;
+		oPrivate.pYVelocity = 0;
+		oPrivate.pXPrev = mouse.x;
+		oPrivate.pYPrev = mouse.y;
 	}
 
 	onPositionChanged: {
 
 		if (!oPrivate.pTracing) return;
 
-		var oCurrVelX = (mouse.x - oPrivate.pPreviousX);
-		var oCurrVelY = (mouse.y - oPrivate.pPreviousY);
+		var oCurrentXVelocity = (mouse.x - oPrivate.pXPrev);
+		oPrivate.pXVelocity = (oPrivate.pXVelocity + oCurrentXVelocity) / 2.0;
+		oPrivate.pXPrev = mouse.x;
 
-		oPrivate.pVelocityX = (oPrivate.pVelocityX + oCurrVelX) / 2.0;
-		oPrivate.pVelocityY = (oPrivate.pVelocityY + oCurrVelY) / 2.0;
+		var oCurrentYVelocity = (mouse.y - oPrivate.pYPrev);
+		oPrivate.pYVelocity = (oPrivate.pXVelocity + oCurrentYVelocity) / 2.0;
+		oPrivate.pYPrev = mouse.y;
 
-		oPrivate.pPreviousX = mouse.x;
-		oPrivate.pPreviousY = mouse.y;
-
-		if (oPrivate.pPreviousX > 15 && mouse.x > oRoot.width * 0.25 ) {
+		if (oPrivate.pXVelocity > 15 && mouse.x > parent.width * 0.2) {
 			oPrivate.pTracing = false;
-			oRoot.sgSwipeRight()
-		} else if (oPrivate.pPreviousX < -15 && mouse.x < oRoot.width * 0.75 ) {
+			oRoot.sgSwipeRight();
+		} else if (oPrivate.pXVelocity < -15 && mouse.x > parent.width * 0.2) {
 			oPrivate.pTracing = false;
-			oRoot.sgSwipeLeft()
-		} else if (oPrivate.pVelocityY > 15 && mouse.y > oRoot.height * 0.25 ) {
+			oRoot.sgSwipeLeft();
+		} else if (oPrivate.pYVelocity > 15 && mouse.y > parent.height * 0.2) {
 			oPrivate.pTracing = false;
 			oRoot.sgSwipeDown();
-		} else if (oPrivate.pVelocityY < -15 && mouse.y < oRoot.height * 0.75 ) {
+		} else if (oPrivate.pYVelocity < -15 && mouse.y < parent.height * 0.2) {
 			oPrivate.pTracing = false;
 			oRoot.sgSwipeUp();
 		}

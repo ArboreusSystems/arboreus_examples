@@ -11,8 +11,6 @@
         <file>qml/Items/AListViewItem.qml</file>
         <file>qml/Templates/AScreenTemplate.qml</file>
         <file>qml/Loader/ALoaderSign.qml</file>
-        <file>qml/Items/AListViewItemSwipe.qml</file>
         <file>qml/Templates/AMouseAreaTemplate.qml</file>
-        <file>qml/Templates/AListViewItemSwipeTemplate.qml</file>
     </qresource>
 </RCC>

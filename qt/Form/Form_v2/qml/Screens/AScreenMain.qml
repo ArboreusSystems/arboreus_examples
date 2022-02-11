@@ -31,31 +31,11 @@ AScreenTemplate {
 	color: COLORS.mGreyLight();
 	pObjectName: "ScreenMain";
 	pStackView: oApplicationStackView;
-//	pLoaderSign.source: "qrc:/qml/Loader/ALoaderSign.qml";
-
-//	pLoader.data: Rectangle {
-
-//		id: oLoader;
-//		anchors.fill: parent;
-//		color: COLORS.mOrange();
-//		opacity: 0.5;
-//	}
 
 	Component.onCompleted: {
 
 		var oLoaderSign = Qt.createComponent("qrc:/qml/Loader/ALoaderSign.qml");
 		oRoot.pLoaderSign.sourceComponent = oLoaderSign;
-
-//		var oLoaderSign = Qt.createQmlObject(
-//			'import QtQuick 2.15;' +
-//			'import "qrc:/qml/Loader";' +
-//			'Component { ALoaderSign {}}',
-//			oRoot,
-//			"LoaderSign"
-//		);
-//		oRoot.pLoaderSign.sourceComponent = oLoaderSign;
-
-//		oRoot.mShowLoader(true);
 	}
 
 	AButtonTemplate {

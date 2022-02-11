@@ -20,17 +20,19 @@ import "qrc:/js/AColors.js" as COLORS;
 
 // Application paths
 import "qrc:/qml/Buttons";
+import "qrc:/qml/Templates"
 
 
 // Component
 Rectangle {
 
 	property alias pText: oLabel.text;
+	property alias pColor: oRoot.color;
 
 	id: oRoot;
-	implicitWidth: parent.width;
-	implicitHeight: oLabel.height * 2.5;
-	color: oRoot.ListView.isCurrentItem ? COLORS.mSaladDark(): COLORS.mOrangeDark();
+	implicitWidth: parent ? parent.width : 0;
+	implicitHeight: oLabel.height * 3;
+	color: oRoot.ListView.isCurrentItem ? COLORS.mSaladDark(): model.Color;
 
 	Text {
 
@@ -47,7 +49,7 @@ Rectangle {
 		font.pixelSize: 18;
 	}
 
-	MouseArea {
+	AMouseAreaTemplate {
 
 		id: oMouseArea;
 		anchors.top: parent.top;
@@ -55,22 +57,38 @@ Rectangle {
 		anchors.right: oButtonDelete.left;
 		anchors.bottom: parent.bottom;
 
-		onClicked: {
+		onPressed: {
 
-			console.log("Clicked Item with index:",model.index);
-
-			if (oButtonDelete.width > 0) {
-				oButtonDelete.implicitWidth = 0;
-				oButtonDelete.visible = false;
-			}
+			if (oButtonDelete.visible) oButtonDelete.visible = false;
 			oListView.currentIndex = model.index;
+		}
+
+		onSgSwipeDown: {
+
+			if (model.index !== (model.count - 1)) {
+				oListView.model.move(
+					model.index,
+					model.index + 1,
+					1
+				);
+			}
+		}
+
+		onSgSwipeUp: {
+
+			if (model.index !== 0) {
+				oListView.model.move(
+					model.index,
+					model.index - 1,
+					1
+				);
+			}
 		}
 
 		onPressAndHold: {
 
-			console.log("Pressed and Hold Item with index:",model.index);
 			oButtonDelete.visible = true;
-			oButtonDelete.implicitWidth = oButtonDelete.height;
+			oButtonDelete.implicitWidth = oRoot.height;
 		}
 	}
 
@@ -78,7 +96,7 @@ Rectangle {
 
 		id: oButtonDelete;
 		objectName: "ButtonDelete";
-		implicitHeight: parent.height;
+		implicitHeight: oRoot.height;
 		implicitWidth: 0;
 		text: "D";
 		anchors.right: parent.right;
@@ -89,7 +107,19 @@ Rectangle {
 
 			oRoot.implicitWidth = 0;
 			oRoot.implicitHeight = 0;
+			oRoot.color = COLORS.mTransparent();
 			oListView.model.remove(model.index);
+		}
+	}
+
+	Connections {
+
+		target: oListView;
+		function onCurrentIndexChanged() {
+
+			if(model.index !== model.currentIndex) {
+				if (oButtonDelete.visible) oButtonDelete.visible = false;
+			}
 		}
 	}
 }
