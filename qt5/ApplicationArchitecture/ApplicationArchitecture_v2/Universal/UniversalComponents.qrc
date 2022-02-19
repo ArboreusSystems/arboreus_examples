@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/UniversalComponents">
+        <file>qml/Components/AButton.qml</file>
+    </qresource>
+</RCC>

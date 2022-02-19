@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>js/AGlobal.js</file>
+        <file>js/AColors.js</file>
+        <file>qml/Content/AContentWrapper.qml</file>
+        <file>qml/Screens/AScreenMail.qml</file>
+        <file>qml/Screens/AScreenServer.qml</file>
+        <file>qml/Templates/AButtonTemplate.qml</file>
+        <file>qml/Buttons/AButtonServer.qml</file>
+        <file>qml/Buttons/AButtonSendMessage.qml</file>
+        <file>qml/Buttons/AButtonCancel.qml</file>
+        <file>qml/Buttons/AButtonSetServer.qml</file>
+        <file>qml/Templates/AInputTextWithLabelTemplate.qml</file>
+        <file>qml/Input/AInputTextWithLabel.qml</file>
+        <file>qml/Templates/AInputTextTemplate.qml</file>
+        <file>qml/Input/AInputText.qml</file>
+        <file>qml/Input/AInputFrom.qml</file>
+        <file>qml/Input/AInputTo.qml</file>
+        <file>qml/Input/AInputSubject.qml</file>
+        <file>qml/Input/AInputMessage.qml</file>
+        <file>qml/Input/AInputServerName.qml</file>
+        <file>qml/Input/AInputServerPort.qml</file>
+        <file>qml/Input/AInputUser.qml</file>
+        <file>qml/Input/AInputPassword.qml</file>
+        <file>qml/Input/AInputPasswordWithLabel.qml</file>
+    </qresource>
+</RCC>

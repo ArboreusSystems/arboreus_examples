@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>js/AColors.js</file>
+        <file>js/AGlobal.js</file>
+        <file>qml/ATextInputTemplate.qml</file>
+        <file>qml/ATextInput.qml</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>acolors.js</file>
+        <file>aglobal.js</file>
+        <file>ButtonExit.qml</file>
+        <file>PaddingItem.qml</file>
+    </qresource>
+</RCC>

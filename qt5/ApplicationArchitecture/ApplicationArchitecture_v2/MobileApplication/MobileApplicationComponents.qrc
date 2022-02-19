@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/MobileApplication">
+        <file>qml/Main/MobileApplication.qml</file>
+    </qresource>
+</RCC>
