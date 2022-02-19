@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>enum.js</file>
-        <file>test.js</file>
-    </qresource>
-</RCC>

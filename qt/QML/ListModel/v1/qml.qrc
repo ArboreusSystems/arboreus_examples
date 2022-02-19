@@ -1,8 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>main.qml</file>
-        <file>js/Global.js</file>
-        <file>js/Colors.js</file>
-        <file>qml/ToDoList.qml</file>
-    </qresource>
-</RCC>

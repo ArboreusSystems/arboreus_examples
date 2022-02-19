@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>qml/Main/HDKeys_v1.qml</file>
-        <file>js/AColor.js</file>
-        <file>js/AGlobal.js</file>
-    </qresource>
-</RCC>

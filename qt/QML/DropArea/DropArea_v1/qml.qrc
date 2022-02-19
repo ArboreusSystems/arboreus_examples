@@ -1,8 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>main.qml</file>
-        <file>qml/ADropArea.qml</file>
-        <file>js/AGlobal.js</file>
-        <file>js/AColors.js</file>
-    </qresource>
-</RCC>

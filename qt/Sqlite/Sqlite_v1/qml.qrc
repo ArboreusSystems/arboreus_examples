@@ -1,9 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>main.qml</file>
-        <file>qml/AInputField.qml</file>
-        <file>js/aColor.js</file>
-        <file>js/aGlobal.js</file>
-        <file>qml/AFormButton.qml</file>
-    </qresource>
-</RCC>

@@ -1,9 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>main.qml</file>
-        <file>js/Global.js</file>
-        <file>js/Colors.js</file>
-        <file>qml/AButton.qml</file>
-        <file>qml/AText.qml</file>
-    </qresource>
-</RCC>

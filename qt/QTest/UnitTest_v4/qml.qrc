@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>tst_gui.qml</file>
-        <file>tst_network.qml</file>
-        <file>tst_library.qml</file>
-    </qresource>
-</RCC>
