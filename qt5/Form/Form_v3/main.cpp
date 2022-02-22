@@ -10,9 +10,11 @@
 // System includes
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 
 // Application includes
 #include <aloggerglobal.h>
+#include <auisignals.h>
 
 // Constants
 
@@ -25,8 +27,12 @@ int main(int inCounter, char *inArguments[]) {
 
 	QGuiApplication oApplication(inCounter, inArguments);
 	QQmlApplicationEngine oEngine;
+	QQmlContext* oRootContext = oEngine.rootContext();
 
 	qInstallMessageHandler(fLoggerMessageHandler);
+
+	AUISignals* oUISignals = new AUISignals(&oEngine);
+	oRootContext->setContextProperty("AUISignals",oUISignals);
 
 	const QUrl oURL(QStringLiteral("qrc:/main.qml"));
 	QObject::connect(

@@ -23,21 +23,14 @@ import "qrc:/js/AColors.js" as COLORS;
 import "qrc:/qml/Templates";
 import "qrc:/qml/Header";
 import "qrc:/qml/Items";
-import "qrc:/qml/Buttons";
 
 
 // Component
-AScreenTemplate {
+AScreen {
 
 	id: oRoot;
-	color: COLORS.mPurple();
 	pObjectName: "ScreenForm";
-	pStackView: oApplicationStackView;
-
-	Component.onCompleted: {
-
-		console.log("11111");
-	}
+	color: COLORS.mPurple();
 
 	AHeader {
 
@@ -60,7 +53,6 @@ AScreenTemplate {
 					Value: i,
 					Color: "" + COLORS.mRandom()
 				};
-				console.log("Color_" + i + ":",iItem.Color);
 				oListModel.append(iItem);
 			}
 		}
@@ -81,7 +73,23 @@ AScreenTemplate {
 		delegate: AListViewItem {
 
 			id: oListViewDelegate;
-			pText: model.Text;
+			pText: "Text: " + model.Text + ", Color: " + model.Color + ", Value: " + model.Value;
+			pListView: oListView;
+			pListModel: oListModel;
+
+			function mOnButtonEditClicked() {
+
+				var oFormData = oListModel.get(model.index);
+				oApplicationStackView.push(
+					"qrc:/qml/Screens/AScreenEdit.qml",
+					{pFormData: oFormData, pIndex: model.index}
+				);
+			}
+		}
+
+		onCurrentIndexChanged: {
+
+			console.log("Current index changed onto:", oListView.currentIndex);
 		}
 	}
 
@@ -101,13 +109,35 @@ AScreenTemplate {
 
 		onClicked: {
 
-			var oCounter = oListModel.count;
+			var oFormData = {
+					Text: "",
+					Value: "",
+					Color: ""
+				};
+
+			oApplicationStackView.push(
+				"qrc:/qml/Screens/AScreenEdit.qml",
+				{pFormData: oFormData, pIndex: oListModel.count}
+			);
+		}
+	}
+
+	Connections {
+
+		target: AUISignals;
+		function onSgListViewItem(inIndex,inItemData) {
+
 			var oItem = {
-				Text: 'Text_' + oCounter,
-				Value: oCounter,
-				Color: "" + COLORS.mRandom()
+				"Text": inItemData.Text,
+				"Color": inItemData.Color,
+				"Value": Number(inItemData.Value)
 			}
-			oListModel.append(oItem);
+
+			if (oListModel.count === inIndex) {
+				oListModel.append(oItem);
+			} else {
+				oListModel.set(inIndex,oItem);
+			}
 		}
 	}
 }

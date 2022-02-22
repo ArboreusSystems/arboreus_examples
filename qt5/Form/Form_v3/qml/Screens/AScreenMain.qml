@@ -21,22 +21,14 @@ import "qrc:/js/AColors.js" as COLORS;
 // Application paths
 import "qrc:/qml/Loader";
 import "qrc:/qml/Templates";
-import "qrc:/qml/Buttons";
 
 
 // Component
-AScreenTemplate {
+AScreen {
 
 	id: oRoot;
-	color: COLORS.mGreyLight();
 	pObjectName: "ScreenMain";
-	pStackView: oApplicationStackView;
-
-	Component.onCompleted: {
-
-		var oLoaderSign = Qt.createComponent("qrc:/qml/Loader/ALoaderSign.qml");
-		oRoot.pLoaderSign.sourceComponent = oLoaderSign;
-	}
+	color: COLORS.mGreyLight();
 
 	AButtonTemplate {
 

@@ -7,7 +7,7 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 04/12/2021 at 14:13:01
+	\li @created 21/02/2022 at 11:59:43
 	\endlist
 */
 // ----------------------------------------------------------

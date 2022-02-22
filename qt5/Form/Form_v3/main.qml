@@ -54,6 +54,7 @@ ApplicationWindow {
 
 			Component {id: oScreenMain; AScreenMain {}}
 			Component {id: oScreenForm; AScreenForm {}}
+			Component {id: oScreenEdit; AScreenEdit {}}
 		}
 	}
 }

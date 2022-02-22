@@ -7,10 +7,25 @@
         <file>qml/Screens/AScreenMain.qml</file>
         <file>qml/Screens/AScreenForm.qml</file>
         <file>qml/Header/AHeader.qml</file>
-        <file>qml/Buttons/AButtonTemplate.qml</file>
         <file>qml/Items/AListViewItem.qml</file>
         <file>qml/Templates/AScreenTemplate.qml</file>
         <file>qml/Loader/ALoaderSign.qml</file>
         <file>qml/Templates/AMouseAreaTemplate.qml</file>
+        <file>qml/Templates/AButtonItemMenuTemplate.qml</file>
+        <file>qml/Templates/AButtonTemplate.qml</file>
+        <file>qml/Buttons/AButtonItemMoveUp.qml</file>
+        <file>qml/Buttons/AButtonItemMoveDown.qml</file>
+        <file>qml/Buttons/AButtonItemDelete.qml</file>
+        <file>qml/Buttons/AButtonItemEdit.qml</file>
+        <file>qml/Screens/AScreenEdit.qml</file>
+        <file>qml/Screens/AScreen.qml</file>
+        <file>qml/Templates/ALoaderSignTemplate.qml</file>
+        <file>qml/Header/AHeaderItem.qml</file>
+        <file>qml/Templates/ATextInputWithLabelTemplate.qml</file>
+        <file>qml/Templates/ATextInputTemplate.qml</file>
+        <file>qml/TextInputs/ATextInputWithLabel.qml</file>
+        <file>qml/TextInputs/ATextInputText.qml</file>
+        <file>qml/TextInputs/ATextInputColor.qml</file>
+        <file>qml/TextInputs/ATextInputValue.qml</file>
     </qresource>
 </RCC>

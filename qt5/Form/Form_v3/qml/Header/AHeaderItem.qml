@@ -7,7 +7,7 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 04/12/2021 at 14:08:18
+	\li @created 22/02/2022 at 13:11:25
 	\endlist
 */
 // ----------------------------------------------------------
@@ -48,7 +48,7 @@ Rectangle {
 	Text {
 
 		id: oHeader;
-		text: "New model";
+		text: "Add/Edit Item";
 		color: COLORS.mWhiteLight();
 		font.bold: true;
 		font.pixelSize: 22;
@@ -72,7 +72,11 @@ Rectangle {
 
 		onClicked: {
 
-			oApplicationStackView.pop();
+			if (typeof oRoot.mOnButtonOKClicked === "function") {
+				oRoot.mOnButtonOKClicked();
+			} else {
+				oApplicationStackView.pop();
+			}
 		}
 	}
 }

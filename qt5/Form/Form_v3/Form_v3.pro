@@ -1,4 +1,4 @@
-QT += quick
+QT += quick svg
 
 CONFIG += c++11
 
@@ -19,13 +19,17 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 INCLUDEPATH += \
 	$$PWD/cpp \
-	$$PWD/cpp/Logger
+	$$PWD/cpp/Logger \
+	$$PWD/cpp/UISignals
 
 HEADERS += \
 	cpp/Logger/aloggerdatamodels.h \
-	cpp/Logger/aloggerglobal.h
+	cpp/Logger/aloggerglobal.h \
+	cpp/UISignals/auisignals.h
 
 SOURCES += \
+	cpp/UISignals/auisignals.cpp \
 	main.cpp
 
-RESOURCES += qml.qrc
+RESOURCES += qml.qrc \
+    img.qrc

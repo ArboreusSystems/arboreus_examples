@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/ButtonDelete.svg</file>
+        <file>img/ButtonEdit.svg</file>
+        <file>img/ButtonUpDown.svg</file>
+    </qresource>
+</RCC>

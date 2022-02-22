@@ -14,112 +14,190 @@
 
 // System includes
 import QtQuick 2.15
+import QtQuick.Controls 2.15
 
 // Application includes
 import "qrc:/js/AColors.js" as COLORS;
 
 // Application paths
+import "qrc:/qml/Templates";
 import "qrc:/qml/Buttons";
-import "qrc:/qml/Templates"
 
 
 // Component
-Rectangle {
+Column {
 
-	property alias pText: oLabel.text;
-	property alias pColor: oRoot.color;
+	property alias pText: oText.text;
+	property ListView pListView;
+	property ListModel pListModel;
 
 	id: oRoot;
-	implicitWidth: parent ? parent.width : 0;
-	implicitHeight: oLabel.height * 3;
-	color: oRoot.ListView.isCurrentItem ? COLORS.mSaladDark(): model.Color;
+	width: parent ? parent.width : 0;
+	topPadding: 5;
+	bottomPadding: 5;
+	clip: false;
 
-	Text {
+	Component.onCompleted: {
 
-		id: oLabel;
-		text: "NoDefinedLabelText";
+		console.log("ListView Item created");
+	}
+
+	Component.onDestruction: {
+
+		console.log("ListView Item deleted");
+	}
+
+	Rectangle {
+
+		color: oMouseAreaItem.pressed ? COLORS.mOrangeLight() :
+				(oRoot.pListView.currentIndex === model.index) ? COLORS.mSaladLight() : COLORS.mOrangeDark();
+		height: 50;
 		width: parent.width;
-		anchors.verticalCenter: parent.verticalCenter;
-		anchors.left: parent.left;
-		anchors.right: parent.right;
-		color: COLORS.mWhiteLight();
-		verticalAlignment: Text.AlignVCenter;
-		horizontalAlignment: Text.AlignHCenter;
-		font.bold: true;
-		font.pixelSize: 18;
-	}
 
-	AMouseAreaTemplate {
+		Text {
 
-		id: oMouseArea;
-		anchors.top: parent.top;
-		anchors.left: parent.left;
-		anchors.right: oButtonDelete.left;
-		anchors.bottom: parent.bottom;
-
-		onPressed: {
-
-			if (oButtonDelete.visible) oButtonDelete.visible = false;
-			oListView.currentIndex = model.index;
+			id: oText;
+			text: "NoDefinedText";
+			anchors.fill: parent;
+			verticalAlignment: Text.AlignVCenter;
+			horizontalAlignment: Text.AlignHCenter;
 		}
 
-		onSgSwipeDown: {
+		MouseArea {
 
-			if (model.index !== (model.count - 1)) {
-				oListView.model.move(
-					model.index,
-					model.index + 1,
-					1
-				);
+			id: oMouseAreaItem;
+			anchors.fill: parent;
+
+			onPressAndHold: {
+
+				console.log("ListItem with index:",model.index,"pressed and hold");
+
+				AUISignals.sgListViewItemShowMenuBar();
+				oRoot.pListView.currentIndex = model.index;
+
+				if (oMenuBar.visible) {
+					oRoot.mHideMenuBar();
+				} else {
+					oRoot.mShowMenuBar();
+				}
 			}
-		}
 
-		onSgSwipeUp: {
+			onClicked: {
 
-			if (model.index !== 0) {
-				oListView.model.move(
-					model.index,
-					model.index - 1,
-					1
-				);
+				console.log("ListItem with index:",model.index,"clicked");
+
+				AUISignals.sgListViewItemShowMenuBar();
+				oRoot.pListView.currentIndex = model.index;
+
+				if (oMenuBar.visible) {
+					oRoot.mHideMenuBar();
+				}
 			}
-		}
-
-		onPressAndHold: {
-
-			oButtonDelete.visible = true;
-			oButtonDelete.implicitWidth = oRoot.height;
 		}
 	}
 
-	AButtonTemplate {
+	Rectangle {
 
-		id: oButtonDelete;
-		objectName: "ButtonDelete";
-		implicitHeight: oRoot.height;
-		implicitWidth: 0;
-		text: "D";
-		anchors.right: parent.right;
-		anchors.top: parent.top;
+		id: oMenuBar;
+		color: COLORS.mSaladDark();
+		height: 50;
+		width: parent.width;
 		visible: false;
 
-		onClicked: {
+		Row {
 
-			oRoot.implicitWidth = 0;
-			oRoot.implicitHeight = 0;
-			oRoot.color = COLORS.mTransparent();
-			oListView.model.remove(model.index);
+			id: oCentralMenu;
+			height: parent.height * 0.7;
+			spacing: 5;
+			anchors.verticalCenter: parent.verticalCenter;
+			anchors.horizontalCenter: parent.horizontalCenter;
+
+			AButtonItemDelete {
+
+				id: oButtonDelete;
+				objectName: "ButtonDelete";
+				pSize: parent.height;
+
+				function mOnClicked() {
+
+					oRoot.pListModel.remove(model.index);
+				}
+			}
+
+			AButtonItemEdit {
+
+				id: oButtonEdit;
+				objectName: "ButtonEdit";
+				pSize: parent.height;
+
+				function mOnClicked() {
+
+					if (typeof oRoot.mOnButtonEditClicked === "function") {
+						oRoot.mOnButtonEditClicked();
+					}
+				}
+			}
+		}
+
+		AButtonItemMoveUp {
+
+			id: oButtonUp;
+			objectName: "ButtonMoveUp";
+			pSize: parent.height * 0.7;
+			anchors.verticalCenter: parent.verticalCenter;
+			anchors.left: parent.left;
+			anchors.leftMargin: parent.height * 0.45;
+			visible: model.index === 0 ? false : true;
+
+			function mOnClicked() {
+
+				oRoot.mMoveUp();
+			}
+		}
+
+		AButtonItemMoveDown {
+
+			id: oButtonDown;
+			objectName: "ButtonMoveDown";
+			pSize: parent.height * 0.7;
+			anchors.verticalCenter: parent.verticalCenter;
+			anchors.right: parent.right;
+			anchors.rightMargin: parent.height * 0.45;
+			visible: model.index === (oRoot.pListView.count - 1) ? false : true;
+
+			function mOnClicked() {
+
+				oRoot.mMoveDown();
+			}
 		}
 	}
 
 	Connections {
 
-		target: oListView;
-		function onCurrentIndexChanged() {
+		target: AUISignals
+		function onSgListViewItemShowMenuBar() {
 
-			if(model.index !== model.currentIndex) {
-				if (oButtonDelete.visible) oButtonDelete.visible = false;
-			}
+			oRoot.mHideMenuBar();
 		}
+	}
+
+	function mShowMenuBar() {
+
+		oMenuBar.visible = true;
+	}
+
+	function mHideMenuBar() {
+
+		oMenuBar.visible = false;
+	}
+
+	function mMoveUp() {
+
+		oRoot.pListModel.move(model.index,model.index - 1,1);
+	}
+
+	function mMoveDown() {
+
+		oRoot.pListModel.move(model.index,model.index + 1,1);
 	}
 }

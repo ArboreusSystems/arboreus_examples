@@ -7,7 +7,7 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 12/12/2021 at 03:11:21
+	\li @created 22/02/2022 at 11:48:51
 	\endlist
 */
 // ----------------------------------------------------------
@@ -23,17 +23,9 @@ import "qrc:/qml/Templates";
 
 
 // Component
-ALoaderSignTemplate {
+AScreenTemplate {
 
 	id: oRoot;
-
-	MouseArea {
-
-		id: oAreaLocker;
-		anchors.fill: parent;
-		onClicked: {
-
-			console.log("Area Locker clicked");
-		}
-	}
+	pStackView: oApplicationStackView;
+	pLoaderSign.source: "qrc:/qml/Loader/ALoaderSign.qml";
 }
