@@ -13,16 +13,16 @@
 */
 // ----------------------------------------------------------
 
-#ifndef APPDELEGATE_H
-#define APPDELEGATE_H
+#ifndef AIOSAPPDELEGATE_H
+#define AIOSAPPDELEGATE_H
 
 #import <UIKit/UIKit.h>
-#import <iosappstate.h>
+#import <aiosappstate.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AIOSAppDelegate: UIResponder <UIApplicationDelegate>
 
-+(AppDelegate *)sharedAppDelegate;
++(AIOSAppDelegate*) mSharedAppDelegate;
 
 @end
 
-#endif // APPDELEGATE_H
+#endif // AIOSAPPDELEGATE_H

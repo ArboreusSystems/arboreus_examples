@@ -13,8 +13,8 @@
 */
 // ----------------------------------------------------------
 
-#ifndef IOSAPPSTATE_H
-#define IOSAPPSTATE_H
+#ifndef AIOSAPPSTATE_H
+#define AIOSAPPSTATE_H
 
 // System includes
 #include <QObject>
@@ -27,27 +27,27 @@
 // Namespace
 
 // Global functions
-void InitializeDelegate(void);
+void fInitializeDelegate(void);
 
 // Class definitions
-class IOSAppState : public QObject {
+class AIOSAppState : public QObject {
 
 	Q_OBJECT
 
 	public:
 
-		explicit IOSAppState(QObject* parent = nullptr);
-		virtual ~IOSAppState(void);
+        explicit AIOSAppState(QObject* parent = nullptr);
+        virtual ~AIOSAppState(void);
 
-		static IOSAppState* getInstance(void);
-		static void destroyInstance(void);
-		void applicationDidEnterBackGround(void);
-		void applicationDidEnterForeGround(void);
-		void applicationDidBecomeActive(void);
+        static AIOSAppState* mGetInstance(void);
+        static void mDestroyInstance(void);
+        void mApplicationDidEnterBackGround(void);
+        void mApplicationDidEnterForeGround(void);
+        void mApplicationDidBecomeActive(void);
 
 	private:
 
-		static IOSAppState* m_delegate;
+        static AIOSAppState* pDelegate;
 };
 
-#endif // IOSAPPSTATE_H
+#endif // AIOSAPPSTATE_H

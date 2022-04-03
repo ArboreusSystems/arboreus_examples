@@ -34,14 +34,14 @@ ios {
 		-framework UIKit
 
     HEADERS += \
-	    cpp/IOSBackground/iosappstate.h
+    cpp/IOSBackground/aiosappstate.h
 
     SOURCES += \
-	    cpp/IOSBackground/iosappstate.cpp
+    cpp/IOSBackground/aiosappstate.cpp
 
     OBJECTIVE_HEADERS += \
-	    cpp/IOSBackground/appdelegate.h
+    cpp/IOSBackground/aiosappdelegate.h
 
     OBJECTIVE_SOURCES += \
-	    cpp/IOSBackground/appdelegate.mm
+    cpp/IOSBackground/aiosappdelegate.mm
 }

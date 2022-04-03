@@ -14,10 +14,10 @@
 // ----------------------------------------------------------
 
 // Class header
-#include "iosappstate.h"
+#include "aiosappstate.h"
 
 // Global variables
-IOSAppState* IOSAppState::m_delegate = nullptr;
+AIOSAppState* AIOSAppState::pDelegate = nullptr;
 
 
 // -----------
@@ -27,7 +27,7 @@ IOSAppState* IOSAppState::m_delegate = nullptr;
 	Doc.
 */
 
-IOSAppState::IOSAppState(QObject* parent) : QObject(parent) {
+AIOSAppState::AIOSAppState(QObject* parent) : QObject(parent) {
 
 	_A_DEBUG << "IOSAppState created";
 }
@@ -40,7 +40,7 @@ IOSAppState::IOSAppState(QObject* parent) : QObject(parent) {
 	Doc.
 */
 
-IOSAppState::~IOSAppState(void) {
+AIOSAppState::~AIOSAppState(void) {
 
 	_A_DEBUG << "IOSAppState deleted";
 }
@@ -52,10 +52,10 @@ IOSAppState::~IOSAppState(void) {
 	Doc.
 */
 
-IOSAppState* IOSAppState::getInstance(void) {
+AIOSAppState* AIOSAppState::mGetInstance(void) {
 
-	if (nullptr == m_delegate) m_delegate = new IOSAppState();
-	return m_delegate;
+    if (nullptr == pDelegate) pDelegate = new AIOSAppState();
+    return pDelegate;
 }
 
 
@@ -66,11 +66,11 @@ IOSAppState* IOSAppState::getInstance(void) {
 	Doc.
 */
 
-void IOSAppState::destroyInstance(void) {
+void AIOSAppState::mDestroyInstance(void) {
 
-	 if (m_delegate) {
-		delete m_delegate;
-		m_delegate = nullptr;
+     if (pDelegate) {
+        delete pDelegate;
+        pDelegate = nullptr;
 	 }
 }
 
@@ -82,9 +82,9 @@ void IOSAppState::destroyInstance(void) {
 	Doc.
 */
 
-void IOSAppState::applicationDidEnterBackGround(void) {
+void AIOSAppState::mApplicationDidEnterBackGround(void) {
 
-	_A_DEBUG << "applicationDidEnterBackGround";
+    _A_DEBUG << "mApplicationDidEnterBackGround";
 }
 
 
@@ -95,9 +95,9 @@ void IOSAppState::applicationDidEnterBackGround(void) {
 	Doc.
 */
 
-void IOSAppState::applicationDidEnterForeGround(void) {
+void AIOSAppState::mApplicationDidEnterForeGround(void) {
 
-	_A_DEBUG << "applicationDidEnterForeGround";
+    _A_DEBUG << "mApplicationDidEnterForeGround";
 }
 
 
@@ -108,8 +108,8 @@ void IOSAppState::applicationDidEnterForeGround(void) {
 	Doc.
 */
 
-void IOSAppState::applicationDidBecomeActive(void) {
+void AIOSAppState::mApplicationDidBecomeActive(void) {
 
-	_A_DEBUG << "applicationDidBecomeActive";
+    _A_DEBUG << "mApplicationDidBecomeActive";
 }
 

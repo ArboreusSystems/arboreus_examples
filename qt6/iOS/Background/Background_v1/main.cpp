@@ -16,7 +16,7 @@
 
 // iOS includes
 #ifdef Q_OS_IOS
-#include <iosappstate.h>
+#include <aiosappstate.h>
 #endif
 
 // Constants
@@ -34,7 +34,7 @@ int main(int inCounter, char *inArguments[]) {
 	qInstallMessageHandler(fLoggerMessageHandler);
 
 #ifdef Q_OS_IOS
-	InitializeDelegate();
+    fInitializeDelegate();
 #endif
 
 	const QUrl oURL(QStringLiteral("qrc:/main.qml"));
