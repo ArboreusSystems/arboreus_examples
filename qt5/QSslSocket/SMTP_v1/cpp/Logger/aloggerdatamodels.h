@@ -16,6 +16,7 @@
 #define ALOGGERDATAMODELS_H
 
 // System includes
+#include <QDebug>
 
 // Application includes
 
