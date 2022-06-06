@@ -23,9 +23,13 @@
 // iOS Class header
 #include "aapplicationiosdelegate.h"
 
-@implementation AApplicationIOSDelegate
+void fApplicationIOSDelegateInit(void) {
 
-static AApplicationIOSDelegate* pDelegate = nil;
+	_A_DEBUG << "Delegate: InitializeDelegate";
+	[[UIApplication sharedApplication] setDelegate:[AApplicationIOSDelegate mInstance]];
+}
+
+@implementation AApplicationIOSDelegate
 
 +(AApplicationIOSDelegate*) mInstance {
 
@@ -35,12 +39,6 @@ static AApplicationIOSDelegate* pDelegate = nil;
 		oSharedDelegate = [[super alloc] init];
 	});
 	return oSharedDelegate;
-}
-
-void fApplicationIOSDelegateInit(void) {
-
-	_A_DEBUG << "Delegate: InitializeDelegate";
-	[[UIApplication sharedApplication] setDelegate:[AApplicationIOSDelegate mInstance]];
 }
 
 -(void) applicationDidBecomeActive:(UIApplication*) application {
