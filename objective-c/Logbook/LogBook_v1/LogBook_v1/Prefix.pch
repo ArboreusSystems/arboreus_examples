@@ -1,0 +1,17 @@
+//
+//  Prefix.pch
+//  LogBook_v1
+//
+//  Created by Alexandr Kirilov on 15.06.2022.
+//
+
+#ifndef Prefix_h
+#define Prefix_h
+
+#ifdef __OBJC__
+	#import <UIKit/UIKit.h>
+	#import <Foundation/Foundation.h>
+	#import "Logger/ALogger.h"
+#endif
+
+#endif /* Prefix_h */
