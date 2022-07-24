@@ -48,7 +48,10 @@ int main(int inCounter, char* inArguments[]) {
 
 	qInstallMessageHandler(fLoggerMessageHandler);
 	
-	_A_DEBUG << "inCounter:" << inCounter << "inArguments:" << QString(*inArguments);
+	_A_DEBUG << "Launch Arguments Counter:" << inCounter;
+	for (int i = 0; i < inCounter; i++) {
+		_A_DEBUG << "Launch Argument" << i << ":" << inArguments[i];
+	}
 	
 	[[gUIApplication delegate] application:gUIApplication willFinishLaunchingWithOptions:NULL];
 
