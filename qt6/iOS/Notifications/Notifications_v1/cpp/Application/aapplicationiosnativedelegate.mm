@@ -50,7 +50,6 @@
 	ABackend* oBackend = &ABackend::mInstance();
 	oBackend->pApplication->pDelegate->mOnDidFinishLaunchingWithOptions();
 	
-	[application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
 	return YES;
 }
 

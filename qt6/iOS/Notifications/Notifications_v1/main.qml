@@ -54,6 +54,10 @@ ApplicationWindow {
 			onClicked: {
 
 				var oNotification = ANotificationsTemplates.mModelMessage();
+				oNotification.ID = "Test_ID";
+				oNotification.Title = "Test Notification from QML";
+				oNotification.Subtitle = "Subtitle Subtitle Subtitle Subtitle";
+
 				ANotifications.mAdd(oNotification);
 			}
 		}
