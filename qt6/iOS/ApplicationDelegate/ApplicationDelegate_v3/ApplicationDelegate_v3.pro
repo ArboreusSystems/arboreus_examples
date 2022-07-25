@@ -20,6 +20,7 @@ HEADERS += \
 	cpp/Logger/aloggerglobal.h
 
 SOURCES += \
+	main.cpp
 
 ios {
 
@@ -31,14 +32,6 @@ ios {
 		cpp/ApplicationDelegate/aapplicationdelegate.h
 
 	OBJECTIVE_SOURCES += \
-		main.mm \
 		cpp/ApplicationDelegate/aapplicationdelegate.mm
 }
 
-macos {
-
-	HEADERS += \
-
-	SOURCES += \
-		main.cpp
-}

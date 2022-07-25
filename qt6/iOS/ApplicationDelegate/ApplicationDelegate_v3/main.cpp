@@ -23,10 +23,23 @@ int main(int inCounter, char *inArguments[]) {
 	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
 
+	qInstallMessageHandler(fLoggerMessageHandler);
+
+	_A_DEBUG << "Launch Arguments Counter:" << inCounter;
+	for (int i = 0; i < inCounter; i++) {
+		_A_DEBUG << "Launch Argument" << i << ":" << inArguments[i];
+	}
+
 	QGuiApplication oApplication(inCounter, inArguments);
 	QQmlApplicationEngine oEngine;
-
-	qInstallMessageHandler(fLoggerMessageHandler);
+	QObject::connect(
+		&oApplication,&QGuiApplication::applicationStateChanged,
+		&oApplication,[](Qt::ApplicationState inState){
+			_A_DEBUG << \
+				"QGUI Application state changed:" << \
+				QMetaEnum::fromType<Qt::ApplicationState>().valueToKey(inState);
+		}
+	);
 
 	const QUrl oURL(QStringLiteral("qrc:/main.qml"));
 	QObject::connect(

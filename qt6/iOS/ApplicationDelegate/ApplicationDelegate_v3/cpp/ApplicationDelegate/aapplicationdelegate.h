@@ -29,9 +29,7 @@
 // Namespace
 
 // Class definitions
-@interface AApplicationDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong,nonatomic) UIWindow* window;
+@interface QIOSApplicationDelegate
 
 @end
 

@@ -17,11 +17,11 @@
 #include "aapplicationdelegate.h"
 
 
-@interface AApplicationDelegate ()
+@interface QIOSApplicationDelegate (AApplicationDelegate)
 
 @end
 
-@implementation AApplicationDelegate
+@implementation QIOSApplicationDelegate (AApplicationDelegate)
 
 
 // ----------------------------------
@@ -41,6 +41,8 @@
 }
 
 -(BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+	#pragma unused(application)
 
 	_A_DEBUG << "IOS NATIVE DELEGATE" << "didFinishLaunchingWithOptions";
 
@@ -88,12 +90,12 @@
 	_A_DEBUG << "IOS NATIVE DELEGATE" << "applicationWillResignActive";
 }
 
--(BOOL) application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+//-(BOOL) application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
 
-	_A_DEBUG << "IOS NATIVE DELEGATE" << "openURL";
+//	_A_DEBUG << "IOS NATIVE DELEGATE" << "openURL";
 
-	return YES;
-}
+//	return YES;
+//}
 
 -(void) applicationDidReceiveMemoryWarning:(UIApplication *)application {
 
