@@ -86,8 +86,6 @@ void ANotifications::mInit(void) {
 
 void ANotifications::mAddHandler(ANotificationModel inModel) {
 
-	_A_DEBUG << "3";
-
 	emit this->sgAdd(inModel);
 }
 
