@@ -1,6 +1,6 @@
 // ----------------------------------------------------------
 /*!
-	\class AAsio
+	\class Alogger
 	\title
 	\brief Template file classes/cpp/file.cpp
 
@@ -8,13 +8,13 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 07/10/2022 at 19:14:27
+	\li @created 25/10/2022 at 09:40:38
 	\endlist
 */
 // ----------------------------------------------------------
 
 // Class header
-#include "aasio.h"
+#include "alogger.h"
 
 
 // -----------
@@ -24,8 +24,9 @@
 	Doc.
 */
 
-AAsio::AAsio(QObject *parent) : QObject(parent) {
+Alogger::Alogger(QObject* parent) : QObject(parent) {
 
+	_A_DEBUG << "Alogger created";
 }
 
 
@@ -36,7 +37,8 @@ AAsio::AAsio(QObject *parent) : QObject(parent) {
 	Doc.
 */
 
-AAsio::~AAsio(void) {
+Alogger::~Alogger(void) {
 
+	_A_DEBUG << "Alogger deleted";
 }
 

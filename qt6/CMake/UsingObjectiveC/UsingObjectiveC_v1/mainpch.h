@@ -1,42 +1,37 @@
 // ----------------------------------------------------------
 /*!
-	\headerfile AAsio
+	\headerfile
 	\title
-	\brief Template file wizard/classes/cpp/file.h
+	\brief Template file files/cppheader/file.h
 
 	\list
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 07/10/2022 at 19:14:27
+	\li @created 27/10/2022 at 11:22:13
 	\endlist
 */
 // ----------------------------------------------------------
+#ifndef MAINPCH_H
+#define MAINPCH_H
 
-#ifndef AASIO_H
-#define AASIO_H
+#if defined __cplusplus
+
+#pragma once
 
 // System includes
-#include <QObject>
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
+#include <QEventLoop>
+
+// STD includes
 
 // Application includes
 
-// Constants and definitions
+// Constants and defintions
 
 // Namespace
 
-// Class definitions
-class AAsio : public QObject {
+#endif
 
-	Q_OBJECT
-
-public:
-
-	explicit AAsio(QObject *parent = nullptr);
-	virtual ~AAsio(void);
-
-signals:
-
-};
-
-#endif // AASIO_H
+#endif // MAINPCH_H
