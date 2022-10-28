@@ -4,11 +4,11 @@ set(A_DIR_MODULE_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
 set(A_NAME_TARGET AObjectiveC)
 
 option(A_OPTION_USING_PCH "${A_NAME_TARGET} using PCH support" ON)
-add_compile_options(-x objective-c++)
-set(CMAKE_EXE_LINKER_FLAGS "
-	-framework Foundation
-	-framework UIKit
-")
+#add_compile_options(-x objective-c++)
+#set(CMAKE_EXE_LINKER_FLAGS "
+#	-framework Foundation
+#	-framework UIKit
+#")
 
 set(SOURCES_RESOURCES
 
