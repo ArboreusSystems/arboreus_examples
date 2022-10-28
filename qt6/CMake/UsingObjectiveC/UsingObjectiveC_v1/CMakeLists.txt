@@ -94,11 +94,11 @@ if(IOS)
 		${SOURCES_OBJECTIVE_CPP}
 	)
 
-	add_compile_options(-x objective-c++)
-	set(CMAKE_EXE_LINKER_FLAGS "
-		-framework Foundation
-		-framework UIKit
-	")
+#	add_compile_options(-x objective-c++)
+#	set(CMAKE_EXE_LINKER_FLAGS "
+#		-framework Foundation
+#		-framework UIKit
+#	")
 
 	if(${CMAKE_OSX_SYSROOT} MATCHES "iphonesimulator")
 		if (${CMAKE_OSX_ARCHITECTURES} MATCHES "arm64")
@@ -185,5 +185,6 @@ target_link_libraries(${A_NAME_TARGET}
 	PRIVATE
 		${A_QT_TARGET_MODULES}
 	PUBLIC
-
+		ALogger
+		AObjectiveC
 )

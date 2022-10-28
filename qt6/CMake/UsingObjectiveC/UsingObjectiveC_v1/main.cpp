@@ -8,13 +8,16 @@
  * */// --------------------------------------------------------------
 
 // System includes
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
 
+// Precompiled includes
+#include <mainpch.h>
 
 // Application includes
+#include <aloggerglobal.h>
+#include <aobjectivec.h>
 
 // Constants
+#define QML_MAIN "qrc:/main.qml"
 
 // Qt Quick Application
 int main(int inCounter, char *inArguments[]) {
@@ -26,15 +29,18 @@ int main(int inCounter, char *inArguments[]) {
 	QGuiApplication oApplication(inCounter, inArguments);
 	QQmlApplicationEngine oEngine;
 
-	const QUrl oURL(QStringLiteral("qrc:/main.qml"));
+	AObjectiveC* oObjectiveC = new AObjectiveC();
+	_A_DEBUG << "String from oObjectiveC object:" << oObjectiveC->mTestString();
+
+	const QUrl oURL(QStringLiteral(QML_MAIN));
 	QObject::connect(
-				&oEngine, &QQmlApplicationEngine::objectCreated,
-				&oApplication, [oURL](QObject *obj, const QUrl &objUrl) {
-		if (!obj && oURL == objUrl) {
-			QCoreApplication::exit(-1);
-		}
-	}, Qt::QueuedConnection
-			);
+		&oEngine, &QQmlApplicationEngine::objectCreated,
+		&oApplication, [oURL](QObject *obj, const QUrl &objUrl) {
+			if (!obj && oURL == objUrl) {
+				QCoreApplication::exit(-1);
+			}
+		}, Qt::QueuedConnection
+	);
 	oEngine.load(oURL);
 
 	return oApplication.exec();

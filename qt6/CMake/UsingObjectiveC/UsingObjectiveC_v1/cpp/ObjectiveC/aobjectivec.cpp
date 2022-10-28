@@ -24,8 +24,13 @@
     Doc.
 */
 
-AObjectiveC::AObjectiveC(QObject *parent) : QObject(parent) {
+AObjectiveC::AObjectiveC(QObject* parent) : QObject(parent) {
 
+#if defined(Q_OS_IOS)
+	fObjectiveCNative_Init();
+#endif
+
+	_A_DEBUG << "AObjectiveC created";
 }
 
 
@@ -38,5 +43,25 @@ AObjectiveC::AObjectiveC(QObject *parent) : QObject(parent) {
 
 AObjectiveC::~AObjectiveC(void) {
 
+#if defined(Q_OS_IOS)
+	fObjectiveCNative_Delete();
+#endif
+
+	_A_DEBUG << "AObjectiveC deleted";
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+QString AObjectiveC::mTestString(void) {
+
+#if defined(Q_OS_IOS)
+	return fObjectiveCNative_TestString();
+#endif
 }
 

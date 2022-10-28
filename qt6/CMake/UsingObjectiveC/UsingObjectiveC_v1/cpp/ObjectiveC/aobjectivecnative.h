@@ -1,6 +1,6 @@
 // ----------------------------------------------------------
 /*!
-	\headerfile AObjectiveC
+	\headerfile AObjectiveCNative
 	\title
 	\brief Template file wizard/classes/cpp/file.h
 
@@ -8,13 +8,13 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 14/10/2022 at 23:29:26
+	\li @created 28/10/2022 at 17:23:42
 	\endlist
 */
 // ----------------------------------------------------------
 
-#ifndef AOBJECTIVEC_H
-#define AOBJECTIVEC_H
+#ifndef AOBJECTIVECNATIVE_H
+#define AOBJECTIVECNATIVE_H
 
 // System includes
 
@@ -23,23 +23,25 @@
 
 // Application includes
 #include <aloggerglobal.h>
-#include <aobjectivecnativeglobal.h>
+
+// iOS includes
+
+// iOS imports
+#import <Foundation/Foundation.h>
 
 // Constants and definitions
 
 // Namespace
 
 // Class definitions
-class AObjectiveC : public QObject {
+@interface AObjectiveCNative: NSObject
 
-	Q_OBJECT
+@property (strong,atomic) NSString* pString;
 
-	public:
++(AObjectiveCNative*) mInstance;
+-(void) mInit;
+-(NSString*) mGetString;
 
-		explicit AObjectiveC(QObject* parent = nullptr);
-		virtual ~AObjectiveC(void);
+@end
 
-		QString mTestString(void);
-};
-
-#endif // AOBJECTIVEC_H
+#endif // AOBJECTIVECNATIVE_H

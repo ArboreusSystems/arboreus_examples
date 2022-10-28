@@ -15,19 +15,21 @@ set(SOURCES_RESOURCES
 )
 
 set(SOURCES_HEADERS
-
-)
-
-set(SOURCES_CPP
-
-)
-
-set(SOURCES_OBJECTIVE_HEADERS
+	${A_DIR_MODULE_ROOT}/aobjectivecpch.h
 	${A_DIR_MODULE_ROOT}/aobjectivec.h
 )
 
+set(SOURCES_CPP
+	${A_DIR_MODULE_ROOT}/aobjectivec.cpp
+)
+
+set(SOURCES_OBJECTIVE_HEADERS
+	${A_DIR_MODULE_ROOT}/aobjectivecnative.h
+	${A_DIR_MODULE_ROOT}/aobjectivecnativeglobal.h
+)
+
 set(SOURCES_OBJECTIVE_CPP
-	${A_DIR_MODULE_ROOT}/aobjectivec.mm
+	${A_DIR_MODULE_ROOT}/aobjectivecnative.mm
 )
 
 set(SOURCES_PRECOMPILED_HEADERS_PUBLIC
