@@ -1,0 +1,20 @@
+set(A_DIR_MODULE_ROOT ${CMAKE_CURRENT_LIST_DIR})
+
+include_directories(SYSTEM ${A_DIR_MODULE_ROOT})
+
+set(A_SOURCES_HEADERS
+	${A_SOURCES_HEADERS}
+	${A_DIR_MODULE_ROOT}/alogger.h
+	${A_DIR_MODULE_ROOT}/aloggerglobal.h
+	${A_DIR_MODULE_ROOT}/aloggerdatamodels.h
+)
+
+set(A_SOURCES_CPP
+	${A_SOURCES_CPP}
+	${A_DIR_MODULE_ROOT}/alogger.cpp
+)
+
+set(A_SOURCES_PRECOMPILED_HEADERS_PUBLIC
+	${A_SOURCES_PRECOMPILED_HEADERS_PUBLIC}
+	${A_DIR_MODULE_ROOT}/aloggerpch.h
+)

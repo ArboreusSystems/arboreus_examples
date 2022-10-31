@@ -1,0 +1,10 @@
+set(A_DIR_MODULE_ROOT ${CMAKE_CURRENT_LIST_DIR})
+
+set(A_DIR_MODULE_LOGGER ${A_DIR_MODULE_ROOT}/Logger)
+set(A_CMAKE_MODULE_LOGGER ${A_DIR_MODULE_LOGGER}/Logger.cmake)
+if(EXISTS ${A_CMAKE_MODULE_LOGGER})
+	include(${A_CMAKE_MODULE_LOGGER})
+	message(STATUS "Added Module Logger Cmake file for ${A_NAME_TARGET}: ${A_CMAKE_MODULE_LOGGER}")
+else()
+	message(FATAL_ERROR "No Module Logger Cmake file for ${A_NAME_TARGET}: ${A_CMAKE_MODULE_LOGGER}")
+endif()

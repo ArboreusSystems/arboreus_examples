@@ -1,0 +1,15 @@
+set(A_DIR_MODULE_ROOT ${CMAKE_CURRENT_LIST_DIR})
+
+if(EXISTS ${A_CMAKE_MODULES})
+	include(${A_CMAKE_MODULES})
+	message(STATUS "Added target Modules Cmake file for ${A_NAME_TARGET}: ${A_CMAKE_MODULES}")
+else()
+	message(FATAL_ERROR "No target Modules Cmake file for ${A_NAME_TARGET}: ${A_CMAKE_MODULES}")
+endif()
+
+if(EXISTS ${A_CMAKE_3D_PART})
+	include(${A_CMAKE_3D_PART})
+	message(STATUS "Added target 3d Part Cmake file for ${A_NAME_TARGET}: ${A_CMAKE_3D_PART}")
+else()
+	message(FATAL_ERROR "No target 3d Part Cmake file for ${A_NAME_TARGET}: ${A_CMAKE_3D_PART}")
+endif()
