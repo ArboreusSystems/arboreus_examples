@@ -60,8 +60,6 @@ static ABackend* gBackend = &ABackend::mInstance();
 
 	#pragma unused(application)
 
-	_A_DEBUG << "111111111111";
-
 	_A_APPLICATION_DELEGATE_IOS_NATIVE_CONFIG->AApplicationConfig_Delegate_DidBecomeActive();
 }
 
@@ -89,8 +87,6 @@ static ABackend* gBackend = &ABackend::mInstance();
 -(void) applicationWillTerminate:(UIApplication*)application {
 
 	#pragma unused(application)
-
-	_A_DEBUG << "222222222";
 
 	_A_APPLICATION_DELEGATE_IOS_NATIVE_CONFIG->AApplicationConfig_Delegate_WillTerminate();
 }
@@ -135,16 +131,12 @@ static ABackend* gBackend = &ABackend::mInstance();
 
 	#pragma unused(application)
 
-	_A_DEBUG << "44444444444444";
-
 	_A_APPLICATION_DELEGATE_IOS_NATIVE_CONFIG->AApplicationConfig_Delegate_DidEnterBackground();
 }
 
 -(void) applicationWillEnterForeground:(UIApplication*)application {
 
 	#pragma unused(application)
-
-	_A_DEBUG << "3333333333333";
 
 	_A_APPLICATION_DELEGATE_IOS_NATIVE_CONFIG->AApplicationConfig_Delegate_WillEnterForeground();
 }
