@@ -1,0 +1,205 @@
+{
+  "identifier" : "DE8083C9",
+  "nonRenewingSubscriptions" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "BE8DFABD",
+      "localizations" : [
+        {
+          "description" : "NonRenewable week 1 Description",
+          "displayName" : "NonRenewable week 1 Name",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "systems.arboreus.test.StoreKit.Subscription.NonRenewable.week.1",
+      "referenceName" : "Subscription Non Renewable week 1",
+      "type" : "NonRenewingSubscription"
+    },
+    {
+      "displayPrice" : "2.99",
+      "familyShareable" : false,
+      "internalID" : "953D5EA8",
+      "localizations" : [
+        {
+          "description" : "NonRenewable week 2 Description",
+          "displayName" : "NonRenewable week 2 Name",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "systems.arboreus.test.StoreKit.Subscription.NonRenewable.week.2",
+      "referenceName" : "Subscription Non Renewable week 2",
+      "type" : "NonRenewingSubscription"
+    }
+  ],
+  "products" : [
+    {
+      "displayPrice" : "3.99",
+      "familyShareable" : false,
+      "internalID" : "DCF44E46",
+      "localizations" : [
+        {
+          "description" : "Consumable 00 Description",
+          "displayName" : "Consumable 00 Name",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "systems.arboreus.test.StoreKit.Item.Consumable.00",
+      "referenceName" : "Test Item Consumable 00",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "2.99",
+      "familyShareable" : false,
+      "internalID" : "10FAB4B5",
+      "localizations" : [
+        {
+          "description" : "Consumable 01 Description",
+          "displayName" : "Consumable 01 Name",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "systems.arboreus.test.StoreKit.Item.Consumable.01",
+      "referenceName" : "Test Item Consumable 01",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "2.99",
+      "familyShareable" : false,
+      "internalID" : "C9371F31",
+      "localizations" : [
+        {
+          "description" : "Non-Consumable 00 Description",
+          "displayName" : "Non-Consumable 00 Name",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "systems.arboreus.test.StoreKit.Item.NonConsumable.00",
+      "referenceName" : "Test Item Non-Consumable 00",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "3.99",
+      "familyShareable" : false,
+      "internalID" : "2676D64F",
+      "localizations" : [
+        {
+          "description" : "Non-Consumable 01 Description",
+          "displayName" : "Non-Consumable 01 Name",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "systems.arboreus.test.StoreKit.Item.NonConsumable.01",
+      "referenceName" : "Test Item Non-Consumable 01",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "32F083E3",
+      "localizations" : [
+        {
+          "description" : "Non-Consumable 02 Description",
+          "displayName" : "Non-Consumable 02 Name",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "systems.arboreus.test.StoreKit.Item.NonConsumable.02",
+      "referenceName" : "Test Item Non-Consumable 02",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "D6D38AE6",
+      "localizations" : [
+
+      ],
+      "name" : "Group1",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "0.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "471F7948",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Description Renewable 1 week",
+              "displayName" : "Name Renewable 1 week",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "systems.arboreus.test.StoreKit.Subscription.Renewable.week.1",
+          "recurringSubscriptionPeriod" : "P1W",
+          "referenceName" : "Subscription Renewable week 1",
+          "subscriptionGroupID" : "D6D38AE6",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "4.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "75854211",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Description Renewable 1 month",
+              "displayName" : "Name Renewable 1 month",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "systems.arboreus.test.StoreKit.Subscription.Renewable.month.1",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Subscription Renewable month 1",
+          "subscriptionGroupID" : "D6D38AE6",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "7.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "8A6544D4",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Description Renewable 2 month",
+              "displayName" : "Name Renewable 2 month",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "systems.arboreus.test.StoreKit.Subscription.Renewable.month.2",
+          "recurringSubscriptionPeriod" : "P2M",
+          "referenceName" : "Subscription Renewable month 2",
+          "subscriptionGroupID" : "D6D38AE6",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 1,
+    "minor" : 2
+  }
+}

@@ -13,6 +13,7 @@ class AItemsCollectionView: UIView, UITableViewDelegate, UITableViewDataSource {
 	// -----------------------------------
 	// MARK: Variables
 	
+	let pStoreKit2: AStoreKit2 = AStoreKit2.pSharedInstance;
 	let pButtonGetBroducts: AButtonTemplate = AButtonTemplate();
 	let pTableView: UITableView = UITableView(frame: CGRect(x: 0,y: 0,width: 0,height: 0), style: UITableView.Style.plain);
 	
@@ -62,13 +63,28 @@ class AItemsCollectionView: UIView, UITableViewDelegate, UITableViewDataSource {
 	// MARK: Actions
 	
 	@objc func mActionGetProducts(_ sender: AnyObject) -> Void {
-
+		
 		__ALog("mActionGetProducts");
+		Task {
+			await self.mActionGetProductsHandler();
+		}
+	}
+	
+	func mActionGetProductsHandler() async -> Void {
+		
+		__ALog("mActionGetProductsHandler");
+		await pStoreKit2.mGetProducts();
+		pTableView.reloadData();
 	}
 	
 	
 	// -----------------------------------
 	// MARK: UITableViewDelegate
+	
+	func numberOfSections(in tableView: UITableView) -> Int {
+		
+		return 4;
+	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
@@ -76,14 +92,40 @@ class AItemsCollectionView: UIView, UITableViewDelegate, UITableViewDataSource {
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-		return 5;
+		
+		var oNumber: Int = 0;
+		switch section {
+			case 0: oNumber = pStoreKit2.pProducts.pConsumable.count;
+			case 1: oNumber = pStoreKit2.pProducts.pNonConsumable.count;
+			case 2: oNumber = pStoreKit2.pProducts.pRenewableSubscription.count;
+			case 3: oNumber = pStoreKit2.pProducts.pNonRenewableSubscription.count;
+			default: __ALog("Error! Wrong section number");
+		}
+		
+		return oNumber;
+	}
+	
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		
+		let oView: UILabel = UILabel.init(frame: CGRect(x: 0,y: 0,width: 0,height: 0));
+		oView.textAlignment = NSTextAlignment.center;
+		oView.backgroundColor = __COLOR_BLUE_DARK;
+		oView.textColor = __COLOR_WHITE;
+		switch section {
+			case 0: oView.text = "Consumable";
+			case 1: oView.text = "Non Consumable";
+			case 2: oView.text = "Renewable Subscriptions";
+			case 3: oView.text = "Non Renewable Subscriptions";
+			default: oView.text = "NoTitleForSection";
+		}
+		
+		return oView;
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
 		let oCell: UITableViewCell = UITableViewCell(frame: CGRect(x: 0,y: 0,width: 0,height: 0));
-		oCell.backgroundColor = __COLOR_LEMON;
+		oCell.backgroundColor = __COLOR_YELLOW;
 
 		return oCell;
 	}

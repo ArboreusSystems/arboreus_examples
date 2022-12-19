@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A82AA43E2950CB96003380D0 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = A82AA43D2950CB96003380D0 /* Configuration.storekit */; };
 		A8424B2B294F892700356CC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8424B2A294F892700356CC7 /* AppDelegate.swift */; };
 		A8424B34294F892A00356CC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8424B33294F892A00356CC7 /* Assets.xcassets */; };
 		A8424B37294F892A00356CC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8424B35294F892A00356CC7 /* LaunchScreen.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A82AA43D2950CB96003380D0 /* Configuration.storekit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		A8424B27294F892700356CC7 /* StoreKit2_v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreKit2_v1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8424B2A294F892700356CC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8424B33294F892A00356CC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				A842D2D929509EB5003F745F /* AStoreKit2.swift */,
 				A842D2DB2950A144003F745F /* AStoreKit2Items.swift */,
 				A842D2DD2950A3AB003F745F /* AStoreKit2Products.swift */,
+				A82AA43D2950CB96003380D0 /* Configuration.storekit */,
 			);
 			path = StoreKit2;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8424B37294F892A00356CC7 /* LaunchScreen.storyboard in Resources */,
+				A82AA43E2950CB96003380D0 /* Configuration.storekit in Resources */,
 				A8424B34294F892A00356CC7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

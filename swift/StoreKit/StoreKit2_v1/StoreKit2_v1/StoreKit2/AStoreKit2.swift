@@ -10,12 +10,51 @@ import StoreKit
 
 @objcMembers class AStoreKit2: NSObject {
 	
-	let oItems: AStoreKit2Items = AStoreKit2Items();
-	var oProducts: AStoreKit2Products = AStoreKit2Products();
+	let pItems: AStoreKit2Items = AStoreKit2Items();
+	var pProducts: AStoreKit2Products = AStoreKit2Products();
 	
 	static let pSharedInstance: AStoreKit2 = AStoreKit2();
 	
-	func mGetProducts() -> Void {
+	override init() {
 		
+		super.init();
+		
+		__ALog("AStoreKit2 created");
+	}
+	
+	func mGetProducts() async -> Void {
+		
+		__ALog("Requesting products");
+		
+		do {
+			let oProducts: [Product] = try await Product.products(for: pItems.mGetAll());
+			for iProduct in oProducts {
+				switch iProduct.type {
+					case .consumable: pProducts.pConsumable.insert(iProduct);
+					case .nonConsumable: pProducts.pNonConsumable.insert(iProduct);
+					case .autoRenewable: pProducts.pRenewableSubscription.insert(iProduct);
+					case .nonRenewable: pProducts.pNonRenewableSubscription.insert(iProduct);
+					default: __ALog("Error! Wrong product type");
+				}
+			}
+			__ALog("Consumable products");
+			for iConsumable in pProducts.pConsumable {
+				__ALog("\(iConsumable.id) \(iConsumable.price)");
+			}
+			__ALog("NonConsumable products");
+			for iNonConsumable in pProducts.pNonConsumable {
+				__ALog("\(iNonConsumable.id) \(iNonConsumable.price)");
+			}
+			__ALog("ReneableSubscription products");
+			for iRenewableSubscription in pProducts.pRenewableSubscription {
+				__ALog("\(iRenewableSubscription.id) \(iRenewableSubscription.price)");
+			}
+			__ALog("NonReneableSubscription products");
+			for iNonRenewableSubscription in pProducts.pNonRenewableSubscription {
+				__ALog("\(iNonRenewableSubscription.id) \(iNonRenewableSubscription.price)");
+			}
+		} catch {
+			__ALog("Error in getting products");
+		}
 	}
 }
