@@ -22,10 +22,6 @@
 #define __COLOR_BLACK [UIColor mColorFromHex:@"#050404"]
 #define __COLOR_BLACK_DARK [UIColor mColorFromHex:@"#000000"]
 
-#define __COLOR_BLACK_LIGHT [UIColor mColorFromHex:@"#080707"]
-#define __COLOR_BLACK [UIColor mColorFromHex:@"#050404"]
-#define __COLOR_BLACK_DARK [UIColor mColorFromHex:@"#000000"]
-
 #define __COLOR_PURPLE_LIGHT [UIColor mColorFromHex:@"#b21875"]
 #define __COLOR_PURPLE [UIColor mColorFromHex:@"#900a5b"]
 #define __COLOR_PURPLE_DARK [UIColor mColorFromHex:@"#5e083c"]
