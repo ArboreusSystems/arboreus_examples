@@ -26,6 +26,11 @@ import StoreKit
 		
 		__ALog("Requesting products");
 		
+		pProducts.pConsumable.removeAll();
+		pProducts.pNonConsumable.removeAll();
+		pProducts.pRenewableSubscription.removeAll();
+		pProducts.pNonRenewableSubscription.removeAll();
+		
 		do {
 			let oProducts: [Product] = try await Product.products(for: pItems.mGetAll());
 			for iProduct in oProducts {
