@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StoreKit
 
 class AItemsCollectionView: UIView, UITableViewDelegate, UITableViewDataSource {
 	
@@ -31,6 +32,7 @@ class AItemsCollectionView: UIView, UITableViewDelegate, UITableViewDataSource {
 		pButtonGetBroducts.addTarget(self, action: #selector(mActionGetProducts(_:)), for: UIControl.Event.touchUpInside);
 		self.addSubview(pButtonGetBroducts);
 		
+		pTableView.register(AItemViewCell.self, forCellReuseIdentifier: AItemViewCell.pID);
 		pTableView.translatesAutoresizingMaskIntoConstraints = false;
 		pTableView.delegate = self;
 		pTableView.dataSource = self;
@@ -38,6 +40,7 @@ class AItemsCollectionView: UIView, UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	required init?(coder: NSCoder) {
+	
 		fatalError("init(coder:) has not been implemented")
 	}
 	
@@ -123,10 +126,29 @@ class AItemsCollectionView: UIView, UITableViewDelegate, UITableViewDataSource {
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-		let oCell: UITableViewCell = UITableViewCell(frame: CGRect(x: 0,y: 0,width: 0,height: 0));
-		oCell.backgroundColor = __COLOR_YELLOW;
-
+		
+		let oSection: Int = indexPath.section;
+		let oRow: Int = indexPath.row;
+		let oCell: AItemViewCell = (pTableView.dequeueReusableCell(withIdentifier: AItemViewCell.pID, for: indexPath) as? AItemViewCell)!;
+		
+		switch oSection {
+			case 0:
+				oCell.backgroundColor = __COLOR_ORANGE_DARK;
+				oCell.mSetProduct(inProduct: pStoreKit2.pProducts.pConsumable[oRow]);
+			case 1:
+				oCell.backgroundColor = __COLOR_SALAD;
+				oCell.mSetProduct(inProduct: pStoreKit2.pProducts.pNonConsumable[oRow]);
+			case 2:
+				oCell.backgroundColor = __COLOR_ORANGE_DARK;
+				oCell.mSetProduct(inProduct: pStoreKit2.pProducts.pRenewableSubscription[oRow]);
+			case 3:
+				oCell.backgroundColor = __COLOR_SALAD;
+				oCell.mSetProduct(inProduct: pStoreKit2.pProducts.pNonRenewableSubscription[oRow]);
+			default:
+				oCell.backgroundColor = __COLOR_RED;
+				__ALog("Wrong section");
+		}
+		
 		return oCell;
 	}
 }

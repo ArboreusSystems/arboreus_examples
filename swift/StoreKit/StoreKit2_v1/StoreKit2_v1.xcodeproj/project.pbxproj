@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A82AA43E2950CB96003380D0 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = A82AA43D2950CB96003380D0 /* Configuration.storekit */; };
+		A838D50D2954BA8E00A1BE1C /* AItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838D50C2954BA8E00A1BE1C /* AItemViewCell.swift */; };
 		A8424B2B294F892700356CC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8424B2A294F892700356CC7 /* AppDelegate.swift */; };
 		A8424B34294F892A00356CC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8424B33294F892A00356CC7 /* Assets.xcassets */; };
 		A8424B37294F892A00356CC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8424B35294F892A00356CC7 /* LaunchScreen.storyboard */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		A82AA43D2950CB96003380D0 /* Configuration.storekit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		A838D50C2954BA8E00A1BE1C /* AItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AItemViewCell.swift; sourceTree = "<group>"; };
 		A8424B27294F892700356CC7 /* StoreKit2_v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreKit2_v1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8424B2A294F892700356CC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8424B33294F892A00356CC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A838D50B2954BA7400A1BE1C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A838D50C2954BA8E00A1BE1C /* AItemViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		A8424B1E294F892700356CC7 = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +90,7 @@
 		A8424B29294F892700356CC7 /* StoreKit2_v1 */ = {
 			isa = PBXGroup;
 			children = (
+				A838D50B2954BA7400A1BE1C /* Cells */,
 				A842D2D829509E9E003F745F /* StoreKit2 */,
 				A8DA373B29506BF00066E78D /* Views */,
 				A8DA37382950398C0066E78D /* Templates */,
@@ -249,6 +260,7 @@
 				A8DA3737295031EC0066E78D /* AMainViewController.swift in Sources */,
 				A8DA373D29506C0B0066E78D /* AItemsCollectionView.swift in Sources */,
 				A842D2DE2950A3AB003F745F /* AStoreKit2Products.swift in Sources */,
+				A838D50D2954BA8E00A1BE1C /* AItemViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

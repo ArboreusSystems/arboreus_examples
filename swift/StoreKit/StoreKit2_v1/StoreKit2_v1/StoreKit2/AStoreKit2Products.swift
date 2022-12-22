@@ -10,18 +10,18 @@ import StoreKit
 
 class AStoreKit2Products: NSObject {
 
-	var pConsumable: Set<Product> = [];
-	var pNonConsumable: Set<Product> = [];
-	var pRenewableSubscription: Set<Product> = [];
-	var pNonRenewableSubscription: Set<Product> = [];
+	var pConsumable: Array<Product> = [];
+	var pNonConsumable: Array<Product> = [];
+	var pRenewableSubscription: Array<Product> = [];
+	var pNonRenewableSubscription: Array<Product> = [];
 	
-	func mGetAll() -> Set<Product> {
-	
-		var oAllProducts: Set<Product> = pConsumable;
-		oAllProducts = oAllProducts.union(pNonConsumable);
-		oAllProducts = oAllProducts.union(pRenewableSubscription);
-		oAllProducts = oAllProducts.union(pNonRenewableSubscription);
+	func mGetAll() -> Array<Product> {
 		
-		return oAllProducts;
+		return (
+			pConsumable +
+			pNonConsumable +
+			pRenewableSubscription +
+			pNonRenewableSubscription
+		);
 	}
 }
