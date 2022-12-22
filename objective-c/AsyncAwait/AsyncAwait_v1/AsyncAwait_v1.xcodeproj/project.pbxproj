@@ -1,0 +1,450 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A81B6AD029544E4C0045A252 /* AAsyncAwaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = A81B6ACF29544E4C0045A252 /* AAsyncAwaitView.m */; };
+		A81B6AD329544E6D0045A252 /* AButtonTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = A81B6AD229544E6D0045A252 /* AButtonTemplate.m */; };
+		A81B6AD6295456F40045A252 /* AAsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81B6AD5295456F40045A252 /* AAsyncAwait.swift */; };
+		A820D6A42952F76500C07AEE /* AAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A820D6A32952F76500C07AEE /* AAppDelegate.m */; };
+		A820D6AF2952F76800C07AEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A820D6AE2952F76800C07AEE /* Assets.xcassets */; };
+		A820D6B22952F76800C07AEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A820D6B02952F76800C07AEE /* LaunchScreen.storyboard */; };
+		A820D6B52952F76800C07AEE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A820D6B42952F76800C07AEE /* main.m */; };
+		A820D6BE2952F7BC00C07AEE /* ALogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A820D6BD2952F7BC00C07AEE /* ALogger.m */; };
+		A820D6C32952F81800C07AEE /* AViewControllerTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = A820D6C22952F81800C07AEE /* AViewControllerTemplate.m */; };
+		A820D6C72952F87F00C07AEE /* UIColorCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A820D6C62952F87F00C07AEE /* UIColorCategory.m */; };
+		A820D6CD2952F9E400C07AEE /* ARootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A820D6CC2952F9E400C07AEE /* ARootNavigationController.m */; };
+		A820D6D02952F9F800C07AEE /* AMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A820D6CF2952F9F800C07AEE /* AMainViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A81B6ACD2954352C0045A252 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		A81B6ACE29544E4C0045A252 /* AAsyncAwaitView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAsyncAwaitView.h; sourceTree = "<group>"; };
+		A81B6ACF29544E4C0045A252 /* AAsyncAwaitView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAsyncAwaitView.m; sourceTree = "<group>"; };
+		A81B6AD129544E6D0045A252 /* AButtonTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AButtonTemplate.h; sourceTree = "<group>"; };
+		A81B6AD229544E6D0045A252 /* AButtonTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AButtonTemplate.m; sourceTree = "<group>"; };
+		A81B6AD4295456F40045A252 /* AsyncAwait_v1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AsyncAwait_v1-Bridging-Header.h"; sourceTree = "<group>"; };
+		A81B6AD5295456F40045A252 /* AAsyncAwait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAsyncAwait.swift; sourceTree = "<group>"; };
+		A820D69F2952F76500C07AEE /* AsyncAwait_v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsyncAwait_v1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A820D6A22952F76500C07AEE /* AAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAppDelegate.h; sourceTree = "<group>"; };
+		A820D6A32952F76500C07AEE /* AAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAppDelegate.m; sourceTree = "<group>"; };
+		A820D6AE2952F76800C07AEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A820D6B12952F76800C07AEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A820D6B32952F76800C07AEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A820D6B42952F76800C07AEE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A820D6BC2952F7BC00C07AEE /* ALogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALogger.h; sourceTree = "<group>"; };
+		A820D6BD2952F7BC00C07AEE /* ALogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALogger.m; sourceTree = "<group>"; };
+		A820D6C12952F81800C07AEE /* AViewControllerTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AViewControllerTemplate.h; sourceTree = "<group>"; };
+		A820D6C22952F81800C07AEE /* AViewControllerTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AViewControllerTemplate.m; sourceTree = "<group>"; };
+		A820D6C52952F87F00C07AEE /* UIColorCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIColorCategory.h; sourceTree = "<group>"; };
+		A820D6C62952F87F00C07AEE /* UIColorCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIColorCategory.m; sourceTree = "<group>"; };
+		A820D6C92952F8E900C07AEE /* AColorDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AColorDefinitions.h; sourceTree = "<group>"; };
+		A820D6CB2952F9E400C07AEE /* ARootNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARootNavigationController.h; sourceTree = "<group>"; };
+		A820D6CC2952F9E400C07AEE /* ARootNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARootNavigationController.m; sourceTree = "<group>"; };
+		A820D6CE2952F9F800C07AEE /* AMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMainViewController.h; sourceTree = "<group>"; };
+		A820D6CF2952F9F800C07AEE /* AMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMainViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A820D69C2952F76500C07AEE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A820D6962952F76500C07AEE = {
+			isa = PBXGroup;
+			children = (
+				A820D6A12952F76500C07AEE /* AsyncAwait_v1 */,
+				A820D6A02952F76500C07AEE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A820D6A02952F76500C07AEE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A820D69F2952F76500C07AEE /* AsyncAwait_v1.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A820D6A12952F76500C07AEE /* AsyncAwait_v1 */ = {
+			isa = PBXGroup;
+			children = (
+				A820D6D12953001C00C07AEE /* AsyncAwait */,
+				A820D6CA2952F99300C07AEE /* ViewControllers */,
+				A820D6C82952F8BF00C07AEE /* Definitions */,
+				A820D6C42952F84500C07AEE /* Categories */,
+				A820D6C02952F7F300C07AEE /* Templates */,
+				A820D6BB2952F7A400C07AEE /* Logger */,
+				A820D6A22952F76500C07AEE /* AAppDelegate.h */,
+				A820D6A32952F76500C07AEE /* AAppDelegate.m */,
+				A820D6AE2952F76800C07AEE /* Assets.xcassets */,
+				A820D6B02952F76800C07AEE /* LaunchScreen.storyboard */,
+				A820D6B32952F76800C07AEE /* Info.plist */,
+				A820D6B42952F76800C07AEE /* main.m */,
+				A81B6ACD2954352C0045A252 /* README.txt */,
+			);
+			path = AsyncAwait_v1;
+			sourceTree = "<group>";
+		};
+		A820D6BB2952F7A400C07AEE /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				A820D6BC2952F7BC00C07AEE /* ALogger.h */,
+				A820D6BD2952F7BC00C07AEE /* ALogger.m */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		A820D6C02952F7F300C07AEE /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				A820D6C12952F81800C07AEE /* AViewControllerTemplate.h */,
+				A820D6C22952F81800C07AEE /* AViewControllerTemplate.m */,
+				A81B6AD129544E6D0045A252 /* AButtonTemplate.h */,
+				A81B6AD229544E6D0045A252 /* AButtonTemplate.m */,
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
+		A820D6C42952F84500C07AEE /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				A820D6C52952F87F00C07AEE /* UIColorCategory.h */,
+				A820D6C62952F87F00C07AEE /* UIColorCategory.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		A820D6C82952F8BF00C07AEE /* Definitions */ = {
+			isa = PBXGroup;
+			children = (
+				A820D6C92952F8E900C07AEE /* AColorDefinitions.h */,
+			);
+			path = Definitions;
+			sourceTree = "<group>";
+		};
+		A820D6CA2952F99300C07AEE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A820D6CB2952F9E400C07AEE /* ARootNavigationController.h */,
+				A820D6CC2952F9E400C07AEE /* ARootNavigationController.m */,
+				A820D6CE2952F9F800C07AEE /* AMainViewController.h */,
+				A820D6CF2952F9F800C07AEE /* AMainViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A820D6D12953001C00C07AEE /* AsyncAwait */ = {
+			isa = PBXGroup;
+			children = (
+				A81B6ACE29544E4C0045A252 /* AAsyncAwaitView.h */,
+				A81B6ACF29544E4C0045A252 /* AAsyncAwaitView.m */,
+				A81B6AD5295456F40045A252 /* AAsyncAwait.swift */,
+				A81B6AD4295456F40045A252 /* AsyncAwait_v1-Bridging-Header.h */,
+			);
+			path = AsyncAwait;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A820D69E2952F76500C07AEE /* AsyncAwait_v1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A820D6B82952F76800C07AEE /* Build configuration list for PBXNativeTarget "AsyncAwait_v1" */;
+			buildPhases = (
+				A820D69B2952F76500C07AEE /* Sources */,
+				A820D69C2952F76500C07AEE /* Frameworks */,
+				A820D69D2952F76500C07AEE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AsyncAwait_v1;
+			productName = AsyncAwait_v1;
+			productReference = A820D69F2952F76500C07AEE /* AsyncAwait_v1.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A820D6972952F76500C07AEE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					A820D69E2952F76500C07AEE = {
+						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
+					};
+				};
+			};
+			buildConfigurationList = A820D69A2952F76500C07AEE /* Build configuration list for PBXProject "AsyncAwait_v1" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A820D6962952F76500C07AEE;
+			productRefGroup = A820D6A02952F76500C07AEE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A820D69E2952F76500C07AEE /* AsyncAwait_v1 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A820D69D2952F76500C07AEE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A820D6B22952F76800C07AEE /* LaunchScreen.storyboard in Resources */,
+				A820D6AF2952F76800C07AEE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A820D69B2952F76500C07AEE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A820D6A42952F76500C07AEE /* AAppDelegate.m in Sources */,
+				A820D6C72952F87F00C07AEE /* UIColorCategory.m in Sources */,
+				A820D6D02952F9F800C07AEE /* AMainViewController.m in Sources */,
+				A81B6AD329544E6D0045A252 /* AButtonTemplate.m in Sources */,
+				A820D6BE2952F7BC00C07AEE /* ALogger.m in Sources */,
+				A81B6AD029544E4C0045A252 /* AAsyncAwaitView.m in Sources */,
+				A820D6CD2952F9E400C07AEE /* ARootNavigationController.m in Sources */,
+				A81B6AD6295456F40045A252 /* AAsyncAwait.swift in Sources */,
+				A820D6B52952F76800C07AEE /* main.m in Sources */,
+				A820D6C32952F81800C07AEE /* AViewControllerTemplate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A820D6B02952F76800C07AEE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A820D6B12952F76800C07AEE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A820D6B62952F76800C07AEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A820D6B72952F76800C07AEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A820D6B92952F76800C07AEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4KVLMRJ2PM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AsyncAwait_v1/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "systems.arboreus.test.AsyncAwait-v1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "AsyncAwait_v1/AsyncAwait/AsyncAwait_v1-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A820D6BA2952F76800C07AEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4KVLMRJ2PM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AsyncAwait_v1/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "systems.arboreus.test.AsyncAwait-v1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "AsyncAwait_v1/AsyncAwait/AsyncAwait_v1-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A820D69A2952F76500C07AEE /* Build configuration list for PBXProject "AsyncAwait_v1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A820D6B62952F76800C07AEE /* Debug */,
+				A820D6B72952F76800C07AEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A820D6B82952F76800C07AEE /* Build configuration list for PBXNativeTarget "AsyncAwait_v1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A820D6B92952F76800C07AEE /* Debug */,
+				A820D6BA2952F76800C07AEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A820D6972952F76500C07AEE /* Project object */;
+}
