@@ -1,0 +1,52 @@
+{
+  "identifier" : "FE4772FF",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "4F00D0F7",
+      "localizations" : [
+
+      ],
+      "name" : "Group 1",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "0.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "8E025245",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Description Renewable 1 week",
+              "displayName" : "Name Renewable 1 week",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "systems.arboreus.test.StoreKit.Subscription.Renewable.week.1",
+          "recurringSubscriptionPeriod" : "P1W",
+          "referenceName" : "Subscription Renewable week 1",
+          "subscriptionGroupID" : "4F00D0F7",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 1,
+    "minor" : 2
+  }
+}
