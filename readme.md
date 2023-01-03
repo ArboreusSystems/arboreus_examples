@@ -14,3 +14,4 @@ This examples covered by different types of licenses:
 * Qt5 - LGPL v2 License
 * Qt6 - LGPL v2 License
 * Swift - BSD License
+* Swift UI - BSD License
