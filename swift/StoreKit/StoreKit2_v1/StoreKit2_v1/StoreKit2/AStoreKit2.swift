@@ -12,6 +12,7 @@ import StoreKit
 	
 	let pItems: AStoreKit2Items = AStoreKit2Items();
 	var pProducts: AStoreKit2Products = AStoreKit2Products();
+	private var pTransactionUpdates: Optional<Task<Void, Never>> = nil;
 	
 	static let pSharedInstance: AStoreKit2 = AStoreKit2();
 	
@@ -19,7 +20,14 @@ import StoreKit
 		
 		super.init();
 		
+		pTransactionUpdates = mObserveTransactionsUpdate();
+		
 		__ALog("AStoreKit2 created");
+	}
+	
+	deinit {
+	
+		pTransactionUpdates?.cancel();
 	}
 	
 	func mGetProducts() async -> Void {
@@ -70,39 +78,31 @@ import StoreKit
 		}
 	}
 	
-	func mPurchaseProduct(_ inProduct: Product) async throws -> Optional<Transaction> {
+	func mPurchaseProduct(_ inProduct: Product) async throws -> Void {
 		
 		let oResult = try await inProduct.purchase();
 		switch oResult {
-			case .success(let verification):
-				__ALog("Purchase success");
-//				let oTransaction = mCheckVerified(oResult);
-//				return oTransaction;
-			case .pending:
-				__ALog("Purchase pending");
-			case .userCancelled:
-        		__ALog("Purchase canceled by user");
-			default:
+			case let .success(.verified(sTransaction)):
+				// Successful purhcase
+				await sTransaction.finish();
+				__ALog("Purchased product: \(inProduct.id)");
 				break;
-		}
-		return nil;
-	}
-	
-	func mCheckVerified<Transaction>(_ inResult: VerificationResult<Transaction>) throws -> Transaction {
-		
-		var oTransaction: Transaction;
-		
-		switch inResult {
-			case .unverified(let sTransaction, let sError):
-				__ALog("Error! Transaction not verified: \(sError.localizedDescription)");
-				oTransaction = sTransaction;
-				throw sError;
-			case .verified(let sTransaction):
-				__ALog("Transaction verified");
-				oTransaction = sTransaction;
-		}
-		
-		return oTransaction;
+			case let .success(.unverified(_, sError)):
+				// Successful purchase but transaction/receipt can't be verified
+				// Could be a jailbroken phone
+				__ALog("ERROR! Purchased product: \(inProduct.id) NOT verified with: \(sError.localizedDescription)");
+				break;
+			case .pending:
+				// Transaction waiting on SCA (Strong Customer Authentication) or
+				// approval from Ask to Buy
+				__ALog("Pending purchase transaction for: \(inProduct.id)");
+				break;
+			case .userCancelled:
+				__ALog("User canceled purchase: \(inProduct.id)");
+				break;
+    		default:
+    			break;
+    	}
 	}
 	
 	func mUpdatePurchasedProducts(_ inTransaction: Transaction) -> Void {
@@ -113,5 +113,22 @@ import StoreKit
 	func mIsPurchasedProduct(_ inProductID: String) async throws -> Bool {
 		
 		return false;
+	}
+	
+	private func mObserveTransactionsUpdate() -> Task<Void,Never> {
+		
+		Task(priority: .background) { [unowned self] in
+			
+			for await iVerificationResult in Transaction.updates {
+				__ALog("Updated transaction")
+				__ALog("\(iVerificationResult.payloadData)");
+				self.mUpdateProducts();
+			}
+		}
+	}
+	
+	private func mUpdateProducts() -> Void {
+		
+		__ALog("Update Products");
 	}
 }
