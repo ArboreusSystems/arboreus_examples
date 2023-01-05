@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import StoreKit
 
 @objc enum AStoreKitHandlerProductType: Int {
 	
@@ -23,4 +24,13 @@ import Foundation
 	@objc var pDescription: NSString = "NoDescription";
 	@objc var pPrice: NSNumber = 0.0;
 	@objc var pType: AStoreKitHandlerProductType = .Wrong;
+}
+
+@objc class AStoreKitHandlerTransaction: NSObject {
+	
+	static func mFromTransaction(inResult:VerificationResult<Transaction>) -> AStoreKitHandlerTransaction {
+		
+		let oHandlerTransaction: AStoreKitHandlerTransaction = AStoreKitHandlerTransaction();
+		return oHandlerTransaction;
+	}
 }

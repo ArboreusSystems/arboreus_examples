@@ -26,6 +26,9 @@
 		A87C277B294B2BDD008122F3 /* AMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C277A294B2BDD008122F3 /* AMainViewController.m */; };
 		A87C277F294B2C11008122F3 /* AViewControllerTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C277E294B2C11008122F3 /* AViewControllerTemplate.m */; };
 		A87C2782294B2D1F008122F3 /* AStoreKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C2781294B2D1F008122F3 /* AStoreKit.m */; };
+		A8E793332966A4170094899C /* AStoreKitHandlerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E793322966A4170094899C /* AStoreKitHandlerDelegate.swift */; };
+		A8E793372966CE160094899C /* AItemsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E793362966CE160094899C /* AItemsCollectionView.m */; };
+		A8E7933B2966CE3F0094899C /* AItemViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E7933A2966CE3F0094899C /* AItemViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +67,12 @@
 		A87C277E294B2C11008122F3 /* AViewControllerTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AViewControllerTemplate.m; sourceTree = "<group>"; };
 		A87C2780294B2D1F008122F3 /* AStoreKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AStoreKit.h; sourceTree = "<group>"; };
 		A87C2781294B2D1F008122F3 /* AStoreKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AStoreKit.m; sourceTree = "<group>"; };
+		A8E793322966A4170094899C /* AStoreKitHandlerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AStoreKitHandlerDelegate.swift; sourceTree = "<group>"; };
+		A8E793352966CE160094899C /* AItemsCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AItemsCollectionView.h; sourceTree = "<group>"; };
+		A8E793362966CE160094899C /* AItemsCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AItemsCollectionView.m; sourceTree = "<group>"; };
+		A8E793392966CE3F0094899C /* AItemViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AItemViewCell.h; sourceTree = "<group>"; };
+		A8E7933A2966CE3F0094899C /* AItemViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AItemViewCell.m; sourceTree = "<group>"; };
+		A8E7933C2966CF2E0094899C /* AStoreKitDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AStoreKitDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +93,7 @@
 				A83F4D8C2965BFDC00F9909D /* AStoreKitHandler.swift */,
 				A83F4D8B2965BFDB00F9909D /* StoreKit_v2-Bridging-Header.h */,
 				A83F4D8E2965C0A200F9909D /* AStoreKitHandlerDataModels.swift */,
+				A8E793322966A4170094899C /* AStoreKitHandlerDelegate.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -108,6 +118,8 @@
 		A87C2745294B2804008122F3 /* StoreKit_v2 */ = {
 			isa = PBXGroup;
 			children = (
+				A8E793382966CE250094899C /* Cells */,
+				A8E793342966CDF00094899C /* Views */,
 				A87C277C294B2BF1008122F3 /* Templates */,
 				A87C276E294B2948008122F3 /* ViewControllers */,
 				A87C276D294B293E008122F3 /* Logger */,
@@ -160,6 +172,7 @@
 				A83F4D972965E1CD00F9909D /* AStoreKitProducts.h */,
 				A83F4D982965E1CD00F9909D /* AStoreKitProducts.m */,
 				A83F4D952965E0C000F9909D /* Configuration.storekit */,
+				A8E7933C2966CF2E0094899C /* AStoreKitDelegate.h */,
 			);
 			path = StoreKit;
 			sourceTree = "<group>";
@@ -197,6 +210,24 @@
 				A87C277E294B2C11008122F3 /* AViewControllerTemplate.m */,
 			);
 			path = Templates;
+			sourceTree = "<group>";
+		};
+		A8E793342966CDF00094899C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A8E793352966CE160094899C /* AItemsCollectionView.h */,
+				A8E793362966CE160094899C /* AItemsCollectionView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A8E793382966CE250094899C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A8E793392966CE3F0094899C /* AItemViewCell.h */,
+				A8E7933A2966CE3F0094899C /* AItemViewCell.m */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,7 +308,9 @@
 				A87C2748294B2804008122F3 /* AAppDelegate.m in Sources */,
 				A83F4D992965E1CD00F9909D /* AStoreKitProducts.m in Sources */,
 				A83F4D942965CA2E00F9909D /* AStoreKitItems.m in Sources */,
+				A8E7933B2966CE3F0094899C /* AItemViewCell.m in Sources */,
 				A83F4D8D2965BFDC00F9909D /* AStoreKitHandler.swift in Sources */,
+				A8E793332966A4170094899C /* AStoreKitHandlerDelegate.swift in Sources */,
 				A83F4DA22965E69700F9909D /* ALabelTemplate.m in Sources */,
 				A87C2782294B2D1F008122F3 /* AStoreKit.m in Sources */,
 				A83F4DA12965E69700F9909D /* AButtonTemplate.m in Sources */,
@@ -285,6 +318,7 @@
 				A87C2778294B2AFA008122F3 /* ALogger.m in Sources */,
 				A87C2759294B2805008122F3 /* main.m in Sources */,
 				A87C2774294B2A72008122F3 /* UIColorCategory.m in Sources */,
+				A8E793372966CE160094899C /* AItemsCollectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

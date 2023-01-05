@@ -28,8 +28,6 @@
 -(BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	
 	[self setPStoreKit:[AStoreKit mSharedInstance]];
-	[_pStoreKit mRequestProducts];
-//	[[SKPaymentQueue defaultQueue] addTransactionObserver:_pStoreKit];
     
     [self setWindow:[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]];
     [self.window setRootViewController:[[ARootNavigationController alloc] initWithRootViewController:[[AMainViewController alloc] init]]];

@@ -32,6 +32,8 @@
 	if (self) {
 		
 		[self setPHandler:[[AStoreKitHandler alloc] init]];
+		[_pHandler setPDelegate:self];
+		
 		[self setPItems:[[AStoreKitItems alloc] init]];
 		[self setPProducts:[[AStoreKitProducts alloc] init]];
 		
@@ -55,6 +57,7 @@
 	[_pHandler mRequestProductsInIDs:oIDs completionHandler:^(NSArray<AStoreKitHandlerProduct*>* _Nullable inProducts, NSError* _Nullable inError) {
 		
 		if (!inError) {
+		
 			for (int i = 0; i < [inProducts count]; i++) {
 				switch (inProducts[i].pType) {
 					case AStoreKitHandlerProductTypeConsumable:
@@ -78,11 +81,57 @@
 			NSLog([NSString stringWithFormat:@"IN_APP_PURCHASE NonConcumable: %lu",(unsigned long)[self->_pProducts.pNonConsumable count]]);
 			NSLog([NSString stringWithFormat:@"IN_APP_PURCHASE RenewableSubscription: %lu",(unsigned long)[self->_pProducts.pRenewableSubscriptions count]]);
 			NSLog([NSString stringWithFormat:@"IN_APP_PURCHASE NonRenewableSubscription: %lu",(unsigned long)[self->_pProducts.pNonRenewableSubscriptions count]]);
+			
+			[self->_pDelegate mOnUpdateProducts];
+			
 		} else {
 			NSLog(@"ERROR! Requesting products failed with: %@",[inError localizedDescription]);
 		}
 	}];
 }
 
+-(void) mBuyProduct:(NSString *)inProduct {
+	
+	[_pHandler mBuyProductInID:inProduct completionHandler:^(NSError* _Nullable inError) {
+		
+		if (inError) {
+			NSLog(@"ERROR! Buying product failed with: %@",inError.localizedDescription);
+		}
+	}];
+}
+
+
+// ---------------------------------
+#pragma mark - AStorekitHandlerDelegate
+
+-(void) mBuyProductSuccessVerifiedInProduct:(AStoreKitHandlerProduct*)inProduct {
+	
+	NSLog(@"Buying product success and verified: %@",inProduct.pID)
+}
+
+-(void) mBuyProductSuccessNotVerifiedInProduct:(AStoreKitHandlerProduct*)inProduct inError:(NSError*)inError {
+	
+	NSLog(@"Buying product success and NOT verified: %@ with error: %@",inProduct.pID,inError.localizedDescription);
+}
+
+-(void) mBuyProductPendingInProduct:(AStoreKitHandlerProduct*)inProduct {
+	
+	NSLog(@"Buying product pending: %@",inProduct.pID);
+}
+
+-(void) mBuyProductUserCanceledInProduct:(AStoreKitHandlerProduct*)inProduct {
+	
+	NSLog(@"Buying product canceled by user: %@",inProduct.pID);
+}
+
+-(void) mBuyProductUndefinedResultInProduct:(AStoreKitHandlerProduct*)inProduct {
+	
+	NSLog(@"Undefined result of buying product: %@",inProduct.pID);
+}
+
+-(void) mTransactionUpdatesInTransaction:(AStoreKitHandlerTransaction*)inTransaction {
+	
+	NSLog(@"mTransactionUpdates");
+}
 
 @end
