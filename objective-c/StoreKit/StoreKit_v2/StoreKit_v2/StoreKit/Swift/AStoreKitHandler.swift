@@ -9,7 +9,7 @@ import Foundation
 import StoreKit
 
 
-@objc class AStoreKitHandler: NSObject {
+@objc class AStoreKitHandler: NSObject, SKPaymentTransactionObserver {
 	
 	@objc weak var pDelegate: Optional<AStorekitHandlerDelegate> = nil;
 	private var pProducts: Dictionary<String,Product> = [:];
@@ -19,6 +19,7 @@ import StoreKit
 		
 		super.init();
 		pUpdates = self.mObserveTransactionsUpdate();
+		SKPaymentQueue.default().add(self);
 	}
 	
 	deinit {
@@ -96,5 +97,15 @@ import StoreKit
 				pDelegate?.mTransactionUpdates(inTransaction: oHandlerTransaction);
 			}
 		}
+	}
+	
+	func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+		
+		pDelegate?.mPaymentQueueUpdatedTransactions();
+	}
+	
+	func paymentQueue(_ queue: SKPaymentQueue, shouldAddStorePayment payment: SKPayment, for product: SKProduct) -> Bool {
+		
+		return ((pDelegate?.mPaymentQueueShouldAddStorePayment()) != nil);
 	}
 }

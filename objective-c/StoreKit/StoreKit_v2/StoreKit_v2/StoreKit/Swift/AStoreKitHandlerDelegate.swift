@@ -15,4 +15,6 @@ import Foundation
 	@objc func mBuyProductUserCanceled(inProduct:AStoreKitHandlerProduct) -> Void;
 	@objc func mBuyProductUndefinedResult(inProduct:AStoreKitHandlerProduct) -> Void;
 	@objc func mTransactionUpdates(inTransaction:AStoreKitHandlerTransaction) -> Void;
+	@objc func mPaymentQueueUpdatedTransactions() -> Void;
+	@objc func mPaymentQueueShouldAddStorePayment() -> Bool;
 }

@@ -134,4 +134,16 @@
 	NSLog(@"mTransactionUpdates");
 }
 
+-(void) mPaymentQueueUpdatedTransactions {
+	
+	NSLog(@"mPaymentQueueUpdatedTransactions");
+}
+
+-(BOOL) mPaymentQueueShouldAddStorePayment {
+	
+	NSLog(@"mPaymentQueueShouldAddStorePayment");
+	
+	return true;
+}
+
 @end
