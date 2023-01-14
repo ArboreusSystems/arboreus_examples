@@ -58,5 +58,5 @@ target_link_libraries(${A_NAME_TARGET}
 	PRIVATE
 		Qt${QT_VERSION_MAJOR}::Core
 	PUBLIC
-		
+
 )
