@@ -15,13 +15,13 @@ set(TYPE "Parent")
 message(STATUS "TYPE: ${TYPE}")
 
 add_subdirectory(Subdir1)
-message(STATUS "Subdirectory Subdir1 added")
 
+message(STATUS "Subdirectory Subdir1 added")
 message(STATUS "TYPE: ${TYPE}")
 
 add_subdirectory(Subdir2)
 message(STATUS "Subdirectory Subdir2 added")
 
-message(STATUS ${ARRAY})
+message(STATUS "ARRAY: ${ARRAY}")
 
 add_executable(VariableScope_v1 ${A_SOURCES})
