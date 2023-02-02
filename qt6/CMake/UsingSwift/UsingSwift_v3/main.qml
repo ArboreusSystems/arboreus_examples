@@ -21,7 +21,7 @@ import QtQuick.Controls 2.15
 // Application
 ApplicationWindow {
 
-	property string pText: qsTr("Hello world!");
+	property string pText: qsTr("Using Swift v3");
 
 	id: oApplicationWindow;
 	width: 640;
