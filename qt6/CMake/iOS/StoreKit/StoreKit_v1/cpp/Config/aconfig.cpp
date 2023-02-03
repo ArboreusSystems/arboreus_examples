@@ -8,43 +8,13 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 29/10/2022 at 12:42:07
+	\li @created 28/01/2023 at 16:47:05
 	\endlist
 */
 // ----------------------------------------------------------
 
 // Class header
 #include "aconfig.h"
-
-// Forwarded classes
-#include <abackend.h>
-
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void fAApplicationConfig_Delegate_WillFinishLaunchingWithOptions(void) {
-
-	_A_DEBUG << "fAApplicationConfig_Delegate_WillFinishLaunchingWithOptions";
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void fAApplicationConfig_Delegate_DidFinishLaunchingWithOptions(void) {
-
-	_A_DEBUG << "fAApplicationConfig_Delegate_DidFinishLaunchingWithOptions";
-}
 
 
 // -----------
@@ -80,9 +50,9 @@ AConfig::~AConfig(void) {
 	Doc.
 */
 
-void AConfig::mSetBackend(ABackend* inBackend) {
+void AConfig::mInit(void) {
 
-	pBackend = inBackend;
+	_A_DEBUG << "AConfig initiated";
 }
 
 
@@ -93,208 +63,7 @@ void AConfig::mSetBackend(ABackend* inBackend) {
 	Doc.
 */
 
-QThread::Priority AConfig::AApplicationConfig_Application_ThreadPriority(void) {
+void AConfig::mStorekitConfigInterface_ProducIDs(QString inID) {
 
-	return pAApplicationConfig_Application_ThreadPriority;
 }
 
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void AConfig::AApplicationConfig_Lifecycle_WillLaunchBackend(void) {
-
-	_A_DEBUG << "AApplicationConfig_Lifecycle_WillLaunchBackend";
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void AConfig::AApplicationConfig_Lifecycle_DidLaunchBackend(void) {
-
-	_A_DEBUG << "AApplicationConfig_Lifecycle_DidLaunchBackend";
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void AConfig::AApplicationConfig_Lifecycle_WillLaunchUI(void) {
-
-	_A_DEBUG << "AApplicationConfig_Lifecycle_WillLaunchUI";
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void AConfig::AApplicationConfig_Lifecycle_DidLaunchUI(void) {
-
-	_A_DEBUG << "AApplicationConfig_Lifecycle_DidLaunchUI";
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void AConfig::AApplicationConfig_Lifecycle_WillQuit(void) {
-
-	_A_DEBUG << "AApplicationConfig_Lifecycle_WillQuit";
-}
-
-
-#if defined(Q_OS_IOS)
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void AConfig::AApplicationConfig_Delegate_DidBecomeActive(void) {
-
-	_A_DEBUG << "AApplicationConfig_DidBecomeActive";
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void AConfig::AApplicationConfig_Delegate_WillResignActive(void) {
-
-	_A_DEBUG << "AApplicationConfig_WillResignActive";
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void AConfig::AApplicationConfig_Delegate_DidReceiveMemoryWarning(void) {
-
-	_A_DEBUG << "AApplicationConfig_DidReceiveMemoryWarning";
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void AConfig::AApplicationConfig_Delegate_WillTerminate(void) {
-
-	_A_DEBUG << "AApplicationConfig_WillTerminate";
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void AConfig::AApplicationConfig_Delegate_SignificantTimeChange(void) {
-
-	_A_DEBUG << "AApplicationConfig_SignificantTimeChange";
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void AConfig::AApplicationConfig_Delegate_DidRegisterForRemoteNotificationsWithDeviceToken(QByteArray inToken) {
-
-	Q_UNUSED(inToken)
-
-	_A_DEBUG << "AApplicationConfig_DidRegisterForRemoteNotificationsWithDeviceToken";
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void AConfig::AApplicationConfig_Delegate_DidFailToRegisterForRemoteNotificationsWithError(void) {
-
-	_A_DEBUG << "AApplicationConfig_DidFailToRegisterForRemoteNotificationsWithError";
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void AConfig::AApplicationConfig_Delegate_DidUpdateUserActivity(void) {
-
-	_A_DEBUG << "AApplicationConfig_DidUpdateUserActivity";
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void AConfig::AApplicationConfig_Delegate_DidEnterBackground(void) {
-
-	_A_DEBUG << "AApplicationConfig_DidEnterBackground";
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void AConfig::AApplicationConfig_Delegate_WillEnterForeground(void) {
-
-	_A_DEBUG << "AApplicationConfig_WillEnterForeground";
-}
-
-#endif

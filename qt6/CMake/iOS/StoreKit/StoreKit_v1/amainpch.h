@@ -8,25 +8,22 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 12/01/2023 at 14:24:35
+	\li @created 28/01/2023 at 13:42:21
 	\endlist
 */
 // ----------------------------------------------------------
 #ifndef AMAINPCH_H
 #define AMAINPCH_H
 
-#if defined __cplusplus
-
 // System includes
-
-// Application includes
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QEvent>
+
+// Application includes
 
 // Constants and defintions
 
 // Namespace
-
-#endif
 
 #endif // AMAINPCH_H

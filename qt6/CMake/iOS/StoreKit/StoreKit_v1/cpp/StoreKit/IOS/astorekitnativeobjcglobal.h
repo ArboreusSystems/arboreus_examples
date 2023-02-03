@@ -8,12 +8,12 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 28/01/2023 at 13:17:32
+	\li @created 03/02/2023 at 15:38:18
 	\endlist
 */
 // ----------------------------------------------------------
-#ifndef ASWIFTOBJCBRIDGING_H
-#define ASWIFTOBJCBRIDGING_H
+#ifndef ASTOREKITNATIVEOBJCGLOBAL_H
+#define ASTOREKITNATIVEOBJCGLOBAL_H
 
 // System includes
 
@@ -23,4 +23,6 @@
 
 // Namespace
 
-#endif // ASWIFTOBJCBRIDGING_H
+void fStoreKitNativeOBJC_Init(void);
+
+#endif // ASTOREKITNATIVEOBJCGLOBAL_H

@@ -7,7 +7,7 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 12/01/2023 at 13:53:18
+	\li @created 28/01/2023 at 12:19:34
 	\endlist
 */
 // ----------------------------------------------------------
@@ -21,7 +21,7 @@ import QtQuick.Controls 2.15
 // Application
 ApplicationWindow {
 
-	property string pText: qsTr("StoreKit v1");
+	property string pText: qsTr("StoreKit v111111");
 
 	id: oApplicationWindow;
 	width: 640;

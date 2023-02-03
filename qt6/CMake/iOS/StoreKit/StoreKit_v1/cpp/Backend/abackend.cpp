@@ -76,14 +76,14 @@ void ABackend::mInit(
 	pEngine = inEngine;
 	pRootContext = inRootContext;
 
-	pApplication = new AApplication(pEngine);
+	pStoreKit = new AStoreKit(pEngine);
 	QObject::connect(
-		pApplication,&AApplication::sgInitiated,
+		pStoreKit,&AStoreKit::sgInitiated,
 		this,[this](){
 			_A_DEBUG << "ABackend initiated";
 			emit this->sgInitiated();
 		}
 	);
 
-	pApplication->mInit();
+	pStoreKit->mInit();
 }

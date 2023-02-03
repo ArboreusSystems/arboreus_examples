@@ -8,14 +8,17 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 28/01/2023 at 13:17:32
+	\li @created 02/02/2023 at 14:01:13
 	\endlist
 */
 // ----------------------------------------------------------
-#ifndef ASWIFTOBJCBRIDGING_H
-#define ASWIFTOBJCBRIDGING_H
+#ifndef ASTOREKITCONFIGINTERFACE_H
+#define ASTOREKITCONFIGINTERFACE_H
 
 // System includes
+
+// Precompiled includes
+#include <astorekitpch.h>
 
 // Application includes
 
@@ -23,4 +26,16 @@
 
 // Namespace
 
-#endif // ASWIFTOBJCBRIDGING_H
+class AStorekitConfigInterface {
+
+	public:
+
+		virtual void mStorekitConfigInterface_ProducIDs(QString inID) = 0;
+};
+
+Q_DECLARE_INTERFACE( \
+	AStorekitConfigInterface, \
+	"systems.arboreus.interfaces.AStorekitConfigInterface" \
+)
+
+#endif // ASTOREKITCONFIGINTERFACE_H

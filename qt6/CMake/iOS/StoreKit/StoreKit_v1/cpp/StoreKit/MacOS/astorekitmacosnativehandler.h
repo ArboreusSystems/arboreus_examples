@@ -1,6 +1,6 @@
 // ----------------------------------------------------------
 /*!
-	\headerfile AConfig
+	\headerfile AStoreKitMacOSNativeHandler
 	\title
 	\brief Template file wizard/classes/cpp/file.h
 
@@ -8,43 +8,41 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 28/01/2023 at 16:47:05
+	\li @created 03/02/2023 at 12:39:08
 	\endlist
 */
 // ----------------------------------------------------------
 
-#ifndef ACONFIG_H
-#define ACONFIG_H
+#ifndef ASTOREKITMACOSNATIVEHANDLER_H
+#define ASTOREKITMACOSNATIVEHANDLER_H
 
 // System includes
 
 // Precompiled includes
-#include <aconfigpch.h>
+#include <astorekitpch.h>
 
 // Application includes
 #include <aloggerglobal.h>
-#include <astorekitconfiginterface.h>
+#include <astorekitnativehandlerinterface.h>
 
 // Constants and definitions
 
 // Namespace
 
 // Class definitions
-class AConfig :
+class AStoreKitMacOSNativeHandler :
 	public QObject,
-	public AStorekitConfigInterface {
+	public AStoreKitNativeHandlerInterface {
 
 	Q_OBJECT
 	Q_INTERFACES(
-		AStorekitConfigInterface
+		AStoreKitNativeHandlerInterface
 	)
 
 	public:
 
-		explicit AConfig(QObject* parent = nullptr);
-		virtual ~AConfig(void);
-
-		void mInit(void);
+		explicit AStoreKitMacOSNativeHandler(QObject* parent = nullptr);
+		virtual ~AStoreKitMacOSNativeHandler(void);
 
 
 	// ----------------------------------
@@ -52,7 +50,9 @@ class AConfig :
 
 	public:
 
-		void mStorekitConfigInterface_ProducIDs(QString inID);
+		void mGetProducts(void);
+		void mBuyProduct(QString inID);
+		void mRestoreProduct(QString inID);
 };
 
-#endif // ACONFIG_H
+#endif // ASTOREKITMACOSNATIVEHANDLER_H

@@ -8,14 +8,16 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 29/10/2022 at 14:28:52
+	\li @created 02/02/2023 at 14:03:58
 	\endlist
 */
 // ----------------------------------------------------------
-#ifndef ACONFIGGLOBAL_H
-#define ACONFIGGLOBAL_H
+#ifndef ASTOREKITPCH_H
+#define ASTOREKITPCH_H
 
 // System includes
+#include <QObject>
+#include <QString>
 
 // Application includes
 
@@ -23,8 +25,4 @@
 
 // Namespace
 
-// Global functions
-void fAApplicationConfig_Delegate_WillFinishLaunchingWithOptions(void);
-void fAApplicationConfig_Delegate_DidFinishLaunchingWithOptions(void);
-
-#endif // ACONFIGGLOBAL_H
+#endif // ASTOREKITPCH_H

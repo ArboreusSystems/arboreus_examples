@@ -23,7 +23,7 @@
 
 // Application includes
 #include <aloggerglobal.h>
-#include <aapplication.h>
+#include <astorekit.h>
 
 // Constants and definitions
 
@@ -37,7 +37,7 @@ class ABackend : public QObject {
 	public:
 
 		QObject* pGlobalConfig = nullptr;
-		AApplication* pApplication = nullptr;
+		AStoreKit* pStoreKit = nullptr;
 
 		QGuiApplication* pGuiApplication = nullptr;
 		QQmlApplicationEngine* pEngine = nullptr;
