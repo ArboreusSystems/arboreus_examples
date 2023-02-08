@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		901EF89E66A5C6E55B446FEE /* Pods_SQLCipher_v1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1367A1AE53E77BC7AAD5280 /* Pods_SQLCipher_v1.framework */; };
+		A8136AC12993C54700EB912C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8136AC02993C54700EB912C /* AppDelegate.swift */; };
+		A8136AC32993C54700EB912C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8136AC22993C54700EB912C /* SceneDelegate.swift */; };
+		A8136AC52993C54700EB912C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8136AC42993C54700EB912C /* ViewController.swift */; };
+		A8136AC82993C54700EB912C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8136AC62993C54700EB912C /* Main.storyboard */; };
+		A8136ACA2993C54800EB912C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8136AC92993C54800EB912C /* Assets.xcassets */; };
+		A8136ACD2993C54800EB912C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8136ACB2993C54800EB912C /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0AAE284254949897AD88D8FA /* Pods-SQLCipher_v1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQLCipher_v1.debug.xcconfig"; path = "Target Support Files/Pods-SQLCipher_v1/Pods-SQLCipher_v1.debug.xcconfig"; sourceTree = "<group>"; };
+		87CE08DC68528F0D4DA902F5 /* Pods-SQLCipher_v1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQLCipher_v1.release.xcconfig"; path = "Target Support Files/Pods-SQLCipher_v1/Pods-SQLCipher_v1.release.xcconfig"; sourceTree = "<group>"; };
+		A8136ABD2993C54700EB912C /* SQLCipher_v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SQLCipher_v1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8136AC02993C54700EB912C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A8136AC22993C54700EB912C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A8136AC42993C54700EB912C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A8136AC72993C54700EB912C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A8136AC92993C54800EB912C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A8136ACC2993C54800EB912C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A8136ACE2993C54800EB912C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A83927952993CB43000B51DD /* SwiftOBJCBridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftOBJCBridging.h; sourceTree = "<group>"; };
+		C1367A1AE53E77BC7AAD5280 /* Pods_SQLCipher_v1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SQLCipher_v1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A8136ABA2993C54700EB912C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				901EF89E66A5C6E55B446FEE /* Pods_SQLCipher_v1.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7DD95A21BF316BF19F9712BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1367A1AE53E77BC7AAD5280 /* Pods_SQLCipher_v1.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A8136AB42993C54700EB912C = {
+			isa = PBXGroup;
+			children = (
+				A8136ABF2993C54700EB912C /* SQLCipher_v1 */,
+				A8136ABE2993C54700EB912C /* Products */,
+				D8E9A3086FB849B7D476B753 /* Pods */,
+				7DD95A21BF316BF19F9712BA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A8136ABE2993C54700EB912C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A8136ABD2993C54700EB912C /* SQLCipher_v1.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A8136ABF2993C54700EB912C /* SQLCipher_v1 */ = {
+			isa = PBXGroup;
+			children = (
+				A8136AC02993C54700EB912C /* AppDelegate.swift */,
+				A8136AC22993C54700EB912C /* SceneDelegate.swift */,
+				A8136AC42993C54700EB912C /* ViewController.swift */,
+				A8136AC62993C54700EB912C /* Main.storyboard */,
+				A8136AC92993C54800EB912C /* Assets.xcassets */,
+				A8136ACB2993C54800EB912C /* LaunchScreen.storyboard */,
+				A8136ACE2993C54800EB912C /* Info.plist */,
+				A83927952993CB43000B51DD /* SwiftOBJCBridging.h */,
+			);
+			path = SQLCipher_v1;
+			sourceTree = "<group>";
+		};
+		D8E9A3086FB849B7D476B753 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0AAE284254949897AD88D8FA /* Pods-SQLCipher_v1.debug.xcconfig */,
+				87CE08DC68528F0D4DA902F5 /* Pods-SQLCipher_v1.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A8136ABC2993C54700EB912C /* SQLCipher_v1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8136AD12993C54800EB912C /* Build configuration list for PBXNativeTarget "SQLCipher_v1" */;
+			buildPhases = (
+				1FDFCC75D16C201126AB0861 /* [CP] Check Pods Manifest.lock */,
+				A8136AB92993C54700EB912C /* Sources */,
+				A8136ABA2993C54700EB912C /* Frameworks */,
+				A8136ABB2993C54700EB912C /* Resources */,
+				9054431A450728EC0054F5B8 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SQLCipher_v1;
+			productName = SQLCipher_v1;
+			productReference = A8136ABD2993C54700EB912C /* SQLCipher_v1.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A8136AB52993C54700EB912C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					A8136ABC2993C54700EB912C = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = A8136AB82993C54700EB912C /* Build configuration list for PBXProject "SQLCipher_v1" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A8136AB42993C54700EB912C;
+			productRefGroup = A8136ABE2993C54700EB912C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A8136ABC2993C54700EB912C /* SQLCipher_v1 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A8136ABB2993C54700EB912C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8136ACD2993C54800EB912C /* LaunchScreen.storyboard in Resources */,
+				A8136ACA2993C54800EB912C /* Assets.xcassets in Resources */,
+				A8136AC82993C54700EB912C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1FDFCC75D16C201126AB0861 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SQLCipher_v1-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9054431A450728EC0054F5B8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SQLCipher_v1/Pods-SQLCipher_v1-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SQLCipher_v1/Pods-SQLCipher_v1-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SQLCipher_v1/Pods-SQLCipher_v1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A8136AB92993C54700EB912C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8136AC52993C54700EB912C /* ViewController.swift in Sources */,
+				A8136AC12993C54700EB912C /* AppDelegate.swift in Sources */,
+				A8136AC32993C54700EB912C /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A8136AC62993C54700EB912C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A8136AC72993C54700EB912C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A8136ACB2993C54800EB912C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A8136ACC2993C54800EB912C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A8136ACF2993C54800EB912C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A8136AD02993C54800EB912C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A8136AD22993C54800EB912C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AAE284254949897AD88D8FA /* Pods-SQLCipher_v1.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4KVLMRJ2PM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SQLCipher_v1/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "systems.arboreus.SQLCipher-v1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = SQLCipher_v1/SwiftOBJCBridging.h;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = SwiftOBJCInterface.h;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A8136AD32993C54800EB912C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87CE08DC68528F0D4DA902F5 /* Pods-SQLCipher_v1.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4KVLMRJ2PM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SQLCipher_v1/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "systems.arboreus.SQLCipher-v1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = SQLCipher_v1/SwiftOBJCBridging.h;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = SwiftOBJCInterface.h;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A8136AB82993C54700EB912C /* Build configuration list for PBXProject "SQLCipher_v1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8136ACF2993C54800EB912C /* Debug */,
+				A8136AD02993C54800EB912C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A8136AD12993C54800EB912C /* Build configuration list for PBXNativeTarget "SQLCipher_v1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8136AD22993C54800EB912C /* Debug */,
+				A8136AD32993C54800EB912C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A8136AB52993C54700EB912C /* Project object */;
+}

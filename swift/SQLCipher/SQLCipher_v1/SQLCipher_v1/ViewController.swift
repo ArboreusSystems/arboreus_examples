@@ -1,9 +1,8 @@
 //
 //  ViewController.swift
-//  SQLCipher
+//  SQLCipher_v1
 //
-//  Created by Alexandr Kirilov on 10/07/2019.
-//  Copyright © 2019 Arboreus. All rights reserved.
+//  Created by Alexandr KIRILOV on 08/02/2023.
 //
 
 import UIKit
