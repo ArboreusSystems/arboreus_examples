@@ -1,0 +1,37 @@
+# --------------------------
+# Module properties
+
+set(A_MODULE_LANGUAGES CXX C)
+set(A_MODULE_QT_COMPONENTS Quick)
+
+set(A_TARGET_INCLUDE_DIRECTORIES_PRIVATE
+	${A_TARGET_INCLUDE_DIRECTORIES_PRIVATE}
+	${A_DIR_APPLICATION_MODULE_MAIN}
+)
+
+
+# --------------------------
+# Module sources
+
+set(A_SOURCES_RESOURCES
+	${A_SOURCES_RESOURCES}
+	${A_DIR_APPLICATION_MODULE_MAIN}/Main.qrc
+)
+
+set(A_SOURCES_CPP
+	${A_SOURCES_CPP}
+	${A_DIR_APPLICATION_MODULE_MAIN}/main.cpp
+)
+
+set(A_SOURCES_PRECOMPILED_HEADERS_PUBLIC
+	${A_SOURCES_PRECOMPILED_HEADERS_PUBLIC}
+	${A_DIR_APPLICATION_MODULE_MAIN}/mainpch.h
+)
+
+
+# --------------------------
+# Define Project
+
+A_SetLanguages(${A_MODULE_LANGUAGES})
+A_SetQtComponents(${A_MODULE_QT_COMPONENTS})
+
