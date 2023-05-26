@@ -56,3 +56,15 @@ else()
 	message(FATAL_ERROR "No Application Extension Handler Module CMake file: ${A_CMAKE_APPLICATION_MODULE_EXTENSION_HANDLER}")
 endif()
 
+
+# --------------------------
+# Module: Resources
+
+set(A_DIR_APPLICATION_MODULE_RESOURCES "${A_DIR_APPLICATION}/Resources")
+set(A_CMAKE_APPLICATION_MODULE_RESOURCES "${A_DIR_APPLICATION_MODULE_RESOURCES}/Resources.cmake")
+if(EXISTS ${A_CMAKE_APPLICATION_MODULE_RESOURCES})
+	message(STATUS "Included Application Resources Module CMake file: ${A_CMAKE_APPLICATION_MODULE_RESOURCES}")
+	include(${A_CMAKE_APPLICATION_MODULE_RESOURCES})
+else()
+	message(FATAL_ERROR "No Application Resources Module CMake file: ${A_CMAKE_APPLICATION_MODULE_RESOURCES}")
+endif()

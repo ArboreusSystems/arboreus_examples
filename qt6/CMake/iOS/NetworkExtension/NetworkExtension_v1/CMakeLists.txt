@@ -2,8 +2,10 @@
 # Initiate project
 
 cmake_minimum_required(VERSION 3.24)
+
 set(A_PROJECT_NAME Application_v1)
 set(A_PROJECT_VERSION 0.1)
+
 project(${A_PROJECT_NAME} VERSION ${A_PROJECT_VERSION})
 
 
@@ -57,19 +59,6 @@ endif()
 
 
 # --------------------------
-# Extension definitions
-
-set(A_DIR_EXTENSION "${A_DIR_ROOT}/Extension")
-set(A_CMAKE_EXTENSION "${A_DIR_EXTENSION}/Extension.cmake")
-if(EXISTS ${A_CMAKE_EXTENSION})
-	message(STATUS "Included Extension CMake file: ${A_CMAKE_EXTENSION}")
-	include(${A_CMAKE_EXTENSION})
-else()
-	message(FATAL_ERROR "No Extension CMake file: ${A_CMAKE_EXTENSION}")
-endif()
-
-
-# --------------------------
 # Sources
 
 set(A_SOURCES
@@ -79,15 +68,23 @@ set(A_SOURCES
 	${A_SOURCES_PRECOMPILED_HEADERS_PRIVATE}
 	${A_SOURCES_CPP}
 	${A_SOURCES_CPP_HEADERS}
+	${A_SOURCES_OTHER}
 )
 
 if(IOS OR APPLE)
+
 	set(A_SOURCES
 		${A_SOURCES}
 		${A_SOURCES_OBJC}
 		${A_SOURCES_OBJC_HEADERS}
 		${A_SOURCES_SWIFT}
+		${A_ENTITLEMENT}
 	)
+
+	if(NOT "${A_INFO_PLIST}" STREQUAL "")
+		set(A_SOURCES ${A_SOURCES} ${A_INFO_PLIST})
+	endif()
+
 endif()
 
 
@@ -98,6 +95,32 @@ enable_language(${A_LANGUAGES})
 find_package(Qt6 ${A_QT_VERSION} REQUIRED COMPONENTS ${A_QT_COMPONENTS})
 qt_standard_project_setup(REQUIRES ${A_QT_VERSION})
 qt_add_executable(${A_PROJECT_NAME} ${A_SOURCES})
+
+
+# --------------------------
+# Extension definitions
+
+if(APPLE OR IOS)
+
+	set(A_DIR_EXTENSION "${A_DIR_ROOT}/Extension")
+	set(A_CMAKE_EXTENSION "${A_DIR_EXTENSION}/Extension.cmake")
+	if(EXISTS ${A_CMAKE_EXTENSION})
+		message(STATUS "Included Extension CMake file: ${A_CMAKE_EXTENSION}")
+		include(${A_CMAKE_EXTENSION})
+	else()
+		message(FATAL_ERROR "No Extension CMake file: ${A_CMAKE_EXTENSION}")
+	endif()
+
+	add_dependencies(${A_PROJECT_NAME} ${A_EXTENSION_NAME})
+
+	set_target_properties(${A_PROJECT_NAME} PROPERTIES
+		XCODE_EMBED_APP_EXTENSIONS ${A_EXTENSION_NAME}
+	)
+
+	A_AddEntitlement(${A_PROJECT_NAME} "${A_ENTITLEMENT}")
+	A_AddInfoPlist(${A_PROJECT_NAME} "${A_INFO_PLIST}")
+
+endif()
 
 #qt_add_qml_module(${A_PROJECT_NAME}
 #    URI NetworkExtension_v1

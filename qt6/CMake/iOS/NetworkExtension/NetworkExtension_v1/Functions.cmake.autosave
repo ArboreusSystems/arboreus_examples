@@ -76,3 +76,19 @@ function(A_AddInfoPlist IN_TARGET IN_INFO_PLIST)
 	endif()
 
 endfunction()
+
+
+# --------------------------
+# Add bundle identifier
+
+function(A_AddBundleIdentifier IN_TARGET IN_BUNDLE_IDENTIFIER)
+
+	if(NOT "${IN_BUNDLE_IDENTIFIER}" STREQUAL "")
+		set_target_properties(${IN_TARGET} PROPERTIES
+			MACOSX_BUNDLE_INFO_PLIST ${IN_BUNDLE_IDENTIFIER}
+		)
+	else()
+		message(FATAL_ERROR "Empty BUNDLE_IDENTIFIER")
+	endif()
+
+endfunction()
