@@ -76,3 +76,39 @@ function(A_AddInfoPlist IN_TARGET IN_INFO_PLIST)
 	endif()
 
 endfunction()
+
+
+# --------------------------
+# Add bundle identifier
+
+function(A_AddBundleIdentifier IN_TARGET IN_BUNDLE_IDENTIFIER)
+
+	if(NOT "${IN_BUNDLE_IDENTIFIER}" STREQUAL "")
+		message(STATUS "For ${IN_TARGET} defined Bundle Identifier: ${IN_BUNDLE_IDENTIFIER}")
+		set_target_properties(${IN_TARGET} PROPERTIES
+			XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER ${IN_BUNDLE_IDENTIFIER}
+		)
+	else()
+		message(FATAL_ERROR "Empty BUNDLE_IDENTIFIER")
+	endif()
+
+endfunction()
+
+
+# --------------------------
+# Add team
+
+function(A_AddTeam IN_TARGET IN_TEAM)
+
+	if("${IN_BUNDLE_IDENTIFIER}" STREQUAL "")
+		message(STATUS "For ${IN_TARGET} defined Team Identifier: ${IN_TEAM}")
+		set_target_properties(${IN_TARGET} PROPERTIES
+			XCODE_ATTRIBUTE_DEVELOPMENT_TEAM ${IN_TEAM}
+		)
+	else()
+		if(NOT A_BUILD_EMPTY_TEAM_ID)
+			message(FATAL_ERROR "Empty TEAM_ID")
+		endif()
+	endif()
+
+endfunction()

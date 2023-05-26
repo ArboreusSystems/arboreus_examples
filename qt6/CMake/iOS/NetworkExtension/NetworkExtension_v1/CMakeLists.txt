@@ -12,6 +12,18 @@ project(${A_PROJECT_NAME} VERSION ${A_PROJECT_VERSION})
 # --------------------------
 # Include project variables
 
+set(A_CMAKE_GLOBAL_CONF "${CMAKE_CURRENT_LIST_DIR}/../Global.conf.cmake")
+if(EXISTS ${A_CMAKE_GLOBAL_CONF})
+	message(STATUS "Included Global Configuration CMake file: ${A_CMAKE_GLOBAL_CONF}")
+	include(${A_CMAKE_GLOBAL_CONF})
+else()
+	message(FATAL_ERROR "No Global Configuration CMake file: ${A_CMAKE_GLOBAL_CONF}")
+endif()
+
+
+# --------------------------
+# Include project variables
+
 set(A_CMAKE_VARIABLES "${CMAKE_CURRENT_LIST_DIR}/Variables.cmake")
 if(EXISTS ${A_CMAKE_VARIABLES})
 	message(STATUS "Included Variables CMake file: ${A_CMAKE_VARIABLES}")
@@ -114,11 +126,14 @@ if(APPLE OR IOS)
 	add_dependencies(${A_PROJECT_NAME} ${A_EXTENSION_NAME})
 
 	set_target_properties(${A_PROJECT_NAME} PROPERTIES
+		MACOSX_BUNDLE ON
 		XCODE_EMBED_APP_EXTENSIONS ${A_EXTENSION_NAME}
 	)
 
 	A_AddEntitlement(${A_PROJECT_NAME} "${A_ENTITLEMENT}")
 	A_AddInfoPlist(${A_PROJECT_NAME} "${A_INFO_PLIST}")
+	A_AddBundleIdentifier(${A_PROJECT_NAME} "${A_BUNDLE_IDENTIFIER}")
+	A_AddTeam(${A_PROJECT_NAME} "${A_TEAM_ID}")
 
 endif()
 

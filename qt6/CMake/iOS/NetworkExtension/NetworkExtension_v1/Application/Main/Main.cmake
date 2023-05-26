@@ -28,6 +28,16 @@ set(A_SOURCES_PRECOMPILED_HEADERS_PUBLIC
 	${A_DIR_APPLICATION_MODULE_MAIN}/mainpch.h
 )
 
+if(IOS)
+
+	set(A_BUNDLE_IDENTIFIER "")
+
+endif()
+
+if(APPLE)
+
+endif()
+
 
 # --------------------------
 # Define Project
