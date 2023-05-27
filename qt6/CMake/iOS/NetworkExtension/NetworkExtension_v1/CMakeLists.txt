@@ -176,6 +176,11 @@ endif()
 # --------------------------
 # Link libraries
 
+set(A_TARGET_LINK_LIBRARIES_PRIVATE
+	${A_TARGET_LINK_LIBRARIES_PRIVATE}
+	"-framework NetworkExtension"
+)
+
 foreach(I_COMPONENT IN LISTS A_QT_COMPONENTS)
 	message(STATUS "Appending Qt Component: ${I_COMPONENT}")
 	list(APPEND A_TARGET_LINK_LIBRARIES_PRIVATE

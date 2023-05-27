@@ -30,8 +30,6 @@ set(A_SOURCES_PRECOMPILED_HEADERS_PUBLIC
 
 if(IOS)
 
-	set(A_BUNDLE_IDENTIFIER "")
-
 endif()
 
 if(APPLE)

@@ -100,15 +100,38 @@ endfunction()
 
 function(A_AddTeam IN_TARGET IN_TEAM)
 
-	if("${IN_BUNDLE_IDENTIFIER}" STREQUAL "")
-		message(STATUS "For ${IN_TARGET} defined Team Identifier: ${IN_TEAM}")
-		set_target_properties(${IN_TARGET} PROPERTIES
-			XCODE_ATTRIBUTE_DEVELOPMENT_TEAM ${IN_TEAM}
-		)
+	if("${IN_TARGET}" STREQUAL "")
+		message(FATAL_ERROR "No defined target")
 	else()
-		if(NOT A_BUILD_EMPTY_TEAM_ID)
-			message(FATAL_ERROR "Empty TEAM_ID")
+
+		if("${IN_BUNDLE_IDENTIFIER}" STREQUAL "")
+			message(STATUS "For ${IN_TARGET} defined Team Identifier: ${IN_TEAM}")
+			set_target_properties(${IN_TARGET} PROPERTIES
+				XCODE_ATTRIBUTE_DEVELOPMENT_TEAM ${IN_TEAM}
+			)
+		else()
+			if(NOT A_BUILD_EMPTY_TEAM_ID)
+				message(FATAL_ERROR "Empty TEAM_ID")
+			endif()
 		endif()
+
 	endif()
+
+endfunction()
+
+
+function(A_AddProvisioningProfile IN_TARGET IN_BUNDLE_ID)
+
+	if("${IN_TARGET}" STREQUAL "")
+		message(FATAL_ERROR "No defined target")
+	else()
+
+	endif()
+
+	message(STATUS "For ${}")
+
+#	XCODE_ATTRIBUTE_CODE_SIGN_STYLE Automatic
+#        XCODE_ATTRIBUTE_PROVISIONING_PROFILE_SPECIFIER "match AppStore org.amnezia.AmneziaVPN"
+#        XCODE_ATTRIBUTE_PROVISIONING_PROFILE_SPECIFIER[variant=Debug] "match Development org.amnezia.AmneziaVPN"
 
 endfunction()
