@@ -67,11 +67,9 @@ add_executable(${A_EXTENSION_NAME}
 
 A_AddEntitlement(${A_EXTENSION_NAME} "${A_EXTENSION_ENTITLEMENT}")
 A_AddInfoPlist(${A_EXTENSION_NAME} "${A_EXTENSION_INFO_PLIST}")
-
-message("!!!!!!!!!!!!! Extension")
-message("${A_EXTENSION_NAME} : ${A_BUNDLE_IDENTIFIER}")
 A_AddBundleIdentifier(${A_EXTENSION_NAME} "${A_EXTENSION_BUNDLE_ID}")
 A_AddTeam(${A_EXTENSION_NAME} "${A_TEAM_ID}")
+A_AddFramework(${A_EXTENSION_NAME} NetworkExtension)
 
 set_target_properties(${A_EXTENSION_NAME} PROPERTIES
 	MACOSX_BUNDLE ON
@@ -79,4 +77,3 @@ set_target_properties(${A_EXTENSION_NAME} PROPERTIES
 	BUNDLE_EXTENSION appex
 )
 
-#target_link_libraries(${A_EXTENSION_NAME} "-framework NetworkExtension")

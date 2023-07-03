@@ -128,10 +128,22 @@ function(A_AddProvisioningProfile IN_TARGET IN_BUNDLE_ID)
 
 	endif()
 
-	message(STATUS "For ${}")
+endfunction()
 
-#	XCODE_ATTRIBUTE_CODE_SIGN_STYLE Automatic
-#        XCODE_ATTRIBUTE_PROVISIONING_PROFILE_SPECIFIER "match AppStore org.amnezia.AmneziaVPN"
-#        XCODE_ATTRIBUTE_PROVISIONING_PROFILE_SPECIFIER[variant=Debug] "match Development org.amnezia.AmneziaVPN"
+function(A_AddFramework IN_TARGET IN_FRAMEWORK)
+
+	find_library(FRAMEWORK_${IN_FRAMEWORK}
+		NAMES ${IN_FRAMEWORK}
+		PATHS ${CMAKE_OSX_SYSROOT}/System/Library
+		PATH_SUFFIXES Frameworks
+		NO_DEFAULT_PATH
+	)
+
+	if( ${FRAMEWORK_${IN_FRAMEWORK}} STREQUAL FRAMEWORK_${IN_FRAMEWORK}-NOTFOUND)
+		message(FATAL_ERROR "Framework ${IN_FRAMEWORK} not found")
+	else()
+		target_link_libraries(${IN_TARGET} PUBLIC ${FRAMEWORK_${IN_FRAMEWORK}})
+		message(STATUS "Framework ${IN_FRAMEWORK} found at ${FRAMEWORK_${IN_FRAMEWORK}}")
+	endif()
 
 endfunction()

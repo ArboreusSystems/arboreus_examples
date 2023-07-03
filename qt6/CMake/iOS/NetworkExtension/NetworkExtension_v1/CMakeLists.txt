@@ -137,19 +137,6 @@ if(APPLE OR IOS)
 
 endif()
 
-#qt_add_qml_module(${A_PROJECT_NAME}
-#    URI NetworkExtension_v1
-#    VERSION 1.0
-#    QML_FILES Main.qml
-#)
-
-#set_target_properties(${A_PROJECT_NAME} PROPERTIES
-#    MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
-#    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-#    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-#    MACOSX_BUNDLE TRUE
-#    WIN32_EXECUTABLE TRUE
-#)
 
 # --------------------------
 # Define precompiled headers
@@ -176,11 +163,6 @@ endif()
 # --------------------------
 # Link libraries
 
-set(A_TARGET_LINK_LIBRARIES_PRIVATE
-	${A_TARGET_LINK_LIBRARIES_PRIVATE}
-	"-framework NetworkExtension"
-)
-
 foreach(I_COMPONENT IN LISTS A_QT_COMPONENTS)
 	message(STATUS "Appending Qt Component: ${I_COMPONENT}")
 	list(APPEND A_TARGET_LINK_LIBRARIES_PRIVATE
@@ -200,13 +182,3 @@ target_include_directories(${A_PROJECT_NAME}
 	PRIVATE ${A_TARGET_INCLUDE_DIRECTORIES_PRIVATE}
 	PUBLIC ${A_TARGET_INCLUDE_DIRECTORIES_PUBLIC}
 )
-
-
-# --------------------------
-# Install definitions
-
-#install(TARGETS ${A_PROJECT_NAME}
-#    BUNDLE DESTINATION .
-#    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-#    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-#)

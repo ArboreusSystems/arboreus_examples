@@ -1,0 +1,30 @@
+# --------------------------
+#  Variables
+
+set(A_CONF_APPLICATION_BUNDLE_ID)
+set(A_CONF_EXTENSION_BUNDLE_ID)
+set(A_CONF_TEAM_ID)
+
+
+# --------------------------
+# Set Bundle properties
+
+if(APPLE)
+
+    set(A_CONF_APPLICATION_BUNDLE_ID "add.your.bubdle.id.from.appstore")
+    set(A_CONF_EXTENSION_BUNDLE_ID "${A_CONF_APPLICATION_BUNDLE_ID}.Extension")
+
+endif()
+
+if(IOS)
+
+    set(A_CONF_APPLICATION_BUNDLE_ID "add.your.bubdle.id.from.appstore")
+    set(A_CONF_EXTENSION_BUNDLE_ID "${A_CONF_APPLICATION_BUNDLE_ID}.Extension")
+
+endif()
+
+if(IOS OR APPLE)
+
+    set(A_CONF_TEAM_ID "your_team_id")
+
+endif()
