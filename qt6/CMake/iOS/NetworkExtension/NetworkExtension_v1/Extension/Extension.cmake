@@ -69,11 +69,12 @@ A_AddEntitlement(${A_EXTENSION_NAME} "${A_EXTENSION_ENTITLEMENT}")
 A_AddInfoPlist(${A_EXTENSION_NAME} "${A_EXTENSION_INFO_PLIST}")
 A_AddBundleIdentifier(${A_EXTENSION_NAME} "${A_EXTENSION_BUNDLE_ID}")
 A_AddTeam(${A_EXTENSION_NAME} "${A_TEAM_ID}")
-A_AddFramework(${A_EXTENSION_NAME} NetworkExtension)
+
+target_link_libraries(${A_EXTENSION_NAME}  "-framework NetworkExtension")
 
 set_target_properties(${A_EXTENSION_NAME} PROPERTIES
 	MACOSX_BUNDLE TRUE
 	XCODE_PRODUCT_TYPE com.apple.product-type.app-extension
 	BUNDLE_EXTENSION appex
+	LINK_FLAGS "-Wl,-F/Library/Frameworks"
 )
-
