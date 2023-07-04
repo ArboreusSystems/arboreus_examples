@@ -72,7 +72,7 @@ A_AddTeam(${A_EXTENSION_NAME} "${A_TEAM_ID}")
 A_AddFramework(${A_EXTENSION_NAME} NetworkExtension)
 
 set_target_properties(${A_EXTENSION_NAME} PROPERTIES
-	MACOSX_BUNDLE ON
+	MACOSX_BUNDLE TRUE
 	XCODE_PRODUCT_TYPE com.apple.product-type.app-extension
 	BUNDLE_EXTENSION appex
 )
