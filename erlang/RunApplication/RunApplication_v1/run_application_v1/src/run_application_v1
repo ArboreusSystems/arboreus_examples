@@ -1,0 +1,17 @@
+#!/usr/bin/env escript
+
+-include("run_application_v1_conf.hrl").
+
+-export([main/1]).
+
+main([]) ->
+
+	code:add_path(?A_PATH_EBIN_APPLICATION),
+	ok = case whereis(run_application_v1) of
+		undefined ->
+			application:start(run_application_v1);
+		_Pid ->
+			io:format("run_application_v1_app -> Already started~n"),
+			ok
+	end.
+
