@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+A_CONFIG_FILE=run_application_v2.conf.sh;
+if test -f "${A_CONFIG_FILE}";
+then
+	echo "Config ${A_CONFIG_FILE} exists";
+	source ${A_CONFIG_FILE};
+else
+	echo "Config ${A_CONFIG_FILE} not exists";
+	exit 1;
+fi
+
+erl \
+	-name ${A_NODE_NAME} \
+	-detached \
+	-pa ${A_DIR_EBIN_APPLICATION} \
+	-eval "application:start(run_application_v2)" \
+	-setcookie ${A_NODE_COOKIE};
+
+echo "Node started with name ";
