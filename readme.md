@@ -11,6 +11,7 @@ This examples covered by different types of licenses:
 
 * C - BSD License
 * CPP - BSD License
+* Erlang - BSD License
 * Objective-C - BSD License
 * Qt5 - LGPL v2 License
 * Qt6 - LGPL v2 License
