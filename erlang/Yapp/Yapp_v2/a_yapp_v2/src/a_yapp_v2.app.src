@@ -1,0 +1,14 @@
+{application, a_yapp_v2,[
+	{description, "Embeded Yaws web server demo application with virtual hosts"},
+	{vsn, "0.1.0"},
+	{registered, []},
+	{mod, {a_yapp_v2_app, []}},
+	{applications,[
+		kernel,
+		stdlib
+	]},
+	{env,[]},
+	{modules, []},
+	{licenses, ["BSD"]},
+	{links, []}
+]}.
