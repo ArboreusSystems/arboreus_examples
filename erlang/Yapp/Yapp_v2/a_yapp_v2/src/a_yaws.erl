@@ -42,7 +42,7 @@ start_server() ->
 		?A_DIR_PUB,[
 			{port, 8080},
 			{listen, {0,0,0,0}},
-			{yaws, "Super-pooper web server"},
+			{yaws, "Super web server"},
 			{docroot, ?A_DIR_PUB},
 			{appmods, [
 				{"a_yaws_host1", a_yaws_host1},
