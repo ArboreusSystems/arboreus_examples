@@ -1,0 +1,15 @@
+{application, a_yapp_v3,[
+	{description, "An OTP application"},
+	{vsn, "0.1.0"},
+	{registered, []},
+	{mod, {a_yapp_v3_app, []}},
+	{applications,[
+		kernel,
+		stdlib,
+		yaws
+	]},
+	{env,[]},
+	{modules, []},
+	{licenses, ["Apache-2.0"]},
+	{links, []}
+ ]}.
