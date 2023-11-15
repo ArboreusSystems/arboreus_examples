@@ -1,0 +1,5 @@
+127.0.0.1 [15/Nov/2023:18:42:04 +0300] localhost:8080 "/restricted" 401 realm=
+127.0.0.1 [15/Nov/2023:18:43:27 +0300] localhost:8080 "/restricted" 401 realm=
+127.0.0.1 [15/Nov/2023:18:43:39 +0300] localhost:8080 "/restricted" 401 realm=
+127.0.0.1 [15/Nov/2023:18:44:04 +0300] localhost:8080 "/restricted/test.txt" 401 realm=
+127.0.0.1 [15/Nov/2023:18:44:07 +0300] localhost:8080 "/restricted/test.txt" 401 realm=

@@ -1,0 +1,14 @@
+{application, a_yaws_auth_v2,[
+	{description, "An OTP application"},
+	{vsn, "0.1.0"},
+	{registered, []},
+	{mod, {a_yaws_auth_v2_app, []}},
+	{applications,[
+		kernel,
+		stdlib
+	]},
+	{env,[]},
+	{modules, []},
+	{licenses, ["Apache-2.0"]},
+	{links, []}
+ ]}.
