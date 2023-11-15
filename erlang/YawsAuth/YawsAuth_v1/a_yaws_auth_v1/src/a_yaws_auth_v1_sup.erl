@@ -30,7 +30,7 @@
 
 start_link() ->
 
-	io:format("a_yaws_auth_v1_sup starting link"),
+	io:format("a_yaws_auth_v1_sup starting link~n"),
 	supervisor:start_link({local, ?SERVER}, ?MODULE, []).
 
 
