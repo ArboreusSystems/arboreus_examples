@@ -1,6 +1,7 @@
 #![allow(non_snake_case)]
 #![allow(non_camel_case_types)]
 
+#[derive(Debug)]
 enum A_ReplyStatus {
 	Undefined,
 	Ok,
@@ -23,6 +24,9 @@ fn main() {
 		A_ReplyStatus::Ok => println!("Ok"),
 		A_ReplyStatus::Error => println!("Error")
 	}
+
+	let (oStatus,oData) = fTestTuple();
+	println!("Status: {:?} Data: {}",oStatus,oData);
 
     println!("Tuple_v1");
 }
