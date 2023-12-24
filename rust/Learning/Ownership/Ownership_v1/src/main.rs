@@ -6,7 +6,7 @@ enum A_GOODS_CLONE_COPY {
 	APPLE, BREAD, ORANGE, BEEF, PORK, JUICE
 }
 
-enum A_GOODS_REFERENCED {
+enum A_GOODS_BORROWED {
 	APPLE, BREAD, ORANGE, BEEF, PORK, JUICE
 }
 
@@ -22,15 +22,15 @@ fn fDisplayGoodsCloneCopy(inGoods: A_GOODS_CLONE_COPY) {
 	}
 }
 
-fn fDisplayGoodsReferenced(inGoods: &A_GOODS_REFERENCED) {
+fn fDisplayGoodsReferenced(inGoods: &A_GOODS_BORROWED) {
 
 	match inGoods {
-		A_GOODS_REFERENCED::BREAD => println!("A_GOODS_REFERENCED::BREAD"),
-		A_GOODS_REFERENCED::BEEF => println!("A_GOODS_REFERENCED::BEEF"),
-		A_GOODS_REFERENCED::APPLE => println!("A_GOODS_REFERENCED::APPLE"),
-		A_GOODS_REFERENCED::JUICE => println!("A_GOODS_REFERENCED::JUICE"),
-		A_GOODS_REFERENCED::ORANGE => println!("A_GOODS_REFERENCED::ORANGE"),
-		A_GOODS_REFERENCED::PORK => println!("A_GOODS_REFERENCED::PORK")
+		A_GOODS_BORROWED::BREAD => println!("A_GOODS_BORROWED::BREAD"),
+		A_GOODS_BORROWED::BEEF => println!("A_GOODS_BORROWED::BEEF"),
+		A_GOODS_BORROWED::APPLE => println!("A_GOODS_BORROWED::APPLE"),
+		A_GOODS_BORROWED::JUICE => println!("A_GOODS_BORROWED::JUICE"),
+		A_GOODS_BORROWED::ORANGE => println!("A_GOODS_BORROWED::ORANGE"),
+		A_GOODS_BORROWED::PORK => println!("A_GOODS_BORROWED::PORK")
 	}
 }
 
@@ -40,9 +40,9 @@ fn main() {
 	fDisplayGoodsCloneCopy(oGoodsCloneCopy);
 	fDisplayGoodsCloneCopy(oGoodsCloneCopy);
 
-	let oGoodsReferenced: A_GOODS_REFERENCED = A_GOODS_REFERENCED::PORK;
-	fDisplayGoodsReferenced(&oGoodsReferenced);
-	fDisplayGoodsReferenced(&oGoodsReferenced);
+	let oGoodsBorrowed: A_GOODS_BORROWED = A_GOODS_BORROWED::PORK;
+	fDisplayGoodsReferenced(&oGoodsBorrowed);
+	fDisplayGoodsReferenced(&oGoodsBorrowed);
 
     println!("Ownership_v1");
 }
