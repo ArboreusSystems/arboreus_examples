@@ -22,7 +22,7 @@ fn fDisplayGoodsCloneCopy(inGoods: A_GOODS_CLONE_COPY) {
 	}
 }
 
-fn fDisplayGoodsReferenced(inGoods: &A_GOODS_BORROWED) {
+fn fDisplayGoodsBorrowed(inGoods: &A_GOODS_BORROWED) {
 
 	match inGoods {
 		A_GOODS_BORROWED::BREAD => println!("A_GOODS_BORROWED::BREAD"),
@@ -41,8 +41,8 @@ fn main() {
 	fDisplayGoodsCloneCopy(oGoodsCloneCopy);
 
 	let oGoodsBorrowed: A_GOODS_BORROWED = A_GOODS_BORROWED::PORK;
-	fDisplayGoodsReferenced(&oGoodsBorrowed);
-	fDisplayGoodsReferenced(&oGoodsBorrowed);
-
+	fDisplayGoodsBorrowed(&oGoodsBorrowed);
+	fDisplayGoodsBorrowed(&oGoodsBorrowed);
+	
     println!("Ownership_v1");
 }
