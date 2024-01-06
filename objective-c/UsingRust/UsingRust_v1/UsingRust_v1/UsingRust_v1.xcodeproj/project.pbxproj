@@ -1,0 +1,446 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A8202B062B49C7AA00DB6CC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8202B052B49C7AA00DB6CC9 /* AppDelegate.m */; };
+		A8202B112B49C7AB00DB6CC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8202B102B49C7AB00DB6CC9 /* Assets.xcassets */; };
+		A8202B142B49C7AB00DB6CC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8202B122B49C7AB00DB6CC9 /* LaunchScreen.storyboard */; };
+		A8202B172B49C7AB00DB6CC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8202B162B49C7AB00DB6CC9 /* main.m */; };
+		A851DB612B49C886000FD150 /* UIColorCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A851DB5F2B49C886000FD150 /* UIColorCategory.m */; };
+		A851DB662B49C89B000FD150 /* AMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A851DB642B49C89B000FD150 /* AMainViewController.m */; };
+		A851DB672B49C89B000FD150 /* ARootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A851DB652B49C89B000FD150 /* ARootNavigationController.m */; };
+		A851DB6B2B49C8CE000FD150 /* AViewControllerTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = A851DB6A2B49C8CE000FD150 /* AViewControllerTemplate.m */; };
+		A851DB6F2B49C8F7000FD150 /* ALogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A851DB6D2B49C8F7000FD150 /* ALogger.m */; };
+		A851DB722B49C9FE000FD150 /* AButtonTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = A851DB712B49C9FE000FD150 /* AButtonTemplate.m */; };
+		A851DB762B49CA72000FD150 /* libUsingRustLib_v1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A851DB752B49CA72000FD150 /* libUsingRustLib_v1.a */; };
+		A851DB792B49D2CD000FD150 /* ALabelTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = A851DB772B49D2CD000FD150 /* ALabelTemplate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A8202B012B49C7AA00DB6CC9 /* UsingRust_v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UsingRust_v1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8202B042B49C7AA00DB6CC9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A8202B052B49C7AA00DB6CC9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A8202B102B49C7AB00DB6CC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A8202B132B49C7AB00DB6CC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A8202B152B49C7AB00DB6CC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8202B162B49C7AB00DB6CC9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A851DB5D2B49C870000FD150 /* AColorDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AColorDefinitions.h; sourceTree = "<group>"; };
+		A851DB5F2B49C886000FD150 /* UIColorCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorCategory.m; sourceTree = "<group>"; };
+		A851DB602B49C886000FD150 /* UIColorCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorCategory.h; sourceTree = "<group>"; };
+		A851DB622B49C89B000FD150 /* ARootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARootNavigationController.h; sourceTree = "<group>"; };
+		A851DB632B49C89B000FD150 /* AMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMainViewController.h; sourceTree = "<group>"; };
+		A851DB642B49C89B000FD150 /* AMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMainViewController.m; sourceTree = "<group>"; };
+		A851DB652B49C89B000FD150 /* ARootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARootNavigationController.m; sourceTree = "<group>"; };
+		A851DB692B49C8CE000FD150 /* AViewControllerTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AViewControllerTemplate.h; sourceTree = "<group>"; };
+		A851DB6A2B49C8CE000FD150 /* AViewControllerTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AViewControllerTemplate.m; sourceTree = "<group>"; };
+		A851DB6D2B49C8F7000FD150 /* ALogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALogger.m; sourceTree = "<group>"; };
+		A851DB6E2B49C8F7000FD150 /* ALogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALogger.h; sourceTree = "<group>"; };
+		A851DB702B49C9FE000FD150 /* AButtonTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AButtonTemplate.h; sourceTree = "<group>"; };
+		A851DB712B49C9FE000FD150 /* AButtonTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AButtonTemplate.m; sourceTree = "<group>"; };
+		A851DB742B49CA72000FD150 /* UsingRust_v1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsingRust_v1.h; sourceTree = "<group>"; };
+		A851DB752B49CA72000FD150 /* libUsingRustLib_v1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUsingRustLib_v1.a; sourceTree = "<group>"; };
+		A851DB772B49D2CD000FD150 /* ALabelTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALabelTemplate.m; sourceTree = "<group>"; };
+		A851DB782B49D2CD000FD150 /* ALabelTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALabelTemplate.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A8202AFE2B49C7AA00DB6CC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A851DB762B49CA72000FD150 /* libUsingRustLib_v1.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A8202AF82B49C7AA00DB6CC9 = {
+			isa = PBXGroup;
+			children = (
+				A8202B032B49C7AA00DB6CC9 /* UsingRust_v1 */,
+				A8202B022B49C7AA00DB6CC9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A8202B022B49C7AA00DB6CC9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A8202B012B49C7AA00DB6CC9 /* UsingRust_v1.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A8202B032B49C7AA00DB6CC9 /* UsingRust_v1 */ = {
+			isa = PBXGroup;
+			children = (
+				A851DB732B49CA60000FD150 /* RustLibrary */,
+				A851DB6C2B49C8EC000FD150 /* Logger */,
+				A851DB682B49C8BF000FD150 /* Templates */,
+				A851DB5E2B49C879000FD150 /* Categories */,
+				A851DB5C2B49C84B000FD150 /* Definitions */,
+				A851DB5B2B49C834000FD150 /* ViewControllers */,
+				A8202B042B49C7AA00DB6CC9 /* AppDelegate.h */,
+				A8202B052B49C7AA00DB6CC9 /* AppDelegate.m */,
+				A8202B102B49C7AB00DB6CC9 /* Assets.xcassets */,
+				A8202B122B49C7AB00DB6CC9 /* LaunchScreen.storyboard */,
+				A8202B152B49C7AB00DB6CC9 /* Info.plist */,
+				A8202B162B49C7AB00DB6CC9 /* main.m */,
+			);
+			path = UsingRust_v1;
+			sourceTree = "<group>";
+		};
+		A851DB5B2B49C834000FD150 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A851DB632B49C89B000FD150 /* AMainViewController.h */,
+				A851DB642B49C89B000FD150 /* AMainViewController.m */,
+				A851DB622B49C89B000FD150 /* ARootNavigationController.h */,
+				A851DB652B49C89B000FD150 /* ARootNavigationController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A851DB5C2B49C84B000FD150 /* Definitions */ = {
+			isa = PBXGroup;
+			children = (
+				A851DB5D2B49C870000FD150 /* AColorDefinitions.h */,
+			);
+			path = Definitions;
+			sourceTree = "<group>";
+		};
+		A851DB5E2B49C879000FD150 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				A851DB602B49C886000FD150 /* UIColorCategory.h */,
+				A851DB5F2B49C886000FD150 /* UIColorCategory.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		A851DB682B49C8BF000FD150 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				A851DB782B49D2CD000FD150 /* ALabelTemplate.h */,
+				A851DB772B49D2CD000FD150 /* ALabelTemplate.m */,
+				A851DB702B49C9FE000FD150 /* AButtonTemplate.h */,
+				A851DB712B49C9FE000FD150 /* AButtonTemplate.m */,
+				A851DB692B49C8CE000FD150 /* AViewControllerTemplate.h */,
+				A851DB6A2B49C8CE000FD150 /* AViewControllerTemplate.m */,
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
+		A851DB6C2B49C8EC000FD150 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				A851DB6E2B49C8F7000FD150 /* ALogger.h */,
+				A851DB6D2B49C8F7000FD150 /* ALogger.m */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		A851DB732B49CA60000FD150 /* RustLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				A851DB752B49CA72000FD150 /* libUsingRustLib_v1.a */,
+				A851DB742B49CA72000FD150 /* UsingRust_v1.h */,
+			);
+			path = RustLibrary;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A8202B002B49C7AA00DB6CC9 /* UsingRust_v1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8202B1A2B49C7AB00DB6CC9 /* Build configuration list for PBXNativeTarget "UsingRust_v1" */;
+			buildPhases = (
+				A8202AFD2B49C7AA00DB6CC9 /* Sources */,
+				A8202AFE2B49C7AA00DB6CC9 /* Frameworks */,
+				A8202AFF2B49C7AA00DB6CC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UsingRust_v1;
+			productName = UsingRust_v1;
+			productReference = A8202B012B49C7AA00DB6CC9 /* UsingRust_v1.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A8202AF92B49C7AA00DB6CC9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					A8202B002B49C7AA00DB6CC9 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = A8202AFC2B49C7AA00DB6CC9 /* Build configuration list for PBXProject "UsingRust_v1" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A8202AF82B49C7AA00DB6CC9;
+			productRefGroup = A8202B022B49C7AA00DB6CC9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A8202B002B49C7AA00DB6CC9 /* UsingRust_v1 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A8202AFF2B49C7AA00DB6CC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8202B142B49C7AB00DB6CC9 /* LaunchScreen.storyboard in Resources */,
+				A8202B112B49C7AB00DB6CC9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A8202AFD2B49C7AA00DB6CC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A851DB612B49C886000FD150 /* UIColorCategory.m in Sources */,
+				A851DB662B49C89B000FD150 /* AMainViewController.m in Sources */,
+				A851DB792B49D2CD000FD150 /* ALabelTemplate.m in Sources */,
+				A8202B062B49C7AA00DB6CC9 /* AppDelegate.m in Sources */,
+				A851DB6F2B49C8F7000FD150 /* ALogger.m in Sources */,
+				A851DB672B49C89B000FD150 /* ARootNavigationController.m in Sources */,
+				A851DB722B49C9FE000FD150 /* AButtonTemplate.m in Sources */,
+				A851DB6B2B49C8CE000FD150 /* AViewControllerTemplate.m in Sources */,
+				A8202B172B49C7AB00DB6CC9 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A8202B122B49C7AB00DB6CC9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A8202B132B49C7AB00DB6CC9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A8202B182B49C7AB00DB6CC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A8202B192B49C7AB00DB6CC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A8202B1B2B49C7AB00DB6CC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4KVLMRJ2PM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UsingRust_v1/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UsingRust_v1/RustLibrary",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "systems.arboreus.test.UsingRust-v1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A8202B1C2B49C7AB00DB6CC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4KVLMRJ2PM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UsingRust_v1/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UsingRust_v1/RustLibrary",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "systems.arboreus.test.UsingRust-v1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A8202AFC2B49C7AA00DB6CC9 /* Build configuration list for PBXProject "UsingRust_v1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8202B182B49C7AB00DB6CC9 /* Debug */,
+				A8202B192B49C7AB00DB6CC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A8202B1A2B49C7AB00DB6CC9 /* Build configuration list for PBXNativeTarget "UsingRust_v1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8202B1B2B49C7AB00DB6CC9 /* Debug */,
+				A8202B1C2B49C7AB00DB6CC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A8202AF92B49C7AA00DB6CC9 /* Project object */;
+}
