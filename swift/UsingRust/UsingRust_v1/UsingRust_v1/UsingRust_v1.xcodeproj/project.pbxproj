@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A851DB872B49E708000FD150 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A851DB862B49E708000FD150 /* AppDelegate.swift */; };
+		A851DB902B49E709000FD150 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A851DB8F2B49E709000FD150 /* Assets.xcassets */; };
+		A851DB932B49E709000FD150 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A851DB912B49E709000FD150 /* LaunchScreen.storyboard */; };
+		A851DBBF2B49F01D000FD150 /* libUsingRustLib_v1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A851DBBD2B49EFDE000FD150 /* libUsingRustLib_v1.a */; };
+		A851DBC22B49F1BD000FD150 /* ARootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A851DBC02B49F1BD000FD150 /* ARootNavigationController.swift */; };
+		A851DBC32B49F1BD000FD150 /* AMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A851DBC12B49F1BD000FD150 /* AMainViewController.swift */; };
+		A851DBC62B49F1D7000FD150 /* AButtonTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A851DBC42B49F1D7000FD150 /* AButtonTemplate.swift */; };
+		A851DBC72B49F1D7000FD150 /* AViewControllerTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A851DBC52B49F1D7000FD150 /* AViewControllerTemplate.swift */; };
+		A851DBCA2B49F1EC000FD150 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A851DBC82B49F1EC000FD150 /* UIButtonExtension.swift */; };
+		A851DBCB2B49F1EC000FD150 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A851DBC92B49F1EC000FD150 /* UIColorExtension.swift */; };
+		A851DBCD2B49F1FA000FD150 /* ColorDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A851DBCC2B49F1FA000FD150 /* ColorDefinitions.swift */; };
+		A851DBCF2B49F20F000FD150 /* ALogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A851DBCE2B49F20F000FD150 /* ALogger.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A851DB832B49E708000FD150 /* UsingRust_v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UsingRust_v1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A851DB862B49E708000FD150 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A851DB8F2B49E709000FD150 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A851DB922B49E709000FD150 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A851DB942B49E709000FD150 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A851DBB02B49E9A7000FD150 /* UsingRust_v1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UsingRust_v1-Bridging-Header.h"; sourceTree = "<group>"; };
+		A851DBBC2B49EFDE000FD150 /* UsingRust_v1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsingRust_v1.h; sourceTree = "<group>"; };
+		A851DBBD2B49EFDE000FD150 /* libUsingRustLib_v1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUsingRustLib_v1.a; sourceTree = "<group>"; };
+		A851DBC02B49F1BD000FD150 /* ARootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARootNavigationController.swift; sourceTree = "<group>"; };
+		A851DBC12B49F1BD000FD150 /* AMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMainViewController.swift; sourceTree = "<group>"; };
+		A851DBC42B49F1D7000FD150 /* AButtonTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AButtonTemplate.swift; sourceTree = "<group>"; };
+		A851DBC52B49F1D7000FD150 /* AViewControllerTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AViewControllerTemplate.swift; sourceTree = "<group>"; };
+		A851DBC82B49F1EC000FD150 /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		A851DBC92B49F1EC000FD150 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		A851DBCC2B49F1FA000FD150 /* ColorDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorDefinitions.swift; sourceTree = "<group>"; };
+		A851DBCE2B49F20F000FD150 /* ALogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALogger.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A851DBB72B49EB4F000FD150 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A851DBBF2B49F01D000FD150 /* libUsingRustLib_v1.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A851DB7A2B49E708000FD150 = {
+			isa = PBXGroup;
+			children = (
+				A851DB852B49E708000FD150 /* UsingRust_v1 */,
+				A851DB842B49E708000FD150 /* Products */,
+				A851DBB82B49EB63000FD150 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A851DB842B49E708000FD150 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A851DB832B49E708000FD150 /* UsingRust_v1.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A851DB852B49E708000FD150 /* UsingRust_v1 */ = {
+			isa = PBXGroup;
+			children = (
+				A851DBAF2B49E980000FD150 /* RustLibrary */,
+				A851DBAA2B49E912000FD150 /* ViewControllers */,
+				A851DBA52B49E8F8000FD150 /* Templates */,
+				A851DBA02B49E8DB000FD150 /* Extensions */,
+				A851DB9D2B49E8BE000FD150 /* Definitions */,
+				A851DB9A2B49E895000FD150 /* Logger */,
+				A851DB862B49E708000FD150 /* AppDelegate.swift */,
+				A851DB8F2B49E709000FD150 /* Assets.xcassets */,
+				A851DB912B49E709000FD150 /* LaunchScreen.storyboard */,
+				A851DB942B49E709000FD150 /* Info.plist */,
+			);
+			path = UsingRust_v1;
+			sourceTree = "<group>";
+		};
+		A851DB9A2B49E895000FD150 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				A851DBCE2B49F20F000FD150 /* ALogger.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		A851DB9D2B49E8BE000FD150 /* Definitions */ = {
+			isa = PBXGroup;
+			children = (
+				A851DBCC2B49F1FA000FD150 /* ColorDefinitions.swift */,
+			);
+			path = Definitions;
+			sourceTree = "<group>";
+		};
+		A851DBA02B49E8DB000FD150 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A851DBC82B49F1EC000FD150 /* UIButtonExtension.swift */,
+				A851DBC92B49F1EC000FD150 /* UIColorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A851DBA52B49E8F8000FD150 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				A851DBC42B49F1D7000FD150 /* AButtonTemplate.swift */,
+				A851DBC52B49F1D7000FD150 /* AViewControllerTemplate.swift */,
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
+		A851DBAA2B49E912000FD150 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A851DBC12B49F1BD000FD150 /* AMainViewController.swift */,
+				A851DBC02B49F1BD000FD150 /* ARootNavigationController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A851DBAF2B49E980000FD150 /* RustLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				A851DBBD2B49EFDE000FD150 /* libUsingRustLib_v1.a */,
+				A851DBBC2B49EFDE000FD150 /* UsingRust_v1.h */,
+				A851DBB02B49E9A7000FD150 /* UsingRust_v1-Bridging-Header.h */,
+			);
+			path = RustLibrary;
+			sourceTree = "<group>";
+		};
+		A851DBB82B49EB63000FD150 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A851DB822B49E708000FD150 /* UsingRust_v1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A851DB972B49E709000FD150 /* Build configuration list for PBXNativeTarget "UsingRust_v1" */;
+			buildPhases = (
+				A851DB7F2B49E708000FD150 /* Sources */,
+				A851DBB72B49EB4F000FD150 /* Frameworks */,
+				A851DB812B49E708000FD150 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UsingRust_v1;
+			productName = UsingRust_v1;
+			productReference = A851DB832B49E708000FD150 /* UsingRust_v1.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A851DB7B2B49E708000FD150 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					A851DB822B49E708000FD150 = {
+						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
+					};
+				};
+			};
+			buildConfigurationList = A851DB7E2B49E708000FD150 /* Build configuration list for PBXProject "UsingRust_v1" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A851DB7A2B49E708000FD150;
+			productRefGroup = A851DB842B49E708000FD150 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A851DB822B49E708000FD150 /* UsingRust_v1 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A851DB812B49E708000FD150 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A851DB932B49E709000FD150 /* LaunchScreen.storyboard in Resources */,
+				A851DB902B49E709000FD150 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A851DB7F2B49E708000FD150 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A851DBCD2B49F1FA000FD150 /* ColorDefinitions.swift in Sources */,
+				A851DBCA2B49F1EC000FD150 /* UIButtonExtension.swift in Sources */,
+				A851DBCF2B49F20F000FD150 /* ALogger.swift in Sources */,
+				A851DBC62B49F1D7000FD150 /* AButtonTemplate.swift in Sources */,
+				A851DBC72B49F1D7000FD150 /* AViewControllerTemplate.swift in Sources */,
+				A851DBC22B49F1BD000FD150 /* ARootNavigationController.swift in Sources */,
+				A851DBCB2B49F1EC000FD150 /* UIColorExtension.swift in Sources */,
+				A851DB872B49E708000FD150 /* AppDelegate.swift in Sources */,
+				A851DBC32B49F1BD000FD150 /* AMainViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A851DB912B49E709000FD150 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A851DB922B49E709000FD150 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A851DB952B49E709000FD150 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A851DB962B49E709000FD150 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A851DB982B49E709000FD150 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4KVLMRJ2PM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UsingRust_v1/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"$(PROJECT_DIR)/RustLibrary",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UsingRust_v1/RustLibrary",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "systems.arboreus.test.UsingRust-v1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "UsingRust_v1/RustLibrary/UsingRust_v1-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A851DB992B49E709000FD150 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4KVLMRJ2PM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UsingRust_v1/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"$(PROJECT_DIR)/RustLibrary",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UsingRust_v1/RustLibrary",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "systems.arboreus.test.UsingRust-v1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "UsingRust_v1/RustLibrary/UsingRust_v1-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A851DB7E2B49E708000FD150 /* Build configuration list for PBXProject "UsingRust_v1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A851DB952B49E709000FD150 /* Debug */,
+				A851DB962B49E709000FD150 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A851DB972B49E709000FD150 /* Build configuration list for PBXNativeTarget "UsingRust_v1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A851DB982B49E709000FD150 /* Debug */,
+				A851DB992B49E709000FD150 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A851DB7B2B49E708000FD150 /* Project object */;
+}
