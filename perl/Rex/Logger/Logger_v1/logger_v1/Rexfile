@@ -1,0 +1,38 @@
+#!/usr/bin/perl
+
+# --------------------------------
+# To run this script with Rex use this command in example folder
+# $ rex -T
+# --------------------------------
+
+use strict;
+use warnings FATAL => 'all';
+use feature qw/say/;
+
+use Rex -feature => [ '1.4' ];
+
+$Rex::Config::autodie = 1;
+
+$Rex::Logger::debug = 1;
+$Rex::Logger::format = "%h %D [%l] %s";
+
+my $oLogFile = Cwd::cwd()."/Rex.log";
+say("$oLogFile = ".$oLogFile);
+
+unless (-e $oLogFile) {
+	open(my $oFileHandler,">",$oLogFile);
+	close($oFileHandler);
+} else {
+	unlink($oLogFile);
+	open(my $oFileHandler,">",$oLogFile);
+	close($oFileHandler);
+}
+
+say("Log file existed: ".$oLogFile);
+Rex::Config->set_log_filename($oLogFile);
+say("Defined log file: ".Rex::Config->get_log_filename());
+
+Rex::Logger::debug("Debug message");
+Rex::Logger::info("Info message");
+
+1;
