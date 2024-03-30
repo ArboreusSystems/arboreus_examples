@@ -1,4 +1,4 @@
-package Uptime;
+package ATasks::Uptime;
 
 use strict;
 use warnings FATAL => 'all';

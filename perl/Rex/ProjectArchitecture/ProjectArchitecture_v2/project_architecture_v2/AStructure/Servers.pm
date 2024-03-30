@@ -1,4 +1,4 @@
-package Servers;
+package AStructure::Servers;
 
 use strict;
 use warnings FATAL => 'all';

@@ -19,9 +19,9 @@ use ATasks::Uptime;
 
 Rex::Commands::desc("Get uptime server");
 Rex::Commands::task('uptime',
-	group => $Groups::A_NAME_GROUP_BUILDER,
+	group => $AStructure::Groups::A_NAME_GROUP_BUILDER,
 	sub {
-		Uptime::mRun();
+		ATasks::Uptime::mRun();
 	}
 );
 
