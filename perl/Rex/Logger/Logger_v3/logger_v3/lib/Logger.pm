@@ -1,0 +1,358 @@
+# -----------------------------------------------------
+# This example is the original Rex Logger.pm file written by Jan Gehring
+# within extended timestamp in log line. There are added to use
+# seconds, microseconds and milliseconds. If there necessity to use
+# RFC-822 or RFC-850 timestamp then you need just add it to this examples.
+#
+# This example tested with Rex 1.14.3 which installed with Brew on MacOS
+# If you want to use it just add it to Rex lib folder instead of original
+# -----------------------------------------------------
+
+#
+# (c) Jan Gehring <jan.gehring@gmail.com>
+#
+
+=head1 NAME
+
+Rex::Logger - Logging Module
+
+=head1 DESCRIPTION
+
+This module is the logging module. You can define custom logformats.
+
+=head1 SYNOPSIS
+
+ $Rex::Logger::format = '[%D] %s';
+ # will output something like
+ # [2012-04-12 18:35:12] Installing package vim
+
+ $Rex::Logger::format = '%h - %D - %s';
+ # will output something like
+ # srv001 - 2012-04-12 18:35:12 - Installing package vim
+
+=head1 VARIABLES
+
+=over 4
+
+=cut
+
+package Rex::Logger;
+
+use v5.12.5;
+use warnings;
+
+our $VERSION = '1.14.3'; # VERSION
+
+use English qw(-no_match_vars);
+use Term::ANSIColor;
+
+use if $OSNAME eq 'MSWin32', 'Win32::Console::ANSI';
+
+our $no_color = 0;
+
+my $has_syslog = 0;
+my $log_fh;
+
+=item $debug
+
+Setting this variable to 1 will enable debug logging.
+
+ $Rex::Logger::debug = 1;
+
+=cut
+
+our $debug = 0;
+
+=item $silent
+
+If you set this variable to 1 nothing will be logged.
+
+ $Rex::Logger::silent = 1;
+
+=cut
+
+our $silent = 0;
+
+=item $format
+
+You can define the logging format with the following parameters.
+
+%D - Appends the current date yyyy-mm-dd HH:mm:ss
+
+%h - The target host
+
+%p - The pid of the running process
+
+%l - Loglevel (INFO or DEBUG)
+
+%s - The Logstring
+
+Default is: [%D] %l - %s
+
+=cut
+
+our $format = "[%D] %l - %s";
+
+my $log_opened = 0;
+
+sub init {
+	return if $silent;
+	eval {
+		die
+			if ( Rex::Config->get_log_filename || !Rex::Config->get_log_facility );
+		die if ( $OSNAME =~ m/^MSWin/ );
+
+		Sys::Syslog->use;
+		openlog( "rex", "ndelay,pid", Rex::Config->get_log_facility );
+		$has_syslog = 1;
+	};
+
+	$log_opened = 1;
+}
+
+sub info {
+	my ( $msg, $type ) = @_;
+	my $color = 'green';
+
+	if ( defined($type) ) {
+		CHECK_COLOR: {
+			$type eq 'warn'  && do { $color = 'yellow'; last CHECK_COLOR; };
+			$type eq 'error' && do { $color = 'red';    last CHECK_COLOR; };
+		}
+	}
+
+	return if $silent;
+
+	if ( defined($type) ) {
+		$msg = format_string( $msg, uc($type) );
+	}
+	else {
+		$msg = format_string( $msg, "INFO" );
+	}
+
+	# workaround for windows Sys::Syslog behaviour on forks
+	# see: #6
+	unless ($log_opened) {
+		init();
+		$log_opened = 2;
+	}
+
+	if ($has_syslog) {
+		syslog( "info", $msg );
+	}
+
+	if ( Rex::Config->get_log_filename() ) {
+		open( $log_fh, ">>", Rex::Config->get_log_filename() ) or die($OS_ERROR);
+		flock( $log_fh, 2 );
+		print {$log_fh} "$msg\n" if ($log_fh);
+		close($log_fh);
+	}
+
+	if ($no_color) {
+		print STDERR "$msg\n"
+			if (
+				(
+					( defined $::QUIET && $::QUIET == 2 )
+						&& ( defined $type && $type ne 'info' )
+				)
+					|| !defined $::QUIET
+			);
+	}
+	else {
+		print STDERR colored( [$color], "$msg\n" )
+			if (
+				(
+					( defined $::QUIET && $::QUIET == 2 )
+						&& ( defined $type && $type ne 'info' )
+				)
+					|| !defined $::QUIET
+			);
+	}
+
+	# workaround for windows Sys::Syslog behaviour on forks
+	# see: #6
+	if ( $log_opened == 2 ) {
+		&shutdown();
+	}
+}
+
+sub debug {
+	my ($msg) = @_;
+	return if $silent;
+	return unless $debug;
+
+	$msg = format_string( $msg, "DEBUG" );
+
+	# workaround for windows Sys::Syslog behaviour on forks
+	# see: #6
+	unless ($log_opened) {
+		init();
+		$log_opened = 2;
+	}
+
+	if ($has_syslog) {
+		syslog( "debug", $msg );
+	}
+
+	if ( Rex::Config->get_log_filename() ) {
+		open( $log_fh, ">>", Rex::Config->get_log_filename() ) or die($OS_ERROR);
+		flock( $log_fh, 2 );
+		print {$log_fh} "$msg\n" if ($log_fh);
+		close($log_fh);
+	}
+
+	if ($no_color) {
+		print STDERR "$msg\n" unless ($::QUIET);
+	}
+	else {
+		print STDERR colored( ['red'], "$msg\n" ) unless ($::QUIET);
+	}
+
+	# workaround for windows Sys::Syslog behaviour on forks
+	# see: #6
+	if ( $log_opened == 2 ) {
+		&shutdown();
+	}
+}
+
+# ---------------------------------------------------------
+# Original version of timestamp
+# ---------------------------------------------------------
+
+# sub get_timestamp {
+# 	my ( $sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst ) =
+# 		localtime(time);
+# 	$mon++;
+# 	$year += 1900;
+#
+# 	return
+# 		"$year-"
+# 			. sprintf( "%02i", $mon ) . "-"
+# 			. sprintf( "%02i", $mday ) . " "
+# 			. sprintf( "%02i", $hour ) . ":"
+# 			. sprintf( "%02i", $min ) . ":"
+# 			. sprintf( "%02i", $sec );
+# }
+
+# ---------------------------------------------------------
+# Updated version of timestamp
+# Author Alexandr Kirilov (https://alexandr.kirilov.me)
+# ---------------------------------------------------------
+
+use Time::HiRes;
+
+use define {
+	REX_LOGGER_TIMESTAMP_DEFAULT => 0,
+	REX_LOGGER_TIMESTAMP_SECONDS => 1,
+	REX_LOGGER_TIMESTAMP_MILLISECONDS => 2,
+	REX_LOGGER_TIMESTAMP_MICROSECONDS => 3
+};
+
+our $timestamp_type = REX_LOGGER_TIMESTAMP_DEFAULT;
+
+sub get_timestamp {
+
+	if ($timestamp_type == REX_LOGGER_TIMESTAMP_DEFAULT) {
+		return get_timestamp_default();
+	} elsif ($timestamp_type == REX_LOGGER_TIMESTAMP_SECONDS) {
+		return get_timestamp_seconds();
+	} elsif ($timestamp_type == REX_LOGGER_TIMESTAMP_MILLISECONDS) {
+		return get_timestamp_milliseconds();
+	} elsif ($timestamp_type == REX_LOGGER_TIMESTAMP_MICROSECONDS) {
+		return get_timestamp_microseconds();
+	} else {
+		return "wrong_timestamp_type"
+	}
+}
+
+sub get_timestamp_default {
+
+	my ( $sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst ) = localtime(time);
+	$mon++;
+	$year += 1900;
+
+	return
+		"$year-"
+			. sprintf( "%02i", $mon ) . "-"
+			. sprintf( "%02i", $mday ) . " "
+			. sprintf( "%02i", $hour ) . ":"
+			. sprintf( "%02i", $min ) . ":"
+			. sprintf( "%02i", $sec );
+}
+
+sub get_timestamp_seconds {
+
+	my ($oSeconds,$oMicroseconds) = Time::HiRes::gettimeofday();
+	return($oSeconds);
+}
+
+sub get_timestamp_milliseconds {
+
+	my ($oSeconds,$oMicroseconds) = Time::HiRes::gettimeofday();
+	return($oSeconds * 1000 + $oMicroseconds % 1000);
+}
+
+sub get_timestamp_microseconds {
+
+	my ($oSeconds,$oMicroseconds) = Time::HiRes::gettimeofday();
+	return($oSeconds * 1000000 + $oMicroseconds);
+}
+
+
+# ---------------------------------------------------------
+
+
+sub shutdown {
+	return if $silent;
+	return unless $log_opened;
+
+	if ($has_syslog) {
+		closelog();
+	}
+	else {
+		close($log_fh) if $log_fh;
+	}
+
+	$log_opened = 0;
+
+}
+
+sub format_string {
+	my ( $s, $level ) = @_;
+
+	my $date = get_timestamp;
+	my $host =
+		Rex::get_current_connection()
+			&& Rex::get_current_connection()->{conn}->server
+			? Rex::get_current_connection()->{conn}->server
+			: "<local>";
+
+	my $line = $format;
+
+	$line =~ s/\%D/$date/gms;
+	$line =~ s/\%h/$host/gms;
+	$line =~ s/\%s/$s/gms;
+	$line =~ s/\%l/$level/gms;
+	$line =~ s/\%p/$PID/gms;
+
+	return $line;
+}
+
+sub masq {
+	my ( $format, @params ) = @_;
+
+	return $format if scalar @params == 0;
+	return $format if scalar( grep { defined } @params ) == 0;
+
+	if ( exists $ENV{REX_DEBUG_INSECURE} && $ENV{REX_DEBUG_INSECURE} eq "1" ) {
+		return sprintf( $format, @params );
+	}
+
+	return sprintf( $format, ("**********") x @params );
+}
+
+=back
+
+=cut
+
+1;
