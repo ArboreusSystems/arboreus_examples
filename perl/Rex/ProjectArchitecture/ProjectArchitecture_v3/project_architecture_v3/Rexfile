@@ -1,0 +1,23 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings FATAL => 'all';
+use Rex -feature => [ '1.4' ];
+
+BEGIN {
+
+	use Cwd qw();
+	push(@INC,Cwd::cwd());
+	push(@INC,Cwd::cwd()."/AModuleOne");
+	push(@INC,Cwd::cwd()."/AModuleTwo");
+};
+
+# use AModuleOne::PackageAAA;
+use AModuleOne::PackageBBB;
+use AModuleTwo::PackageAAA;
+
+# AModuleOne::PackageAAA::mTest();
+AModuleOne::PackageBBB::mTest();
+AModuleTwo::PackageAAA::mTest();
+
+1;
