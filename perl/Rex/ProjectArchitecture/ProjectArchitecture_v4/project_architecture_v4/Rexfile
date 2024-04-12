@@ -1,0 +1,38 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings FATAL => 'all';
+use feature qw/say/;
+use Data::Dumper;
+use Rex -feature => [ '1.4' ];
+
+BEGIN {
+
+	use Cwd qw();
+	push(@INC,Cwd::cwd());
+	push(@INC,Cwd::cwd()."/AConfig");
+	push(@INC,Cwd::cwd()."/AStructure");
+	push(@INC,Cwd::cwd()."/ATasks");
+};
+
+use AConfig::Handler;
+use AStructure::Groups;
+
+my $oDirRoot = Cwd::cwd();
+
+my $oConfig = AConfig::Handler->mInstance();
+if (!$oConfig->mLoadConfig($oDirRoot)) {
+	say("No config file in ".$oDirRoot);
+	return undef;
+} else {
+	say("Config loaded");
+	# say(Dumper($AConfig::Handler::gProperties))
+}
+
+# say(Dumper(AStructure::Groups::mGetGroup($AStructure::Groups::A_NAME_GROUP1)));
+# say(Dumper(AStructure::Groups::mGetGroup($AStructure::Groups::A_NAME_GROUP2)));
+# say(Dumper(AStructure::Groups::mGetGroup($AStructure::Groups::A_NAME_GROUP3)));
+
+require($oDirRoot."/Rexfile.tasks");
+
+1;

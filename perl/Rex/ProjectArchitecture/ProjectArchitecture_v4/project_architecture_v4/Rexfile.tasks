@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings FATAL => 'all';
+
+Rex::Commands::desc("Get uptime server");
+Rex::Commands::task('uptime',
+	group => AStructure::Groups::mGetGroup($AStructure::Groups::A_NAME_GROUP2),
+	sub {
+		ATasks::Uptime::mRun();
+	}
+);
