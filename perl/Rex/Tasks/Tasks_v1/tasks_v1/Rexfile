@@ -1,0 +1,77 @@
+#!/usr/bin/perl
+
+BEGIN {
+
+	use Cwd qw();
+	push(@INC,Cwd::cwd());
+	push(@INC,Cwd::cwd()."/AConfig");
+	push(@INC,Cwd::cwd()."/ALogger");
+};
+
+use strict;
+use warnings FATAL => 'all';
+use feature qw/say/;
+use Data::Dumper;
+
+use Rex -feature => [ '1.4' ];
+
+use AConfig::Handler;
+use ALogger::Handler;
+
+our $gDirRoot = Cwd::cwd();
+
+our $gConfig = AConfig::Handler->mInstance();
+if (!$gConfig->mLoadConfig($gDirRoot)) {
+	say("No cluster.conf file in ".$gDirRoot);
+	say("Use cluster.conf.tmpl. Rename it and define parameters.");
+	return undef;
+}
+
+ALogger::Handler::mInit();
+
+
+# --------------------------------------------------
+# To run this task use:
+# $ rex uptime_on_group
+
+Rex::Commands::group(
+	'Test' => @{$AConfig::Handler::gProperties->{Groups}{Test}}
+);
+Rex::Commands::desc("Get uptime from group of servers");
+Rex::Commands::task('uptime_on_group',
+	group => 'Test',
+	sub {
+		my $output = Rex::Commands::Run::run('uptime');
+		say $output;
+	}
+);
+
+
+# --------------------------------------------------
+# To run this task use:
+# $ rex -H builder.freebsd.kav uptime
+
+Rex::Commands::desc("Get uptime from defined server");
+Rex::Commands::task('uptime',
+	sub {
+		my $output = Rex::Commands::Run::run('uptime');
+		say $output;
+	}
+);
+
+
+# --------------------------------------------------
+# To run this task use:
+# $ rex uptime_on_server_from_parameter --server=server.domain
+
+Rex::Commands::desc("Get uptime from defined server by parameter");
+Rex::Commands::task('uptime_on_server_from_parameter',
+	sub {
+		my $oParameters = shift;
+		my $oServer = $oParameters->{server};
+		my $output = Rex::Commands::run_task('uptime', on => $oServer);
+		say $output;
+	}
+);
+
+1;
