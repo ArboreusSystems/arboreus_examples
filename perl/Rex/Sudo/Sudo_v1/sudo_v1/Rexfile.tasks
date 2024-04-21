@@ -1,0 +1,16 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings FATAL => 'all';
+
+Rex::Commands::desc("Show current user");
+Rex::Commands::task('whoami', sub {
+
+	my $oOutputRun = Rex::Commands::Run::run("whoami");
+	Rex::Logger::info("Regular user: ".$oOutputRun);
+
+	my $oOutputSudo = Rex::Commands::Run::sudo("whoami");
+	Rex::Logger::info("Sudo user: ".$oOutputSudo);
+});
+
+1;
