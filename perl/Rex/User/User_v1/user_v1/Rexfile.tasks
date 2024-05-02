@@ -1,0 +1,51 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings FATAL => 'all';
+use Data::Dumper;
+
+use Rex::Commands::User;
+
+Rex::Commands::desc("Create user");
+Rex::Commands::task('create_user', sub {
+
+	Rex::Commands::User::create_user("test_user",
+		home        => '/home/test_user',
+		comment     => 'Test user',
+		groups      => ['wheel'],
+		password    => 'password',
+		create_home => TRUE,
+		shell       => '/bin/bash'
+	);
+});
+
+Rex::Commands::desc("Delete user");
+Rex::Commands::task('delete_user', sub {
+
+	Rex::Commands::User::delete_user("test_user",{
+		delete_home => 1,
+		force     => 1
+	});
+});
+
+Rex::Commands::desc("Create group");
+Rex::Commands::task('create_group', sub {
+
+		my $oOutputCreateGroup = Rex::Commands::User::create_group(
+			'test_group'
+		);
+		Rex::Logger::info($oOutputCreateGroup);
+		my $oOutputGroupList = Rex::Commands::Run::run('awk -F":" \'{print $1}\' /etc/group');
+		Rex::Logger::info($oOutputGroupList);
+	}
+);
+
+Rex::Commands::desc("Remove group");
+Rex::Commands::task('delete_group', sub {
+
+		my $oDeleteGroup = Rex::Commands::User::delete_group('test_group');
+		Rex::Logger::info($oDeleteGroup);
+	}
+);
+
+1;
