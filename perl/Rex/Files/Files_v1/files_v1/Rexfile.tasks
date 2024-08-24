@@ -1,0 +1,27 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings FATAL => 'all';
+
+use AConfig;
+
+Rex::Commands::desc("Test task");
+Rex::Commands::task(test => sub {
+
+		say(Rex::Commands::Run::run('whoami'));
+		Rex::Commands::Run::sudo(TRUE);
+		say(Rex::Commands::Run::run('whoami'));
+
+		my $oSourceFile = $AConfig::gProperties->{SourceFile};
+		if (defined($oSourceFile)) {
+			Rex::Commands::File::file("/tmp/test.file",(
+				source => $oSourceFile,
+				owner  => 'root'
+			));
+		} else {
+			say("NoSource");
+		}
+	}
+);
+
+1;

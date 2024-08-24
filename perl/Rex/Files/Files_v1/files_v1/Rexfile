@@ -1,0 +1,35 @@
+#!/usr/bin/perl
+
+# ---------------------------------------
+# Rex sudo command example.
+# To run this example use:
+# $ rex -H server.domain whoami
+
+use strict;
+use warnings FATAL => 'all';
+use feature qw/say/;
+use Data::Dumper;
+
+use Rex -feature => [ '1.4' ];
+use AConfig;
+
+our $DIR_ROOT = Cwd::cwd();
+
+my $oConfig = AConfig->mInstance("rex.conf.yaml");
+if (!$oConfig->mLoadConfig($DIR_ROOT)) {
+	say("No config file in ".$DIR_ROOT);
+	say("Create rex.conf.yaml from template rex.conf.yaml.tmpl");
+	return undef;
+}
+
+Rex::Commands::sudo_password($AConfig::gProperties->{SudoPassword});
+
+my $oTasksFile = $AConfig::gDirRoot."/Rexfile.tasks";
+if (-f $oTasksFile) {
+	require($oTasksFile);
+} else {
+	Rex::Logger::info("No file with tasks: ".$oTasksFile,"error");
+	return undef;
+}
+
+1;
