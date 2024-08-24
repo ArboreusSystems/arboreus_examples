@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings FATAL => 'all';
+
+Rex::Commands::desc("Test task");
+Rex::Commands::task(
+	test => sub {
+		say(Rex::Commands::Run::run('whoami')); # should be normal user
+		Rex::Commands::Run::sudo(TRUE);
+		say(Rex::Commands::Run::run('whoami')); # should be root
+	}
+);
+
+1;
