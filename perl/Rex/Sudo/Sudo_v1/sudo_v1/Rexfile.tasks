@@ -11,6 +11,26 @@ Rex::Commands::task('whoami', sub {
 
 	my $oOutputSudo = Rex::Commands::Run::sudo("whoami");
 	Rex::Logger::info("Sudo user: ".$oOutputSudo);
+
+	my $oOutputSudoCommand = Rex::Commands::Run::sudo({
+		command => 'whoami',
+		user => 'wind'
+	});
+	Rex::Logger::info("Sudo command user: ".$oOutputSudoCommand);
+
+	my $oOutputSudoSub = Rex::Commands::Run::sudo(sub {
+		return(Rex::Commands::Run::run("whoami"));
+	});
+	Rex::Logger::info("Sudo with sub user: ".$oOutputSudoSub);
+
+	Rex::Commands::Run::sudo({
+		command => sub {
+			my $oSubOutput = Rex::Commands::Run::run("whoami");
+			Rex::Logger::info("Sudo command with sub user: ".$oSubOutput);
+		},
+		user  => "wind"
+	});
+
 });
 
 1;
