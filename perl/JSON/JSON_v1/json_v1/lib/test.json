@@ -1,0 +1,16 @@
+{
+	"key1": 1,
+	"key2": [
+		1,2,3,4,5
+	],
+	"key3": {
+		"key5": [
+			"key5_val1",
+			"key5_val2",
+			"key5_val3",
+			"key5_val4"
+		],
+		"key6": true,
+		"key7": "/test/path"
+	}
+}
