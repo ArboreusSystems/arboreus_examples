@@ -23,6 +23,7 @@ if (!$oConfig->mLoadConfig($DIR_ROOT)) {
 }
 
 Rex::Commands::sudo_password($AConfig::gProperties->{SudoPassword});
+# Rex::Commands::Run::sudo(TRUE);
 
 my $oTasksFile = $AConfig::gDirRoot."/Rexfile.tasks";
 if (-f $oTasksFile) {

@@ -9,7 +9,7 @@ Rex::Commands::desc("Test task");
 Rex::Commands::task(test => sub {
 
 		say(Rex::Commands::Run::run('whoami'));
-		Rex::Commands::Run::sudo(TRUE);
+		# Rex::Commands::Run::sudo(TRUE);
 		say(Rex::Commands::Run::run('whoami'));
 
 		my $oSourceFile = $AConfig::gProperties->{SourceFile};
