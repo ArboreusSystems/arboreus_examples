@@ -1,0 +1,14 @@
+{application, a_yaws_rest_v1,[
+	{description, "Yaws REST API demo"},
+	{vsn, "0.1.0"},
+	{registered, []},
+	{mod, {a_yaws_rest_v1, []}},
+	{applications,[
+		kernel,
+		stdlib
+	]},
+	{env,[]},
+	{modules, []},
+	{licenses, ["Apache-2.0"]},
+	{links, []}
+ ]}.
