@@ -60,7 +60,10 @@ do(YAWS_ARGUMENTS) ->
 						]},
 						{'body',[],[
 							[{'div',[],"Validated"}],
-							[{'div',[],lists:concat(["Type: ",TYPE," Email: ",EMAIL])}]
+							[{'div',[],lists:concat([
+								"Type: ",integer_to_list(TYPE)," "
+								"Email: ",binary_to_list(EMAIL)
+							])}]
 						]}
 					]}
 				]}
