@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(A_NAME_TARGET EigenMatrix_v2)
+set(A_NAME_TARGET Integral_v1)
 set(A_DIR_MODULE_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
 
 option(A_OPTION_USING_PCH "${A_NAME_TARGET} using PCH support" ON)
