@@ -68,10 +68,10 @@ function(ASetupSwiftEnvironment)
 endfunction()
 
 
-function(AGenerateSwiftHeaders target header)
+function(AGenerateSwiftHeaders inTarget inHeader)
 
-	if(NOT TARGET ${target})
-		message(FATAL_ERROR "Target ${target} not defined.")
+	if(NOT TARGET ${inTarget})
+		message(FATAL_ERROR "Target ${inTarget} not defined.")
 	endif()
 
 	if(NOT DEFINED CMAKE_Swift_COMPILER)
@@ -83,8 +83,8 @@ function(AGenerateSwiftHeaders target header)
 	cmake_parse_arguments(ARG "" "" "SEARCH_PATHS;MODULE_NAME" ${ARGN})
 
 	if(NOT ARG_MODULE_NAME)
-		set(target_module_name $<TARGET_PROPERTY:${target},Swift_MODULE_NAME>)
-		set(ARG_MODULE_NAME $<IF:$<BOOL:${target_module_name}>,${target_module_name},${target}>)
+		set(oTargetModuleName $<TARGET_PROPERTY:${inTarget},Swift_MODULE_NAME>)
+		set(ARG_MODULE_NAME $<IF:$<BOOL:${oTargetModuleName}>,${oTargetModuleName},${inTarget}>)
 	endif()
 
 	if(ARG_SEARCH_PATHS)
@@ -93,27 +93,27 @@ function(AGenerateSwiftHeaders target header)
 
 	set(SDK_FLAGS "-sdk" "${CMAKE_OSX_SYSROOT}")
 
-	cmake_path(APPEND CMAKE_CURRENT_BINARY_DIR include OUTPUT_VARIABLE base_path)
-	cmake_path(APPEND base_path ${header} OUTPUT_VARIABLE header_path)
+	cmake_path(APPEND CMAKE_CURRENT_BINARY_DIR include OUTPUT_VARIABLE oBasePath)
+	cmake_path(APPEND oBasePath ${inHeader} OUTPUT_VARIABLE oHeaderPath)
 
-	set(_AllSources $<TARGET_PROPERTY:${target},SOURCES>)
-	set(_SwiftSources $<FILTER:${_AllSources},INCLUDE,\\.swift$>)
-	add_custom_command(OUTPUT ${header_path}
-		DEPENDS ${_SwiftSources}
+	set(oAllSources $<TARGET_PROPERTY:${inTarget},SOURCES>)
+	set(oSwiftSources $<FILTER:${oAllSources},INCLUDE,\\.swift$>)
+	add_custom_command(OUTPUT ${oHeaderPath}
+		DEPENDS ${oSwiftSources}
 		WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 		COMMAND
 			${CMAKE_Swift_COMPILER} -frontend -typecheck
 			${ARG_SEARCH_PATHS}
-			${_SwiftSources}
+			${oSwiftSources}
 			${SDK_FLAGS}
 			-module-name "${ARG_MODULE_NAME}"
 			-cxx-interoperability-mode=default
-			-emit-clang-header-path ${header_path}
-		COMMENT "Generating '${header_path}'"
+			-emit-clang-header-path ${oHeaderPath}
+		COMMENT "Generating '${oHeaderPath}'"
 		COMMAND_EXPAND_LISTS
 	)
 
-	target_include_directories(${target} PUBLIC ${base_path})
-	target_sources(${target} PRIVATE ${header_path})
+	target_include_directories(${inTarget} PUBLIC ${oBasePath})
+	target_sources(${inTarget} PRIVATE ${oHeaderPath})
 
 endfunction()

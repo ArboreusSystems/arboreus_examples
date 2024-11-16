@@ -20,12 +20,13 @@
 
 // Namespace
 using namespace std;
+using namespace UsingSwiftCPPInterop_v1;
 
 
 // Console Application
 int main(int inCounter, char* inArguments[]) {
 
-	ALOG << UsingSwiftCPPInterop_v1::mTest() << endl;
+	ALOG << mTest() << endl;
 
 	ALOG << "UsingSwiftCPPInterop_v1" << endl;
 

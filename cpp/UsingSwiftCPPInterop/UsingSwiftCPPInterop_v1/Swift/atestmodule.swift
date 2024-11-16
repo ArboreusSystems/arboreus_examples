@@ -1,6 +1,6 @@
 import Foundation
 
-public func mTest() -> Int {
+public func mTest() -> CInt {
 
-	return Int.random(in: 1...10)
+	return CInt.random(in: 1...1000)
 }
