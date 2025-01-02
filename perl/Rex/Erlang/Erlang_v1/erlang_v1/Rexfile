@@ -1,0 +1,43 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings FATAL => 'all';
+use feature qw/say/;
+use Data::Dumper;
+
+use Rex -feature => ['1.4'];
+
+BEGIN {
+
+    use Cwd qw();
+    push(@INC,Cwd::cwd());
+    push(@INC,Cwd::cwd()."/AApplication");
+    push(@INC,Cwd::cwd()."/AConfig");
+    push(@INC,Cwd::cwd()."/AErlang");
+    push(@INC,Cwd::cwd()."/ATasks");
+    push(@INC,Cwd::cwd()."/AUniversal");
+}
+
+use AApplication::Constants;
+use AConfig::Module;
+use AErlang::Epmd;
+use AErlang::Erl;
+use AErlang::ErlCall;
+use ATasks::ErlangNodeCall;
+use ATasks::ErlangNodeStart;
+use ATasks::ErlangNodeHalt;
+use AUniversal::String;
+
+my $oDirRoot = Cwd::cwd();
+
+my $oConfig = AConfig::Module->mInstance();
+if (!$oConfig->mLoadConfig($oDirRoot)) {
+    say("No config file in ".$oDirRoot);
+    return undef;
+} else {
+    say("Config loaded");
+}
+
+require($oDirRoot."/Rexfile.tasks");
+
+1;

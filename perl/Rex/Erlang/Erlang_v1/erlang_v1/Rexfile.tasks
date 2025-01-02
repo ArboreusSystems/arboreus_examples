@@ -1,0 +1,22 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings FATAL => 'all';
+
+use ATasks::ErlangNodeStart;
+Rex::Commands::desc("Start Erlang node");
+Rex::Commands::task('node_start' => sub {
+    ATasks::ErlangNodeStart::mRun(CORE::shift());
+});
+
+use ATasks::ErlangNodeHalt;
+Rex::Commands::desc("Halt Erlang node");
+Rex::Commands::task('node_halt' => sub {
+    ATasks::ErlangNodeHalt::mRun(CORE::shift());
+});
+
+use ATasks::ErlangNodeCall;
+Rex::Commands::desc("Call Erlang code on node");
+Rex::Commands::task('node_call' => sub {
+    ATasks::ErlangNodeCall::mRun(CORE::shift());
+});
