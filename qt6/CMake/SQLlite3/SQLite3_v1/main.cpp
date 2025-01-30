@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
 
     oResult = sqlite3_open(":memory:",&oSQLiteDB);
     if (oResult != SQLITE_OK) {
-        qDebug() << "Cannot open database:" << sqlite3_errmsg(oSQLiteDB);
+        qDebug() << "Can't open database:" << sqlite3_errmsg(oSQLiteDB);
     } else {
         qDebug() << "Opened DB in memory";
     }
