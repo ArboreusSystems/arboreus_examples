@@ -9,12 +9,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(A_DIR_ROOT ${CMAKE_SOURCE_DIR})
 
-set(A_SQLITE_CONF "${A_DIR_ROOT}/../SQlite3.cmake.conf")
+set(A_SQLITE_CONF "${A_DIR_ROOT}/../SQlite3.conf.cmake")
 if(EXISTS ${A_SQLITE_CONF})
 	message(STATUS "Found: ${A_SQLITE_CONF}")
 	include(${A_SQLITE_CONF})
 else()
-	message(FATAL_ERROR "Can't find SQLite.cmake.conf file: ${A_SQLITE_CONF}")
+	message(FATAL_ERROR "Can't find SQlite3.conf.cmake file: ${A_SQLITE_CONF}")
 endif()
 
 find_package(Qt6 REQUIRED COMPONENTS Quick)
@@ -81,8 +81,8 @@ qt_add_executable(${A_NAME_APPLICATION}
 )
 
 qt_add_qml_module(${A_NAME_APPLICATION}
-    URI SQLite3_v1
-    VERSION 1.0
+	URI SQLite3_v1
+	VERSION 1.0
     QML_FILES
         Main.qml
 	SOURCES
