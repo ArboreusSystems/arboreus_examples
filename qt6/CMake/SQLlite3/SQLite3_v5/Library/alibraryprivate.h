@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QDebug>
+#include <QVariant>
 
 #include <sqlite3mc_amalgamation.h>
 
@@ -12,6 +13,8 @@ class ALibraryPrivate : public QObject {
 	Q_OBJECT
 
 	public:
+
+		QString pOutput = "empty";
 
 		explicit ALibraryPrivate(QObject* parent = nullptr);
 		virtual ~ALibraryPrivate(void);

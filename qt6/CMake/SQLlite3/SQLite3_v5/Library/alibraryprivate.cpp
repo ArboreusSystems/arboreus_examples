@@ -1,6 +1,18 @@
 #include "alibraryprivate.h"
 
 
+
+int fCallback(void* inData, int inNCcolumns, char** inValues, char** inHeaders) {
+
+	int i;
+
+	ALibraryPrivate* oLibraryPrivate = static_cast<ALibraryPrivate*>(inData);
+	for(i=0; i < inNCcolumns; i++) {
+		oLibraryPrivate->pOutput = QString(inValues[i]);
+	}
+	return 0;
+}
+
 ALibraryPrivate::ALibraryPrivate(QObject* parent) {
 
 	qDebug() << "ALibraryPrivate created";
@@ -42,7 +54,7 @@ bool ALibraryPrivate::mExecute(QString inSQL) {
 
 	int oStatus = sqlite3_exec(
 		pSQLiteDB,inSQL.toStdString().c_str(),
-		nullptr,nullptr,&oErrorMessage
+		fCallback,this,&oErrorMessage
 	);
 
 	if (oStatus != SQLITE_OK) {
@@ -54,4 +66,5 @@ bool ALibraryPrivate::mExecute(QString inSQL) {
 	qDebug() << "SQL executed";
 	return true;
 }
+
 

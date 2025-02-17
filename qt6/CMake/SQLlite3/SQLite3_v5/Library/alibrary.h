@@ -18,6 +18,7 @@ class ALibrary : public QObject {
 		int mOpenDB(QString inPath);
 		bool mCloseDB(void);
 		bool mExecute(QString inSQL);
+		QVariant mGetResult();
 
 	private:
 

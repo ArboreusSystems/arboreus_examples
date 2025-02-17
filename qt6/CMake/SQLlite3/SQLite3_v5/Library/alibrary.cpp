@@ -28,3 +28,8 @@ bool ALibrary::mExecute(QString inSQL) {
 
 	return pPrivate->mExecute(inSQL);
 }
+
+QVariant ALibrary::mGetResult(void) {
+
+	return QVariant(pPrivate->pOutput);
+}

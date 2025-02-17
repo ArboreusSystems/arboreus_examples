@@ -26,6 +26,7 @@ int main(int argc, char *argv[]) {
 	if (oDBOpen == 0) {
 		oLibrary->mExecute("SELECT SQLITE_VERSION();");
 		oLibrary->mCloseDB();
+		qDebug() << "Result" << oLibrary->mGetResult();
 	}
 
 	// -----------------------------------
