@@ -65,7 +65,7 @@ int main() {
 		}
 	}
 
-	printf("Hello World!\n");
+	printf("SQLite_v1\n");
 
 	sqlite3_close(oDB);
 	return 0;
