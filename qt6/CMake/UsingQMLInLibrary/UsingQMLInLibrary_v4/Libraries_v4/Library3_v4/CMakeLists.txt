@@ -17,7 +17,13 @@ target_compile_definitions(${A_TARGET_NAME}
 		LIBRARY3_V4_LIBRARY
 )
 
+target_link_libraries(${A_TARGET_NAME}
+	INTERFACE
+		Library2_v4
+)
+
 target_include_directories(${A_TARGET_NAME}
 	PUBLIC
+		$<TARGET_PROPERTY:Library2_v4,INTERFACE_INCLUDE_DIRECTORIES>
 		${CMAKE_CURRENT_SOURCE_DIR}
 )

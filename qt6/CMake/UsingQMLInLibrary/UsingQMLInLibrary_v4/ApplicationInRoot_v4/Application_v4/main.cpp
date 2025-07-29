@@ -12,7 +12,6 @@ int main(int argc, char *argv[]) {
 	QQmlApplicationEngine engine;
 
 	Library1_v4* oLibrary1 = new Library1_v4();
-	Library2_v4* oLibrary2 = new Library2_v4();
 	Library3_v4* oLibrary3 = new Library3_v4();
 
 	QObject::connect(
