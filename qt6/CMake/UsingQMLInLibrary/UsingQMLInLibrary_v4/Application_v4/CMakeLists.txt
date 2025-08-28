@@ -85,7 +85,9 @@ set(${A_PREFIX}_PROPERTIES
 ## Qt Application settings
 
 find_package(Qt6 REQUIRED COMPONENTS Quick)
+
 qt_standard_project_setup(REQUIRES 6.8)
+
 qt_add_executable(${A_NAME_APPLICATION} ${${A_PREFIX}_SOURCES})
 
 
@@ -111,6 +113,7 @@ target_include_directories(${A_NAME_APPLICATION}
 target_link_libraries(${A_NAME_APPLICATION}
     PRIVATE Qt6::Quick
 	Library1_v4
+	Library1_v4plugin
 	Library2_v4
 )
 

@@ -7,31 +7,20 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 28/08/2025 at 18:00:35
+	\li @created 28/08/2025 at 21:18:01
 	\endlist
 */
 // ----------------------------------------------------------
 
 // System includes
-import QtQuick 6.2;
+import QtQuick 2.15
 
 // Application includes
-import Library1_v4;
 
 
-// Application Main window
-Window {
+// Component
+Text {
 
-	property string oTitle: "Main Window Application_v4";
-
-	id: oMainWindow;
-	width: 640;
-	height: 480;
-	visible: true;
-	title: qsTr(oTitle);
-
-	Library1QML {
-
-		id: oLibrary1QML;
-	}
+	id: oText;
+	text: qsTr("Library2QMLText");
 }

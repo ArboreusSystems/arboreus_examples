@@ -65,6 +65,11 @@ set(${A_PREFIX}_SOURCES
 	${${A_PREFIX}_SOURCES_RESOURCES}
 )
 
+set(${A_PREFIX}_SOURCES_QML
+	${${A_PREFIX}_SOURCES_QML}
+	Library2QML.qml
+)
+
 set(${A_PREFIX}_INCLUDE_DIR_PUBLIC
 	${${A_PREFIX}_INCLUDE_DIR_PUBLIC}
 	${${A_PREFIX}_DIR_ROOT}
@@ -74,15 +79,24 @@ set(${A_PREFIX}_INCLUDE_DIR_PUBLIC
 ## ----------------------------------------
 ## Qt settings
 
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Quick)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Quick)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
+if(QT_KNOWN_POLICY_QTP0001)
+	qt_policy(SET QTP0001 NEW)
+endif()
 
-add_library(${A_NAME_TARGET} STATIC ${${A_PREFIX}_SOURCES})
+qt_add_library(${A_NAME_TARGET} STATIC ${${A_PREFIX}_SOURCES})
+
+qt_add_qml_module(${A_NAME_TARGET}
+	URI ${A_NAME_TARGET}
+	QML_FILES ${${A_PREFIX}_SOURCES_QML}
+)
 
 target_link_libraries(${A_NAME_TARGET}
 	PRIVATE
 		Qt${QT_VERSION_MAJOR}::Core
+		Qt${QT_VERSION_MAJOR}::Quick
 )
 
 target_compile_definitions(${A_NAME_TARGET}
