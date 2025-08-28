@@ -20,6 +20,9 @@
 
 Library1_v4::Library1_v4(void) {
 
+	pLibrary2 = new Library2_v4();
+
+	cout << "Library1_v4 created" << endl;
 }
 
 
@@ -32,5 +35,6 @@ Library1_v4::Library1_v4(void) {
 
 Library1_v4::~Library1_v4(void) {
 
+	cout << "Library1_v4 created" << endl;
 }
 

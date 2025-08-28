@@ -22,12 +22,20 @@
 // System includes
 #include "library1_v4_global.h"
 
+// Application includes
+#include <library2_v4.h>
+
+
 class LIBRARY1_V4_EXPORT Library1_v4 {
 
 	public:
 
 		Library1_v4(void);
 		~Library1_v4(void);
+
+	private:
+
+		Library2_v4* pLibrary2 = nullptr;
 };
 
 #endif // LIBRARY1_V4_H

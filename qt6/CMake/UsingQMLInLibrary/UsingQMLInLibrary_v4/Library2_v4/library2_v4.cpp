@@ -20,6 +20,7 @@
 
 Library2_v4::Library2_v4(void) {
 
+	cout << "Library2_v4 created" << endl;
 }
 
 
@@ -32,5 +33,6 @@ Library2_v4::Library2_v4(void) {
 
 Library2_v4::~Library2_v4(void) {
 
+	cout << "Library2_v4 deleted" << endl;
 }
 

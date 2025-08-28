@@ -15,13 +15,14 @@
 #pragma once
 
 // System includes
+#include <iostream>
 
 // Application includes
 
 // Constants and defintions
 
 // Namespace
-
+using namespace std;
 
 #endif // defined __cplusplus
 
