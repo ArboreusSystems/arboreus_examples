@@ -18,8 +18,9 @@
 	Doc.
 */
 
-ALibrary1_v1::ALibrary1_v1(void) {
+ALibrary1_v1::ALibrary1_v1(QObject* parent) : QObject{parent} {
 
+	_A_DEBUG << "ALibrary1_v1 created";
 }
 
 
@@ -32,5 +33,20 @@ ALibrary1_v1::ALibrary1_v1(void) {
 
 ALibrary1_v1::~ALibrary1_v1(void) {
 
+	_A_DEBUG << "ALibrary1_v1 deleted";
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+QString ALibrary1_v1::mTestString(void) {
+
+	QString oOutput = "ALibrary1_v1 TestString";
+	return oOutput;
 }
 

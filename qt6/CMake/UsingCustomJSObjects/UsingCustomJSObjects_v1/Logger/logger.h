@@ -1,6 +1,6 @@
 // ----------------------------------------------------------
 /*!
-	\headerfile ALibrary2_v1
+	\headerfile Logger
 	\title
 	\brief Template file wizard/classes/cpp/file.h
 
@@ -8,35 +8,25 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 28/08/2025 at 22:05:18
+	\li @created 30/08/2025 at 18:36:46
 	\endlist
 */
 // ----------------------------------------------------------
 
-#ifndef ALIBRARY2_V1_H
-#define ALIBRARY2_V1_H
+#ifndef LOGGER_H
+#define LOGGER_H
 
 // Precompiled includes
-#include <alibrary2_v1_pch.h>
+#include <logger_pch.h>
 
 // System includes
 
-// Application includes
-
-
-// Class definitions
-class ALibrary2_v1 : public QObject {
-
-	Q_OBJECT
+class Logger {
 
 	public:
 
-		explicit ALibrary2_v1(QObject* parent = nullptr);
-		virtual ~ALibrary2_v1(void);
-
-	public slots:
-
-		QString mTestString(void);
+		Logger(void);
+		~Logger(void);
 };
 
-#endif // ALIBRARY2_V1_H
+#endif // LOGGER_H

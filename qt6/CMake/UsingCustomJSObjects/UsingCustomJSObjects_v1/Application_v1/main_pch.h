@@ -17,12 +17,12 @@
 // System includes
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 #include <QObject>
 #include <QString>
 
 // Application includes
-#include <Logger/alogger_pch.h>
-#include <atemplates_pch.h>
+#include <alogger_pch.h>
 
 // Constants and defintions
 

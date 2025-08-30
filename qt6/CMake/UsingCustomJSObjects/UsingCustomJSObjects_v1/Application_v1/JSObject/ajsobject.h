@@ -21,7 +21,7 @@
 // System includes
 
 // Application includes
-#include <Logger/aloggerglobal.h>
+#include <aloggerglobal.h>
 
 // Namesapces
 
@@ -31,7 +31,7 @@
 // Class definitions
 class AJSObject : public QObject {
 
-		Q_OBJECT
+	Q_OBJECT
 
 	public:
 
@@ -41,10 +41,6 @@ class AJSObject : public QObject {
 	public slots:
 
 		QString mTestString(void);
-
-	signals:
-
-
 };
 
 #endif // AJSOBJECT_H

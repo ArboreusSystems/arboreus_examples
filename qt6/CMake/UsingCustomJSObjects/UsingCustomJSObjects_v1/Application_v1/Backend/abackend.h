@@ -21,12 +21,15 @@
 // System includes
 
 // Application includes
-#include <Logger/aloggerglobal.h>
+#include <aloggerglobal.h>
 #include <JSObject/ajsobject.h>
+#include <alibrary1_v1.h>
+#include <alibrary2_v1.h>
 
 // Namesapces
 
 // Constants and definitions
+
 
 // Class definitions
 class ABackend : public QObject {
@@ -36,6 +39,8 @@ class ABackend : public QObject {
 	public:
 
 		AJSObject* pJSObject = nullptr;
+		ALibrary1_v1* pJSObjectLibrary1 = nullptr;
+		ALibrary2_v1* pJSObjectLibrary2 = nullptr;
 
 		static ABackend& mInstance(void);
 		void mInit(
@@ -43,10 +48,6 @@ class ABackend : public QObject {
 			QQmlApplicationEngine* inEngine = nullptr,
 			QQmlContext* inRootContext = nullptr
 		);
-
-	signals:
-
-		void sgInitiated(void);
 
 	private:
 

@@ -4,18 +4,17 @@
  *
  *  @copyright Arboreus (http://arboreus.systems)
  *  @author Alexandr Kirilov (http://alexandr.kirilov.me)
- *  @created 30/08/2025 at 14:47:23
+ *  @created 30/08/2025 at 18:36:46
  * */// --------------------------------------------------------------
 
-#ifndef TEMPLATES_H_PCH
-#define TEMPLATES_H_PCH
+#ifndef LOGGER_H_PCH
+#define LOGGER_H_PCH
 
 #if defined __cplusplus
 
 #pragma once
 
 // System includes
-#include <QObject>
 
 // Application includes
 
@@ -26,4 +25,4 @@
 
 #endif // defined __cplusplus
 
-#endif // TEMPLATES_H_PCH
+#endif // LOGGER_H_PCH

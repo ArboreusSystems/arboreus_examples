@@ -16,12 +16,12 @@
 #define ALOGGERGLOBAL_H
 
 // Precompiled includes
-#include <Logger/alogger_pch.h>
+#include <alogger_pch.h>
 
 // System includes
 
 // Application includes
-#include <Logger/aloggerdatamodels.h>
+#include <aloggerdatamodels.h>
 
 // Constants and defintions
 #define _A_LOGGER_DEFAULT_STRING_DEBUG "DBG"

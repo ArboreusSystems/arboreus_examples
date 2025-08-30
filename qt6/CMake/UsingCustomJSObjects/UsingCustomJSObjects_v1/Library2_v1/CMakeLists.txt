@@ -83,6 +83,7 @@ add_library(${A_NAME_TARGET} STATIC ${${A_PREFIX}_SOURCES})
 target_link_libraries(${A_NAME_TARGET}
 	PRIVATE
 		Qt${QT_VERSION_MAJOR}::Core
+		Logger
 )
 
 target_compile_definitions(${A_NAME_TARGET}

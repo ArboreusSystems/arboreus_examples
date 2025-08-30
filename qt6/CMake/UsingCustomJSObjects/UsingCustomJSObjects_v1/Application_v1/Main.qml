@@ -27,9 +27,32 @@ Window {
 	visible: true;
 	title: qsTr(oTitle);
 
-	Text {
+	Column {
 
-		id: oMainText;
-		text: qsTr(oTitle);
+		id: oColumn;
+
+		Text {
+
+			id: oMainText;
+			text: qsTr(oTitle);
+		}
+
+		Text {
+
+			id: oJSonObjectText;
+			text: AJSObject.mTestString();
+		}
+
+		Text {
+
+			id: oJSObjectLibrary1;
+			text: AJSObjectLibrary2.mTestString();
+		}
+
+		Text {
+
+			id: oJSObjectLibrary2;
+			text: AJSObjectLibrary2.mTestString();
+		}
 	}
 }

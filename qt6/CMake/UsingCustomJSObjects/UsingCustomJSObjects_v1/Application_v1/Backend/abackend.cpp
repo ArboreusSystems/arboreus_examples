@@ -27,6 +27,8 @@
 ABackend::ABackend(QObject* parent) : QObject{parent} {
 
 	pJSObject = new AJSObject(this);
+	pJSObjectLibrary1 = new ALibrary1_v1(this);
+	pJSObjectLibrary2 = new ALibrary2_v1(this);
 
 	_A_DEBUG << "ABackend created";
 }
@@ -76,8 +78,10 @@ void ABackend::mInit(
 	pEngine = inEngine;
 	pRootContext = inRootContext;
 
-	_A_DEBUG << "ABackend initiated";
+	pRootContext->setContextProperty("AJSObject",pJSObject);
+	pRootContext->setContextProperty("AJSObjectLibrary1",pJSObjectLibrary1);
+	pRootContext->setContextProperty("AJSObjectLibrary2",pJSObjectLibrary2);
 
-	emit this->sgInitiated();
+	_A_DEBUG << "ABackend initiated";
 }
 

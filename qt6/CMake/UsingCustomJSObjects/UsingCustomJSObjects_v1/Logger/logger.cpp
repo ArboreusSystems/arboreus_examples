@@ -4,11 +4,11 @@
  *
  *  @copyright Arboreus (http://arboreus.systems)
  *  @author Alexandr Kirilov (http://alexandr.kirilov.me)
- *  @created 28/08/2025 at 22:05:18
+ *  @created 30/08/2025 at 18:36:46
  * */// --------------------------------------------------------------
 
 // Class header
-#include "alibrary2_v1.h"
+#include "logger.h"
 
 
 // -----------
@@ -18,9 +18,8 @@
 	Doc.
 */
 
-ALibrary2_v1::ALibrary2_v1(QObject* parent) : QObject{parent} {
+Logger::Logger(void) {
 
-	_A_DEBUG << "ALibrary2_v1 created";
 }
 
 
@@ -31,22 +30,7 @@ ALibrary2_v1::ALibrary2_v1(QObject* parent) : QObject{parent} {
 	Doc.
 */
 
-ALibrary2_v1::~ALibrary2_v1(void) {
+Logger::~Logger(void) {
 
-	_A_DEBUG << "ALibrary2_v1 deleted";
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-QString ALibrary2_v1::mTestString(void) {
-
-	QString oOutput = "ALibrary2_v1 TestString";
-	return oOutput;
 }
 

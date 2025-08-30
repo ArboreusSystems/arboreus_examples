@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.16)
 ## ----------------------------------------
 ## Global settings
 
-set(A_NAME_TARGET Templates)
+set(A_NAME_TARGET Logger)
 set(A_PREFIX A_${A_NAME_TARGET})
 
 
@@ -43,16 +43,19 @@ set(${A_PREFIX}_INCLUDE_DIR_PRIVATE)
 
 set(${A_PREFIX}_SOURCES_PRECOMPILED_HEADERS_PUBLIC
 	${${A_PREFIX}_SOURCES_PRECOMPILED_HEADERS_PUBLIC}
-	atemplates_pch.h
+	alogger_pch.h
 )
 
 set(${A_PREFIX}_SOURCES_HEADERS
 	${${A_PREFIX}_SOURCES_HEADERS}
-	athreadobjectcontrollertemplate.h
+	alogger.h
+	aloggerdatamodels.h
+	aloggerglobal.h
 )
 
 set(${A_PREFIX}_SOURCES_CPP
 	${${A_PREFIX}_SOURCES_CPP}
+	alogger.cpp
 )
 
 set(${A_PREFIX}_SOURCES
@@ -86,7 +89,7 @@ target_link_libraries(${A_NAME_TARGET}
 
 target_compile_definitions(${A_NAME_TARGET}
 	PRIVATE
-		TEMPLATES_LIBRARY
+		LOGGER_LIBRARY
 )
 
 target_include_directories(${A_NAME_TARGET}

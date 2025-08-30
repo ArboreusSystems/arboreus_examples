@@ -21,12 +21,22 @@
 
 // System includes
 
-class ALibrary1_v1 {
+// Application includes
+
+
+// Class definitions
+class ALibrary1_v1 : public QObject {
+
+	Q_OBJECT
 
 	public:
 
-		ALibrary1_v1(void);
-		~ALibrary1_v1(void);
+		explicit ALibrary1_v1(QObject* parent = nullptr);
+		virtual ~ALibrary1_v1(void);
+
+	public slots:
+
+		QString mTestString(void);
 };
 
 #endif // ALIBRARY1_V1_H

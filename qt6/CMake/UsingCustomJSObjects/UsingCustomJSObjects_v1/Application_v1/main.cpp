@@ -15,8 +15,7 @@
 
 // Application includes
 #include <Backend/abackend.h>
-#include <Logger/aloggerglobal.h>
-#include <athreadobjectcontrollertemplate.h>
+#include <aloggerglobal.h>
 
 // Constants
 #define CLIENT_QML_MAIN "qrc:/Main.qml"
@@ -27,47 +26,24 @@ int main(int inCounter, char *inArguments[]) {
 
 	QGuiApplication oApplicationObject(inCounter, inArguments);
 	QGuiApplication* oApplication = &oApplicationObject;
-
 	QQmlApplicationEngine oEngineObject;
 	QQmlApplicationEngine* oEngine = &oEngineObject;
 
 	qInstallMessageHandler(fLoggerMessageHandler);
 
-	AThreadObjectControllerTemplate* oController = new AThreadObjectControllerTemplate();
-	QEventLoop* oEventLoop = new QEventLoop();
-
 	ABackend* oBackend = &ABackend::mInstance();
+	oBackend->mInit(oApplication,oEngine,oEngine->rootContext());
+
+	const QUrl oURL(QStringLiteral(CLIENT_QML_MAIN));
 	QObject::connect(
-		oController,&AThreadObjectControllerTemplate::sgRun,
-		oBackend,[oBackend,oApplication,oEngine](){
-			oBackend->mInit(oApplication,oEngine,oEngine->rootContext());
-		}
+		oEngine, &QQmlApplicationEngine::objectCreated,
+		oApplication, [oURL](QObject* obj, const QUrl& objUrl) {
+			if (!obj && oURL == objUrl) {
+				QCoreApplication::exit(-1);
+			}
+		}, Qt::QueuedConnection
 	);
-	QObject::connect(
-		oBackend,&ABackend::sgInitiated,
-		oEventLoop,&QEventLoop::quit
-	);
-
-	emit oController->sgRun();
-
-	oEventLoop->exec();
-
-	QObject::disconnect(oController,nullptr,nullptr,nullptr);
-	QObject::disconnect(oBackend,nullptr,oEventLoop,nullptr);
-	delete oController;
-	delete oEventLoop;
-
-	const QUrl oURL = QUrl(QStringLiteral("qrc:/Main.qml"));
-	QObject::connect(
-		oEngine,&QQmlApplicationEngine::objectCreationFailed,
-		oApplication,[]() {
-			QCoreApplication::exit(-1);
-		},
-		Qt::QueuedConnection
-	);
-
 	oEngine->load(oURL);
-
 	int oExecutionResult = oApplication->exec();
 
 	return oExecutionResult;

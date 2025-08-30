@@ -19,8 +19,8 @@
 // System includes
 
 // Application includes
-#include <Logger/aloggerglobal.h>
-#include <Logger/alogger_pch.h>
+#include <aloggerglobal.h>
+#include <alogger_pch.h>
 
 // Constants and definitions
 

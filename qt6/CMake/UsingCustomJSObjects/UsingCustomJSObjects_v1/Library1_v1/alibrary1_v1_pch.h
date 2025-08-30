@@ -15,8 +15,10 @@
 #pragma once
 
 // System includes
+#include <QObject>
 
 // Application includes
+#include <aloggerglobal.h>
 
 // Constants and defintions
 

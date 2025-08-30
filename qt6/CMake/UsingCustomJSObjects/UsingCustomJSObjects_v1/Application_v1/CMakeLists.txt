@@ -48,16 +48,14 @@ set(${A_PREFIX}_SOURCES_PRECOMPILED_HEADERS_PUBLIC
 set(${A_PREFIX}_SOURCES_CPP_HEADERS
 	${${A_PREFIX}_SOURCES_CPP_HEADERS}
 	Backend/abackend.h
-	Logger/alogger.h
-	Logger/aloggerdatamodels.h
-	Logger/aloggerglobal.h
-	Logger/alogger_pch.h
+	JSObject/ajsobject.h
 )
 
 set(${A_PREFIX}_SOURCES_CPP
 	${${A_PREFIX}_SOURCES_CPP}
 	main.cpp
 	Backend/abackend.cpp
+	JSObject/ajsobject.cpp
 )
 
 set(${A_PREFIX}_SOURCES_RESOURCES
@@ -94,25 +92,16 @@ set(${A_PREFIX}_PROPERTIES
 ## ----------------------------------------
 ## Qt Application settings
 
-find_package(Qt6 REQUIRED COMPONENTS Quick)
-find_package(Qt6 REQUIRED COMPONENTS Core)
-find_package(Qt6 REQUIRED COMPONENTS Core)
-find_package(Qt6 REQUIRED COMPONENTS Core)
+find_package(Qt6 REQUIRED COMPONENTS Core Quick)
+
 qt_standard_project_setup(REQUIRES 6.8)
-qt_add_executable(${A_NAME_APPLICATION} ${${A_PREFIX}_SOURCES}
-	Logger/alogger.h Logger/alogger.cpp
-	JSObject/ajsobject.h JSObject/ajsobject.cpp)
+qt_add_executable(${A_NAME_APPLICATION} ${${A_PREFIX}_SOURCES})
 
-
-target_link_libraries(app_Application_v1 PRIVATE Qt6::Core)
-target_link_libraries(app_Application_v1 PRIVATE Qt6::Core)
-target_link_libraries(app_Application_v1 PRIVATE Qt6::Core)
 
 ## ----------------------------------------
 ## Application properties
 
 set_target_properties(${A_NAME_APPLICATION} PROPERTIES ${${A_PREFIX}_PROPERTIES})
-
 
 
 ## ----------------------------------------
@@ -129,10 +118,11 @@ target_include_directories(${A_NAME_APPLICATION}
 
 target_link_libraries(${A_NAME_APPLICATION}
 	PRIVATE
+		Qt6::Core
 		Qt6::Quick
 		Library1_v1
 		Library2_v1
-		Templates
+		Logger
 )
 
 
