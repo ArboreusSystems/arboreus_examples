@@ -1,0 +1,14 @@
+{application, a_rest_api_v1,[
+	{description, "REST API example with Yaws"},
+	{vsn, "0.1.0"},
+	{registered, []},
+	{mod, {a_rest_api_v1, []}},
+	{applications,[
+		kernel,
+		stdlib
+	]},
+	{env,[]},
+	{modules, []},
+	{licenses, ["BSD"]},
+	{links, []}
+]}.

@@ -43,17 +43,19 @@ set(${A_PREFIX}_INCLUDE_DIR_PRIVATE)
 
 set(${A_PREFIX}_SOURCES_PRECOMPILED_HEADERS_PUBLIC
 	${${A_PREFIX}_SOURCES_PRECOMPILED_HEADERS_PUBLIC}
-	logger_v2_pch.h
+	alogger_pch.h
 )
 
 set(${A_PREFIX}_SOURCES_HEADERS
 	${${A_PREFIX}_SOURCES_HEADERS}
-	logger_v2.h
+	alogger.h
+	aloggerglobal.h
+	aloggerdatamodels.h
 )
 
 set(${A_PREFIX}_SOURCES_CPP
 	${${A_PREFIX}_SOURCES_CPP}
-	logger_v2.cpp
+	alogger.cpp
 )
 
 set(${A_PREFIX}_SOURCES

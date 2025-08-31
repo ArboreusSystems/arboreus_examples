@@ -1,6 +1,6 @@
 // ----------------------------------------------------------
 /*!
-	\headerfile Logger_v2
+	\headerfile Alogger
 	\title
 	\brief Template file wizard/classes/cpp/file.h
 
@@ -8,25 +8,33 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 31/08/2025 at 20:40:39
+	\li @created 25/10/2022 at 09:40:38
 	\endlist
 */
 // ----------------------------------------------------------
 
-#ifndef LOGGER_V2_H
-#define LOGGER_V2_H
-
-// Precompiled includes
-#include <logger_v2_pch.h>
+#ifndef ALOGGER_H
+#define ALOGGER_H
 
 // System includes
 
-class Logger_v2 {
+// Application includes
+#include <aloggerglobal.h>
+#include <alogger_pch.h>
+
+// Constants and definitions
+
+// Namespace
+
+// Class definitions
+class Alogger : public QObject {
+
+	Q_OBJECT
 
 	public:
 
-		Logger_v2(void);
-		~Logger_v2(void);
+		explicit Alogger(QObject* parent = nullptr);
+		virtual ~Alogger(void);
 };
 
-#endif // LOGGER_V2_H
+#endif // ALOGGER_H
