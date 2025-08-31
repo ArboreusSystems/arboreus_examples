@@ -19,7 +19,7 @@ import QtQuick 6.2
 // Application Main window
 Window {
 
-	property string oTitle: "Main Window Application_v2";
+	property string oTitle: "Custom Logger v2";
 
 	id: oMainWindow;
 	width: 640;
