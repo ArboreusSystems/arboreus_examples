@@ -14,6 +14,8 @@
 // System includes
 
 // Application includes
+#include <aloggerglobal.h>
+#include <Backend/abackend.h>
 
 // Constants
 #define CLIENT_QML_MAIN "qrc:/Main.qml"
@@ -29,7 +31,8 @@ int main(int inCounter, char *inArguments[]) {
 
 	qInstallMessageHandler(fLoggerMessageHandler);
 
-	_A_DEBUG << "test";
+	ABackend* oBackend = &ABackend::mInstance();
+	oBackend->mInit(oApplication,oEngine,oEngine->rootContext());
 
 	const QUrl oURL(QStringLiteral(CLIENT_QML_MAIN));
 	QObject::connect(
@@ -41,7 +44,7 @@ int main(int inCounter, char *inArguments[]) {
 		}, Qt::QueuedConnection
 	);
 	oEngine->load(oURL);
-	int oExecutionResult = oApplication->exec();
 
+	int oExecutionResult = oApplication->exec();
 	return oExecutionResult;
 }

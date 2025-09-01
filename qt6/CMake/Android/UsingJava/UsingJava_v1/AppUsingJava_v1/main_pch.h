@@ -17,6 +17,15 @@
 // System includes
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
+#include <QObject>
+#include <QString>
+
+// Android system includes
+#ifdef Q_OS_ANDROID
+#include <QJniObject>
+#include <QJniEnvironment>
+#endif
 
 // Application includes
 #include <aloggerglobal.h>

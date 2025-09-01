@@ -54,6 +54,118 @@ using namespace std;
 
 static void __attribute__((unused)) fLoggerWriteToConsole(ALoggerMessageModel* inModel) {
 
+#ifdef Q_OS_ANDROID
+
+#ifdef QT_DEBUG
+
+	switch (inModel->Type) {
+		case QtDebugMsg:
+			__android_log_print(
+				ANDROID_LOG_DEBUG,_A_LOGGER_DEFAULT_STRING_DEBUG,
+				"%s %llu %s %s [%s]:[%s]:[%u]\n",
+				inModel->Author,inModel->Time,inModel->ThreadID,inModel->Message,
+				inModel->Function,inModel->File,inModel->Line
+			);
+			break;
+		case QtInfoMsg:
+			__android_log_print(
+				ANDROID_LOG_INFO,_A_LOGGER_DEFAULT_STRING_INFO,
+				"%s %llu %s %s [%s]:[%s]:[%u]\n",
+				inModel->Author,inModel->Time,inModel->ThreadID,inModel->Message,
+				inModel->Function,inModel->File,inModel->Line
+			);
+			break;
+		case QtWarningMsg:
+			__android_log_print(
+				ANDROID_LOG_WARN,_A_LOGGER_DEFAULT_STRING_WARNING,
+				"%s %llu %s %s [%s]:[%s]:[%u]\n",
+				inModel->Author,inModel->Time,inModel->ThreadID,inModel->Message,
+				inModel->Function,inModel->File,inModel->Line
+			);
+			break;
+		case QtCriticalMsg:
+			__android_log_print(
+				ANDROID_LOG_ERROR,_A_LOGGER_DEFAULT_STRING_CRITICAL,
+				"%s %llu %s %s [%s]:[%s]:[%u]\n",
+				inModel->Author,inModel->Time,inModel->ThreadID,inModel->Message,
+				inModel->Function,inModel->File,inModel->Line
+			);
+			break;
+		case QtFatalMsg:
+			__android_log_print(
+				ANDROID_LOG_FATAL,_A_LOGGER_DEFAULT_STRING_FATAL,
+				"%s %llu %s %s [%s]:[%s]:[%u]\n",
+				inModel->Author,inModel->Time,inModel->ThreadID,inModel->Message,
+				inModel->Function,inModel->File,inModel->Line
+			);
+			break;
+		default:
+			__android_log_print(
+				ANDROID_LOG_UNKNOWN,_A_LOGGER_DEFAULT_STRING_UNDEFINED
+				"%s %llu %s %s [%s]:[%s]:[%u]\n",
+				inModel->Author,inModel->Time,inModel->ThreadID,inModel->Message,
+				inModel->Function,inModel->File,inModel->Line
+			);
+			break;
+	}
+
+#else
+
+	switch (inModel->Type) {
+		case QtDebugMsg:
+			__android_log_print(
+				ANDROID_LOG_DEBUG,_A_LOGGER_DEFAULT_STRING_DEBUG,
+				"%s %llu %s %s\n",
+				inModel->Author,inModel->Time,
+				inModel->ThreadID,inModel->Message
+			);
+			break;
+		case QtInfoMsg:
+			__android_log_print(
+				ANDROID_LOG_DEBUG,_A_LOGGER_DEFAULT_STRING_INFO,
+				"%s %llu %s %s\n",
+				inModel->Author,inModel->Time,
+				inModel->ThreadID,inModel->Message
+			);
+			break;
+		case QtWarningMsg:
+			__android_log_print(
+				ANDROID_LOG_WARN,_A_LOGGER_DEFAULT_STRING_WARNING,
+				"%s %llu %s %s\n",
+				inModel->Author,inModel->Time,
+				inModel->ThreadID,inModel->Message
+			);
+			break;
+		case QtCriticalMsg:
+			__android_log_print(
+				ANDROID_LOG_ERROR,_A_LOGGER_DEFAULT_STRING_CRITICAL,
+				"%s %llu %s %s\n",
+				inModel->Author,inModel->Time,
+				inModel->ThreadID,inModel->Message
+			);
+			break;
+		case QtFatalMsg:
+			__android_log_print(
+				ANDROID_LOG_FATAL,_A_LOGGER_DEFAULT_STRING_FATAL,
+				"%s %llu %s %s\n",
+				inModel->Author,inModel->Time,
+				inModel->ThreadID,inModel->Message
+			);
+			break;
+		default:
+			__android_log_print(
+				ANDROID_LOG_UNKNOWN,_A_LOGGER_DEFAULT_STRING_UNDEFINED
+				"%s %llu %s %s\n",
+				inModel->Author,inModel->Time,
+				inModel->ThreadID,inModel->Message
+			);
+			break;
+	}
+
+#endif
+
+#else
+
 #ifdef QT_DEBUG
 
 	switch (inModel->Type) {
@@ -137,6 +249,8 @@ static void __attribute__((unused)) fLoggerWriteToConsole(ALoggerMessageModel* i
 			);
 			break;
 	}
+
+#endif
 
 #endif
 

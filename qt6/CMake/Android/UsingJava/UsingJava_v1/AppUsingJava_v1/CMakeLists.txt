@@ -3,9 +3,10 @@ cmake_minimum_required(VERSION 3.16)
 ## ----------------------------------------
 ## Global variables
 
-set(A_NAME_TARGET AppUsingJava_v1)
-set(A_NAME_APPLICATION app_${A_NAME_TARGET})
-set(A_PREFIX A_${A_NAME_TARGET})
+set(A_NAME UsingJava_v1)
+set(A_NAME_TARGET target_${A_NAME})
+set(A_NAME_APPLICATION ${A_NAME})
+set(A_PREFIX A_${A_NAME})
 
 
 ## ----------------------------------------
@@ -15,6 +16,7 @@ project(${A_NAME_TARGET} VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_AUTORCC ON)
+set(QT_FORCE_CMP0156_TO_VALUE NEW)
 
 option(A_OPTION_USING_PCH "${A_NAME_TARGET} using PCH support" ON)
 
@@ -45,9 +47,15 @@ set(${A_PREFIX}_SOURCES_PRECOMPILED_HEADERS_PUBLIC
 	main_pch.h
 )
 
+set(${A_PREFIX}_SOURCES_HEADERS
+	${${A_PREFIX}_SOURCES_HEADERS}
+	Backend/abackend.h
+)
+
 set(${A_PREFIX}_SOURCES_CPP
 	${${A_PREFIX}_SOURCES_CPP}
 	main.cpp
+	Backend/abackend.cpp
 )
 
 set(${A_PREFIX}_SOURCES_RESOURCES
@@ -56,6 +64,7 @@ set(${A_PREFIX}_SOURCES_RESOURCES
 )
 
 set(${A_PREFIX}_SOURCES
+	${${A_PREFIX}_SOURCES}
 	${${A_PREFIX}_SOURCES_PRECOMPILED_HEADERS_PRIVATE}
 	${${A_PREFIX}_SOURCES_PRECOMPILED_HEADERS_PUBLIC}
 	${${A_PREFIX}_SOURCES_HEADERS}
@@ -68,23 +77,72 @@ set(${A_PREFIX}_INCLUDE_DIR_PUBLIC
 	${${A_PREFIX}_DIR_ROOT}
 )
 
-# Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
-# If you are developing for iOS or macOS you should consider setting an
-# explicit, fixed bundle identifier manually though.
-set(${A_PREFIX}_PROPERTIES
-	${${A_PREFIX}_PROPERTIES}
-	# MACOSX_BUNDLE_GUI_IDENTIFIER com.example.appwrwere
-	MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-	MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-	MACOSX_BUNDLE TRUE
-	WIN32_EXECUTABLE TRUE
-)
+
+## ----------------------------------------
+## IOS sources
+
+if(IOS)
+
+	# Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
+	# If you are developing for iOS or macOS you should consider setting an
+	# explicit, fixed bundle identifier manually though.
+
+	set(${A_PREFIX}_PROPERTIES
+		${${A_PREFIX}_PROPERTIES}
+		# MACOSX_BUNDLE_GUI_IDENTIFIER com.example.appwrwere
+		MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
+		MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+		MACOSX_BUNDLE TRUE
+	)
+
+endif()
+
+
+## ----------------------------------------
+## Android sources
+
+if(ANDROID)
+
+	set(${A_PREFIX}_ANDROID_TEMPLATE
+		Platforms/android/AndroidManifest.xml
+		Platforms/android/build.gradle
+		Platforms/android/res/values/libs.xml
+		Platforms/android/res/values/styles.xml
+		Platforms/android/res/xml/qtprovider_paths.xml
+	)
+
+	set(${A_PREFIX}_ANDROID_SOURCES_HEADERS
+		JavaWrapper/ajavawrapper.h
+	)
+
+	set(${A_PREFIX}_ANDROID_SOURCES_CPP
+		JavaWrapper/ajavawrapper.cpp
+	)
+
+	set(${A_PREFIX}_ANDROID_SOURCES_JAVA
+		Platforms/android/src/systems.arboreus.AJavaPackage/AJavaClass.java
+	)
+
+	set(${A_PREFIX}_SOURCES
+		${${A_PREFIX}_SOURCES}
+		${${A_PREFIX}_ANDROID_TEMPLATE}
+		${${A_PREFIX}_ANDROID_SOURCES_HEADERS}
+		${${A_PREFIX}_ANDROID_SOURCES_CPP}
+		${${A_PREFIX}_ANDROID_SOURCES_JAVA}
+	)
+
+	set(${A_PREFIX}_PROPERTIES
+		${${A_PREFIX}_PROPERTIES}
+		QT_ANDROID_PACKAGE_SOURCE_DIR "${${A_PREFIX}_DIR_ROOT}/Platforms/android"
+	)
+
+endif()
 
 
 ## ----------------------------------------
 ## Qt Application settings
 
-find_package(Qt6 REQUIRED COMPONENTS Quick)
+find_package(Qt6 REQUIRED COMPONENTS Core Quick)
 qt_standard_project_setup(REQUIRES 6.8)
 qt_add_executable(${A_NAME_APPLICATION} ${${A_PREFIX}_SOURCES})
 
@@ -93,7 +151,6 @@ qt_add_executable(${A_NAME_APPLICATION} ${${A_PREFIX}_SOURCES})
 ## Application properties
 
 set_target_properties(${A_NAME_APPLICATION} PROPERTIES ${${A_PREFIX}_PROPERTIES})
-
 
 
 ## ----------------------------------------

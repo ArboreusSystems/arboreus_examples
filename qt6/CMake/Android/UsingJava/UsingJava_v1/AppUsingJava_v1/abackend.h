@@ -1,6 +1,6 @@
 // ----------------------------------------------------------
 /*!
-	\headerfile Logger
+	\headerfile ABackend
 	\title
 	\brief Template file wizard/classes/cpp/file.h
 
@@ -8,25 +8,34 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 30/08/2025 at 18:36:46
+	\li @created 31/08/2025 at 23:04:32
 	\endlist
 */
 // ----------------------------------------------------------
-
-#ifndef LOGGER_H
-#define LOGGER_H
-
-// Precompiled includes
-#include <logger_pch.h>
+#ifndef ABACKEND_H
+#define ABACKEND_H
 
 // System includes
+#include <QObject>
 
-class Logger {
+// Application includes
+
+// Namesapces
+
+// Constants and definitions
+
+// Class definitions
+class ABackend : public QObject {
+
+		Q_OBJECT
 
 	public:
 
-		Logger(void);
-		~Logger(void);
+		explicit ABackend(QObject *parent = nullptr);
+
+	signals:
+
+
 };
 
-#endif // LOGGER_H
+#endif // ABACKEND_H

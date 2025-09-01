@@ -19,7 +19,7 @@ import QtQuick 6.2
 // Application Main window
 Window {
 
-	property string oTitle: "Main Window AppUsingJava_v1";
+	property string oTitle: "AppUsingJava_v1";
 
 	id: oMainWindow;
 	width: 640;
@@ -27,9 +27,18 @@ Window {
 	visible: true;
 	title: qsTr(oTitle);
 
-	Text {
+	Column {
 
-		id: oMainText;
-		text: qsTr(oTitle);
+		Text {
+
+			id: oMainText;
+			text: qsTr(oTitle);
+		}
+
+		Text {
+
+			id: oIntegerFromJava;
+			text: "Integer from java: " + AJavaClass.mTest(2222);
+		}
 	}
 }
