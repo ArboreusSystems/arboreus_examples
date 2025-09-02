@@ -17,13 +17,13 @@
 #define AOBJCSWIFTLIBRARY_H
 
 // Precompiled includes
+#include <aobjcswiftlibrary_pch.h>
 
 // System includes
 
 // Application includes
 
 // Classes
-class QObect;
 class AObjectiveCWrapper;
 
 
