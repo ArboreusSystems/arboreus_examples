@@ -1,7 +1,7 @@
 #ifndef ALIBRARY2_V4_H
 #define ALIBRARY2_V4_H
 
-#include <iostream>
+#include <alibrary2_v4_pch.h>
 
 using namespace std;
 

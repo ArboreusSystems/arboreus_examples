@@ -1,5 +1,4 @@
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
+#include <rootapplication_v4_pch.h>
 
 #include <alibrary1_v4.h>
 #include <alibrary2_v4.h>

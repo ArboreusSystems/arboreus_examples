@@ -1,15 +1,90 @@
 cmake_minimum_required(VERSION 3.16)
 
+
+## ---------------------------------
+## Global setings
+
 set(A_TARGET_NAME Library3_v4)
+set(A_PREFIX A_${A_NAME_TARGET})
 
 project(${A_TARGET_NAME} LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_library(${A_TARGET_NAME} STATIC
-	alibrary3_v4.cpp
+option(A_OPTION_USING_PCH "${A_NAME_TARGET} using PCH support" ON)
+
+
+## ---------------------------------
+## Project variables
+
+set(${A_PREFIX}_DIR_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
+
+set(${A_PREFIX}_SOURCES_RESOURCES)
+set(${A_PREFIX}_SOURCES_CPP_HEADERS)
+set(${A_PREFIX}_SOURCES_CPP)
+set(${A_PREFIX}_SOURCES_C_HEADERS)
+set(${A_PREFIX}_SOURCES_C)
+set(${A_PREFIX}_SOURCES_QML)
+set(${A_PREFIX}_SOURCES_PRECOMPILED_HEADERS_PUBLIC)
+set(${A_PREFIX}_SOURCES_PRECOMPILED_HEADERS_PRIVATE)
+
+
+## ---------------------------------
+## Project sources
+
+set(${A_PREFIX}_SOURCES_PRECOMPILED_HEADERS_PRIVATE
+	${${A_PREFIX}_SOURCES_PRECOMPILED_HEADERS_PRIVATE}
+	alibrary3_v4_pch.h
+)
+
+set(${A_PREFIX}_SOURCES_CPP_HEADERS
+	${${A_PREFIX}_SOURCES_CPP_HEADERS}
 	alibrary3_v4.h
+)
+
+set(${A_PREFIX}_SOURCES_CPP
+	${${A_PREFIX}_SOURCES_CPP}
+	alibrary3_v4.cpp
+)
+
+set(${A_PREFIX}_SOURCES
+	${${A_PREFIX}_SOURCES}
+	${${A_PREFIX}_SOURCES_PRECOMPILED_HEADERS_PRIVATE}
+	${${A_PREFIX}_SOURCES_CPP_HEADERS}
+	${${A_PREFIX}_SOURCES_CPP}
+)
+
+
+## ---------------------------------
+## Project settings
+
+add_library(${A_TARGET_NAME} STATIC
+	${${A_PREFIX}_SOURCES}
+)
+
+if(
+	NOT "${${A_PREFIX}_SOURCES_PRECOMPILED_HEADERS_PRIVATE}" STREQUAL "" OR
+	NOT "${${A_PREFIX}_SOURCES_PRECOMPILED_HEADERS_PUBLIC}" STREQUAL ""
+)
+	if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.16 AND A_OPTION_USING_PCH)
+		message(STATUS "Using PCH for ${A_TARGET_NAME}")
+		target_precompile_headers(${A_TARGET_NAME}
+			PRIVATE ${${A_PREFIX}_SOURCES_PRECOMPILED_HEADERS_PRIVATE}
+			PUBLIC ${${A_PREFIX}_SOURCES_PRECOMPILED_HEADERS_PUBLIC}
+		)
+		set(CMAKE_PCH_INSTANTIATE_TEMPLATES ON)
+	else()
+		message(STATUS "No PCH for ${A_TARGET_NAME}")
+	endif()
+else()
+	message(STATUS "PCH list empty.")
+endif()
+
+target_include_directories(${A_TARGET_NAME}
+	PUBLIC
+		$<TARGET_PROPERTY:Library2_v4,INTERFACE_INCLUDE_DIRECTORIES>
+		${${A_PREFIX}_DIR_ROOT}
 )
 
 target_compile_definitions(${A_TARGET_NAME}
@@ -20,10 +95,4 @@ target_compile_definitions(${A_TARGET_NAME}
 target_link_libraries(${A_TARGET_NAME}
 	INTERFACE
 		Library2_v4
-)
-
-target_include_directories(${A_TARGET_NAME}
-	PUBLIC
-		$<TARGET_PROPERTY:Library2_v4,INTERFACE_INCLUDE_DIRECTORIES>
-		${CMAKE_CURRENT_SOURCE_DIR}
 )
