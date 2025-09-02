@@ -15,10 +15,10 @@
 #ifndef ALOGGERGLOBAL_H
 #define ALOGGERGLOBAL_H
 
-// System includes
-
 // Precompiled includes
-#include <aloggerpch.h>
+#include <alogger_pch.h>
+
+// System includes
 
 // Application includes
 #include <aloggerdatamodels.h>
@@ -42,6 +42,7 @@
 #define _A_FATAL(inMessage) qFatal(inMessage)
 
 // Namespace
+using namespace std;
 
 
 // -----------
@@ -52,6 +53,118 @@
 */
 
 static void __attribute__((unused)) fLoggerWriteToConsole(ALoggerMessageModel* inModel) {
+
+#ifdef Q_OS_ANDROID
+
+#ifdef QT_DEBUG
+
+	switch (inModel->Type) {
+		case QtDebugMsg:
+			__android_log_print(
+				ANDROID_LOG_DEBUG,_A_LOGGER_DEFAULT_STRING_DEBUG,
+				"%s %llu %s %s [%s]:[%s]:[%u]\n",
+				inModel->Author,inModel->Time,inModel->ThreadID,inModel->Message,
+				inModel->Function,inModel->File,inModel->Line
+			);
+			break;
+		case QtInfoMsg:
+			__android_log_print(
+				ANDROID_LOG_INFO,_A_LOGGER_DEFAULT_STRING_INFO,
+				"%s %llu %s %s [%s]:[%s]:[%u]\n",
+				inModel->Author,inModel->Time,inModel->ThreadID,inModel->Message,
+				inModel->Function,inModel->File,inModel->Line
+			);
+			break;
+		case QtWarningMsg:
+			__android_log_print(
+				ANDROID_LOG_WARN,_A_LOGGER_DEFAULT_STRING_WARNING,
+				"%s %llu %s %s [%s]:[%s]:[%u]\n",
+				inModel->Author,inModel->Time,inModel->ThreadID,inModel->Message,
+				inModel->Function,inModel->File,inModel->Line
+			);
+			break;
+		case QtCriticalMsg:
+			__android_log_print(
+				ANDROID_LOG_ERROR,_A_LOGGER_DEFAULT_STRING_CRITICAL,
+				"%s %llu %s %s [%s]:[%s]:[%u]\n",
+				inModel->Author,inModel->Time,inModel->ThreadID,inModel->Message,
+				inModel->Function,inModel->File,inModel->Line
+			);
+			break;
+		case QtFatalMsg:
+			__android_log_print(
+				ANDROID_LOG_FATAL,_A_LOGGER_DEFAULT_STRING_FATAL,
+				"%s %llu %s %s [%s]:[%s]:[%u]\n",
+				inModel->Author,inModel->Time,inModel->ThreadID,inModel->Message,
+				inModel->Function,inModel->File,inModel->Line
+			);
+			break;
+		default:
+			__android_log_print(
+				ANDROID_LOG_UNKNOWN,_A_LOGGER_DEFAULT_STRING_UNDEFINED
+				"%s %llu %s %s [%s]:[%s]:[%u]\n",
+				inModel->Author,inModel->Time,inModel->ThreadID,inModel->Message,
+				inModel->Function,inModel->File,inModel->Line
+			);
+			break;
+	}
+
+#else
+
+	switch (inModel->Type) {
+		case QtDebugMsg:
+			__android_log_print(
+				ANDROID_LOG_DEBUG,_A_LOGGER_DEFAULT_STRING_DEBUG,
+				"%s %llu %s %s\n",
+				inModel->Author,inModel->Time,
+				inModel->ThreadID,inModel->Message
+			);
+			break;
+		case QtInfoMsg:
+			__android_log_print(
+				ANDROID_LOG_DEBUG,_A_LOGGER_DEFAULT_STRING_INFO,
+				"%s %llu %s %s\n",
+				inModel->Author,inModel->Time,
+				inModel->ThreadID,inModel->Message
+			);
+			break;
+		case QtWarningMsg:
+			__android_log_print(
+				ANDROID_LOG_WARN,_A_LOGGER_DEFAULT_STRING_WARNING,
+				"%s %llu %s %s\n",
+				inModel->Author,inModel->Time,
+				inModel->ThreadID,inModel->Message
+			);
+			break;
+		case QtCriticalMsg:
+			__android_log_print(
+				ANDROID_LOG_ERROR,_A_LOGGER_DEFAULT_STRING_CRITICAL,
+				"%s %llu %s %s\n",
+				inModel->Author,inModel->Time,
+				inModel->ThreadID,inModel->Message
+			);
+			break;
+		case QtFatalMsg:
+			__android_log_print(
+				ANDROID_LOG_FATAL,_A_LOGGER_DEFAULT_STRING_FATAL,
+				"%s %llu %s %s\n",
+				inModel->Author,inModel->Time,
+				inModel->ThreadID,inModel->Message
+			);
+			break;
+		default:
+			__android_log_print(
+				ANDROID_LOG_UNKNOWN,_A_LOGGER_DEFAULT_STRING_UNDEFINED
+				"%s %llu %s %s\n",
+				inModel->Author,inModel->Time,
+				inModel->ThreadID,inModel->Message
+			);
+			break;
+	}
+
+#endif
+
+#else
 
 #ifdef QT_DEBUG
 
@@ -139,6 +252,8 @@ static void __attribute__((unused)) fLoggerWriteToConsole(ALoggerMessageModel* i
 
 #endif
 
+#endif
+
 }
 
 
@@ -174,9 +289,9 @@ static void __attribute__((unused)) fLoggerMessageHandler(
 
 	QString oThreadIDString = QString("0x%1");
 	QString oThreadIDValue = oThreadIDString.arg((long)QThread::currentThread(),0,16);
-	std::string oThreadIDStdString = oThreadIDValue.toStdString();
+	string oThreadIDStdString = oThreadIDValue.toStdString();
 
-	std::string oMessageStdString = inMessage.toStdString();
+	string oMessageStdString = inMessage.toStdString();
 
 	ALoggerMessageModel oMessageModel;
 	oMessageModel.Type = inType;
@@ -185,7 +300,7 @@ static void __attribute__((unused)) fLoggerMessageHandler(
 	oMessageModel.Message = oMessageStdString.c_str();
 
 	QString oAuthorString = inMessage.left(3);
-	std::string oAuthor = oAuthorString.toStdString();
+	string oAuthor = oAuthorString.toStdString();
 	if (
 		oAuthor == _A_LOGGER_DEFAULT_STRING_USER ||
 		oAuthor == _A_LOGGER_DEFAULT_STRING_SYSTEM ||

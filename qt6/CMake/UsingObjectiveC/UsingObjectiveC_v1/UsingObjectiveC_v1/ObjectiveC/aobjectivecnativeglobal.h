@@ -8,27 +8,17 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 25/10/2022 at 09:41:01
+	\li @created 28/10/2022 at 17:46:51
 	\endlist
 */
 // ----------------------------------------------------------
-#ifndef ALOGGERPCH_H
-#define ALOGGERPCH_H
-
-#if defined __cplusplus
-
-#pragma once
+#ifndef AOBJECTIVECNATIVEGLOBAL_H
+#define AOBJECTIVECNATIVEGLOBAL_H
 
 // System includes
-#include <QObject>
-#include <QDebug>
-#include <QDateTime>
-#include <QDebug>
-#include <QThread>
-#include <QString>
 
-// STD includes
-#include <string>
+// Precompiled includes
+#include <ObjectiveC/aobjectivecpch.h>
 
 // Application includes
 
@@ -36,6 +26,9 @@
 
 // Namespace
 
-#endif
+// Global functions
+void fObjectiveCNative_Init(void);
+void fObjectiveCNative_Delete(void);
+QString fObjectiveCNative_TestString(void);
 
-#endif // ALOGGERPCH_H
+#endif // AOBJECTIVECNATIVEGLOBAL_H

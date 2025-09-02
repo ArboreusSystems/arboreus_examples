@@ -1,6 +1,6 @@
 // ----------------------------------------------------------
 /*!
-	\headerfile AObjectiveCNative
+	\headerfile Alogger
 	\title
 	\brief Template file wizard/classes/cpp/file.h
 
@@ -8,40 +8,33 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 28/10/2022 at 17:23:42
+	\li @created 25/10/2022 at 09:40:38
 	\endlist
 */
 // ----------------------------------------------------------
 
-#ifndef AOBJECTIVECNATIVE_H
-#define AOBJECTIVECNATIVE_H
+#ifndef ALOGGER_H
+#define ALOGGER_H
 
 // System includes
 
-// Precompiled includes
-#include <aobjectivecpch.h>
-
 // Application includes
 #include <aloggerglobal.h>
-
-// iOS includes
-
-// iOS imports
-#import <Foundation/Foundation.h>
+#include <alogger_pch.h>
 
 // Constants and definitions
 
 // Namespace
 
 // Class definitions
-@interface AObjectiveCNative: NSObject
+class Alogger : public QObject {
 
-@property (strong,atomic) NSString* pString;
+	Q_OBJECT
 
-+(AObjectiveCNative*) mInstance;
--(void) mInit;
--(NSString*) mGetString;
+	public:
 
-@end
+		explicit Alogger(QObject* parent = nullptr);
+		virtual ~Alogger(void);
+};
 
-#endif // AOBJECTIVECNATIVE_H
+#endif // ALOGGER_H

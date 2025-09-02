@@ -8,23 +8,32 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 27/10/2022 at 11:22:13
+	\li @created 25/10/2022 at 09:41:01
 	\endlist
 */
 // ----------------------------------------------------------
-#ifndef MAINPCH_H
-#define MAINPCH_H
+#ifndef ALOGGERPCH_H
+#define ALOGGERPCH_H
 
 #if defined __cplusplus
 
 #pragma once
 
 // System includes
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
-#include <QEventLoop>
+#include <QObject>
+#include <QDebug>
+#include <QDateTime>
+#include <QDebug>
+#include <QThread>
+#include <QString>
+
+// Android includes
+#ifdef Q_OS_ANDROID
+#include <android/log.h>
+#endif
 
 // STD includes
+#include <string>
 
 // Application includes
 
@@ -34,4 +43,4 @@
 
 #endif
 
-#endif // MAINPCH_H
+#endif // ALOGGERPCH_H

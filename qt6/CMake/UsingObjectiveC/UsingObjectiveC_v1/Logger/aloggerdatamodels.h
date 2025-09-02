@@ -18,7 +18,7 @@
 // System includes
 
 // Precompiled headers
-#include <aloggerpch.h>
+#include <alogger_pch.h>
 
 // Application includes
 
