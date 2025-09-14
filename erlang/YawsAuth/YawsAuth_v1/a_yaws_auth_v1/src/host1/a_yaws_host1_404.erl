@@ -25,4 +25,6 @@ out404(ARGUMENTS,GC,SC) ->
 	erlang:display(GC),
 	io:format("~n"),
 	erlang:display(SC),
-	[].
+	[
+		{status,404}
+	].

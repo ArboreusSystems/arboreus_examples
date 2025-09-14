@@ -11,14 +11,16 @@
 
 %% API
 -export([
-	out401/1
+	out/1
 ]).
 
 
 %% ----------------------------
 %% @doc
 
-out401(ARGUMENTS) ->
+out(ARGUMENTS) ->
 
 	erlang:display(ARGUMENTS),
-	[].
+	[
+		{status,401}
+	].

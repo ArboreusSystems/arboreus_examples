@@ -21,4 +21,6 @@
 out(ARGUMENTS) ->
 
 	erlang:display(ARGUMENTS),
-	[].
+	[
+		{status,401}
+	].
