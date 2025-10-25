@@ -24,11 +24,12 @@ int main(int inCounter, char *inArguments[]) {
 
 	const QUrl oURL = QUrl(QStringLiteral("qrc:/Main.qml"));
 	QObject::connect(
-				&oEngine, &QQmlApplicationEngine::objectCreationFailed,
-				&oApplication, []() {
-		QCoreApplication::exit(-1);
-	},
-	Qt::QueuedConnection);
+		&oEngine, &QQmlApplicationEngine::objectCreationFailed,
+		&oApplication, []() {
+			QCoreApplication::exit(-1);
+		},
+		Qt::QueuedConnection
+	);
 	oEngine.load(oURL);
 
 	return oApplication.exec();

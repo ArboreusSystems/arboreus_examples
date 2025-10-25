@@ -4,7 +4,7 @@
  *
  *  @copyright Arboreus (http://arboreus.systems)
  *  @author Alexandr Kirilov (http://alexandr.kirilov.me)
- *  @created 22/10/2025 at 21:45:15
+ *  @created 22/10/2025 at 21:27:25
  * */// --------------------------------------------------------------
 
 
@@ -14,15 +14,22 @@
 // System includes
 
 // Application includes
+#include <aloggerglobal.h>
+#include <aapplicationdelegateglobal.h>
 
-// Load IOS native delegate
 
 // Qt Quick Application
 int main(int inCounter, char *inArguments[]) {
 
-	QGuiApplication oApplication(inCounter, inArguments);
-	QQmlApplicationEngine oEngine;
+	_A_DEBUG << "Main -> Application start";
+	fNativeMacOSDelegateInit();
 
+	QGuiApplication oApplication(inCounter, inArguments);
+	_A_DEBUG << "Main -> created QGuiApplication";
+	QQmlApplicationEngine oEngine;
+	_A_DEBUG << "Main -> created QQmlApplicationEngine";
+
+	_A_DEBUG << "Main -> will load QML UI";
 	const QUrl oURL = QUrl(QStringLiteral("qrc:/Main.qml"));
 	QObject::connect(
 		&oEngine, &QQmlApplicationEngine::objectCreationFailed,
@@ -32,6 +39,10 @@ int main(int inCounter, char *inArguments[]) {
 		Qt::QueuedConnection
 	);
 	oEngine.load(oURL);
+	_A_DEBUG << "Main -> did load QML UI";
 
-	return oApplication.exec();
+	int oExecutionResult = oApplication.exec();
+	_A_DEBUG << "Main -> will quit";
+
+	return oExecutionResult;
 }

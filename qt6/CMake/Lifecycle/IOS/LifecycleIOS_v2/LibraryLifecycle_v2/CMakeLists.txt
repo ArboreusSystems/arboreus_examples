@@ -50,12 +50,12 @@ set(${A_PREFIX}_SOURCES_PRECOMPILED_HEADERS_PUBLIC
 
 set(${A_PREFIX}_SOURCES_OBJC_HEADERS
 	${${A_PREFIX}_SOURCES_OBJC_HEADERS}
-	aapplicationdelegate.h
+	aqiosapplicationdelegate.h
 )
 
 set(${A_PREFIX}_SOURCES_OBJC
 	${${A_PREFIX}_SOURCES_OBJC}
-	aapplicationdelegate.mm
+	aqiosapplicationdelegate.mm
 )
 
 set(${A_PREFIX}_SOURCES
@@ -82,7 +82,9 @@ set(${A_PREFIX}_INCLUDE_DIR_PUBLIC
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
 
-add_library(${A_NAME_TARGET} STATIC ${${A_PREFIX}_SOURCES})
+add_library(${A_NAME_TARGET} STATIC ${${A_PREFIX}_SOURCES}
+
+)
 
 target_link_libraries(${A_NAME_TARGET}
 	PRIVATE

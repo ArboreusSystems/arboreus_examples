@@ -14,10 +14,7 @@
 // ----------------------------------------------------------
 
 // Class header
-#include "aapplicationdelegate.h"
-
-// Anchor function
-extern "C" void fApplication_IOSDelegate_Anchor(void) {}
+#include "aqiosapplicationdelegate.h"
 
 // Interface
 @interface QIOSApplicationDelegate (AApplicationDelegate)
@@ -51,27 +48,27 @@ extern "C" void fApplication_IOSDelegate_Anchor(void) {}
 	_A_DEBUG << "IOS NATIVE DELEGATE" << "didFinishLaunchingWithOptions";
 
 	if (launchOptions[UIApplicationLaunchOptionsBluetoothCentralsKey]) {
-		_A_DEBUG << "IOS NATIVE DELEGATE" << "UIApplicationLaunchOptionsBluetoothCentralsKey";
+		_A_DEBUG << "IOS NATIVE DELEGATE didFinishLaunchingWithOptions" << "UIApplicationLaunchOptionsBluetoothCentralsKey";
 	} else if (launchOptions[UIApplicationLaunchOptionsBluetoothPeripheralsKey]) {
-		_A_DEBUG << "IOS NATIVE DELEGATE" << "UIApplicationLaunchOptionsBluetoothPeripheralsKey";
+		_A_DEBUG << "IOS NATIVE DELEGATE didFinishLaunchingWithOptions" << "UIApplicationLaunchOptionsBluetoothPeripheralsKey";
 	} else if (launchOptions[UIApplicationLaunchOptionsCloudKitShareMetadataKey]) {
-		_A_DEBUG << "IOS NATIVE DELEGATE" << "UIApplicationLaunchOptionsCloudKitShareMetadataKey";
+		_A_DEBUG << "IOS NATIVE DELEGATE didFinishLaunchingWithOptions" << "UIApplicationLaunchOptionsCloudKitShareMetadataKey";
 	} else if (launchOptions[UIApplicationLaunchOptionsLocationKey]) {
-		_A_DEBUG << "IOS NATIVE DELEGATE" << "UIApplicationLaunchOptionsLocationKey";
+		_A_DEBUG << "IOS NATIVE DELEGATE didFinishLaunchingWithOptions" << "UIApplicationLaunchOptionsLocationKey";
 	} else if (launchOptions[UIApplicationLaunchOptionsNewsstandDownloadsKey]) {
-		_A_DEBUG << "IOS NATIVE DELEGATE" << "UIApplicationLaunchOptionsNewsstandDownloadsKey";
+		_A_DEBUG << "IOS NATIVE DELEGATE didFinishLaunchingWithOptions" << "UIApplicationLaunchOptionsNewsstandDownloadsKey";
 	} else if (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]) {
-		_A_DEBUG << "IOS NATIVE DELEGATE" << "UIApplicationLaunchOptionsRemoteNotificationKey";
+		_A_DEBUG << "IOS NATIVE DELEGATE didFinishLaunchingWithOptions" << "UIApplicationLaunchOptionsRemoteNotificationKey";
 	} else if (launchOptions[UIApplicationLaunchOptionsShortcutItemKey]) {
-		_A_DEBUG << "IOS NATIVE DELEGATE" << "UIApplicationLaunchOptionsShortcutItemKey";
+		_A_DEBUG << "IOS NATIVE DELEGATE didFinishLaunchingWithOptions" << "UIApplicationLaunchOptionsShortcutItemKey";
 	} else if (launchOptions[UIApplicationLaunchOptionsSourceApplicationKey]) {
-		_A_DEBUG << "IOS NATIVE DELEGATE" << "UIApplicationLaunchOptionsSourceApplicationKey";
+		_A_DEBUG << "IOS NATIVE DELEGATE didFinishLaunchingWithOptions" << "UIApplicationLaunchOptionsSourceApplicationKey";
 	} else if (launchOptions[UIApplicationLaunchOptionsURLKey]) {
-		_A_DEBUG << "IOS NATIVE DELEGATE" << "UIApplicationLaunchOptionsURLKey";
+		_A_DEBUG << "IOS NATIVE DELEGATE didFinishLaunchingWithOptions" << "UIApplicationLaunchOptionsURLKey";
 	} else if (launchOptions[UIApplicationLaunchOptionsUserActivityDictionaryKey]) {
-		_A_DEBUG << "IOS NATIVE DELEGATE" << "UIApplicationLaunchOptionsUserActivityDictionaryKey";
+		_A_DEBUG << "IOS NATIVE DELEGATE didFinishLaunchingWithOptions" << "UIApplicationLaunchOptionsUserActivityDictionaryKey";
 	} else if (launchOptions[UIApplicationLaunchOptionsUserActivityTypeKey]) {
-		_A_DEBUG << "IOS NATIVE DELEGATE" << "UIApplicationLaunchOptionsUserActivityTypeKey";
+		_A_DEBUG << "IOS NATIVE DELEGATE didFinishLaunchingWithOptions" << "UIApplicationLaunchOptionsUserActivityTypeKey";
 	} else {
 		if ([launchOptions count] == 0) {
 			_A_DEBUG << "IOS NATIVE DELEGATE" << "No keys for launch";
@@ -80,6 +77,11 @@ extern "C" void fApplication_IOSDelegate_Anchor(void) {}
 			_A_DEBUG << "IOS NATIVE DELEGATE" << "launchOptions count:" << (unsigned long)[launchOptions count];
 		}
 	}
+
+	// This code will rise didFailToRegisterForRemoteNotificationsWithError
+	// It placed here to demonstrate working QIOSApplicationDelegate
+	[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+	[application registerForRemoteNotifications];
 
 	return YES;
 }
@@ -138,10 +140,18 @@ extern "C" void fApplication_IOSDelegate_Anchor(void) {}
 
 -(void) applicationDidEnterBackground:(UIApplication*) application {
 
+	// This code not working.
+	// It's handling from Qt itself in QGuiApplication object
+	// See main.cpp of this project
+
 	_A_DEBUG << "IOS NATIVE DELEGATE" << "applicationDidEnterBackground";
 }
 
 -(void) applicationWillEnterForeground:(UIApplication*) application {
+
+	// This code not working.
+	// It's handling from Qt itself in QGuiApplication object
+	// See main.cpp of this project
 
 	_A_DEBUG << "IOS NATIVE DELEGATE" << "applicationWillEnterForeground";
 }

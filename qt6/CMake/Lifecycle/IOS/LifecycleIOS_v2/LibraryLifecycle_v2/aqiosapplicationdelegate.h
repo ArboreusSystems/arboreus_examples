@@ -13,8 +13,8 @@
 */
 // ----------------------------------------------------------
 
-#ifndef AAPPLICATIONDELEGATE_H
-#define AAPPLICATIONDELEGATE_H
+#ifndef AQIOSAPPLICATIONDELEGATE_H
+#define AQIOSAPPLICATIONDELEGATE_H
 
 // Precompiled includes
 
@@ -35,4 +35,4 @@
 
 @end
 
-#endif // AAPPLICATIONDELEGATE_H
+#endif // AQIOSAPPLICATIONDELEGATE_H
