@@ -149,11 +149,6 @@ target_link_libraries(${A_NAME_APPLICATION}
 		LibraryLifecycle_v2
 )
 
-target_link_options(${A_NAME_APPLICATION}
-	PRIVATE
-		"$<$<PLATFORM_ID:iOS>:-Wl,-force_load,$<TARGET_FILE:LibraryLifecycle_v2>>"
-)
-
 
 ## ----------------------------------------
 ## Precompiled headers settings
