@@ -112,7 +112,7 @@ if(ANDROID)
 	)
 
 	set(${A_PREFIX}_ANDROID_SOURCES_JAVA
-		Platforms/android/src/systems.arboreus.AJavaPackage/AJavaClass.java
+		Platforms/android/src/systems/arboreus/AJavaPackage/AJavaClass.java
 	)
 
 	set(${A_PREFIX}_SOURCES
@@ -135,8 +135,7 @@ endif()
 
 find_package(Qt6 REQUIRED COMPONENTS Core Quick)
 qt_standard_project_setup(REQUIRES 6.8)
-qt_add_executable(${A_NAME_APPLICATION} ${${A_PREFIX}_SOURCES}
-)
+qt_add_executable(${A_NAME_APPLICATION} ${${A_PREFIX}_SOURCES})
 
 
 ## ----------------------------------------

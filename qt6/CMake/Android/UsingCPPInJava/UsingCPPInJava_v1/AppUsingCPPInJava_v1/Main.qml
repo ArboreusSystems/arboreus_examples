@@ -19,7 +19,7 @@ import QtQuick 6.2
 // Application Main window
 Window {
 
-	property string oTitle: "AppUsingJava_v1";
+	property string oTitle: "AppUsingCPPInJava_v1";
 
 	id: oMainWindow;
 	width: 640;
@@ -38,7 +38,7 @@ Window {
 		Text {
 
 			id: oIntegerFromJava;
-			text: "Integer from java: " + AJavaClass.mTest(333);
+			text: "Integer from java: " + AJavaClass.mTest(1111);
 		}
 	}
 }
