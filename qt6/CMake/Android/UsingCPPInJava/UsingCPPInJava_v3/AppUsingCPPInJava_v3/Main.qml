@@ -40,11 +40,5 @@ Window {
 			id: oIntegerFromJavaClass1;
 			text: "Integer from AJavaClass1: " + AJavaClass1.mTest(1111);
 		}
-
-		Text {
-
-			id: oIntegerFromJavaClass2;
-			text: "Integer from AJavaClass2: " + AJavaClass1.mTest(2222);
-		}
 	}
 }

@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.16)
 ## ----------------------------------------
 ## Global variables
 
-set(A_NAME UsingJava_v5)
+set(A_NAME UsingCPPInJava_v3)
 set(A_NAME_TARGET target_${A_NAME})
 set(A_NAME_APPLICATION ${A_NAME})
 set(A_PREFIX A_${A_NAME})

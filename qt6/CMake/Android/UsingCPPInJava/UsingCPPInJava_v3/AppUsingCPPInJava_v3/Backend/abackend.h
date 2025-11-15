@@ -39,7 +39,6 @@ class ABackend : public QObject {
 
 #ifdef Q_OS_ANDROID
 		AJavaWrapper1* pJavaWrapper1 = nullptr;
-		AJavaWrapper2* pJavaWrapper2 = nullptr;
 #endif
 
 		static ABackend& mInstance(void);

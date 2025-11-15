@@ -29,7 +29,6 @@ ABackend::ABackend(QObject* parent) : QObject{parent} {
 #ifdef Q_OS_ANDROID
 
 	pJavaWrapper1 = new AJavaWrapper1(this);
-	pJavaWrapper2 = new AJavaWrapper2(this);
 
 #endif
 
@@ -84,7 +83,6 @@ void ABackend::mInit(
 #ifdef Q_OS_ANDROID
 
 	pRootContext->setContextProperty("AJavaClass1",pJavaWrapper1);
-	pRootContext->setContextProperty("AJavaClass2",pJavaWrapper2);
 
 #endif
 
