@@ -92,7 +92,6 @@ std::string fDecrypt(
 	);
 	if (1 != oEVP_DecryptInit_ex) throw runtime_error("Failed EVP_DecryptInit_ex");
 
-	// 3. Decrypt the ciphertext
 	vector<unsigned char> oDecryptedString(inEncryptedChars.size());
 	int oLength = 0;
 	int oDecryptedStringLength = 0;
@@ -146,7 +145,7 @@ int main(int inCounter, char* inArguments[]) {
 	string oString = "This is a string to be encrypted.";
 
 	try {
-		// Encrypt the text
+
 		vector<unsigned char> ciphertext = fEncrypt(oString, oKey, oVector);
 		string oEncryptedString;
 		oEncryptedString.reserve(ciphertext.size());
@@ -156,7 +155,6 @@ int main(int inCounter, char* inArguments[]) {
 		cout << "Encrypted string: " << oEncryptedString << endl;
 		cout << "Ciphertext string: " << ciphertext.size() << " bytes" << endl;
 
-		// Decrypt the ciphertext
 		string decryptedtext = fDecrypt(ciphertext, oKey, oVector);
 
 		cout << "Decrypted string: " << decryptedtext << endl;
