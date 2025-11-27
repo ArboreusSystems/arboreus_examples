@@ -52,7 +52,7 @@ using OpenSSLPointer = unique_ptr<Type,AStructOpenSSL>;
 	Doc.
 */
 
-bool computeHash(const string& inString, string& inHash) {
+bool fComputeHash(const string& inString, string& inHash) {
 
 	unsigned char oHash[EVP_MAX_MD_SIZE];
 	unsigned int oLengthHash = 0;
@@ -79,7 +79,7 @@ int main(int inCounter, char* inArguments[]) {
 	string oString = "StringForHash";
 	string oHashed = "";
 
-	if (computeHash(oString,oHashed)) {
+	if (fComputeHash(oString,oHashed)) {
 		cout << "String: \"" << oString << "\", HASH: \"" << oHashed << "\"" << endl;
 	} else {
 		cout << "String can't be hashed";
