@@ -75,8 +75,8 @@ vector<unsigned char> fEncrypt(
 	Doc.
 */
 
-std::string fDecrypt(
-	const std::vector<unsigned char>& inEncryptedChars,
+string fDecrypt(
+	const vector<unsigned char>& inEncryptedChars,
 	const unsigned char* inKey,
 	const unsigned char* inVector
 ) {
