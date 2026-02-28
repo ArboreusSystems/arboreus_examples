@@ -39,7 +39,7 @@ Window {
 
 		function onSgOrientationChanged(inOrientation) {
 
-			console.log("QML -> orientationChanged: ",inOrientation);
+			console.log("QML -> orientationChanged:",inOrientation);
 		}
 	}
 }
