@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Main.qml</file>
+        <file>AMainWindow.qml</file>
+        <file>AScreen.qml</file>
+        <file>AScreenTest.qml</file>
+        <file>AContentWrapper.qml</file>
+        <file>AContent.qml</file>
+    </qresource>
+</RCC>
