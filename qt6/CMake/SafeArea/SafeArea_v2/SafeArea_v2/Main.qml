@@ -23,7 +23,7 @@ ApplicationWindow {
 
 	id: oMainWindow;
 	visible: true;
-	title: "Resize by keyboard v3";
+	title: "Main Window SafeArea v2";
 
 	readonly property real pInsetTop: SafeArea.margins.top;
 	readonly property real pInsetBottom: SafeArea.margins.bottom;

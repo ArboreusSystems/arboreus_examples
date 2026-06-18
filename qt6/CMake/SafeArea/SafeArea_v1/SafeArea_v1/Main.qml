@@ -24,6 +24,7 @@ Window {
 	id: oRoot;
 	visible: true;
 	flags: Qt.Window | Qt.MaximizeUsingFullscreenGeometryHint;
+	title: "Main Window SafeArea v1";
 
 	readonly property real pInsetTop: SafeArea.margins.top;
 	readonly property real pInsetBottom: SafeArea.margins.bottom;
