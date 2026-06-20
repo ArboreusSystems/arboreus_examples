@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Main.qml</file>
+        <file>AQML.js</file>
+        <file>AText.qml</file>
+    </qresource>
+</RCC>
