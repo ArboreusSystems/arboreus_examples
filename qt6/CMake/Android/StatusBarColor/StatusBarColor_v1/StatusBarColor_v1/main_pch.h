@@ -24,7 +24,6 @@
 #include <QJniObject>
 #endif
 
-
 // Application includes
 
 // Constants and defintions
