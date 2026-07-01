@@ -1,0 +1,38 @@
+/* -------------------------------------------------------------------
+ *  @doc
+ *  @notice Template file apch.h
+ *
+ *  @copyright Arboreus (http://arboreus.systems)
+ *  @author Alexandr Kirilov (http://alexandr.kirilov.me)
+ *  @created 28/05/2026 at 10:30:08
+ * */// --------------------------------------------------------------
+
+#ifndef MAIN_PCH_H
+#define MAIN_PCH_H
+
+#if defined __cplusplus
+
+#pragma once
+
+// System includes
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
+#include <QtEnvironmentVariables>
+#include <QObject>
+#include <QEvent>
+#include <QInputMethodQueryEvent>
+#include <QRectF>
+#include <QQuickItem>
+#include <QQmlContext>
+#include <QtQuick/private/qquicktextinput_p.h>
+
+// Application includes
+
+// Constants and defintions
+
+// Namespace
+
+
+#endif // defined __cplusplus
+
+#endif // MAIN_PCH_H
