@@ -14,6 +14,8 @@
 // System includes
 
 // Application includes
+#include <alogger.h>
+
 
 // Global functions
 // -----------
@@ -25,13 +27,13 @@
 
 QString getDeviceManufacturer() {
 
-	QJniObject manufacturer = QJniObject::getStaticObjectField(
+	QJniObject oManufacturer = QJniObject::getStaticObjectField(
 		"android/os/Build",
 		"MANUFACTURER",
 		"Ljava/lang/String;"
 	);
 
-	return manufacturer.toString();
+	return oManufacturer.toString();
 }
 
 
@@ -44,13 +46,13 @@ QString getDeviceManufacturer() {
 
 QString getDeviceBrand() {
 
-	QJniObject brand = QJniObject::getStaticObjectField(
+	QJniObject oBrand = QJniObject::getStaticObjectField(
 		"android/os/Build",
 		"BRAND",
 		"Ljava/lang/String;"
 	);
 
-	return brand.toString();
+	return oBrand.toString();
 }
 
 
@@ -60,11 +62,11 @@ int main(int inCounter, char* inArguments[]) {
 	QGuiApplication oApplication(inCounter,inArguments);
 	QQmlApplicationEngine oEngine;
 
-	QString manufacturer = getDeviceManufacturer().toLower();
-	QString brand = getDeviceBrand().toLower();
+	QString oManufacturer = getDeviceManufacturer().toLower();
+	QString oBrand = getDeviceBrand().toLower();
 
-	qDebug() << "Manufacturer:" << manufacturer;
-	qDebug() << "Brand:" << brand;
+	_A_DEBUG << "Manufacturer:" << oManufacturer;
+	_A_DEBUG << "Brand:" << oBrand;
 
 	const QUrl oURL = QUrl(QStringLiteral("qrc:/Main.qml"));
 	QObject::connect(
