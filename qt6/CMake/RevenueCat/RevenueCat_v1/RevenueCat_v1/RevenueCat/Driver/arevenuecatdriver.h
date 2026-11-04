@@ -22,6 +22,7 @@
 
 // Application includes
 #include <alogger.h>
+#include <arevenuecatdatamodels.h>
 
 // Namesapces
 
@@ -39,6 +40,7 @@ class ARevenueCatDriver : public QObject {
 
 		virtual void mConfigure(void);
 		virtual void mGetOfferings(void);
+		virtual QList<QVariantMap> mGetProducts(void);
 		virtual void mSubscribe(const QString& inPackageId);
 		virtual void mRestore(void);
 		virtual void mIsSubscribed(const QString& inEntitlementId);
@@ -57,6 +59,10 @@ class ARevenueCatDriver : public QObject {
 
 	// Explicit delegate event channels
 		void mCustomerInfoUpdated(const QVariantMap& outEntitlementStatus);
+
+	private:
+
+
 };
 
 #endif // AREVENUECATDRIVER_H

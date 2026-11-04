@@ -73,6 +73,19 @@ void ARevenueCat::mGetOfferings(void) {
 
 // -----------
 /*!
+    \fn
+
+    Doc.
+*/
+
+QList<QVariantMap> ARevenueCat::mGetProducts(void) {
+    
+	return pDriver->mGetProducts();
+}
+
+
+// -----------
+/*!
 	\fn
 
 	Doc.

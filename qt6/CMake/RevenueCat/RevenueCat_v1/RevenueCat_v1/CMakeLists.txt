@@ -172,7 +172,8 @@ endif()
 
 find_package(Qt6 REQUIRED COMPONENTS Quick)
 qt_standard_project_setup(REQUIRES 6.8)
-qt_add_executable(${A_NAME_APPLICATION} ${${A_PREFIX}_SOURCES})
+qt_add_executable(${A_NAME_APPLICATION} ${${A_PREFIX}_SOURCES}
+	RevenueCat/arevenuecatdatamodels.h)
 
 
 ## ----------------------------------------

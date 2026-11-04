@@ -57,6 +57,9 @@ QT_BEGIN_NAMESPACE
 
 ARevenueCatDriverIOS::ARevenueCatDriverIOS(QObject* parent) : ARevenueCatDriver(parent) {
 
+	mConfigure();
+	mGetOfferings();
+
 	_A_DEBUG << "ARevenueCatDriverIOS created";
 }
 
@@ -104,18 +107,64 @@ void ARevenueCatDriverIOS::mConfigure(void) {
 void ARevenueCatDriverIOS::mGetOfferings(void) {
 
 	_A_DEBUG << "ARevenueCatDriverIOS::GetOfferings";
-    
-    [[RCPurchases sharedPurchases] getOfferingsWithCompletion:^(RCOfferings * _Nullable offerings, NSError * _Nullable error) {
+
+	[[RCPurchases sharedPurchases] getOfferingsWithCompletion:^(RCOfferings* _Nullable inOfferings, NSError* _Nullable inError) {
+
+		if (inError != nil) {
+			_A_DEBUG << "Error while getting offerings from server:" << QString::fromNSString(inError.localizedDescription);
+			return;
+		}
         
-        if (error != nil) {
-            NSLog(@"Error GetOfferings: %@", error.localizedDescription);
-            return;
-        }
-        
-        RCOffering* currentOffering = offerings.current;
+        RCOffering* currentOffering = inOfferings.current;
         NSLog(@"offerings.current.description: %@",currentOffering.description);
         NSLog(@"offerings.current.identifier: %@",currentOffering.identifier);
-    }];
+        NSLog(@"offerings.current.identifier: %@",currentOffering.availablePackages);
+	}];
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+QList<QVariantMap> ARevenueCatDriverIOS::mGetProducts(void) {
+    
+	QList<QVariantMap> oOutput;
+    
+    NSArray<RCPackage*>* oAvailablePackages = [[[[RCPurchases sharedPurchases] cachedOfferings] current] availablePackages];
+    for (RCPackage* iPackage in oAvailablePackages) {
+        
+		RCStoreProduct* iStoreProduct = iPackage.storeProduct;
+        NSLog(@"------------------------------------");
+		NSLog(@"oStoreProduct.hash: %lu",static_cast<unsigned long>(iStoreProduct.hash));
+		NSLog(@"oStoreProduct.currencyCode: %@",iStoreProduct.currencyCode);
+		NSLog(@"oStoreProduct.localizedTitle: %@",iStoreProduct.localizedTitle);
+		NSLog(@"oStoreProduct.discounts: %@",iStoreProduct.discounts);
+        if (@available(iOS 26.4, *)) {
+			NSLog(@"oStoreProduct.installmentsInfo: %@",iStoreProduct.installmentsInfo);
+        }
+		NSLog(@"oStoreProduct.isFamilyShareable: %@",iStoreProduct.isFamilyShareable ? @"YES" : @"NO");
+		NSLog(@"oStoreProduct.localizedDescription: %@",iStoreProduct.localizedDescription);
+		NSLog(@"oStoreProduct.localizedIntroductoryPriceString: %@",iStoreProduct.localizedIntroductoryPriceString);
+		NSLog(@"oStoreProduct.price: %@",iStoreProduct.price);
+		NSLog(@"oStoreProduct.productIdentifier: %@",iStoreProduct.productIdentifier);
+		NSLog(@"oStoreProduct.subscriptionGroupIdentifier: %@",iStoreProduct.subscriptionGroupIdentifier);
+		NSLog(@"oStoreProduct.localizedPriceString: %@",iStoreProduct.localizedPriceString);
+
+		QVariantMap iProduct;
+		iProduct.insert(QLatin1StringView("Identifier"),QString::fromNSString(iStoreProduct.productIdentifier));
+		iProduct.insert(QLatin1StringView("Title"),QString::fromNSString(iStoreProduct.localizedTitle));
+		iProduct.insert(QLatin1StringView("Description"),QString::fromNSString(iStoreProduct.localizedDescription));
+		iProduct.insert(QLatin1StringView("Price"),QString::fromNSString(iStoreProduct.localizedPriceString));
+		iProduct.insert(QLatin1StringView("Currency"),QString::fromNSString(iStoreProduct.currencyCode));
+
+		oOutput.append(iProduct);
+    }
+    
+    return oOutput;
 }
 
 

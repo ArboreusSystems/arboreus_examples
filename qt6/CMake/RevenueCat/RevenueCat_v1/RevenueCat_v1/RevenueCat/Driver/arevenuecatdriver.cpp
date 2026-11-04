@@ -76,6 +76,22 @@ void ARevenueCatDriver::mGetOfferings(void) {
 	Doc.
 */
 
+QList<QVariantMap> ARevenueCatDriver::mGetProducts(void) {
+
+	_A_DEBUG << "ARevenueCatDriver::mGetProducts";
+
+	QList<QVariantMap> oOutput;
+	return oOutput;
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
 void ARevenueCatDriver::mSubscribe(const QString& inPackageId) {
 
 	Q_UNUSED(inPackageId);

@@ -1,14 +1,14 @@
 // ----------------------------------------------------------
 /*!
-    \qmltype
-    \brief
+	\qmltype
+	\brief
 
-    \list
-    \li @notice Template file classes/file.h
-    \li @copyright Arboreus (http://arboreus.systems)
-    \li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-    \li @created 28/10/2026 at 16:26:08
-    \endlist
+	\list
+	\li @notice Template file classes/file.h
+	\li @copyright Arboreus (http://arboreus.systems)
+	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
+	\li @created 28/10/2026 at 16:26:08
+	\endlist
 */
 // ----------------------------------------------------------
 
@@ -22,44 +22,71 @@ import QtQuick.Controls;
 // Component
 Rectangle {
 
-    id: oRoot;
-    color: "steelblue";
+	id: oRoot;
+	color: "steelblue";
 
-    Column {
+	Column {
 
-        id: oColumn;
-        anchors.horizontalCenter: parent.horizontalCenter;
-        anchors.verticalCenter: parent.verticalCenter;
-        spacing: 5;
+		id: oColumn;
+		anchors.horizontalCenter: parent.horizontalCenter;
+		anchors.verticalCenter: parent.verticalCenter;
+		spacing: 5;
 
-        Button {
+		Button {
 
-            id: oButtonTest;
-            // anchors.verticalCenter: parent.verticalCenter;
-            // anchors.horizontalCenter: parent.horizontalCenter;
-            width: 200;
-            height: 50;
-            text: "Configure";
+			id: oButtonTest;
+			// anchors.verticalCenter: parent.verticalCenter;
+			// anchors.horizontalCenter: parent.horizontalCenter;
+			width: 200;
+			height: 50;
+			text: "Configure";
 
-            onClicked: {
+			onClicked: {
 
-                ARevenueCat.mConfigure();
-            }
-        }
+				ARevenueCat.mConfigure();
+			}
+		}
 
-        Button {
+		Button {
 
-            id: oButtonGetOfferings;
-            // anchors.verticalCenter: parent.verticalCenter;
-            // anchors.horizontalCenter: parent.horizontalCenter;
-            width: 200;
-            height: 50;
-            text: "Get offerings";
+			id: oButtonGetOfferings;
+			// anchors.verticalCenter: parent.verticalCenter;
+			// anchors.horizontalCenter: parent.horizontalCenter;
+			width: 200;
+			height: 50;
+			text: "Get offerings";
 
-            onClicked: {
+			onClicked: {
 
-                ARevenueCat.mGetOfferings();
-            }
-        }
-    }
+				ARevenueCat.mGetOfferings();
+			}
+		}
+
+		Button {
+
+			id: oButtonGetProducts;
+			// anchors.verticalCenter: parent.verticalCenter;
+			// anchors.horizontalCenter: parent.horizontalCenter;
+			width: 200;
+			height: 50;
+			text: "Get products";
+
+			onClicked: {
+
+				var oProducts = ARevenueCat.mGetProducts();
+				console.debug("QML Products");
+				oProducts.forEach((iProduct,iIndex) => {
+					console.debug(
+						"--------------------\n",
+						"Product id:",iProduct.Identifier,
+						"title:",iProduct.Title,
+						"description:",iProduct.Description,
+						"price:",iProduct.Price,
+						"currency:",iProduct.Currency,
+					);
+				});
+				console.debug(oProducts);
+			}
+		}
+	}
 }
