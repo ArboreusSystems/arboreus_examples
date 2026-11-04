@@ -216,7 +216,6 @@ if(IOS)
 		"#endif\n"
 	)
 
-	message(STATUS "Configuring RevenueCat")
 	if(CMAKE_OSX_SYSROOT MATCHES "iphonesimulator")
 		set(${A_PREFIX}_DIR_CURRENT_REVENUECAT "${A_CONF_PATH_REVENUECAT_FRAMEWORK}/Simulator")
 		set(${A_PREFIX}_PATH_CHOSEN_REVENUECAT "${A_CONF_PATH_REVENUECAT_FRAMEWORK}/Simulator/RevenueCat.framework")
@@ -259,6 +258,8 @@ if(IOS)
 		"-framework UIKit"
 		"-framework CFNetwork"
 	)
+
+	message(STATUS "Configured RevenueCat.framework")
 
 endif()
 
