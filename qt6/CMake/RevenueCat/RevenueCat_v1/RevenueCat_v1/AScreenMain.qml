@@ -25,18 +25,41 @@ Rectangle {
     id: oRoot;
     color: "steelblue";
 
-    Button {
+    Column {
 
-        id: oButtonTest;
-        anchors.verticalCenter: parent.verticalCenter;
+        id: oColumn;
         anchors.horizontalCenter: parent.horizontalCenter;
-        width: 200;
-        height: 50;
-        text: "Configure";
+        anchors.verticalCenter: parent.verticalCenter;
+        spacing: 5;
 
-        onClicked: {
+        Button {
 
-            ARevenueCat.mConfigure("testID");
+            id: oButtonTest;
+            // anchors.verticalCenter: parent.verticalCenter;
+            // anchors.horizontalCenter: parent.horizontalCenter;
+            width: 200;
+            height: 50;
+            text: "Configure";
+
+            onClicked: {
+
+                ARevenueCat.mConfigure();
+            }
+        }
+
+        Button {
+
+            id: oButtonGetOfferings;
+            // anchors.verticalCenter: parent.verticalCenter;
+            // anchors.horizontalCenter: parent.horizontalCenter;
+            width: 200;
+            height: 50;
+            text: "Get offerings";
+
+            onClicked: {
+
+                ARevenueCat.mGetOfferings();
+            }
         }
     }
 }

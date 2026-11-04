@@ -37,7 +37,7 @@ class ARevenueCatDriver : public QObject {
 		explicit ARevenueCatDriver(QObject* parent = nullptr);
 		virtual ~ARevenueCatDriver(void);
 
-		virtual void mConfigure(const QString& inAPIKey);
+		virtual void mConfigure(void);
 		virtual void mGetOfferings(void);
 		virtual void mSubscribe(const QString& inPackageId);
 		virtual void mRestore(void);
@@ -48,7 +48,15 @@ class ARevenueCatDriver : public QObject {
 
 	signals:
 
+		void mOfferingsFetched(const QVariantMap& outOfferings);
+		void mSubscriptionStatusResult(const QString& inEntitlementId, bool isSubscribed);
+		void mPurchaseSuccess(const QString& inPackageId);
+		void mPurchaseFailed(const QString& inErrorDescription);
+		void mRestoreSuccess();
+		void mAuthSuccess(const QString& inUserId);
 
+	// Explicit delegate event channels
+		void mCustomerInfoUpdated(const QVariantMap& outEntitlementStatus);
 };
 
 #endif // AREVENUECATDRIVER_H

@@ -49,7 +49,7 @@ class ARevenueCat : public QObject {
 
 	public slots:
 
-		void mConfigure(const QString& inAPIKey);
+		void mConfigure(void);
 		void mGetOfferings(void);
 		void mSubscribe(const QString& inPackageId);
 		void mRestore(void);

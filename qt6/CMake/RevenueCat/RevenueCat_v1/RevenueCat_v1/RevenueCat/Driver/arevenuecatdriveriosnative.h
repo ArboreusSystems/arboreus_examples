@@ -20,6 +20,9 @@
 
 // System includes
 #import <StoreKit/StoreKit.h>
+#import <UIKit/UIKit.h>
+
+// RevenueCat includes
 @import RevenueCat;
 
 // Application includes

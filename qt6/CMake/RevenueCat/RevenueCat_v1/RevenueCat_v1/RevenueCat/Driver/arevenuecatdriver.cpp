@@ -50,9 +50,7 @@ ARevenueCatDriver::~ARevenueCatDriver(void) {
 	Doc.
 */
 
-void ARevenueCatDriver::mConfigure(const QString& inAPIKey) {
-
-	Q_UNUSED(inAPIKey);
+void ARevenueCatDriver::mConfigure(void) {
 
 	_A_DEBUG << "ARevenueCatDriver::mConfigure";
 }

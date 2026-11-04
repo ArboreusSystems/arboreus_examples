@@ -52,9 +52,9 @@ ARevenueCat::~ARevenueCat(void) {
 	Doc.
 */
 
-void ARevenueCat::mConfigure(const QString& inAPIKey) {
+void ARevenueCat::mConfigure(void) {
 
-	pDriver->mConfigure(inAPIKey);
+	pDriver->mConfigure();
 }
 
 

@@ -22,6 +22,7 @@
 
 // Application includes
 #include <arevenuecatdriver.h>
+#include <revenue.conf.h>
 
 // Namesapces
 
@@ -37,7 +38,7 @@ class ARevenueCatDriverIOS : public ARevenueCatDriver {
 		explicit ARevenueCatDriverIOS(QObject* parent = nullptr);
 		virtual ~ARevenueCatDriverIOS(void);
 
-		void mConfigure(const QString& inAPIKey) override;
+		void mConfigure(void) override;
 		void mGetOfferings(void) override;
 		void mSubscribe(const QString& inPackageId) override;
 		void mRestore(void) override;

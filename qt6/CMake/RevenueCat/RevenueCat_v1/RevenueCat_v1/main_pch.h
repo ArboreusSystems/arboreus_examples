@@ -19,6 +19,8 @@
 #include <QQmlApplicationEngine>
 #include <QObject>
 #include <QQmlContext>
+#include <QVariant>
+#include <QVariantMap>
 
 // Application includes
 

@@ -118,11 +118,11 @@ if(IOS)
 
 	set(${A_PREFIX}_PROPERTIES
 		${${A_PREFIX}_PROPERTIES}
-		# MACOSX_BUNDLE_GUI_IDENTIFIER "RevenueCat_v1"
 		# MACOSX_BUNDLE_INFO_PLIST "${${A_PREFIX}_IOS_INFO_PLIST}"
 		MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
 		MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
 		MACOSX_BUNDLE TRUE
+		MACOSX_BUNDLE_GUI_IDENTIFIER "${A_CONF_BUNDLE_GUI_IDENTIFIER}"
 	)
 
 	set(${A_PREFIX}_SOURCES_OBJ_CPP_HEADERS
@@ -208,6 +208,14 @@ target_link_libraries(${A_NAME_APPLICATION}
 
 if(IOS)
 
+	set(${A_PREFIX}_SOURCES_GLOBAL_CONFIG_HEADER ${${A_PREFIX}_DIR_ROOT}/revenue.conf.h)
+	write_file(${${A_PREFIX}_SOURCES_GLOBAL_CONFIG_HEADER}
+		"#ifndef REVENUECAT_CONF_H\n"
+		"#define REVENUECAT_CONF_H\n"
+		"#define _A_ID_APLICATION_REVENUECAT \"${A_CONF_ID_APLICATION_REVENUECAT}\"\n"
+		"#endif\n"
+	)
+
 	message(STATUS "Configuring RevenueCat")
 	if(CMAKE_OSX_SYSROOT MATCHES "iphonesimulator")
 		set(${A_PREFIX}_DIR_CURRENT_REVENUECAT "${A_CONF_PATH_REVENUECAT_FRAMEWORK}/Simulator")
@@ -248,6 +256,7 @@ if(IOS)
 		"-framework SystemConfiguration"
 		"-framework Security"
 		"-framework Foundation"
+		"-framework UIKit"
 		"-framework CFNetwork"
 	)
 

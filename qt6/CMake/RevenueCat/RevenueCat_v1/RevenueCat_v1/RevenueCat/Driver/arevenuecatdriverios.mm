@@ -80,9 +80,15 @@ ARevenueCatDriverIOS::~ARevenueCatDriverIOS(void) {
 	Doc.
 */
 
-void ARevenueCatDriverIOS::mConfigure(const QString& inAPIKey) {
-
-	Q_UNUSED(inAPIKey);
+void ARevenueCatDriverIOS::mConfigure(void) {
+    
+    NSString* oApplicationID = @_A_ID_APLICATION_REVENUECAT;
+    
+	//    [RCPurchases setLogLevel:RCLogLevelVerbose];
+	//    [RCPurchases configureWithAPIKey:oApplicationID];
+    
+    [RCPurchases setLogLevel:RCLogLevelVerbose];
+	[RCPurchases configureWithConfiguration:[[RCConfiguration builderWithAPIKey:oApplicationID] build]];
 
 	_A_DEBUG << "ARevenueCatDriverIOS::Configure";
 }
@@ -98,6 +104,18 @@ void ARevenueCatDriverIOS::mConfigure(const QString& inAPIKey) {
 void ARevenueCatDriverIOS::mGetOfferings(void) {
 
 	_A_DEBUG << "ARevenueCatDriverIOS::GetOfferings";
+    
+    [[RCPurchases sharedPurchases] getOfferingsWithCompletion:^(RCOfferings * _Nullable offerings, NSError * _Nullable error) {
+        
+        if (error != nil) {
+            NSLog(@"Error GetOfferings: %@", error.localizedDescription);
+            return;
+        }
+        
+        RCOffering* currentOffering = offerings.current;
+        NSLog(@"offerings.current.description: %@",currentOffering.description);
+        NSLog(@"offerings.current.identifier: %@",currentOffering.identifier);
+    }];
 }
 
 
