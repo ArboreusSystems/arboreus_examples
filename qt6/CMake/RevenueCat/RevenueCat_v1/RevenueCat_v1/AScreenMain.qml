@@ -34,7 +34,7 @@ Rectangle {
 
 		Button {
 
-			id: oButtonTest;
+			id: oButtonConfigure;
 			// anchors.verticalCenter: parent.verticalCenter;
 			// anchors.horizontalCenter: parent.horizontalCenter;
 			width: 200;
@@ -85,7 +85,21 @@ Rectangle {
 						"currency:",iProduct.Currency,
 					);
 				});
-				console.debug(oProducts);
+			}
+		}
+
+		Button {
+
+			id: oButtonSubscribe;
+			// anchors.verticalCenter: parent.verticalCenter;
+			// anchors.horizontalCenter: parent.horizontalCenter;
+			width: 200;
+			height: 50;
+			text: "Subscribe";
+
+			onClicked: {
+
+				ARevenueCat.mSubscribe("");
 			}
 		}
 	}

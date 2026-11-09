@@ -66,6 +66,7 @@ set(${A_PREFIX}_SOURCES_PRECOMPILED_HEADERS_PUBLIC
 set(${A_PREFIX}_SOURCES_HEADERS
 	${${A_PREFIX}_SOURCES_HEADERS}
 	RevenueCat/arevenuecat.h
+	RevenueCat/arevenuecatdatamodels.h
 	RevenueCat/Driver/arevenuecatdriver.h
 )
 
@@ -112,6 +113,13 @@ if(IOS)
 
 	set(${A_PREFIX}_PATH_REVENUECAT_FRAMEWORK "${A_CONF_PATH_REVENUECAT_FRAMEWORK}")
 
+	set(${A_PREFIX}_PATH_STOREKIT_CONFIGURATION "${A_CONF_PATH_STOREKIT_CONFIGURATION}")
+	if(EXISTS "${${A_PREFIX}_PATH_STOREKIT_CONFIGURATION}")
+		message(STATUS "Added StoreKit configuration file: ${${A_PREFIX}_PATH_STOREKIT_CONFIGURATION}")
+	else()
+		message(FATAL_ERROR "StoreKit configuration file NOT found: ${${A_PREFIX}_PATH_STOREKIT_CONFIGURATION}")
+	endif()
+
 	# Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 	# If you are developing for iOS or macOS you should consider setting an
 	# explicit, fixed bundle identifier manually though.
@@ -140,6 +148,7 @@ if(IOS)
 		${${A_PREFIX}_SOURCES}
 		${${A_PREFIX}_SOURCES_OBJ_CPP_HEADERS}
 		${${A_PREFIX}_SOURCES_OBJ_CPP}
+		${${A_PREFIX}_PATH_STOREKIT_CONFIGURATION}
 	)
 
 endif()
@@ -172,8 +181,7 @@ endif()
 
 find_package(Qt6 REQUIRED COMPONENTS Quick)
 qt_standard_project_setup(REQUIRES 6.8)
-qt_add_executable(${A_NAME_APPLICATION} ${${A_PREFIX}_SOURCES}
-	RevenueCat/arevenuecatdatamodels.h)
+qt_add_executable(${A_NAME_APPLICATION} ${${A_PREFIX}_SOURCES})
 
 
 ## ----------------------------------------
@@ -181,9 +189,11 @@ qt_add_executable(${A_NAME_APPLICATION} ${${A_PREFIX}_SOURCES}
 
 list(LENGTH ${A_PREFIX}_PROPERTIES ${A_PREFIX}_PROPERTIES_LENGTH)
 if(NOT ${A_PREFIX}_PROPERTIES_LENGTH EQUAL 0)
-	set_target_properties(${A_NAME_APPLICATION} PROPERTIES ${${A_PREFIX}_PROPERTIES})
+	set_target_properties(${A_NAME_APPLICATION}
+		PROPERTIES
+			${${A_PREFIX}_PROPERTIES}
+	)
 endif()
-
 
 
 ## ----------------------------------------
@@ -241,8 +251,14 @@ if(IOS)
 			"-Wl,-rpath,@executable_path/Frameworks"
 	)
 
+	set_source_files_properties(${${A_PREFIX}_PATH_STOREKIT_CONFIGURATION}
+		PROPERTIES
+			MACOSX_PACKAGE_LOCATION Resources
+	)
+
 	set_target_properties(${A_NAME_APPLICATION}
 		PROPERTIES
+			XCODE_SCHEME_STOREKIT_CONFIGURATION "${${A_PREFIX}_PATH_STOREKIT_CONFIGURATION}"
 			XCODE_ATTRIBUTE_FRAMEWORK_SEARCH_PATHS "${${A_PREFIX}_DIR_CURRENT_REVENUECAT}"
 			XCODE_ATTRIBUTE_CLANG_ENABLE_MODULES "YES"
 			XCODE_EMBED_FRAMEWORKS "${${A_PREFIX}_PATH_CHOSEN_REVENUECAT}"

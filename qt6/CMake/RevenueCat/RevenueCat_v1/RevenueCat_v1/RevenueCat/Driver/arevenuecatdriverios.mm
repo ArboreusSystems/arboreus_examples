@@ -177,7 +177,26 @@ QList<QVariantMap> ARevenueCatDriverIOS::mGetProducts(void) {
 
 void ARevenueCatDriverIOS::mSubscribe(const QString& inPackageId) {
 
-	Q_UNUSED(inPackageId);
+//    [[RCPurchases sharedPurchases] purchasePackage:inPackageId withCompletion:^(RCStoreTransaction * _Nullable transaction, RCCustomerInfo * _Nullable customerInfo, NSError * _Nullable error, BOOL userCancelled) {
+//            
+//            // Hide your loading spinner here
+//            
+//            if (userCancelled) {
+//                NSLog(@"User cancelled the purchase process.");
+//                return;
+//            }
+//            
+//            if (error != nil) {
+//                NSLog(@"An error occurred during purchase: %@", error.localizedDescription);
+//                return;
+//            }
+//            
+//            // Check if the entitlement is now active
+//            if (customerInfo.entitlements[@"your_entitlement_id"].isActive) {
+//                NSLog(@"Purchase successful! Premium access granted.");
+//                // Update your app's UI to unlock premium features
+//            }
+//        }];
 
 	_A_DEBUG << "ARevenueCatDriverIOS::Subscribe";
 }
