@@ -35,8 +35,6 @@ Rectangle {
 		Button {
 
 			id: oButtonConfigure;
-			// anchors.verticalCenter: parent.verticalCenter;
-			// anchors.horizontalCenter: parent.horizontalCenter;
 			width: 200;
 			height: 50;
 			text: "Configure";
@@ -50,8 +48,6 @@ Rectangle {
 		Button {
 
 			id: oButtonGetOfferings;
-			// anchors.verticalCenter: parent.verticalCenter;
-			// anchors.horizontalCenter: parent.horizontalCenter;
 			width: 200;
 			height: 50;
 			text: "Get offerings";
@@ -65,8 +61,6 @@ Rectangle {
 		Button {
 
 			id: oButtonGetProducts;
-			// anchors.verticalCenter: parent.verticalCenter;
-			// anchors.horizontalCenter: parent.horizontalCenter;
 			width: 200;
 			height: 50;
 			text: "Get products";
@@ -91,15 +85,13 @@ Rectangle {
 		Button {
 
 			id: oButtonSubscribe;
-			// anchors.verticalCenter: parent.verticalCenter;
-			// anchors.horizontalCenter: parent.horizontalCenter;
 			width: 200;
 			height: 50;
 			text: "Subscribe";
 
 			onClicked: {
 
-				ARevenueCat.mSubscribe("");
+				ARevenueCat.mSubscribe("some storekti product ID");
 			}
 		}
 	}

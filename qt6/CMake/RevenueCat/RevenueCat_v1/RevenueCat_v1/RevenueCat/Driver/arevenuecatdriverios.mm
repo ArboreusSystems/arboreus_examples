@@ -176,27 +176,41 @@ QList<QVariantMap> ARevenueCatDriverIOS::mGetProducts(void) {
 */
 
 void ARevenueCatDriverIOS::mSubscribe(const QString& inPackageId) {
+    
+	NSString* oPackageId = inPackageId.toNSString();
+    NSLog(@"oPackageId: %@",oPackageId);
+    
+    RCPackage* oPackage = nil;
+    NSArray<RCPackage*>* oAvailablePackages = [[[[RCPurchases sharedPurchases] cachedOfferings] current] availablePackages];
+    for (RCPackage* iPackage in oAvailablePackages) {
+        NSLog(@"iPackage.identifier: %@",iPackage.identifier);
+        if ([iPackage.storeProduct.productIdentifier isEqualToString:oPackageId]) {
+            NSLog(@"iPackage.storeProduct.productIdentifier: %@",iPackage.storeProduct.productIdentifier);
+            oPackage = iPackage;
+            break;
+        }
+    }
+    if (oPackage == nil) {
+        NSLog(@"Error. Package is nil. Aborting purchase to prevent crash.");
+        return;
+    }
 
-//    [[RCPurchases sharedPurchases] purchasePackage:inPackageId withCompletion:^(RCStoreTransaction * _Nullable transaction, RCCustomerInfo * _Nullable customerInfo, NSError * _Nullable error, BOOL userCancelled) {
-//            
-//            // Hide your loading spinner here
-//            
-//            if (userCancelled) {
-//                NSLog(@"User cancelled the purchase process.");
-//                return;
-//            }
-//            
-//            if (error != nil) {
-//                NSLog(@"An error occurred during purchase: %@", error.localizedDescription);
-//                return;
-//            }
-//            
-//            // Check if the entitlement is now active
-//            if (customerInfo.entitlements[@"your_entitlement_id"].isActive) {
-//                NSLog(@"Purchase successful! Premium access granted.");
-//                // Update your app's UI to unlock premium features
-//            }
-//        }];
+	[[RCPurchases sharedPurchases] purchasePackage:oPackage withCompletion:^(RCStoreTransaction* _Nullable inTransaction, RCCustomerInfo* _Nullable inCustomerInfo, NSError* _Nullable inError, BOOL inUserCancelled) {
+
+		if (inUserCancelled) {
+			NSLog(@"Purcahse canceled");
+			return;
+		}
+
+		if (inError) {
+			NSLog(@"Error: %@", inError.localizedDescription);
+			return;
+		}
+
+		if (inCustomerInfo.entitlements[oPackageId].isActive) {
+			NSLog(@"Purchase successfull.");
+		}
+	}];
 
 	_A_DEBUG << "ARevenueCatDriverIOS::Subscribe";
 }
