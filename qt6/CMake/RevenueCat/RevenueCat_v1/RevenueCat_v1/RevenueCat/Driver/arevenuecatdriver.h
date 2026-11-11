@@ -42,6 +42,7 @@ class ARevenueCatDriver : public QObject {
 		virtual void mGetOfferings(void);
 		virtual QList<QVariantMap> mGetProducts(void);
 		virtual void mSubscribe(const QString& inPackageId);
+		virtual void mSubscribeWithRCProduct(const QString& inProductId);
 		virtual void mRestore(void);
 		virtual void mIsSubscribed(const QString& inEntitlementId);
 		virtual void mManageSubscriptions(void);

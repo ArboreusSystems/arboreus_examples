@@ -15,6 +15,7 @@
 // System includes
 import QtQuick;
 import QtQuick.Controls;
+import QtQuick.Layouts;
 
 // Application includes
 
@@ -25,19 +26,26 @@ Rectangle {
 	id: oRoot;
 	color: "steelblue";
 
-	Column {
+	Row {
 
-		id: oColumn;
+		id: oRow;
+		anchors.top: parent.top;
+		anchors.topMargin: 20;
 		anchors.horizontalCenter: parent.horizontalCenter;
-		anchors.verticalCenter: parent.verticalCenter;
-		spacing: 5;
+		spacing: 7;
 
 		Button {
 
 			id: oButtonConfigure;
-			width: 200;
+			width: 120;
 			height: 50;
 			text: "Configure";
+
+			background: Rectangle {
+
+				anchors.fill: parent;
+				color: "indigo";
+			}
 
 			onClicked: {
 
@@ -48,9 +56,15 @@ Rectangle {
 		Button {
 
 			id: oButtonGetOfferings;
-			width: 200;
+			width: 120;
 			height: 50;
 			text: "Get offerings";
+
+			background: Rectangle {
+
+				anchors.fill: parent;
+				color: "indigo";
+			}
 
 			onClicked: {
 
@@ -61,18 +75,34 @@ Rectangle {
 		Button {
 
 			id: oButtonGetProducts;
-			width: 200;
+			width: 120;
 			height: 50;
 			text: "Get products";
+
+			background: Rectangle {
+
+				anchors.fill: parent;
+				color: "indigo";
+			}
 
 			onClicked: {
 
 				var oProducts = ARevenueCat.mGetProducts();
 				console.debug("QML Products");
+				oProductList.clear();
 				oProducts.forEach((iProduct,iIndex) => {
+					oProductList.append({
+						RCIdentifier: iProduct.RCIdentifier,
+						SKIdentifier: iProduct.SKIdentifier,
+						Title: iProduct.Title,
+						Description: iProduct.Description,
+						Price: iProduct.Price,
+						Currency: iProduct.Currency
+					});
 					console.debug(
 						"--------------------\n",
-						"Product id:",iProduct.Identifier,
+						"RCIdentifier:",iProduct.RCIdentifier,
+						"SKIdentifier:",iProduct.SKIdentifier,
 						"title:",iProduct.Title,
 						"description:",iProduct.Description,
 						"price:",iProduct.Price,
@@ -81,17 +111,43 @@ Rectangle {
 				});
 			}
 		}
+	}
 
-		Button {
+	Column {
 
-			id: oButtonSubscribe;
-			width: 200;
-			height: 50;
-			text: "Subscribe";
+		id: oColumn;
+		width: parent.width * 0.8;
+		anchors.top: oRow.bottom;
+		anchors.topMargin: 15;
+		anchors.bottom: parent.bottom;
+		anchors.horizontalCenter: parent.horizontalCenter;
+		spacing: 10;
 
-			onClicked: {
+		ListModel {
 
-				ARevenueCat.mSubscribe("some storekti product ID");
+			id: oProductList;
+		}
+
+		Repeater {
+
+			id: oRepeater;
+			model: oProductList;
+			delegate: Button {
+
+				width: parent.width;
+				height: 50;
+				text: model.Title;
+				background: Rectangle {
+
+					anchors.fill: parent;
+					color: "deeppink";
+				}
+
+				onClicked: {
+
+					console.debug("Clicked button with ID:",model.RCIdentifier);
+					ARevenueCat.mSubscribeWithRCProduct(model.RCIdentifier);
+				}
 			}
 		}
 	}

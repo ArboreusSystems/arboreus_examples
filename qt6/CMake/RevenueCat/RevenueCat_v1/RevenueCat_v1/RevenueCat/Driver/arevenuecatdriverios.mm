@@ -84,13 +84,13 @@ ARevenueCatDriverIOS::~ARevenueCatDriverIOS(void) {
 */
 
 void ARevenueCatDriverIOS::mConfigure(void) {
-    
-    NSString* oApplicationID = @_A_ID_APLICATION_REVENUECAT;
-    
+
+	NSString* oApplicationID = @_A_ID_APLICATION_REVENUECAT;
+
 	//    [RCPurchases setLogLevel:RCLogLevelVerbose];
 	//    [RCPurchases configureWithAPIKey:oApplicationID];
-    
-    [RCPurchases setLogLevel:RCLogLevelVerbose];
+
+	[RCPurchases setLogLevel:RCLogLevelVerbose];
 	[RCPurchases configureWithConfiguration:[[RCConfiguration builderWithAPIKey:oApplicationID] build]];
 
 	_A_DEBUG << "ARevenueCatDriverIOS::Configure";
@@ -114,11 +114,11 @@ void ARevenueCatDriverIOS::mGetOfferings(void) {
 			_A_DEBUG << "Error while getting offerings from server:" << QString::fromNSString(inError.localizedDescription);
 			return;
 		}
-        
-        RCOffering* currentOffering = inOfferings.current;
-        NSLog(@"offerings.current.description: %@",currentOffering.description);
-        NSLog(@"offerings.current.identifier: %@",currentOffering.identifier);
-        NSLog(@"offerings.current.identifier: %@",currentOffering.availablePackages);
+
+		RCOffering* currentOffering = inOfferings.current;
+		NSLog(@"offerings.current.description: %@",currentOffering.description);
+		NSLog(@"offerings.current.identifier: %@",currentOffering.identifier);
+		NSLog(@"offerings.current.identifier: %@",currentOffering.availablePackages);
 	}];
 }
 
@@ -131,21 +131,21 @@ void ARevenueCatDriverIOS::mGetOfferings(void) {
 */
 
 QList<QVariantMap> ARevenueCatDriverIOS::mGetProducts(void) {
-    
+
 	QList<QVariantMap> oOutput;
-    
-    NSArray<RCPackage*>* oAvailablePackages = [[[[RCPurchases sharedPurchases] cachedOfferings] current] availablePackages];
-    for (RCPackage* iPackage in oAvailablePackages) {
-        
+
+	NSArray<RCPackage*>* oAvailablePackages = [[[[RCPurchases sharedPurchases] cachedOfferings] current] availablePackages];
+	for (RCPackage* iPackage in oAvailablePackages) {
+
 		RCStoreProduct* iStoreProduct = iPackage.storeProduct;
-        NSLog(@"------------------------------------");
+		NSLog(@"------------------------------------");
 		NSLog(@"oStoreProduct.hash: %lu",static_cast<unsigned long>(iStoreProduct.hash));
 		NSLog(@"oStoreProduct.currencyCode: %@",iStoreProduct.currencyCode);
 		NSLog(@"oStoreProduct.localizedTitle: %@",iStoreProduct.localizedTitle);
 		NSLog(@"oStoreProduct.discounts: %@",iStoreProduct.discounts);
-        if (@available(iOS 26.4, *)) {
+		if (@available(iOS 26.4, *)) {
 			NSLog(@"oStoreProduct.installmentsInfo: %@",iStoreProduct.installmentsInfo);
-        }
+		}
 		NSLog(@"oStoreProduct.isFamilyShareable: %@",iStoreProduct.isFamilyShareable ? @"YES" : @"NO");
 		NSLog(@"oStoreProduct.localizedDescription: %@",iStoreProduct.localizedDescription);
 		NSLog(@"oStoreProduct.localizedIntroductoryPriceString: %@",iStoreProduct.localizedIntroductoryPriceString);
@@ -155,16 +155,17 @@ QList<QVariantMap> ARevenueCatDriverIOS::mGetProducts(void) {
 		NSLog(@"oStoreProduct.localizedPriceString: %@",iStoreProduct.localizedPriceString);
 
 		QVariantMap iProduct;
-		iProduct.insert(QLatin1StringView("Identifier"),QString::fromNSString(iStoreProduct.productIdentifier));
+		iProduct.insert(QLatin1StringView("RCIdentifier"),QString::fromNSString(iPackage.identifier));
+		iProduct.insert(QLatin1StringView("SKIdentifier"),QString::fromNSString(iStoreProduct.productIdentifier));
 		iProduct.insert(QLatin1StringView("Title"),QString::fromNSString(iStoreProduct.localizedTitle));
 		iProduct.insert(QLatin1StringView("Description"),QString::fromNSString(iStoreProduct.localizedDescription));
 		iProduct.insert(QLatin1StringView("Price"),QString::fromNSString(iStoreProduct.localizedPriceString));
 		iProduct.insert(QLatin1StringView("Currency"),QString::fromNSString(iStoreProduct.currencyCode));
 
 		oOutput.append(iProduct);
-    }
-    
-    return oOutput;
+	}
+
+	return oOutput;
 }
 
 
@@ -176,24 +177,24 @@ QList<QVariantMap> ARevenueCatDriverIOS::mGetProducts(void) {
 */
 
 void ARevenueCatDriverIOS::mSubscribe(const QString& inPackageId) {
-    
+
 	NSString* oPackageId = inPackageId.toNSString();
-    NSLog(@"oPackageId: %@",oPackageId);
-    
-    RCPackage* oPackage = nil;
-    NSArray<RCPackage*>* oAvailablePackages = [[[[RCPurchases sharedPurchases] cachedOfferings] current] availablePackages];
-    for (RCPackage* iPackage in oAvailablePackages) {
-        NSLog(@"iPackage.identifier: %@",iPackage.identifier);
-        if ([iPackage.storeProduct.productIdentifier isEqualToString:oPackageId]) {
-            NSLog(@"iPackage.storeProduct.productIdentifier: %@",iPackage.storeProduct.productIdentifier);
-            oPackage = iPackage;
-            break;
-        }
-    }
-    if (oPackage == nil) {
-        NSLog(@"Error. Package is nil. Aborting purchase to prevent crash.");
-        return;
-    }
+	NSLog(@"oPackageId: %@",oPackageId);
+
+	RCPackage* oPackage = nil;
+	NSArray<RCPackage*>* oAvailablePackages = [[[[RCPurchases sharedPurchases] cachedOfferings] current] availablePackages];
+	for (RCPackage* iPackage in oAvailablePackages) {
+		NSLog(@"iPackage.identifier: %@",iPackage.identifier);
+		if ([iPackage.storeProduct.productIdentifier isEqualToString:oPackageId]) {
+			NSLog(@"iPackage.storeProduct.productIdentifier: %@",iPackage.storeProduct.productIdentifier);
+			oPackage = iPackage;
+			break;
+		}
+	}
+	if (oPackage == nil) {
+		NSLog(@"Error. Package is nil. Aborting purchase to prevent crash.");
+		return;
+	}
 
 	[[RCPurchases sharedPurchases] purchasePackage:oPackage withCompletion:^(RCStoreTransaction* _Nullable inTransaction, RCCustomerInfo* _Nullable inCustomerInfo, NSError* _Nullable inError, BOOL inUserCancelled) {
 
@@ -213,6 +214,55 @@ void ARevenueCatDriverIOS::mSubscribe(const QString& inPackageId) {
 	}];
 
 	_A_DEBUG << "ARevenueCatDriverIOS::Subscribe";
+}
+
+
+
+// -----------
+/*!
+    \fn
+
+    Doc.
+*/
+
+void ARevenueCatDriverIOS::mSubscribeWithRCProduct(const QString& inProductId) {
+
+    NSString* oPackageId = inProductId.toNSString();
+    NSLog(@"oPackageId: %@",oPackageId);
+
+    RCPackage* oPackage = nil;
+    NSArray<RCPackage*>* oAvailablePackages = [[[[RCPurchases sharedPurchases] cachedOfferings] current] availablePackages];
+    for (RCPackage* iPackage in oAvailablePackages) {
+        NSLog(@"iPackage.identifier: %@",iPackage.identifier);
+        if ([iPackage.identifier isEqualToString:oPackageId]) {
+            NSLog(@"iPackage.identifier: %@",iPackage.identifier);
+            oPackage = iPackage;
+            break;
+        }
+    }
+    if (oPackage == nil) {
+        NSLog(@"Error. Package is nil. Aborting purchase to prevent crash.");
+        return;
+    }
+
+    [[RCPurchases sharedPurchases] purchasePackage:oPackage withCompletion:^(RCStoreTransaction* _Nullable inTransaction, RCCustomerInfo* _Nullable inCustomerInfo, NSError* _Nullable inError, BOOL inUserCancelled) {
+
+        if (inUserCancelled) {
+            NSLog(@"Purcahse canceled");
+            return;
+        }
+
+        if (inError) {
+            NSLog(@"Error: %@", inError.localizedDescription);
+            return;
+        }
+
+        if (inCustomerInfo.entitlements[oPackageId].isActive) {
+            NSLog(@"Purchase successfull.");
+        }
+    }];
+
+    _A_DEBUG << "ARevenueCatDriverIOS::Subscribe";
 }
 
 

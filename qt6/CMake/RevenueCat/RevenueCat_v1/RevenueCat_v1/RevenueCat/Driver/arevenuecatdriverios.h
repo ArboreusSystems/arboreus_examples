@@ -42,6 +42,7 @@ class ARevenueCatDriverIOS : public ARevenueCatDriver {
 		void mGetOfferings(void) override;
 		QList<QVariantMap> mGetProducts(void) override;
 		void mSubscribe(const QString& inPackageId) override;
+		void mSubscribeWithRCProduct(const QString& inProductId) override;
 		void mRestore(void) override;
 		void mIsSubscribed(const QString& inEntitlementId) override;
 		void mManageSubscriptions(void) override;

@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
+
 ## ----------------------------------------
 ## Global variables
 
@@ -251,6 +252,11 @@ if(IOS)
 			"-Wl,-rpath,@executable_path/Frameworks"
 	)
 
+	target_sources(${A_NAME_APPLICATION}
+		PRIVATE
+			"${${A_PREFIX}_PATH_STOREKIT_CONFIGURATION}"
+	)
+
 	set_source_files_properties(${${A_PREFIX}_PATH_STOREKIT_CONFIGURATION}
 		PROPERTIES
 			MACOSX_PACKAGE_LOCATION Resources
@@ -258,6 +264,7 @@ if(IOS)
 
 	set_target_properties(${A_NAME_APPLICATION}
 		PROPERTIES
+			# XCODE_GENERATE_SCHEME FALSE
 			XCODE_SCHEME_STOREKIT_CONFIGURATION "${${A_PREFIX}_PATH_STOREKIT_CONFIGURATION}"
 			XCODE_ATTRIBUTE_FRAMEWORK_SEARCH_PATHS "${${A_PREFIX}_DIR_CURRENT_REVENUECAT}"
 			XCODE_ATTRIBUTE_CLANG_ENABLE_MODULES "YES"

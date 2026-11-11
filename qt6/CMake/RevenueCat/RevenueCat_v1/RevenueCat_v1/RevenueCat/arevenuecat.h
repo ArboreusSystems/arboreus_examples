@@ -53,6 +53,7 @@ class ARevenueCat : public QObject {
 		void mGetOfferings(void);
 		QList<QVariantMap> mGetProducts(void);
 		void mSubscribe(const QString& inPackageId);
+		void mSubscribeWithRCProduct(const QString& inProductId);
 		void mRestore(void);
 		void mIsSubscribed(const QString& inEntitlementId);
 		void mManageSubscriptions(void);

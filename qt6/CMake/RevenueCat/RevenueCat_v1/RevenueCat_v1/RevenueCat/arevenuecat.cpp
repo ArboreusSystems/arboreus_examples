@@ -104,6 +104,19 @@ void ARevenueCat::mSubscribe(const QString& inPackageId) {
 	Doc.
 */
 
+void ARevenueCat::mSubscribeWithRCProduct(const QString& inProductId) {
+
+	pDriver->mSubscribeWithRCProduct(inProductId);
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
 void ARevenueCat::mRestore(void) {
 
 	pDriver->mRestore();

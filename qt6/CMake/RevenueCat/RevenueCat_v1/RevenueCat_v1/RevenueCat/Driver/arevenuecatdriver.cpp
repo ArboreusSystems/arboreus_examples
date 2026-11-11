@@ -107,6 +107,21 @@ void ARevenueCatDriver::mSubscribe(const QString& inPackageId) {
 	Doc.
 */
 
+void ARevenueCatDriver::mSubscribeWithRCProduct(const QString& inProductId) {
+
+	Q_UNUSED(inProductId);
+
+	_A_DEBUG << "ARevenueCatDriver::mSubscribeWithRCProduct";
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
 void ARevenueCatDriver::mRestore(void) {
 
 	_A_DEBUG << "ARevenueCatDriver::mRestore";
