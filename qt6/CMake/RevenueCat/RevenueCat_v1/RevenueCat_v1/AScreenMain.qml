@@ -28,7 +28,7 @@ Rectangle {
 
 	Row {
 
-		id: oRow;
+		id: oRowTop;
 		anchors.top: parent.top;
 		anchors.topMargin: 20;
 		anchors.horizontalCenter: parent.horizontalCenter;
@@ -117,9 +117,9 @@ Rectangle {
 
 		id: oColumn;
 		width: parent.width * 0.8;
-		anchors.top: oRow.bottom;
+		anchors.top: oRowTop.bottom;
 		anchors.topMargin: 15;
-		anchors.bottom: parent.bottom;
+		anchors.bottom: oRowBottom.top;
 		anchors.horizontalCenter: parent.horizontalCenter;
 		spacing: 10;
 
@@ -148,6 +148,72 @@ Rectangle {
 					console.debug("Clicked button with ID:",model.RCIdentifier);
 					ARevenueCat.mSubscribeWithRCProduct(model.RCIdentifier);
 				}
+			}
+		}
+	}
+
+	Row {
+
+		id: oRowBottom;
+		anchors.bottom: parent.bottom;
+		anchors.bottomMargin: 23;
+		anchors.horizontalCenter: parent.horizontalCenter;
+		spacing: 7;
+
+		Button {
+
+			id: oButtonManageSubscpriptions;
+			width: 120;
+			height: 50;
+			text: "Manage Subscriptions";
+
+			background: Rectangle {
+
+				anchors.fill: parent;
+				color: "indigo";
+			}
+
+			onClicked: {
+
+				ARevenueCat.mManageSubscriptions();
+			}
+		}
+
+		Button {
+
+			id: oButtonRestore;
+			width: 120;
+			height: 50;
+			text: "Restore";
+
+			background: Rectangle {
+
+				anchors.fill: parent;
+				color: "indigo";
+			}
+
+			onClicked: {
+
+				ARevenueCat.mRestore();
+			}
+		}
+
+		Button {
+
+			id: oButtonIsSubscribed;
+			width: 120;
+			height: 50;
+			text: "Restore";
+
+			background: Rectangle {
+
+				anchors.fill: parent;
+				color: "indigo";
+			}
+
+			onClicked: {
+
+				ARevenueCat.mIsSubscribed("someID");
 			}
 		}
 	}

@@ -276,6 +276,22 @@ void ARevenueCatDriverIOS::mSubscribeWithRCProduct(const QString& inProductId) {
 void ARevenueCatDriverIOS::mRestore(void) {
 
 	_A_DEBUG << "ARevenueCatDriverIOS::Restore";
+
+	[[RCPurchases sharedPurchases] restorePurchasesWithCompletion:^(RCCustomerInfo* _Nullable inCustomerInfo, NSError* _Nullable inError) {
+
+		if (inError != nil) {
+			NSLog(@"Error restoring purchases: %@", inError.localizedDescription);
+			return;
+		}
+
+		RCEntitlementInfo* oEntitlement = inCustomerInfo.entitlements[@"someID"];
+
+		if (oEntitlement != nil && oEntitlement.isActive) {
+			NSLog(@"Purchases restored! Pro access is active.");
+		} else {
+			NSLog(@"Restore completed, but no active subscriptions were found.");
+		}
+	}];
 }
 
 
@@ -291,6 +307,25 @@ void ARevenueCatDriverIOS::mIsSubscribed(const QString& inEntitlementId) {
 	Q_UNUSED(inEntitlementId);
 
 	_A_DEBUG << "ARevenueCatDriverIOS::IsSubscribed";
+
+	[[RCPurchases sharedPurchases] getCustomerInfoWithCompletion:^(RCCustomerInfo* _Nullable inCustomerInfo,NSError* _Nullable inError) {
+
+        if (inError != nil) {
+            NSLog(@"Error restoring purchases: %@", inError.localizedDescription);
+            return;
+        }
+
+		NSDictionary<NSString*,RCEntitlementInfo*>* oActiveEntitlements = inCustomerInfo.entitlements.active;
+		if (oActiveEntitlements.count == 0) {
+			NSLog(@"No active subscriptions.");
+			return;
+		}
+
+		for (NSString* iEntitlementID in oActiveEntitlements) {
+			RCEntitlementInfo* iInfo = oActiveEntitlements[iEntitlementID];
+			NSLog(@"Active Entitlement: %@ | Product ID: %@ | Expires: %@",iEntitlementID,iInfo.productIdentifier,iInfo.expirationDate);
+		}
+	}];
 }
 
 
@@ -304,6 +339,14 @@ void ARevenueCatDriverIOS::mIsSubscribed(const QString& inEntitlementId) {
 void ARevenueCatDriverIOS::mManageSubscriptions(void) {
 
 	_A_DEBUG << "ARevenueCatDriverIOS::ManageSubscriptions";
+
+	[[RCPurchases sharedPurchases] showManageSubscriptionsWithCompletion:^(NSError * _Nullable inError) {
+		if (inError != nil) {
+			NSLog(@"Failed to open subscription management: %@", inError.localizedDescription);
+		} else {
+			NSLog(@"Subscription management closed.");
+		}
+	}];
 }
 
 
