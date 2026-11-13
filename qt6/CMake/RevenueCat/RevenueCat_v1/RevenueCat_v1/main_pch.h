@@ -23,6 +23,12 @@
 #include <QVariantMap>
 #include <QList>
 #include <QVariantList>
+#include <QQuickStyle>
+
+// Android includes
+#if defined(Q_OS_ANDROID)
+#include <QJniObject>
+#endif
 
 // Application includes
 

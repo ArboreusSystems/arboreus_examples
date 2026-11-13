@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>Main.qml</file>
         <file>AScreenMain.qml</file>
+        <file>AButton.qml</file>
     </qresource>
 </RCC>

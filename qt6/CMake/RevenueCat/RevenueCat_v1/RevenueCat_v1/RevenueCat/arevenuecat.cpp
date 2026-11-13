@@ -21,7 +21,7 @@
 ARevenueCat::ARevenueCat(QObject* parent): QObject(parent) {
 
 #if defined(Q_OS_ANDROID)
-	pDriver = qobject_cast<ARevenueCatDriverAndroid*>(new ARevenueCatDriverAndroid(this));
+	pDriver = qobject_cast<ARevenueCatDriver*>(new ARevenueCatDriverAndroid(this));
 #elif defined(Q_OS_IOS)
 	pDriver = qobject_cast<ARevenueCatDriver*>(new ARevenueCatDriverIOS(this));
 #else

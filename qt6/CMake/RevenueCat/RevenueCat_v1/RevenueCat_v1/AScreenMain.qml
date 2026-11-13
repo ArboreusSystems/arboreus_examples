@@ -34,18 +34,10 @@ Rectangle {
 		anchors.horizontalCenter: parent.horizontalCenter;
 		spacing: 7;
 
-		Button {
+		AButton {
 
 			id: oButtonConfigure;
-			width: 120;
-			height: 50;
 			text: "Configure";
-
-			background: Rectangle {
-
-				anchors.fill: parent;
-				color: "indigo";
-			}
 
 			onClicked: {
 
@@ -53,18 +45,10 @@ Rectangle {
 			}
 		}
 
-		Button {
+		AButton {
 
 			id: oButtonGetOfferings;
-			width: 120;
-			height: 50;
 			text: "Get offerings";
-
-			background: Rectangle {
-
-				anchors.fill: parent;
-				color: "indigo";
-			}
 
 			onClicked: {
 
@@ -72,18 +56,10 @@ Rectangle {
 			}
 		}
 
-		Button {
+		AButton {
 
 			id: oButtonGetProducts;
-			width: 120;
-			height: 50;
 			text: "Get products";
-
-			background: Rectangle {
-
-				anchors.fill: parent;
-				color: "indigo";
-			}
 
 			onClicked: {
 
@@ -132,11 +108,12 @@ Rectangle {
 
 			id: oRepeater;
 			model: oProductList;
-			delegate: Button {
+			delegate: AButton {
 
 				width: parent.width;
 				height: 50;
 				text: model.Title;
+
 				background: Rectangle {
 
 					anchors.fill: parent;
@@ -160,18 +137,10 @@ Rectangle {
 		anchors.horizontalCenter: parent.horizontalCenter;
 		spacing: 7;
 
-		Button {
+		AButton {
 
 			id: oButtonManageSubscpriptions;
-			width: 120;
-			height: 50;
-			text: "Manage Subscriptions";
-
-			background: Rectangle {
-
-				anchors.fill: parent;
-				color: "indigo";
-			}
+			text: "Manage";
 
 			onClicked: {
 
@@ -179,18 +148,10 @@ Rectangle {
 			}
 		}
 
-		Button {
+		AButton {
 
 			id: oButtonRestore;
-			width: 120;
-			height: 50;
 			text: "Restore";
-
-			background: Rectangle {
-
-				anchors.fill: parent;
-				color: "indigo";
-			}
 
 			onClicked: {
 
@@ -198,18 +159,10 @@ Rectangle {
 			}
 		}
 
-		Button {
+		AButton {
 
 			id: oButtonIsSubscribed;
-			width: 120;
-			height: 50;
-			text: "Restore";
-
-			background: Rectangle {
-
-				anchors.fill: parent;
-				color: "indigo";
-			}
+			text: "Is Subscribed";
 
 			onClicked: {
 

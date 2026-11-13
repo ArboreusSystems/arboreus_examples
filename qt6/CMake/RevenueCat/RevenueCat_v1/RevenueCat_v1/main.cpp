@@ -14,6 +14,7 @@
 // System includes
 
 // Application includes
+#include <alogger.h>
 #include <arevenuecat.h>
 
 
@@ -21,7 +22,17 @@
 int main(int inCounter, char *inArguments[]) {
 
 	QGuiApplication oApplication(inCounter, inArguments);
+	QQuickStyle::setStyle("Basic");
 	QQmlApplicationEngine oEngine;
+
+#if defined(Q_OS_ANDROID)
+	const char* oRevenueCatPurchases = "com/revenuecat/purchases/Purchases";
+	if (QJniObject::isClassAvailable(oRevenueCatPurchases)) {
+		_A_DEBUG << "SUCCESS: RevenueCat is loaded and available";
+	} else {
+		_A_DEBUG << "ERROR: RevenueCat NOT found";
+	}
+#endif
 
 	ARevenueCat* oRevenueCat = new ARevenueCat(&oEngine);
 
