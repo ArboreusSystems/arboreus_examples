@@ -164,6 +164,7 @@ if(ANDROID)
 	set(QT_FORCE_CMP0156_TO_VALUE NEW)
 
 	set(${A_PREFIX}_ANDROID_DIR ${${A_PREFIX}_DIR_PLATFORMS}/Android)
+	set(${A_PREFIX}_ANDROID_DIR_SOURCES ${${A_PREFIX}_ANDROID_DIR}/src)
 	set(${A_PREFIX}_ANDROID_PACKAGE_NAME ${A_CONF_ANDROID_PACKAGE_NAME})
 
 	if(NOT ${A_PREFIX}_BUILD_TYPE STREQUAL "Debug")
@@ -181,10 +182,15 @@ if(ANDROID)
 		RevenueCat/Driver/arevenuecatdriverandroid.cpp
 	)
 
+	set(${A_PREFIX}_SOURCES_ANDROID_JAVA
+		${${A_PREFIX}_ANDROID_DIR_SOURCES}/systems/arboreus/ARevenueNative/ARevenueBridge.java
+	)
+
 	set(${A_PREFIX}_SOURCES
 		${${A_PREFIX}_SOURCES}
 		${${A_PREFIX}_SOURCES_ANDROID_HEADERS}
 		${${A_PREFIX}_SOURCES_ANDROID_CPP}
+		${${A_PREFIX}_SOURCES_ANDROID_JAVA}
 	)
 
 	set(${A_PREFIX}_PROPERTIES
@@ -196,7 +202,6 @@ if(ANDROID)
 		QT_ANDROID_MIN_SDK_VERSION "30"
 		QT_ANDROID_API_VERSION "37"
 		QT_ANDROID_TARGET_SDK_VERSION "37"
-		QT_ANDROID_EXTRA_LIBS ${A_CONF_ANDROID_PATH_REVENUECAT_FRAMEWORK}
 	)
 
 endif()
@@ -245,14 +250,15 @@ target_link_libraries(${A_NAME_APPLICATION}
 ## RevenueCat settings
 
 set(${A_PREFIX}_SOURCES_GLOBAL_CONFIG_HEADER ${${A_PREFIX}_DIR_ROOT}/revenue.conf.h)
-write_file(${${A_PREFIX}_SOURCES_GLOBAL_CONFIG_HEADER}
-	"#ifndef REVENUECAT_CONF_H\n"
-	"#define REVENUECAT_CONF_H\n"
-	"#define _A_ID_APLICATION_REVENUECAT \"${A_CONF_ID_APLICATION_REVENUECAT}\"\n"
-	"#endif\n"
-)
 
 if(IOS)
+
+	write_file(${${A_PREFIX}_SOURCES_GLOBAL_CONFIG_HEADER}
+		"#ifndef REVENUECAT_CONF_H\n"
+		"#define REVENUECAT_CONF_H\n"
+		"#define _A_ID_APLICATION_REVENUECAT \"${A_CONF_IOS_ID_APLICATION_REVENUECAT}\"\n"
+		"#endif\n"
+	)
 
 	if(CMAKE_OSX_SYSROOT MATCHES "iphonesimulator")
 		set(${A_PREFIX}_DIR_CURRENT_REVENUECAT "${A_CONF_PATH_REVENUECAT_FRAMEWORK}/Simulator")
@@ -310,6 +316,17 @@ if(IOS)
 	)
 
 	message(STATUS "Configured RevenueCat.framework")
+
+endif()
+
+if(ANDROID)
+
+	write_file(${${A_PREFIX}_SOURCES_GLOBAL_CONFIG_HEADER}
+		"#ifndef REVENUECAT_CONF_H\n"
+		"#define REVENUECAT_CONF_H\n"
+		"#define _A_ID_APLICATION_REVENUECAT \"${A_CONF_ANDROID_ID_APPLICATION_REVENUECAT}\"\n"
+		"#endif\n"
+	)
 
 endif()
 

@@ -35,7 +35,6 @@ int main(int inCounter, char *inArguments[]) {
 #endif
 
 	ARevenueCat* oRevenueCat = new ARevenueCat(&oEngine);
-
 	oEngine.rootContext()->setContextProperty("ARevenueCat",oRevenueCat);
 
 	const QUrl oURL = QUrl(QStringLiteral("qrc:/Main.qml"));

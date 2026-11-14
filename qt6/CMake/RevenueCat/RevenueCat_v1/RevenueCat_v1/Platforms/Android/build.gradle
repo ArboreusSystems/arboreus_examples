@@ -21,7 +21,15 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     //noinspection GradleDependency
     implementation 'androidx.core:core:1.17.0'
+	implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.8.7"
+	implementation "androidx.lifecycle:lifecycle-process:2.8.7"
 	implementation "com.android.billingclient:billing:9.1.0"
+	implementation "com.android.billingclient:billing-ktx:7.1.1"
+	implementation "com.google.crypto.tink:tink-android:1.15.0"
+	implementation "com.google.android.gms:play-services-auth-blockstore:16.4.0"
+	implementation "org.jetbrains.kotlin:kotlin-stdlib:2.1.0"
+	implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0"
+	implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3"
 }
 
 android {

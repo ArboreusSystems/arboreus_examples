@@ -15,27 +15,46 @@
 #ifndef AREVENUECATDRIVERANDROID_H
 #define AREVENUECATDRIVERANDROID_H
 
+// Precompiled includes
+#include <main_pch.h>
+
 // System includes
-#include <QObject>
 
 // Application includes
+#include <revenue.conf.h>
+#include <alogger.h>
+#include <arevenuecatdriver.h>
 
 // Namesapces
 
 // Constants and definitions
 
 // Class definitions
-class ARevenueCatDriverAndroid : public QObject {
+class ARevenueCatDriverAndroid : public ARevenueCatDriver {
 
-		Q_OBJECT
+	Q_OBJECT
 
 	public:
 
-		explicit ARevenueCatDriverAndroid(QObject *parent = nullptr);
+		explicit ARevenueCatDriverAndroid(QObject* parent = nullptr);
+		virtual ~ARevenueCatDriverAndroid(void);
+
+		void mConfigure(void) override;
+		void mGetOfferings(void) override;
+		QList<QVariantMap> mGetProducts(void) override;
+		void mSubscribe(const QString& inPackageId) override;
+		void mSubscribeWithRCProduct(const QString& inProductId) override;
+		void mRestore(void) override;
+		void mIsSubscribed(const QString& inEntitlementId) override;
+		void mManageSubscriptions(void) override;
+		void mLogIn(const QString& inUserId) override;
+		void mLogOut(void) override;
 
 	signals:
 
+	private:
 
+		const char* pRevenueBridgeClass = "systems/arboreus/ARevenueNative/ARevenueBridge";
 };
 
 #endif // AREVENUECATDRIVERANDROID_H
