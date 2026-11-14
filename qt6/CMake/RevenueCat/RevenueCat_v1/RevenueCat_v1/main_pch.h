@@ -28,6 +28,9 @@
 // Android includes
 #if defined(Q_OS_ANDROID)
 #include <QJniObject>
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonObject>
 #endif
 
 // Application includes

@@ -54,15 +54,15 @@ void ARevenueCatDriverAndroid::mConfigure(void) {
 
 	_A_DEBUG << "ARevenueCatDriverAndroid::mConfigure started";
 
-	QJniObject context = QNativeInterface::QAndroidApplication::context();
-	QJniObject jApiKey = QJniObject::fromString(_A_ID_APLICATION_REVENUECAT);
+	QJniObject oContext = QNativeInterface::QAndroidApplication::context();
+	QJniObject oJavaAPIKey = QJniObject::fromString(_A_ID_APLICATION_REVENUECAT);
 
 	QJniObject::callStaticMethod<void>(
-		"systems/arboreus/ARevenueNative/ARevenueBridge",
-		"configure",
+		pRevenueBridgeClass,
+		"mConfigure",
 		"(Landroid/content/Context;Ljava/lang/String;)V",
-		context.object(),
-		jApiKey.object<jstring>()
+		oContext.object(),
+		oJavaAPIKey.object<jstring>()
 	);
 
 	_A_DEBUG << "ARevenueCatDriverAndroid::mConfigure finshed";
@@ -78,7 +78,15 @@ void ARevenueCatDriverAndroid::mConfigure(void) {
 
 void ARevenueCatDriverAndroid::mGetOfferings(void) {
 
-	_A_DEBUG << "ARevenueCatDriverAndroid::mGetOfferings";
+	_A_DEBUG << "ARevenueCatDriverAndroid::mGetOfferings started";
+
+	QJniObject::callStaticMethod<void>(
+		pRevenueBridgeClass,
+		"mGetOfferings",
+		"()V"
+	);
+
+	_A_DEBUG << "ARevenueCatDriverAndroid::mGetOfferings finished";
 }
 
 
@@ -91,9 +99,35 @@ void ARevenueCatDriverAndroid::mGetOfferings(void) {
 
 QList<QVariantMap> ARevenueCatDriverAndroid::mGetProducts(void) {
 
-	_A_DEBUG << "ARevenueCatDriverAndroid::mGetProducts";
+	_A_DEBUG << "ARevenueCatDriverAndroid::mGetProducts started";
 
 	QList<QVariantMap> oOutput;
+
+	QJniObject oJavaJSONString = QJniObject::callStaticObjectMethod(
+		pRevenueBridgeClass,
+		"mGetProducts",
+		"()Ljava/lang/String;"
+	);
+	if (!oJavaJSONString.isValid()) return oOutput;
+
+	QJsonDocument oJSONDocument = QJsonDocument::fromJson(oJavaJSONString.toString().toUtf8());
+	if (!oJSONDocument.isArray()) return oOutput;
+
+	const QJsonArray oJSONArray = oJSONDocument.array();
+	for (const QJsonValue& iJSONValue : oJSONArray) {
+		QJsonObject iJSONObject = iJSONValue.toObject();
+		QVariantMap iProduct;
+		iProduct.insert(QLatin1StringView("RCIdentifier"),iJSONObject.value("RCIdentifier").toString());
+		iProduct.insert(QLatin1StringView("SKIdentifier"),iJSONObject.value("SKIdentifier").toString());
+		iProduct.insert(QLatin1StringView("Title"),iJSONObject.value("Title").toString());
+		iProduct.insert(QLatin1StringView("Description"),iJSONObject.value("Description").toString());
+		iProduct.insert(QLatin1StringView("Price"),iJSONObject.value("Price").toString());
+		iProduct.insert(QLatin1StringView("Currency"),iJSONObject.value("Currency").toString());
+		oOutput.append(iProduct);
+	}
+
+	_A_DEBUG << "ARevenueCatDriverAndroid::mGetProducts finished";
+
 	return oOutput;
 }
 
@@ -107,9 +141,20 @@ QList<QVariantMap> ARevenueCatDriverAndroid::mGetProducts(void) {
 
 void ARevenueCatDriverAndroid::mSubscribe(const QString& inPackageId) {
 
-	Q_UNUSED(inPackageId);
+	_A_DEBUG << "ARevenueCatDriverAndroid::mSubscribe started";
 
-	_A_DEBUG << "ARevenueCatDriverAndroid::mSubscribe";
+	QJniObject oActivity = QNativeInterface::QAndroidApplication::context();
+	QJniObject oJavaPackageId = QJniObject::fromString(inPackageId);
+
+	QJniObject::callStaticMethod<void>(
+		pRevenueBridgeClass,
+		"mSubscribe",
+		"(Landroid/app/Activity;Ljava/lang/String;)V",
+		oActivity.object(),
+		oJavaPackageId.object<jstring>()
+	);
+
+	_A_DEBUG << "ARevenueCatDriverAndroid::mSubscribe finished";
 }
 
 
@@ -122,9 +167,20 @@ void ARevenueCatDriverAndroid::mSubscribe(const QString& inPackageId) {
 
 void ARevenueCatDriverAndroid::mSubscribeWithRCProduct(const QString& inProductId) {
 
-	Q_UNUSED(inProductId);
-
 	_A_DEBUG << "ARevenueCatDriverAndroid::mSubscribeWithRCProduct";
+
+	QJniObject oActivity = QNativeInterface::QAndroidApplication::context();
+	QJniObject oJavaPackageId = QJniObject::fromString(inProductId);
+
+	QJniObject::callStaticMethod<void>(
+		pRevenueBridgeClass,
+		"mSubscribeWithRCProduct",
+		"(Landroid/app/Activity;Ljava/lang/String;)V",
+		oActivity.object(),
+		oJavaPackageId.object<jstring>()
+	);
+
+	_A_DEBUG << "ARevenueCatDriverAndroid::mSubscribeWithRCProduct finished";
 }
 
 
