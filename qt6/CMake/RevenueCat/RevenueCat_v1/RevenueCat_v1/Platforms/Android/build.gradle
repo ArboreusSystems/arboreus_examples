@@ -30,6 +30,14 @@ dependencies {
 	implementation "org.jetbrains.kotlin:kotlin-stdlib:2.1.0"
 	implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0"
 	implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3"
+	implementation "org.jetbrains.kotlin:kotlin-parcelize-runtime:2.1.0"
+	// Android console warning require to update androidx.fragment:fragment:1.8.9
+	implementation 'androidx.fragment:fragment:1.8.9'
+	constraints {
+		implementation('androidx.fragment:fragment:1.8.9') {
+			because 'Resolve Google Play Console outdated SDK warning for 1.1.0'
+		}
+	}
 }
 
 android {
@@ -91,4 +99,12 @@ android {
         targetSdkVersion qtTargetSdkVersion
         ndk.abiFilters = qtTargetAbiList.split(",")
     }
+
+	buildTypes {
+		release {
+			minifyEnabled true
+			shrinkResources true
+			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+		}
+	}
 }
