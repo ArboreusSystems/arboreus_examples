@@ -30,15 +30,13 @@
 -keepclassmembers class systems.arboreus.ARevenueNative.** { *; }
 
 # ==============================================================================
-# 4. AndroidX & Fragment Rules (Matches androidx.fragment:1.8.9)
+# 4. RevenueCat framework
 # ==============================================================================
-# -keep class * extends androidx.fragment.app.Fragment {
-#     public <init>();
-# }
-# -keep class * extends androidx.activity.ComponentActivity {
-#     public <init>();
-# }
-# -dontwarn androidx.**
+# RevenueCat & Google Play Billing Rules
+-keep class com.revenuecat.purchases.** { *; }
+-dontwarn com.revenuecat.purchases.**
+-keep class com.android.billingclient.** { *; }
+-dontwarn com.android.billingclient.**
 
 # ==============================================================================
 # 5. General Java, Reflection & JNI Safety Rules
