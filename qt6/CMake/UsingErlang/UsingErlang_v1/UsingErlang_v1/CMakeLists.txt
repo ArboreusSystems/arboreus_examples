@@ -109,13 +109,18 @@ if(ANDROID)
 
 	set(QT_FORCE_CMP0156_TO_VALUE NEW)
 
+	set(${A_PREFIX}_PROPERTIES
+		${${A_PREFIX}_PROPERTIES}
+		QT_ANDROID_PACKAGE_SOURCE_DIR "${${A_PREFIX}_DIR_ROOT}/Platforms/android"
+	)
+
 endif()
 
 
 ## ----------------------------------------
 ## Qt Application settings
 
-find_package(Qt6 REQUIRED COMPONENTS Quick)
+find_package(Qt6 REQUIRED COMPONENTS Quick QuickControls2)
 
 qt_standard_project_setup(REQUIRES 6.8)
 qt_add_executable(${A_NAME_APPLICATION} ${${A_PREFIX}_SOURCES})
@@ -145,6 +150,7 @@ target_include_directories(${A_NAME_APPLICATION}
 target_link_libraries(${A_NAME_APPLICATION}
 	PRIVATE
 		Qt6::Quick
+		Qt6::QuickControls2
 		AUniversal
 		ATemplates
 		ALogger

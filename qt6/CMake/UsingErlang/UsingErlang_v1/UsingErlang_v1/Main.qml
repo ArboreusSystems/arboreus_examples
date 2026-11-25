@@ -13,13 +13,14 @@
 // ----------------------------------------------------------
 
 // System includes
-import QtQuick 6.2
+import QtQuick;
+import QtQuick.Controls;
 
 
 // Application Main window
 Window {
 
-	property string oTitle: "Main Window LibErlang_v1";
+	property string oTitle: "UsingErlang_v1";
 
 	id: oMainWindow;
 	width: 640;
@@ -27,14 +28,99 @@ Window {
 	visible: true;
 	title: qsTr(oTitle);
 
-	Text {
+	Column {
 
-		id: oMainText;
-		text: qsTr(oTitle);
-	}
+		id: oColumn;
+		width: parent.width * 0.8;
+		spacing: 5;
+		anchors.top: parent.top;
+		anchors.topMargin: 10;
+		anchors.horizontalCenter: parent.horizontalCenter;
+		anchors.verticalCenter: parent.verticalCenter;
 
-	Component.onCompleted: {
+		Rectangle {
 
-		AErlangInterface.mNodePing("NodeFQDN","Cookie");
+			width: parent.width;
+			height: oMainWindow.height * 0.15;
+		}
+
+		Text {
+
+			id: oTextNode;
+			text: "Fully qualified node name"
+			width: parent.width;
+			horizontalAlignment: Text.AlignHCenter;
+			verticalAlignment: Text.AlignVCenter;
+		}
+
+		Rectangle {
+
+			color: "lightgrey";
+			width: parent.width;
+			height: 35;
+
+			TextInput {
+
+				id: oInputNodeName;
+				anchors.fill: parent;
+				horizontalAlignment: TextInput.AlignHCenter;
+				verticalAlignment: TextInput.AlignVCenter;
+			}
+		}
+
+		Text {
+
+			id: oTextCookie;
+			text: "Node Cookie"
+			width: parent.width;
+			horizontalAlignment: Text.AlignHCenter;
+			verticalAlignment: Text.AlignVCenter;
+		}
+
+		Rectangle {
+
+			color: "lightgrey";
+			width: parent.width;
+			height: 35;
+
+			TextInput {
+
+				id: oInputNodeCookie;
+				anchors.fill: parent;
+				horizontalAlignment: TextInput.AlignHCenter;
+				verticalAlignment: TextInput.AlignVCenter;
+			}
+		}
+
+		Button {
+
+			id: oButtonPing;
+			text: "Ping";
+			width: parent.width;
+			height: 35;
+
+			onClicked: {
+
+				if (oInputNodeName.text === "") {
+					console.debug("Empty node name")
+					return;
+				}
+
+				if (oInputNodeCookie.text === "") {
+					console.debug("Empty cookie")
+					return;
+				}
+
+				console.debug("Clicked button ping node");
+				if (AErlangInterface.mNodePing(
+					oInputNodeName.text,
+					oInputNodeCookie.text
+				)) {
+					console.debug("Pong");
+				} else {
+					console.debug("Pang");
+				}
+			}
+		}
 	}
 }
